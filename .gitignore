@@ -1,0 +1,29 @@
+# Local collaboration files
+AGENTS.md
+WORKLOG.md
+
+# LaTeX build artifacts
+build/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.xdv
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
