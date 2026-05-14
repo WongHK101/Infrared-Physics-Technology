@@ -1,0 +1,41 @@
+% !TEX root = ../paper.tex
+
+\section{Discussion}
+
+\subsection{Why Scene-Level Reliability Becomes Central}
+
+The results position UAV-TAlign as a scene-level reliability framework for UAV RGB-thermal
+alignment. Modern pairwise matchers already provide abundant frame-level correspondences on
+UAV-TAlign-1K, which makes scene-level decision quality the central operating question. UAV-TAlign
+addresses this layer directly by elevating strong pairwise correspondence models into
+reliability-controlled scene-level alignment products.
+
+The protocol evidence supports this reliability framing. Retained and QA-filtered scenes show
+structured differences in accepted ratio, severe outlier behavior, and baseline-relative QA
+signals, indicating that the canonical criterion captures scene-level reliability beyond pairwise
+matcher availability. This gives the evaluation a clear diagnostic role: it identifies when
+abundant pairwise evidence becomes a trustworthy scene-level transform.
+The canonical scene criterion is designed for conservative retention of scene transforms, not for
+maximizing unconditional scene acceptance.
+
+The completed multi-seed random-selection supplement further strengthens the design rationale for
+deterministic evidence selection: it provides a stable operating policy under the same fixed
+scene subset, while robust scene consensus and QA-aware verification deliver the strongest
+module-level gains.
+
+\subsection{Scope and Validity}
+
+UAV-TAlign targets real UAV scenes where a dominant planar or far-field transform is a useful
+operating model. Within this scope, public subset packaging, label-free diagnostics, and
+scene-level QA provide a compact experimental foundation for studying RGB-thermal alignment beyond
+isolated pairwise matching. This positioning is deliberately complementary to matcher-centric
+research: as correspondence models continue to improve, reliability control becomes increasingly
+important for deployable RGB-thermal systems.
+
+The protocol is designed for scalable reliability analysis and is not presented as a substitute for
+manual geometric ground truth. Its QA proxies operate as scene-consistency diagnostics, while
+manual landmark accuracy remains a complementary evaluation target. The homography model is most
+appropriate when a dominant planar or far-field alignment is meaningful, and it is less suited to
+strong parallax or highly non-rigid scene structure. UAV-TAlign-1K is therefore a focused public
+subset for this operating regime and provides a foundation that can be extended toward broader UAV
+RGB-thermal settings.

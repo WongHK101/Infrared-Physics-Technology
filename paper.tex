@@ -1,0 +1,71 @@
+\documentclass[preprint,12pt]{elsarticle}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+
+\journal{Infrared Physics \& Technology}
+
+\definecolor{rankbest}{HTML}{F4B7B7}
+\definecolor{ranksecond}{HTML}{F7D7A1}
+\definecolor{rankthird}{HTML}{FFF1A8}
+\newcommand{\best}[1]{\cellcolor{rankbest}\textbf{#1}}
+\newcommand{\second}[1]{\cellcolor{ranksecond}\textbf{#1}}
+\newcommand{\third}[1]{\cellcolor{rankthird}\textbf{#1}}
+\newcommand{\cmark}{\checkmark}
+\newcommand{\xmark}{--}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{UAV-TAlign: Scene-Level RGB-Thermal Alignment for Cross-FOV UAV Imagery}
+
+\author[anon]{Anonymous Authors}
+\affiliation[anon]{organization={Anonymous submission}}
+
+\begin{abstract}
+UAV RGB-thermal alignment is a prerequisite for reliable aerial inspection, monitoring, and
+nighttime multimodal perception. In real cross-FOV aerial imagery, the operating question is not
+only whether two frames can be matched, but whether the resulting alignment can be trusted at the
+scene level. Modern multimodal matchers can already produce abundant pairwise correspondences, but
+viewpoint variation, cross-resolution sensing, thermal rendering changes, and low-light imagery
+make the resulting frame-level homographies uneven in quality. This highlights a critical gap
+between pairwise match availability and scene-level alignment reliability. We present
+UAV-TAlign, a scene-level RGB-thermal alignment framework that turns strong pairwise multimodal
+matching into reliable scene-level decisions through reliability-guided evidence selection, robust
+scene consensus, and QA-aware verification. We further package UAV-TAlign-1K, a public
+evaluation subset with a scalable label-free protocol for real UAV RGB-thermal alignment.
+Experiments against classical and modern off-the-shelf baselines, protocol-consistency analysis,
+and cumulative module ablations show that, once pairwise matching is largely available, the
+strongest gains come from robust scene consensus and QA-aware scene retention.
+\end{abstract}
+
+\begin{highlights}
+\item A scene-level RGB-thermal alignment framework is introduced for cross-FOV UAV imagery.
+\item Robust scene consensus and QA-aware verification convert pairwise evidence into retained transforms.
+\item UAV-TAlign-1K provides a focused public evaluation subset and scalable label-free protocol.
+\item Baselines and ablations show that scene-level reliability remains critical after pairwise saturation.
+\end{highlights}
+
+\begin{keyword}
+RGB-thermal registration \sep UAV imagery \sep infrared imagery \sep multimodal alignment \sep scene-level reliability
+\end{keyword}
+
+\end{frontmatter}
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_dataset_protocol}
+\input{sections/04_method}
+\input{sections/05_experimental_setup}
+\input{sections/06_results}
+\input{sections/07_discussion}
+\input{sections/08_conclusion}
+
+\bibliographystyle{elsarticle-num}
+\bibliography{references}
+
+\end{document}

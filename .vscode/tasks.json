@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build PRCV26 paper",
+      "type": "shell",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-outdir=build",
+        "paper.tex"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$latexmk"
+      ]
+    },
+    {
+      "label": "Clean PRCV26 paper",
+      "type": "shell",
+      "command": "latexmk",
+      "args": [
+        "-C",
+        "-outdir=build",
+        "paper.tex"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build PRCV26 samplepaper",
+      "type": "shell",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-outdir=build",
+        "samplepaper.tex"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/LaTeX2e_Proceedings_Templates"
+      },
+      "problemMatcher": [
+        "$latexmk"
+      ]
+    },
+    {
+      "label": "Clean PRCV26 samplepaper",
+      "type": "shell",
+      "command": "latexmk",
+      "args": [
+        "-C",
+        "-outdir=build",
+        "samplepaper.tex"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/LaTeX2e_Proceedings_Templates"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
