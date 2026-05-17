@@ -15,11 +15,11 @@ KAIST, FLIR, LLVIP, M3FD, DroneVehicle, VTUAV, LasHeR, and Anti-UAV than to clas
 same-sensor image matching setups
 \cite{hwang2015kaist,flir2018thermal,jia2021llvip,liu2022tardal,sun2022dronevehicle,zhang2022vtuav,li2022lasher,jiang2023antiuav}.
 
-All main journal-scale experiments are tied to the official manifest with canonical SHA256
-\texttt{a092f7ad00c6e02ead3bd39de5c246001f1d4bebbc4105ba715ef37bbb202c6c}. This manifest-based
-entry point fixes the evaluated split and prevents direct folder traversal from silently changing
-the reported results. We retain UAV-TAlign-1K-Lite as a development and ablation subset, while
-UAV-TAlign-12K is the main benchmark-scale evaluation collection for this article.
+All main journal-scale experiments are tied to the official manifest with canonical SHA256 prefix
+\texttt{a092f7ad...bb202c6c}. This manifest-based entry point fixes the evaluated split and
+prevents direct folder traversal from silently changing the reported results. We retain
+UAV-TAlign-1K-Lite as a development and ablation subset, while UAV-TAlign-12K is the main
+benchmark-scale evaluation collection for this article.
 
 At the scene level, UAV-TAlign-12K preserves the factors that make reliability assessment meaningful:
 day, night, and low-light capture; grayscale and pseudocolor thermal rendering; and both wide-view
@@ -70,7 +70,8 @@ frames with improved gradient agreement, severe baseline-relative outlier count 
 accepted-frame ratio, and homography-dispersion and robust-rejection diagnostics.
 
 These proxies provide a practical scene-consistency signal for comparing methods and for deciding
-whether a scene-level transform is reliable enough to retain. They are intended for scalable
-reliability analysis and complement manual-landmark accuracy studies, in the spirit of practical
+whether a scene-level transform is reliable enough to retain. They provide scalable
+scene-consistency diagnostics for reliability-controlled evaluation and can be combined with
+task-specific annotation protocols when such labels are available, in the spirit of practical
 matching-oriented evaluation and benchmarking discussed in prior image-matching literature
 \cite{ma2021survey,liao2024survey}.

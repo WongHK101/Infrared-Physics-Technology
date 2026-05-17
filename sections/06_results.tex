@@ -23,11 +23,11 @@ matches, or homography fitting failures.}
 \toprule
 Method & Category & OK / N $\uparrow$ & H (\%) $\uparrow$ & Inlier $\uparrow$ & Coverage $\uparrow$ & Reproj. $\downarrow$ & Runtime $\downarrow$ \\
 \midrule
-RIFT2 (Python, resize-aware) & Infrared-visible classical & \best{6037/6037} & \best{100.00} & 0.086 & 0.354 & \best{0.121} & 13.980 \\
-raw MINIMA & Modern dense / learned & \best{6037/6037} & \best{100.00} & \second{0.319} & \best{1.000} & 1.775 & 1.905 \\
-RoMa outdoor & Modern dense / learned & \best{6037/6037} & \best{100.00} & \best{0.328} & \second{0.997} & 1.739 & 0.844 \\
-Kornia LoFTR outdoor & Modern dense / learned & 6009/6037 & 99.54 & 0.099 & 0.922 & \second{1.405} & \best{0.288} \\
-XoFTR-640 & Modern dense / learned & 5989/6037 & 99.20 & 0.089 & \third{0.949} & 1.732 & \second{0.615} \\
+RIFT2 (Python, resize-aware) & Infrared-visible classical & 6037/6037 & \textbf{100.00} & 0.086 & 0.354 & 0.121 & 13.980 \\
+raw MINIMA & Modern dense / learned & 6037/6037 & \textbf{100.00} & 0.319 & 1.000 & 1.775 & 1.905 \\
+RoMa outdoor & Modern dense / learned & 6037/6037 & \textbf{100.00} & 0.328 & 0.997 & 1.739 & 0.844 \\
+Kornia LoFTR outdoor & Modern dense / learned & 6009/6037 & 99.54 & 0.099 & 0.922 & 1.405 & 0.288 \\
+XoFTR-640 & Modern dense / learned & 5989/6037 & 99.20 & 0.089 & 0.949 & 1.732 & 0.615 \\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -49,13 +49,14 @@ turn abundant frame-level matches into selected scene-level transforms.
 preferred direction.}
 \label{tab:scene_level_main}
 \centering
+\resizebox{\textwidth}{!}{
 \begin{tabular}{lrrrrr}
 \toprule
 Method & Eval Unit & H Available $\uparrow$ & Retained Scenes $\uparrow$ & Retention Rate (\%) $\uparrow$ & Accepted Frames \\
 \midrule
 UAV-TAlign & 15 scenes & 15/15 & 9/15 & 60.0 & 2473/3847 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \subsection{Condition Breakdown}
@@ -69,15 +70,16 @@ scene-level decision quality rather than pairwise matcher availability alone.
 \caption{Scene-level reliability breakdown by light condition on UAV-TAlign-12K.}
 \label{tab:light_condition}
 \centering
-\begin{tabular}{lrrrr}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lrrrrr}
 \toprule
-Condition & Scenes & Retained $\uparrow$ & Retention Rate (\%) $\uparrow$ & Accepted / Attempted $\uparrow$ \\
+Condition & Scenes & Retained $\uparrow$ & Retention (\%) $\uparrow$ & Accepted / Attempted $\uparrow$ & Accepted Ratio (\%) $\uparrow$ \\
 \midrule
-Day & 7 & \best{5} & \best{71.4} & \best{1650/2203} \\
-Night & 5 & \second{3} & \second{60.0} & 361/890 \\
-Low-light & 3 & 1 & 33.3 & \second{462/754} \\
+Day & 7 & \best{5} & \best{71.4} & \best{1650/2203} & \best{74.9} \\
+Night & 5 & \second{3} & \second{60.0} & 361/890 & 40.6 \\
+Low-light & 3 & 1 & 33.3 & \second{462/754} & \second{61.3} \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \begin{figure}[t]
