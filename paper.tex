@@ -21,37 +21,37 @@
 
 \begin{frontmatter}
 
-\title{UAV-TAlign: Scene-Level RGB-Thermal Alignment for Cross-FOV UAV Imagery}
+\title{UAV-TAlign-12K: Scene-Level Reliability Evaluation for Cross-FOV UAV Infrared-Visible Image Alignment}
 
 \author[anon]{Anonymous Authors}
 \affiliation[anon]{organization={Anonymous submission}}
 
 \begin{abstract}
-UAV RGB-thermal alignment is a prerequisite for reliable aerial inspection, monitoring, and
-nighttime multimodal perception. In real cross-FOV aerial imagery, the operating question is not
-only whether two frames can be matched, but whether the resulting alignment can be trusted at the
-scene level. Modern multimodal matchers can already produce abundant pairwise correspondences, but
-viewpoint variation, cross-resolution sensing, thermal rendering changes, and low-light imagery
-make the resulting frame-level homographies uneven in quality. This highlights a critical gap
-between pairwise match availability and scene-level alignment reliability. We present
-UAV-TAlign, a scene-level RGB-thermal alignment framework that turns strong pairwise multimodal
-matching into reliable scene-level decisions through reliability-guided evidence selection, robust
-scene consensus, and QA-aware verification. We further package UAV-TAlign-1K, a public
-evaluation subset with a scalable label-free protocol for real UAV RGB-thermal alignment.
-Experiments against classical and modern off-the-shelf baselines, protocol-consistency analysis,
-and cumulative module ablations show that, once pairwise matching is largely available, the
-strongest gains come from robust scene consensus and QA-aware scene retention.
+UAV infrared-visible alignment is a prerequisite for reliable aerial inspection, nighttime
+monitoring, and multimodal thermal sensing. In cross-FOV aerial imagery, the operating question is
+not only whether two frames can be matched, but whether the resulting alignment should be retained
+as a scene-level product. We introduce UAV-TAlign-12K, a 6,039-pair UAV infrared-visible alignment
+collection with an integrity-checked 6,037-pair evaluation split, and a scalable label-free
+protocol for reliability-controlled scene evaluation. We further present UAV-TAlign, a scene-level
+alignment framework that converts strong pairwise multimodal evidence into retained scene
+transforms through reliability-guided evidence selection, robust scene consensus, and QA-aware
+verification. Journal-scale experiments show that pairwise homography evidence is broadly
+available: RIFT2, raw MINIMA, and RoMa produce homographies for all 6,037 evaluated pairs, while
+LoFTR and XoFTR remain near-saturated. Under the strict canonical QA gate, UAV-TAlign produces
+scene-level homographies for all 15 scenes and retains 9 high-confidence alignment products. The
+risk-coverage profile further shows how reliability-controlled retention can be studied as an
+operating trade-off rather than a single pairwise matching score.
 \end{abstract}
 
 \begin{highlights}
-\item A scene-level RGB-thermal alignment framework is introduced for cross-FOV UAV imagery.
-\item Robust scene consensus and QA-aware verification convert pairwise evidence into retained transforms.
-\item UAV-TAlign-1K provides a focused public evaluation subset and scalable label-free protocol.
-\item Baselines and ablations show that scene-level reliability remains critical after pairwise saturation.
+\item UAV-TAlign-12K provides a 6,039-pair UAV infrared-visible alignment collection.
+\item A label-free scene-level reliability protocol evaluates retained alignment products.
+\item RIFT2 and modern dense baselines show broadly available pairwise homography evidence.
+\item Robust consensus and QA-aware verification convert pairwise evidence into retained transforms.
 \end{highlights}
 
 \begin{keyword}
-RGB-thermal registration \sep UAV imagery \sep infrared imagery \sep multimodal alignment \sep scene-level reliability
+infrared-visible registration \sep UAV imagery \sep thermal imaging \sep multimodal alignment \sep scene-level reliability
 \end{keyword}
 
 \end{frontmatter}

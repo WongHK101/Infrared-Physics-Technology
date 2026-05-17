@@ -4,9 +4,9 @@
 
 \subsection{Why Scene-Level Reliability Becomes Central}
 
-The results position UAV-TAlign as a scene-level reliability framework for UAV RGB-thermal
+The results position UAV-TAlign as a scene-level reliability framework for UAV infrared-visible
 alignment. Modern pairwise matchers already provide abundant frame-level correspondences on
-UAV-TAlign-1K, which makes scene-level decision quality the central operating question. UAV-TAlign
+UAV-TAlign-12K, which makes scene-level decision quality the central operating question. UAV-TAlign
 addresses this layer directly by elevating strong pairwise correspondence models into
 reliability-controlled scene-level alignment products.
 
@@ -27,15 +27,14 @@ module-level gains.
 
 UAV-TAlign targets real UAV scenes where a dominant planar or far-field transform is a useful
 operating model. Within this scope, public subset packaging, label-free diagnostics, and
-scene-level QA provide a compact experimental foundation for studying RGB-thermal alignment beyond
+scene-level QA provide a compact experimental foundation for studying infrared-visible alignment beyond
 isolated pairwise matching. This positioning is deliberately complementary to matcher-centric
 research: as correspondence models continue to improve, reliability control becomes increasingly
-important for deployable RGB-thermal systems.
+important for deployable infrared-visible systems.
 
-The protocol is designed for scalable reliability analysis and is not presented as a substitute for
-manual geometric ground truth. Its QA proxies operate as scene-consistency diagnostics, while
-manual landmark accuracy remains a complementary evaluation target. The homography model is most
-appropriate when a dominant planar or far-field alignment is meaningful, and it is less suited to
-strong parallax or highly non-rigid scene structure. UAV-TAlign-1K is therefore a focused public
-subset for this operating regime and provides a foundation that can be extended toward broader UAV
-RGB-thermal settings.
+The protocol is designed for scalable reliability analysis. Its QA proxies operate as
+scene-consistency diagnostics for retained alignment products, while the risk-coverage profile
+shows how operating coverage changes under a fixed reliability-ranking view. The homography model
+is most appropriate when a dominant planar or far-field alignment is meaningful, and the
+UAV-TAlign-12K collection focuses on this practical operating regime for UAV infrared-visible
+alignment.

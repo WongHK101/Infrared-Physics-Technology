@@ -20,7 +20,7 @@ registration view of the problem: stable local features followed by robust homog
 Robust model estimation remains central in these pipelines, from RANSAC and multiple-view geometry
 to more recent variants such as MAGSAC and MAGSAC++
 \cite{fischler1981ransac,hartley2004multiple,barath2019magsac,barath2020magsacpp}. Our results
-show that real UAV RGB-thermal scenes benefit from moving beyond a single-pair formulation toward
+show that real UAV infrared-visible scenes benefit from moving beyond a single-pair formulation toward
 scene-level evidence aggregation and reliability control.
 
 \subsection{Deep Pairwise Matching for Multimodal Registration}
@@ -41,8 +41,9 @@ provide additional context
 \cite{ma2021survey,liao2024survey}.
 
 Our work builds directly on this progress by treating modern matchers as high-capacity evidence
-generators. The empirical picture in UAV-TAlign-1K is that strong off-the-shelf multimodal matchers
-already provide very high pairwise availability. This moves the central question from
+generators. The empirical picture in UAV-TAlign-12K is that strong off-the-shelf multimodal
+matchers and infrared-visible classical baselines already provide very high pairwise availability.
+This moves the central question from
 correspondence generation alone to the conversion of frame-level estimates into stable and reliable
 scene-level alignment under realistic UAV operating conditions.
 
@@ -54,12 +55,12 @@ insensitive matching methods such as RIFT and deep alignment or stitching formul
 CLKN and UDIS indicate the breadth of existing registration formulations
 \cite{li2020rift,chang2017clkn,nie2021udis}. Many existing settings emphasize relatively
 controlled viewpoint changes or pairwise registration outcomes. By contrast, practical UAV
-RGB-thermal data frequently combine cross-FOV capture, cross-resolution sensing, thermal rendering
+infrared-visible UAV data frequently combine cross-FOV capture, cross-resolution sensing, thermal rendering
 variation, and low-light conditions.
 These factors make scene-level reliability a more central concern than in many standard
 visible-thermal evaluation setups.
 
-UAV-TAlign-1K extends this evaluation landscape by packaging real cross-FOV RGB-thermal scenes
+UAV-TAlign-12K extends this evaluation landscape by packaging real cross-FOV infrared-visible scenes
 together with scalable label-free diagnostics. The protocol measures scene consistency and relative
 alignment quality, allowing the study to focus on reliability-controlled scene-level alignment
 under practical UAV acquisition conditions rather than isolated pairwise correspondence counts.
@@ -68,15 +69,15 @@ under practical UAV acquisition conditions rather than isolated pairwise corresp
 
 UAV multimodal datasets have supported progress in detection, tracking, segmentation, and broader
 cross-modal perception, spanning aligned pedestrian and automotive benchmarks as well as
-RGB-thermal detection and tracking benchmarks such as KAIST, FLIR, LLVIP, M3FD, DroneVehicle,
+visible-thermal detection and tracking benchmarks such as KAIST, FLIR, LLVIP, M3FD, DroneVehicle,
 VTUAV, LasHeR, and Anti-UAV
 \cite{hwang2015kaist,flir2018thermal,jia2021llvip,liu2022tardal,sun2022dronevehicle,zhang2022vtuav,li2022lasher,jiang2023antiuav}.
 These resources have primarily advanced downstream perception tasks, while scene-level
-RGB-thermal alignment places additional emphasis on reliability-aware geometric decision making.
+infrared-visible alignment places additional emphasis on reliability-aware geometric decision making.
 In particular, a practical registration pipeline must decide not only how to align frames, but also
 when the scene-level evidence is strong enough to trust the resulting transform.
 
 This is the gap our paper targets. Complementary to new matcher architectures, we focus on a
-practical scene-level registration setting for real UAV RGB-thermal imagery. Our contribution lies
-in a reliability-oriented alignment framework, a public subset package, and a label-free protocol
-that make scene-level RGB-thermal reliability directly studyable.
+practical scene-level registration setting for real UAV infrared-visible imagery. Our contribution
+lies in a reliability-oriented alignment framework, a public 12K-scale collection, and a
+label-free protocol that make scene-level infrared-visible reliability directly studyable.

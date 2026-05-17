@@ -2,100 +2,116 @@
 
 \section{Results}
 
-\subsection{Pairwise Baseline Comparison}
+\subsection{Pairwise Infrared-Visible Homography Evidence}
 
-Off-the-shelf multimodal baselines already saturate pairwise usability on UAV-TAlign-1K.
-Table~\ref{tab:pairwise_baselines} shows a highly saturated pairwise regime: raw MINIMA and RoMa
-both reach 500/500 usable pairwise registrations, LoFTR reaches 499/500 under a resize-aware
-inference setting, and XoFTR-640 reaches 494/500. This result sharpens the role of UAV-TAlign. The
-framework targets the decision layer that remains after strong pairwise matching is available.
+Pairwise infrared-visible homography evidence is broadly available on UAV-TAlign-12K.
+Table~\ref{tab:pairwise_baselines} reports the full 6,037-pair official evaluation split. RIFT2
+adds an infrared-visible classical reference point and completes all evaluated pairs. Raw MINIMA
+and RoMa also produce homographies for all pairs, while LoFTR and XoFTR remain near-saturated under
+the same manifest-based evaluation. This result sharpens the role of UAV-TAlign: the framework
+targets the decision layer that remains after strong pairwise homography evidence is available.
 
 \begin{table}[t]
-\caption{Pairwise baseline comparison on 500 RGB-thermal pairs. Red/orange/yellow cells mark the
-best, second, and third values for each metric; arrows indicate the preferred direction.}
+\caption{Pairwise infrared-visible homography evidence on UAV-TAlign-12K. Metrics are complementary
+diagnostics under the evaluated implementation and deployment settings, and should not be read as
+a single absolute ranking. LoFTR and XoFTR non-ok cases correspond to insufficient matches, no
+matches, or homography fitting failures.}
 \label{tab:pairwise_baselines}
 \centering
 \resizebox{\textwidth}{!}{
-\begin{tabular}{lrrrrrrr}
+\begin{tabular}{llrrrrrr}
 \toprule
-Method & OK / N $\uparrow$ & OK (\%) $\uparrow$ & H (\%) $\uparrow$ & Inlier $\uparrow$ & Coverage $\uparrow$ & Reproj. $\downarrow$ & Runtime $\downarrow$ \\
+Method & Category & OK / N $\uparrow$ & H (\%) $\uparrow$ & Inlier $\uparrow$ & Coverage $\uparrow$ & Reproj. $\downarrow$ & Runtime $\downarrow$ \\
 \midrule
-raw MINIMA & \best{500/500} & \best{100.0} & \best{100.0} & \second{0.378} & \best{0.996} & 1.707 & 1.859 \\
-RoMa outdoor full & \best{500/500} & \best{100.0} & \best{100.0} & \best{0.400} & \second{0.982} & 1.672 & \second{1.077} \\
-Kornia LoFTR outdoor & \second{499/500} & \second{99.8} & \second{99.8} & 0.096 & 0.919 & \third{1.411} & \best{0.549} \\
-XoFTR-640 & \third{494/500} & \third{98.8} & \third{98.8} & 0.151 & \third{0.951} & 1.610 & \third{1.204} \\
-AKAZE + RANSAC & 479/500 & 95.8 & 95.8 & 0.177 & 0.646 & \second{0.393} & 2.368 \\
-SIFT + RANSAC & 457/500 & 91.4 & 91.4 & \third{0.240} & 0.599 & \best{0.260} & 4.605 \\
+RIFT2 (Python, resize-aware) & Infrared-visible classical & \best{6037/6037} & \best{100.00} & 0.086 & 0.354 & \best{0.121} & 13.980 \\
+raw MINIMA & Modern dense / learned & \best{6037/6037} & \best{100.00} & \second{0.319} & \best{1.000} & 1.775 & 1.905 \\
+RoMa outdoor & Modern dense / learned & \best{6037/6037} & \best{100.00} & \best{0.328} & \second{0.997} & 1.739 & 0.844 \\
+Kornia LoFTR outdoor & Modern dense / learned & 6009/6037 & 99.54 & 0.099 & 0.922 & \second{1.405} & \best{0.288} \\
+XoFTR-640 & Modern dense / learned & 5989/6037 & 99.20 & 0.089 & \third{0.949} & 1.732 & \second{0.615} \\
 \bottomrule
 \end{tabular}}
 \end{table}
 
-The secondary fitting statistics should be read as complementary diagnostics under a unified
-downstream estimator, rather than as a single absolute ordering of matcher quality across
-heterogeneous correspondence regimes.
+RIFT2 provides stable infrared-visible pairwise homographies with low fitted reprojection error,
+while modern dense and learned matchers provide broader spatial support and stronger coverage.
+These secondary fitting statistics are therefore best read jointly.
 
 \subsection{Scene-Level Performance of UAV-TAlign}
 
 High pairwise usability does not automatically imply broad scene retention, because the canonical
-decision answers a different operating question. UAV-TAlign retains 7 of 15 scenes with a mean
-accepted-frame ratio of 64.5\%. This operating point emphasizes high-confidence transforms and
-shows how robust consensus and verification turn abundant frame-level matches into selected
-alignment products.
+decision answers a different operating question. UAV-TAlign produces scene-level homographies for
+all 15 scenes and retains 9 scenes under the strict canonical reliability gate. This operating
+point emphasizes high-confidence alignment products and shows how robust consensus and verification
+turn abundant frame-level matches into selected scene-level transforms.
 
 \begin{table}[t]
-\caption{Formal scene-level retention result for UAV-TAlign. Arrows indicate the preferred direction.}
+\caption{Strict canonical scene-level result for UAV-TAlign on UAV-TAlign-12K. Arrows indicate the
+preferred direction.}
 \label{tab:scene_level_main}
 \centering
-\begin{tabular}{lrrrr}
+\begin{tabular}{lrrrrr}
 \toprule
-Method & Eval Unit & Retained Scenes $\uparrow$ & Retention Rate (\%) $\uparrow$ & Mean Accepted Ratio (\%) $\uparrow$ \\
+Method & Eval Unit & H Available $\uparrow$ & Retained Scenes $\uparrow$ & Retention Rate (\%) $\uparrow$ & Accepted Frames \\
 \midrule
-UAV-TAlign & 15 scenes & 7/15 & 46.7 & 64.5 \\
+UAV-TAlign & 15 scenes & 15/15 & 9/15 & 60.0 & 2473/3847 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Condition Breakdown}
 
-Retained alignments show meaningful condition structure, with night scenes remaining the most
-selective regime. Day and low-light groups retain multiple alignments, while the night group
-highlights the value of condition-aware analysis. These patterns support the view that the central
-challenge is decision quality rather than pairwise matcher availability alone.
+Retained alignments show meaningful condition structure across illumination and thermal rendering.
+Day, night, and low-light groups all contribute retained products, while their accepted-frame
+profiles differ substantially. These patterns support the view that the central challenge is
+scene-level decision quality rather than pairwise matcher availability alone.
 
 \begin{table}[t]
-\caption{Scene-level breakdown by light condition. Red/orange/yellow mark the best, second, and
-third values within each metric.}
+\caption{Scene-level reliability breakdown by light condition on UAV-TAlign-12K.}
 \label{tab:light_condition}
 \centering
 \begin{tabular}{lrrrr}
 \toprule
-Condition & Scenes & Retained $\uparrow$ & Retention Rate (\%) $\uparrow$ & Mean Accepted Ratio (\%) $\uparrow$ \\
+Condition & Scenes & Retained $\uparrow$ & Retention Rate (\%) $\uparrow$ & Accepted / Attempted $\uparrow$ \\
 \midrule
-Day & 7 & \best{4} & \second{57.1} & \best{77.1} \\
-Night & 5 & \third{1} & \third{20.0} & \third{50.6} \\
-Low-light & 3 & \second{2} & \best{66.7} & \second{58.5} \\
+Day & 7 & \best{5} & \best{71.4} & \best{1650/2203} \\
+Night & 5 & \second{3} & \second{60.0} & 361/890 \\
+Low-light & 3 & 1 & 33.3 & \second{462/754} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsection{Protocol and Proxy Evidence}
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.78\textwidth]{figures/fig_condition_reliability_profile.pdf}
+\caption{Condition-aware reliability profile by illumination. Scene retention and accepted-frame
+support summarize complementary aspects of the retained alignment products.}
+\label{fig:condition_reliability}
+\end{figure}
 
-QA-filtered decisions are more strongly associated with QA-relative outlier signals than with
-simple matcher availability. The baseline-relative QA outlier signal separates all 8 filtered
-scenes from the 7 retained scenes. Accepted-frame ratio is also informative as part of the joint
-decision: scene 02 has 98\% accepted frames but is filtered because reject and QA outlier signals
-remain high, whereas scene 04 is retained with 80\% accepted frames when these signals are absent.
-These observations show that UAV-TAlign captures transform usability as a joint QA decision rather
-than a simple count of matched frames.
+\subsection{Reliability-Coverage Operating Profile}
+
+The canonical QA gate defines retained alignment products, while the reliability score is used for
+ranking, threshold sweep, and operating-profile visualization. The score-ranked top-$K$ subsets and
+the canonical retained-scene set are related but not identical. Figure~\ref{fig:risk_coverage}
+therefore marks the strict canonical 9/15 operating point explicitly while plotting the
+score-ranked reliability--coverage curve.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.92\textwidth]{figures/fig_proxy_reliability.pdf}
-\caption{Scene-level proxy evidence. Retained scenes cluster near low severe-outlier ratios, while
-QA-filtered scenes are associated with stronger baseline-relative QA outlier signals. Marker size
-indicates robust rejection ratio.}
-\label{fig:proxy_reliability}
+\includegraphics[width=0.82\textwidth]{figures/fig_risk_coverage_curve.pdf}
+\caption{Risk-coverage operating profile on UAV-TAlign-12K. The curves are generated by ranking
+scenes with the non-trained reliability score and progressively increasing retained coverage. The
+star marks the strict canonical QA-gate operating point (9/15 retained scenes). The score-ranked
+top-$K$ operating points visualize the reliability--coverage profile and do not replace the
+canonical decision rule.}
+\label{fig:risk_coverage}
 \end{figure}
+
+At the canonical point, UAV-TAlign retains 9 scenes, covers 60.0\% of scenes and 74.4\% of
+evaluated pairs, and keeps the mean severe-outlier ratio at 0.009. The score-ranked curve exposes a
+smooth operating profile from conservative high-confidence retention to broader inclusive
+coverage. We keep the canonical gate fixed and use this curve to visualize the reliability--coverage
+trade-off.
 
 \subsection{Cumulative Ablation}
 
@@ -103,7 +119,7 @@ The strongest module-level gain is produced by robust scene consensus, while det
 selection is best understood as a reproducible operating policy. Adding robust scene consensus
 substantially improves edge and gradient alignment proxies while reducing severe outliers. Adding
 QA-aware verification then converts accepted-frame evidence into a reliability-controlled
-scene-level criterion, matching the formal 8-scene slice at 5/8 retained scenes.
+scene-level criterion, matching the 1K-Lite ablation slice at 5/8 retained scenes.
 
 \begin{table}[t]
 \caption{Cumulative module ablation on the fixed 8-scene subset. Red/orange/yellow mark the best,

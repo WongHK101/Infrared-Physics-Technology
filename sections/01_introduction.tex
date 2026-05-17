@@ -2,16 +2,16 @@
 
 \section{Introduction}
 
-RGB-thermal alignment is becoming a foundational capability for UAV inspection, monitoring, and
-nighttime multimodal perception. Visible imagery provides semantic and structural detail, while
-thermal imagery remains informative under illumination changes, smoke, haze, and low-light
-conditions. This complementarity has driven progress across multispectral pedestrian perception,
-thermal object detection, visible-thermal tracking, and UAV multimodal sensing
+Infrared-visible alignment is becoming a foundational capability for UAV inspection, monitoring,
+and nighttime multimodal perception. Visible imagery provides semantic and structural detail,
+while infrared thermal imagery remains informative under illumination changes, smoke, haze, and
+low-light conditions. This complementarity has driven progress across multispectral pedestrian
+perception, thermal object detection, visible-thermal tracking, and UAV multimodal sensing
 \cite{hwang2015kaist,flir2018thermal,jia2021llvip,liu2022tardal,sun2022dronevehicle,zhang2022vtuav,li2022lasher,jiang2023antiuav}.
 For these systems to operate as fused sensors rather than separate streams, however, RGB and
 thermal observations must be aligned reliably at the scene level.
 
-Real UAV RGB-thermal alignment is substantially more demanding than standard same-view image
+Real UAV infrared-visible alignment is substantially more demanding than standard same-view image
 matching. Aerial platforms introduce viewpoint drift, cross-FOV capture, rolling scale changes, and
 cross-resolution sensors; thermal images further introduce low-texture regions, grayscale or
 pseudocolor rendering, and strong day/night appearance shifts. These factors make individual
@@ -24,15 +24,16 @@ Recent pairwise matching has advanced rapidly. Transformer-based, dense, and mul
 such as LoFTR, LightGlue, DKM, RoMa, XoFTR, and MINIMA have substantially improved correspondence
 availability under difficult appearance changes
 \cite{sarlin2020superglue,sun2021loftr,chen2022aspanformer,lindenberger2023lightglue,edstedt2023dkm,edstedt2024roma,tuzcuoglu2024xoftr,ren2025minima}.
-Our experiments confirm this progress in the UAV RGB-thermal setting: strong off-the-shelf
-multimodal matchers already achieve near-saturated pairwise usability on UAV-TAlign-1K. This result
-creates a concrete tension: a method can approach saturated pairwise usability while producing only
-selective scene-level retention under a strict acceptance rule. Pairwise usability and scene-level
+Our 12K-scale experiments confirm this progress in the UAV infrared-visible setting: strong
+off-the-shelf multimodal matchers and an infrared-visible classical baseline already provide
+broadly available pairwise homography evidence on UAV-TAlign-12K. This result creates a concrete
+tension: a method can approach saturated pairwise usability while producing only selective
+scene-level retention under a strict acceptance rule. Pairwise usability and scene-level
 canonical acceptance therefore measure different operating questions and should not be read as the
 same success criterion. The key step is to aggregate evidence across a scene, suppress unstable
 homographies, and verify whether the final transform should be retained.
 
-This observation motivates a scene-level framing of the problem. We study UAV RGB-thermal
+This observation motivates a scene-level framing of the problem. We study UAV infrared-visible
 registration as a reliability-centered alignment task rather than a collection of independent
 pairwise matches. Under this view, modern matchers are powerful evidence generators,
 but the alignment algorithm must still answer three system-level questions: which frames should
@@ -41,27 +42,29 @@ the resulting transform reliable enough to use? This framing is especially impor
 where the final output should favor trustworthy scene-level geometry over indiscriminate
 acceptance.
 
-We present UAV-TAlign, a scene-level UAV RGB-thermal alignment framework designed around this
+We present UAV-TAlign, a scene-level UAV infrared-visible alignment framework designed around this
 decision layer. UAV-TAlign operates on top of modern pairwise matchers and uses
 reliability-guided evidence selection to obtain representative frame support, robust scene
 consensus to consolidate frame-level estimates, and QA-aware verification to retain scene-level
 transforms that satisfy strict quality criteria. In this sense, UAV-TAlign elevates strong pairwise
 multimodal matching into a deployable scene-level alignment decision.
 
-We also package UAV-TAlign-1K, a public evaluation subset for real UAV RGB-thermal alignment. The
-subset contains 15 scenes and 500 RGB-thermal pairs spanning day, night, low-light, grayscale
-thermal, pseudocolor thermal, and wide/zoom scene conditions. The subset is accompanied by a
-scalable label-free protocol that evaluates pairwise usability, scene-level retention, and
-reliability diagnostics. Together, the data and protocol provide a practical and reproducible way
-to study scene-level alignment reliability under real UAV RGB-thermal conditions.
+We also package UAV-TAlign-12K, a public UAV infrared-visible alignment collection with 6,039
+candidate pairs and an integrity-checked 6,037-pair evaluation split across 15 scenes. The
+collection spans day, night, low-light, grayscale thermal, pseudocolor thermal, and wide/zoom scene
+conditions. It is accompanied by a scalable label-free protocol that evaluates pairwise
+homography evidence, scene-level retention, reliability diagnostics, and risk-coverage operating
+profiles. Together, the data and protocol provide a practical and reproducible way to study
+scene-level alignment reliability under real UAV infrared-visible conditions.
 
 Our contributions are threefold:
 \begin{itemize}
-\item We introduce UAV-TAlign, a scene-level UAV RGB-thermal alignment framework with
+\item We introduce UAV-TAlign, a scene-level UAV infrared-visible alignment framework with
 reliability-guided evidence selection, robust scene consensus, and QA-aware verification.
-\item We package UAV-TAlign-1K, a public cross-FOV UAV RGB-thermal subset with a scalable
-label-free evaluation protocol.
-\item We show through off-the-shelf baselines, reliability diagnostics, and cumulative ablations
-that robust scene consensus and QA-aware verification dominate once pairwise matching is largely
-available.
+\item We package UAV-TAlign-12K, a 6,039-pair cross-FOV UAV infrared-visible alignment collection
+with an integrity-checked 6,037-pair evaluation split and a scalable label-free reliability
+protocol.
+\item We show through infrared-visible classical and modern dense baselines, reliability
+diagnostics, and cumulative analyses that the central operating challenge shifts from pairwise
+match availability to reliability-controlled scene retention.
 \end{itemize}
