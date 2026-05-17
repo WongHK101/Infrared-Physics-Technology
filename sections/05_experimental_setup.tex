@@ -57,8 +57,8 @@ dimension used for matching is limited to 1600, and automatic mixed precision is
 deployment setting preserves the public pretrained model while supporting consistent full-subset
 evaluation within the fixed deployment budget.
 
-All experiments were run in a Linux Conda environment with Python 3.10,
-PyTorch 2.0.1, torchvision 0.15.2, and CUDA 11.8 for the main learned baselines and UAV-TAlign
-pipeline. RIFT2 is executed in an independent Python environment. All evaluation outputs are
-written to isolated result roots, with raw dataset directories and source trees treated as
-read-only inputs during evaluation.
+Journal-scale experiments were conducted in isolated Python environments on an NVIDIA RTX 4090
+workstation. The main environment used Python 3.10 with PyTorch 2.0.1, torchvision 0.15.2, CUDA
+11.8, OpenCV 4.11.0, and Kornia 0.6.11. RIFT2 ran separately under Python 3.11 with OpenCV 4.10.0
+and NumPy 1.26.4. All runs used the fixed official manifest, fixed public weights or model
+interfaces, isolated output roots, and read-only raw dataset directories.

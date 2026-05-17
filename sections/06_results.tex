@@ -75,9 +75,9 @@ scene-level decision quality rather than pairwise matcher availability alone.
 \toprule
 Condition & Scenes & Retained $\uparrow$ & Retention (\%) $\uparrow$ & Accepted / Attempted $\uparrow$ & Accepted Ratio (\%) $\uparrow$ \\
 \midrule
-Day & 7 & \best{5} & \best{71.4} & \best{1650/2203} & \best{74.9} \\
-Night & 5 & \second{3} & \second{60.0} & 361/890 & 40.6 \\
-Low-light & 3 & 1 & 33.3 & \second{462/754} & \second{61.3} \\
+Day & 7 & \textbf{5} & \textbf{71.4} & \textbf{1650/2203} & \textbf{74.9} \\
+Night & 5 & 3 & 60.0 & 361/890 & 40.6 \\
+Low-light & 3 & 1 & 33.3 & 462/754 & 61.3 \\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -124,8 +124,8 @@ QA-aware verification then converts accepted-frame evidence into a reliability-c
 scene-level criterion, matching the 1K-Lite ablation slice at 5/8 retained scenes.
 
 \begin{table}[t]
-\caption{Cumulative module ablation on the fixed 8-scene subset. Red/orange/yellow mark the best,
-second, and third values for proxy metrics; arrows indicate preferred direction.}
+\caption{Cumulative module ablation on the fixed 8-scene subset. Bold values mark the strongest
+observed proxy values within each column; arrows indicate preferred direction.}
 \label{tab:ablation_main}
 \centering
 \resizebox{\textwidth}{!}{
@@ -133,10 +133,10 @@ second, and third values for proxy metrics; arrows indicate preferred direction.
 \toprule
 Variant & Evidence & Consensus & Verification & Retained/N $\uparrow$ & Acc. $\uparrow$ & $\Delta$Edge $\uparrow$ & $\Delta$Grad $\uparrow$ & Severe $\downarrow$ \\
 \midrule
-Evidence selection only & \cmark & \xmark & \xmark & 8/8 & \second{77.4} & 0.124 & 0.126 & 10.4 \\
-+ Robust scene consensus & \cmark & \cmark & \xmark & 8/8 & \second{77.4} & \third{0.145} & \third{0.148} & \best{4.2} \\
-+ QA-aware verification & \cmark & \cmark & \cmark & 5/8 & 77.2 & \second{0.147} & \best{0.149} & \best{4.2} \\
-UAV-TAlign full (8-scene slice) & \cmark & \cmark & \cmark & 5/8 & \best{80.4} & \best{0.147} & \second{0.149} & \best{4.2} \\
+Evidence selection only & \cmark & \xmark & \xmark & 8/8 & 77.4 & 0.124 & 0.126 & 10.4 \\
++ Robust scene consensus & \cmark & \cmark & \xmark & 8/8 & 77.4 & 0.145 & 0.148 & \textbf{4.2} \\
++ QA-aware verification & \cmark & \cmark & \cmark & 5/8 & 77.2 & \textbf{0.147} & \textbf{0.149} & \textbf{4.2} \\
+UAV-TAlign full (8-scene slice) & \cmark & \cmark & \cmark & 5/8 & \textbf{80.4} & \textbf{0.147} & \textbf{0.149} & \textbf{4.2} \\
 \bottomrule
 \end{tabular}}
 \end{table}
