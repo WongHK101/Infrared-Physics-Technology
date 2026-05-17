@@ -21,7 +21,7 @@ matches, or homography fitting failures.}
 \resizebox{\textwidth}{!}{
 \begin{tabular}{llrrrrrr}
 \toprule
-Method & Category & OK / N $\uparrow$ & H (\%) $\uparrow$ & Inlier $\uparrow$ & Coverage $\uparrow$ & Reproj. $\downarrow$ & Runtime $\downarrow$ \\
+Method & Category & OK / N $\uparrow$ & H (\%) $\uparrow$ & Inlier Ratio $\uparrow$ & Coverage $\uparrow$ & Median Reproj. $\downarrow$ & Runtime / Pair (s) $\downarrow$ \\
 \midrule
 RIFT2 (Python, resize-aware) & Infrared-visible classical & 6037/6037 & \textbf{100.00} & 0.086 & 0.354 & 0.121 & 13.980 \\
 raw MINIMA & Modern dense / learned & 6037/6037 & \textbf{100.00} & 0.319 & 1.000 & 1.775 & 1.905 \\
@@ -50,11 +50,11 @@ preferred direction.}
 \label{tab:scene_level_main}
 \centering
 \resizebox{\textwidth}{!}{
-\begin{tabular}{lrrrrr}
+\begin{tabular}{llrrrrr}
 \toprule
-Method & Eval Unit & H Available $\uparrow$ & Retained Scenes $\uparrow$ & Retention Rate (\%) $\uparrow$ & Accepted Frames \\
+Method & Eval Unit & H Available $\uparrow$ & Retained Scenes $\uparrow$ & Retention Rate (\%) $\uparrow$ & Accepted Frames & Accepted Ratio (\%) $\uparrow$ \\
 \midrule
-UAV-TAlign & 15 scenes & 15/15 & 9/15 & 60.0 & 2473/3847 \\
+UAV-TAlign & 15 scenes & 15/15 & 9/15 & 60.0 & 2473/3847 & 64.3 \\
 \bottomrule
 \end{tabular}}
 \end{table}
