@@ -1,0 +1,17 @@
+Dear Editor,
+
+We submit our manuscript, "UAV-TAlign-12K: Scene-Level Reliability Evaluation for Cross-FOV UAV Infrared-Visible Image Alignment", for consideration as a research article in Infrared Physics & Technology.
+
+This work addresses infrared-visible alignment for real UAV sensing, where cross-FOV capture, cross-resolution imaging, illumination variation, and thermal rendering changes make reliable scene-level registration a practical operating challenge. Rather than treating the problem only as pairwise image matching, the manuscript introduces UAV-TAlign-12K, a 6,039-pair UAV infrared-visible alignment collection with a 6,037-pair integrity-checked evaluation split, and a label-free scene-level reliability protocol for evaluating retained alignment products.
+
+The manuscript further presents UAV-TAlign, a reliability-aware scene-level alignment framework that converts strong pairwise multimodal evidence into retained scene transforms through reliability-guided evidence selection, robust scene consensus, and QA-aware verification. Journal-scale experiments compare an infrared-visible classical baseline, RIFT2, with modern dense and learned matchers, and show that pairwise homography evidence is broadly available on UAV-TAlign-12K. The remaining operating question is scene-level reliability, which is analyzed through strict canonical scene retention and risk-coverage profiles.
+
+We believe the manuscript fits Infrared Physics & Technology because it focuses on infrared-visible UAV imaging, practical thermal-visible registration, label-free reliability evaluation, and benchmark-scale experimental validation for deployable infrared sensing systems.
+
+The manuscript is original, has not been published previously, and is not under consideration elsewhere. All authors have approved the submission.
+
+Sincerely,
+
+[Corresponding author name]
+[Affiliation]
+[Email]
