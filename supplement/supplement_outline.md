@@ -65,7 +65,9 @@ Primary source:
 
 Report the completed SIFT/AKAZE 12K full classical-keypoint results. The main manuscript includes
 the compact pairwise rows; the supplement keeps the status counts, per-scene summary, and
-condition-level summary.
+condition-level summary. The accompanying note explains that very low fitted reprojection can
+occur on sparse inlier sets and that method-level backend error statuses were captured by the
+unified evaluator while the full run completed normally.
 
 Primary source:
 

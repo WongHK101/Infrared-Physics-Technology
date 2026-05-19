@@ -24,3 +24,8 @@ These results provide classical-keypoint context for the main pairwise baseline 
 - `sift_akaze_condition_summary.csv`
 
 The reported metrics remain complementary diagnostics under a unified downstream estimator and should not be interpreted as a single absolute ordering of matcher quality.
+
+Very low fitted reprojection error can occur on sparse inlier sets and should be interpreted
+together with homography availability and spatial coverage. Error-status records are method-level
+backend statuses captured by the unified evaluator; the overall run completed normally with an
+empty `run_stderr.log`.

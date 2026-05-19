@@ -7,11 +7,13 @@
 Pairwise infrared-visible homography evidence is broadly available on UAV-TAlign-12K.
 Table~\ref{tab:pairwise_baselines} reports the full 6,037-pair official evaluation split.
 Classical keypoint baselines provide useful but less complete pairwise evidence: SIFT and AKAZE
-reach 87.08\% and 94.29\% homography availability, respectively. RIFT2 adds an infrared-visible
-classical reference point and completes all evaluated pairs. Raw MINIMA and RoMa also produce
-homographies for all pairs, while LoFTR and XoFTR remain near-saturated under the same
-manifest-based evaluation. This result sharpens the role of UAV-TAlign: the framework targets the
-decision layer that remains after strong pairwise homography evidence is available.
+reach 87.08\% and 94.29\% homography availability, respectively. This provides a classical
+keypoint reference, while RIFT2 and modern dense and learned matchers further improve pairwise
+availability under infrared-visible appearance gaps. RIFT2 adds an infrared-visible classical
+reference point and completes all evaluated pairs. Raw MINIMA and RoMa also produce homographies
+for all pairs, while LoFTR and XoFTR remain near-saturated under the same manifest-based
+evaluation. This result sharpens the role of UAV-TAlign: the framework targets the decision layer
+that remains after strong pairwise homography evidence is available.
 
 \begin{table}[t]
 \caption{Pairwise infrared-visible homography evidence on UAV-TAlign-12K. Metrics are complementary
