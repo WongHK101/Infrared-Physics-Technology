@@ -1,0 +1,3 @@
+Method,Evaluated Pairs,OK Status,H Available,H Availability (%),Mean Inlier Ratio,Mean Coverage,Median Reprojection Error,Runtime / Pair (s),Status Counts
+SIFT,6037,5257/6037 ok,5257/6037,87.08,0.242,0.627,0.000,9.008,"{'ok': 5257, 'error': 153, 'fit_failed': 289, 'no_matches': 93, 'insufficient_matches': 245}"
+AKAZE,6037,5692/6037 ok,5692/6037,94.29,0.160,0.730,0.105,1.511,"{'ok': 5692, 'fit_failed': 152, 'no_matches': 92, 'insufficient_matches': 101}"

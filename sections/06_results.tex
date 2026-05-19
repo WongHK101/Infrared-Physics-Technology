@@ -5,11 +5,13 @@
 \subsection{Pairwise Infrared-Visible Homography Evidence}
 
 Pairwise infrared-visible homography evidence is broadly available on UAV-TAlign-12K.
-Table~\ref{tab:pairwise_baselines} reports the full 6,037-pair official evaluation split. RIFT2
-adds an infrared-visible classical reference point and completes all evaluated pairs. Raw MINIMA
-and RoMa also produce homographies for all pairs, while LoFTR and XoFTR remain near-saturated under
-the same manifest-based evaluation. This result sharpens the role of UAV-TAlign: the framework
-targets the decision layer that remains after strong pairwise homography evidence is available.
+Table~\ref{tab:pairwise_baselines} reports the full 6,037-pair official evaluation split.
+Classical keypoint baselines provide useful but less complete pairwise evidence: SIFT and AKAZE
+reach 87.08\% and 94.29\% homography availability, respectively. RIFT2 adds an infrared-visible
+classical reference point and completes all evaluated pairs. Raw MINIMA and RoMa also produce
+homographies for all pairs, while LoFTR and XoFTR remain near-saturated under the same
+manifest-based evaluation. This result sharpens the role of UAV-TAlign: the framework targets the
+decision layer that remains after strong pairwise homography evidence is available.
 
 \begin{table}[t]
 \caption{Pairwise infrared-visible homography evidence on UAV-TAlign-12K. Metrics are complementary
@@ -23,6 +25,8 @@ matches, or homography fitting failures.}
 \toprule
 Method & Category & OK / N $\uparrow$ & H (\%) $\uparrow$ & Inlier Ratio $\uparrow$ & Coverage $\uparrow$ & Median Reproj. $\downarrow$ & Runtime / Pair (s) $\downarrow$ \\
 \midrule
+SIFT + RANSAC & Classical keypoint & 5257/6037 & 87.08 & 0.242 & 0.627 & 0.000 & 9.008 \\
+AKAZE + RANSAC & Classical keypoint & 5692/6037 & 94.29 & 0.160 & 0.730 & 0.105 & 1.511 \\
 RIFT2 (Python, resize-aware) & Infrared-visible classical & 6037/6037 & \textbf{100.00} & 0.086 & 0.354 & 0.121 & 13.980 \\
 raw MINIMA & Modern dense / learned & 6037/6037 & \textbf{100.00} & 0.319 & 1.000 & 1.775 & 1.905 \\
 RoMa outdoor & Modern dense / learned & 6037/6037 & \textbf{100.00} & 0.328 & 0.997 & 1.739 & 0.844 \\

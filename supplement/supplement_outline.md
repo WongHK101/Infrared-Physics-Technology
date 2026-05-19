@@ -63,8 +63,13 @@ Primary source:
 
 ## S8. Classical Keypoint Completeness
 
-Reserve a table for SIFT/AKAZE 12K full results after the background run completes and GPT decides whether the results should enter the main manuscript or supplementary material.
+Report the completed SIFT/AKAZE 12K full classical-keypoint results. The main manuscript includes
+the compact pairwise rows; the supplement keeps the status counts, per-scene summary, and
+condition-level summary.
 
 Primary source:
 
-- `tables/sift_akaze_placeholder.md`
+- `tables/sift_akaze_completeness.md`
+- `tables/sift_akaze_pairwise_summary.csv`
+- `tables/sift_akaze_per_scene_summary.csv`
+- `tables/sift_akaze_condition_summary.csv`

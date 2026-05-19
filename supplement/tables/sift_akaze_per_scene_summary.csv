@@ -1,0 +1,31 @@
+method,group_by,group,pair_count,ok_count,homography_available_count,h_availability_pct,mean_inlier_ratio,mean_coverage,median_reprojection_error,runtime_pair_sec,status_counts,scene_name
+SIFT,scene_id,01,50,50,50,100.00,0.173,0.755,0.283,7.589,"{""ok"": 50}",01_day_grayscale_wide_substation_power_lines_50
+SIFT,scene_id,02,50,46,46,92.00,0.178,0.676,0.171,6.833,"{""ok"": 46, ""error"": 4}",02_day_grayscale_zoom_substation_power_lines_50
+SIFT,scene_id,03,45,44,44,97.78,0.226,0.603,0.102,2.334,"{""ok"": 44, ""fit_failed"": 1}",03_night_grayscale_wide_substation_power_lines_45
+SIFT,scene_id,04,45,45,45,100.00,0.225,0.656,0.127,1.714,"{""ok"": 45}",04_night_grayscale_zoom_substation_power_lines_45
+SIFT,scene_id,05,1315,1222,1222,92.93,0.222,0.878,0.053,1.967,"{""ok"": 1222, ""fit_failed"": 21, ""no_matches"": 71, ""insufficient_matches"": 1}",05_night_pseudocolor_solar_panels_1315
+SIFT,scene_id,06,1037,887,887,85.54,0.162,0.667,0.079,15.229,"{""ok"": 887, ""fit_failed"": 1, ""error"": 149}",06_day_pseudocolor_solar_panels_1037
+SIFT,scene_id,07,102,100,100,98.04,0.286,0.590,0.177,2.946,"{""ok"": 100, ""insufficient_matches"": 1, ""fit_failed"": 1}",07_day_grayscale_transmission_tower_102
+SIFT,scene_id,08,422,409,409,96.92,0.259,0.701,0.071,2.276,"{""ok"": 409, ""fit_failed"": 8, ""insufficient_matches"": 4, ""no_matches"": 1}",08_night_grayscale_urban_422
+SIFT,scene_id,09,614,355,355,57.82,0.248,0.325,0.000,3.371,"{""ok"": 355, ""fit_failed"": 91, ""insufficient_matches"": 152, ""no_matches"": 16}",09_day_pseudocolor_building_614
+SIFT,scene_id,10,262,179,179,68.32,0.222,0.411,0.000,2.563,"{""ok"": 179, ""fit_failed"": 51, ""insufficient_matches"": 31, ""no_matches"": 1}",10_day_pseudocolor_factory_262
+SIFT,scene_id,11,181,177,177,97.79,0.264,0.672,0.078,2.472,"{""ok"": 177, ""insufficient_matches"": 1, ""fit_failed"": 3}",11_night_grayscale_building_181
+SIFT,scene_id,12,588,583,583,99.15,0.267,0.629,0.000,42.667,"{""ok"": 583, ""fit_failed"": 5}",12_day_grayscale_orchard_588
+SIFT,scene_id,13,467,353,353,75.59,0.324,0.392,0.000,2.084,"{""ok"": 353, ""fit_failed"": 71, ""insufficient_matches"": 39, ""no_matches"": 4}",13_lowlight_pseudocolor_road_469
+SIFT,scene_id,14,673,664,664,98.66,0.301,0.589,0.000,6.250,"{""ok"": 664, ""fit_failed"": 8, ""insufficient_matches"": 1}",14_lowlight_pseudocolor_transmission_tower_673
+SIFT,scene_id,15,186,143,143,76.88,0.314,0.416,0.000,2.064,"{""ok"": 143, ""fit_failed"": 28, ""insufficient_matches"": 15}",15_lowlight_pseudocolor_woodland_186
+AKAZE,scene_id,01,50,50,50,100.00,0.119,0.731,0.244,1.420,"{""ok"": 50}",01_day_grayscale_wide_substation_power_lines_50
+AKAZE,scene_id,02,50,50,50,100.00,0.126,0.711,0.149,1.389,"{""ok"": 50}",02_day_grayscale_zoom_substation_power_lines_50
+AKAZE,scene_id,03,45,44,44,97.78,0.204,0.583,0.382,1.188,"{""ok"": 44, ""fit_failed"": 1}",03_night_grayscale_wide_substation_power_lines_45
+AKAZE,scene_id,04,45,45,45,100.00,0.168,0.581,0.347,0.955,"{""ok"": 45}",04_night_grayscale_zoom_substation_power_lines_45
+AKAZE,scene_id,05,1315,1223,1223,93.00,0.140,0.786,0.256,1.090,"{""ok"": 1223, ""fit_failed"": 12, ""no_matches"": 79, ""insufficient_matches"": 1}",05_night_pseudocolor_solar_panels_1315
+AKAZE,scene_id,06,1037,1037,1037,100.00,0.094,0.857,0.104,2.281,"{""ok"": 1037}",06_day_pseudocolor_solar_panels_1037
+AKAZE,scene_id,07,102,102,102,100.00,0.203,0.629,0.424,0.906,"{""ok"": 102}",07_day_grayscale_transmission_tower_102
+AKAZE,scene_id,08,422,419,419,99.29,0.179,0.749,0.152,1.131,"{""ok"": 419, ""fit_failed"": 2, ""insufficient_matches"": 1}",08_night_grayscale_urban_422
+AKAZE,scene_id,09,614,554,554,90.23,0.255,0.537,0.000,1.220,"{""ok"": 554, ""insufficient_matches"": 20, ""fit_failed"": 40}",09_day_pseudocolor_building_614
+AKAZE,scene_id,10,262,132,132,50.38,0.229,0.256,0.001,1.128,"{""ok"": 132, ""fit_failed"": 61, ""insufficient_matches"": 57, ""no_matches"": 12}",10_day_pseudocolor_factory_262
+AKAZE,scene_id,11,181,180,180,99.45,0.175,0.733,0.061,1.127,"{""ok"": 180, ""fit_failed"": 1}",11_night_grayscale_building_181
+AKAZE,scene_id,12,588,588,588,100.00,0.071,0.957,0.004,2.914,"{""ok"": 588}",12_day_grayscale_orchard_588
+AKAZE,scene_id,13,467,424,424,90.79,0.254,0.512,0.018,1.090,"{""ok"": 424, ""fit_failed"": 27, ""insufficient_matches"": 15, ""no_matches"": 1}",13_lowlight_pseudocolor_road_469
+AKAZE,scene_id,14,673,673,673,100.00,0.152,0.809,0.292,1.257,"{""ok"": 673}",14_lowlight_pseudocolor_transmission_tower_673
+AKAZE,scene_id,15,186,171,171,91.94,0.256,0.575,0.029,1.078,"{""ok"": 171, ""insufficient_matches"": 7, ""fit_failed"": 8}",15_lowlight_pseudocolor_woodland_186

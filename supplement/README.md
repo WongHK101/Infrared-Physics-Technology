@@ -11,7 +11,7 @@ This directory is a working skeleton for the IP&T supplementary material. It is 
 5. RIFT2 light-vs-strong sanity check.
 6. Manifest integrity summary.
 7. Additional qualitative examples.
-8. SIFT/AKAZE 12K completeness table, once the background run finishes.
+8. SIFT/AKAZE 12K classical-keypoint completeness table.
 
 ## Current Inputs
 
@@ -21,11 +21,14 @@ This directory is a working skeleton for the IP&T supplementary material. It is 
 - `tables/condition_reliability_profile.csv`
 - `tables/rift2_light_vs_strong_sanity.csv`
 - `tables/manifest_integrity_summary.csv`
-- `tables/sift_akaze_placeholder.md`
+- `tables/sift_akaze_completeness.md`
+- `tables/sift_akaze_pairwise_summary.csv`
+- `tables/sift_akaze_per_scene_summary.csv`
+- `tables/sift_akaze_condition_summary.csv`
 - `figures/qualitative_examples_placeholder.md`
 
 ## Pending User / Team Decisions
 
 - Whether supplementary material is submitted as PDF, DOCX, or repository-linked appendix.
 - Which qualitative examples are cleared for public release.
-- Whether final SIFT/AKAZE results enter the main manuscript table or supplementary baseline completeness table.
+- Whether the full SIFT/AKAZE per-scene and condition details should be rendered as tables or kept as CSV-backed supplementary artifacts.
