@@ -60,6 +60,16 @@ variation, and low-light conditions.
 These factors make scene-level reliability a more central concern than in many standard
 visible-thermal evaluation setups.
 
+The most closely related UAV alignment benchmark direction is represented by synthetic
+transform-supervised visible-infrared alignment datasets and trainable baselines, such as the
+recent TGRS UAVMatch benchmark and transformer-based alignment network
+\cite{gao2025uavmatch}. That line provides controlled affine or homography supervision, train/test
+splits at large scale, and geometric metrics such as RMSE, AEE, and PCK. UAV-TAlign-12K is
+designed for the complementary real-data setting: it fixes an integrity-checked captured
+cross-FOV evaluation split, evaluates off-the-shelf infrared-visible evidence generators, and
+studies how frame-level homographies become retained scene-level alignment products under a
+label-free reliability protocol.
+
 UAV-TAlign-12K extends this evaluation landscape by packaging real cross-FOV infrared-visible scenes
 together with scalable label-free diagnostics. The protocol measures scene consistency and relative
 alignment quality, allowing the study to focus on reliability-controlled scene-level alignment

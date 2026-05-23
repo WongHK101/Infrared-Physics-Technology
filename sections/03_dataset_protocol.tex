@@ -27,6 +27,25 @@ and zoom-view scene families. The packaged formal split includes 7 day scenes, 5
 3 low-light scenes; 8 grayscale-thermal scenes and 7 pseudocolor-thermal scenes; and paired
 wide/zoom controls for the substation scene family.
 
+\begin{table}[t]
+\caption{Positioning of UAV-TAlign-12K relative to representative infrared-visible and UAV
+multimodal resources. UAVMatch denotes the recent synthetic transform-supervised UAV
+visible-infrared alignment benchmark.}
+\label{tab:dataset_positioning}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lllll}
+\toprule
+Resource & Data basis & Alignment signal & Scale & Primary evaluation focus \\
+\midrule
+KAIST / FLIR / LLVIP / M3FD & Ground or mixed RGB-infrared data & Paired or aligned imagery & Dataset-specific & Detection, fusion, low-light perception \\
+DroneVehicle / VTUAV / LasHeR / Anti-UAV & UAV or tracking-centric RGB-infrared data & Task annotations & Dataset-specific & Detection or tracking under multimodal sensing \\
+UAVMatch / TGRS~\cite{gao2025uavmatch} & Synthetic transforms from UAV multimodal data & Affine / homography supervision & 81K train / 15K test pairs & Supervised transform regression and geometric metrics \\
+UAV-TAlign-12K & Real captured cross-FOV UAV infrared-visible data & Manifest-fixed scene reliability protocol & 6,039 candidate / 6,037 valid pairs & Pairwise evidence and scene-level retained alignment \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/fig_dataset_examples.pdf}

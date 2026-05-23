@@ -24,6 +24,11 @@ Recent pairwise matching has advanced rapidly. Transformer, dense, and multimoda
 LoFTR, LightGlue, DKM, RoMa, XoFTR, and MINIMA have substantially improved correspondence
 availability under difficult appearance changes
 \cite{sarlin2020superglue,sun2021loftr,chen2022aspanformer,lindenberger2023lightglue,edstedt2023dkm,edstedt2024roma,tuzcuoglu2024xoftr,ren2025minima}.
+At the benchmark level, recent UAV visible-infrared alignment studies have also shown that
+synthetic transform supervision can support trainable alignment baselines with controlled
+geometric metrics \cite{gao2025uavmatch}. UAV-TAlign-12K targets the complementary operating
+regime: real captured cross-FOV UAV infrared-visible scenes where the central product is a
+retained scene-level transform rather than only a supervised pairwise transform prediction.
 Our 12K-scale experiments confirm this progress in the UAV infrared-visible setting: strong
 off-the-shelf multimodal matchers and an infrared-visible classical baseline already provide
 broadly available pairwise homography evidence on UAV-TAlign-12K. This result creates a concrete
