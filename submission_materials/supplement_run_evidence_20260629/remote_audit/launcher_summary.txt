@@ -1,0 +1,21 @@
+﻿window_tag=20260629_133127
+repo_root=G:\UAV-TAlign\UAV-TAlign
+dataset_root=G:\UAV-TAlign\UAV-TAlign-1K
+python=G:\UAV-TAlign\uav_talign_envs\uav-talign-e10a8be-py310\python.exe
+device=cuda:0
+bundle_root=G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p3p5_supplement_bundle_20260629_133127
+scene_names=01_day_grayscale_wide_substation_power_lines_50,02_day_grayscale_zoom_substation_power_lines_50,03_night_grayscale_wide_substation_power_lines_45,04_night_grayscale_zoom_substation_power_lines_45,07_day_grayscale_transmission_tower_102,08_night_grayscale_urban_22,13_lowlight_pseudocolor_road_21,14_lowlight_pseudocolor_transmission_tower_18
+target_scene_ids=01,02,03,04,07,08,13,14
+seeds=1,2,3
+launched_at=2026-06-29 13:31:27
+launch_mode=inline_powershell
+worker_started_at=2026-06-29 13:31:27
+A1_candidate_only:exit_code=0 root=G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p3p5_supplement_bundle_20260629_133127\prcv_ablation_A1_candidate_only
+A2_candidate_plus_aggregation:exit_code=0 root=G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p3p5_supplement_bundle_20260629_133127\prcv_ablation_A2_candidate_plus_aggregation
+A3_candidate_plus_aggregation_plus_qa:exit_code=0 root=G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p3p5_supplement_bundle_20260629_133127\prcv_ablation_A3_candidate_plus_aggregation_plus_qa
+S1_random_selection_seed0:exit_code=0 root=G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p3p5_supplement_bundle_20260629_133127\prcv_ablation_S1_random_selection_seed0
+S1_random_selection_seed1:exit_code=0 root=G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p3p5_supplement_bundle_20260629_133127\prcv_ablation_S1_random_selection_seed1
+S1_random_selection_seed2:exit_code=0 root=G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p3p5_supplement_bundle_20260629_133127\prcv_ablation_S1_random_selection_seed2
+S1_random_selection_seed3:exit_code=0 root=G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p3p5_supplement_bundle_20260629_133127\prcv_ablation_S1_random_selection_seed3
+exit_code=0
+worker_finished_at=2026-06-29 14:30:01

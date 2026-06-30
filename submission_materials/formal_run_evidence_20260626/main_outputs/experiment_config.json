@@ -1,0 +1,261 @@
+{
+  "dataset_root": "G:\\UAV-TAlign\\UAV-TAlign-12K",
+  "dataset_manifest": {
+    "manifest_path": "G:\\UAV-TAlign\\UAV-TAlign\\manifests\\UAV-TAlign-12K_official_valid_evaluation_manifest.json",
+    "manifest_sha256": "a092f7ad00c6e02ead3bd39de5c246001f1d4bebbc4105ba715ef37bbb202c6c",
+    "manifest_hash_policy": "canonical_json_sort_keys_compact_utf8",
+    "manifest_file_sha256": "817d602dd82b8877d3a6e08ce22beb8511d41ce5c12715b98eaa7dee8f0509ec",
+    "dataset_name": "UAV-TAlign-12K",
+    "manifest_type": "official_valid_evaluation",
+    "manifest_version": "ipt_valid_v1",
+    "full_candidate_pairs": 6039,
+    "full_candidate_images": 12078,
+    "valid_pair_count": 6037,
+    "valid_image_count": 12074,
+    "excluded_pair_count": 2
+  },
+  "output_root": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main",
+  "runtime_environment": {
+    "python_executable": "G:\\UAV-TAlign\\uav_talign_envs\\uav-talign-e10a8be-py310\\python.exe",
+    "python_version": "3.10.18 | packaged by conda-forge | (main, Jun  4 2025, 14:42:04) [MSC v.1943 64 bit (AMD64)]",
+    "git_commit": "c55e39e49cda508bae68520f718894bb0c761cec"
+  },
+  "weight_provenance": {
+    "raw_minima_ckpt": {
+      "path": "",
+      "exists": false
+    },
+    "uav_talign_minima_ckpt": {
+      "path": "",
+      "exists": false
+    },
+    "official_xoftr_ckpt": {
+      "path": "G:\\UAV-TAlign\\UAV-TAlign\\third_party\\MINIMA\\third_party\\XoFTR\\weights\\weights_xoftr_640.ckpt",
+      "exists": true,
+      "size_bytes": 44486099,
+      "mtime": "2026-05-15 15:03:07",
+      "sha256": "6e7f24e553f76746ef49061bf44c7d11252e56057470d1421bcd4e6506af3a67"
+    },
+    "loftr_source": "kornia.feature.LoFTR(pretrained='outdoor')",
+    "roma_source": "third_party.MINIMA.third_party.RoMa_minima.romatch.roma_outdoor"
+  },
+  "methods": [
+    "sift_ransac",
+    "akaze_ransac",
+    "loftr_outdoor",
+    "roma_outdoor",
+    "xoftr_official",
+    "raw_minima",
+    "uav_talign_full"
+  ],
+  "scene_names": null,
+  "pair_ids_by_scene": null,
+  "num_scenes": 15,
+  "num_pairs": 6037,
+  "device": "cuda:0",
+  "loftr_match_max_dim": 0,
+  "loftr_use_amp": false,
+  "seed": 0,
+  "resume": false,
+  "raw_minima_method": "roma",
+  "uav_talign_minima_method": "roma",
+  "uav_talign_frame_count": 12,
+  "uav_talign_min_good_frames": 0,
+  "uav_talign_use_metadata_h0": true,
+  "uav_talign_min_structure_score": null,
+  "uav_talign_frame_selection_mode": "even",
+  "uav_talign_scene_pass_policy": "qa_status",
+  "uav_talign_aggregation_mode": "robust_weighted",
+  "uav_talign_initial_candidate_ratio": 0.15,
+  "uav_talign_candidate_ratio_step": 0.15,
+  "uav_talign_max_candidate_ratio": 0.5,
+  "uav_talign_use_all_if_needed": true,
+  "uav_talign_full_if_frames_le": 300,
+  "uav_talign_warning_min_accepted_ratio": 0.8,
+  "uav_talign_warning_max_severe_outlier_ratio": 0.1,
+  "uav_talign_warning_max_severe_outlier_count": 1,
+  "uav_talign_stability_warn_mean_px": 25.0,
+  "uav_talign_stability_max_reject_ratio": 0.25,
+  "uav_talign_max_severe_outliers": 0,
+  "input_dynamic_range": "uint8",
+  "radiometric_mode": "raw_dn",
+  "runtime_isolation": {
+    "dataset_root": "G:\\UAV-TAlign\\UAV-TAlign-12K",
+    "dataset_write_policy": "read_only_expected",
+    "minima_root": "G:\\UAV-TAlign\\UAV-TAlign\\third_party\\MINIMA",
+    "minima_write_policy": "read_only_expected",
+    "output_root": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main",
+    "prepared_root_parent": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\_prepared",
+    "notes": [
+      "All experiment artifacts must stay under output_root.",
+      "The raw dataset root and algorithm source directories are treated as read-only inputs."
+    ]
+  },
+  "scene_inventory": [
+    {
+      "scene_name": "01_day_grayscale_wide_substation_power_lines_50",
+      "scene_id": "01",
+      "num_pairs": 50,
+      "light_condition": "day",
+      "thermal_rendering": "grayscale",
+      "view": "wide",
+      "scene_label": "substation_power_lines",
+      "view_type": "wide",
+      "scene_family": "substation_power_lines"
+    },
+    {
+      "scene_name": "02_day_grayscale_zoom_substation_power_lines_50",
+      "scene_id": "02",
+      "num_pairs": 50,
+      "light_condition": "day",
+      "thermal_rendering": "grayscale",
+      "view": "zoom",
+      "scene_label": "substation_power_lines",
+      "view_type": "zoom",
+      "scene_family": "substation_power_lines"
+    },
+    {
+      "scene_name": "03_night_grayscale_wide_substation_power_lines_45",
+      "scene_id": "03",
+      "num_pairs": 45,
+      "light_condition": "night",
+      "thermal_rendering": "grayscale",
+      "view": "wide",
+      "scene_label": "substation_power_lines",
+      "view_type": "wide",
+      "scene_family": "substation_power_lines"
+    },
+    {
+      "scene_name": "04_night_grayscale_zoom_substation_power_lines_45",
+      "scene_id": "04",
+      "num_pairs": 45,
+      "light_condition": "night",
+      "thermal_rendering": "grayscale",
+      "view": "zoom",
+      "scene_label": "substation_power_lines",
+      "view_type": "zoom",
+      "scene_family": "substation_power_lines"
+    },
+    {
+      "scene_name": "05_night_pseudocolor_solar_panels_1315",
+      "scene_id": "05",
+      "num_pairs": 1315,
+      "light_condition": "night",
+      "thermal_rendering": "pseudocolor",
+      "view": "None",
+      "scene_label": "solar_panels",
+      "view_type": "None",
+      "scene_family": "solar_panels"
+    },
+    {
+      "scene_name": "06_day_pseudocolor_solar_panels_1037",
+      "scene_id": "06",
+      "num_pairs": 1037,
+      "light_condition": "day",
+      "thermal_rendering": "pseudocolor",
+      "view": "None",
+      "scene_label": "solar_panels",
+      "view_type": "None",
+      "scene_family": "solar_panels"
+    },
+    {
+      "scene_name": "07_day_grayscale_transmission_tower_102",
+      "scene_id": "07",
+      "num_pairs": 102,
+      "light_condition": "day",
+      "thermal_rendering": "grayscale",
+      "view": "None",
+      "scene_label": "transmission_tower",
+      "view_type": "None",
+      "scene_family": "transmission_tower"
+    },
+    {
+      "scene_name": "08_night_grayscale_urban_422",
+      "scene_id": "08",
+      "num_pairs": 422,
+      "light_condition": "night",
+      "thermal_rendering": "grayscale",
+      "view": "None",
+      "scene_label": "urban",
+      "view_type": "None",
+      "scene_family": "urban"
+    },
+    {
+      "scene_name": "09_day_pseudocolor_building_614",
+      "scene_id": "09",
+      "num_pairs": 614,
+      "light_condition": "day",
+      "thermal_rendering": "pseudocolor",
+      "view": "None",
+      "scene_label": "building",
+      "view_type": "None",
+      "scene_family": "building"
+    },
+    {
+      "scene_name": "10_day_pseudocolor_factory_262",
+      "scene_id": "10",
+      "num_pairs": 262,
+      "light_condition": "day",
+      "thermal_rendering": "pseudocolor",
+      "view": "None",
+      "scene_label": "factory",
+      "view_type": "None",
+      "scene_family": "factory"
+    },
+    {
+      "scene_name": "11_night_grayscale_building_181",
+      "scene_id": "11",
+      "num_pairs": 181,
+      "light_condition": "night",
+      "thermal_rendering": "grayscale",
+      "view": "None",
+      "scene_label": "building",
+      "view_type": "None",
+      "scene_family": "building"
+    },
+    {
+      "scene_name": "12_day_grayscale_orchard_588",
+      "scene_id": "12",
+      "num_pairs": 588,
+      "light_condition": "day",
+      "thermal_rendering": "grayscale",
+      "view": "None",
+      "scene_label": "orchard",
+      "view_type": "None",
+      "scene_family": "orchard"
+    },
+    {
+      "scene_name": "13_lowlight_pseudocolor_road_469",
+      "scene_id": "13",
+      "num_pairs": 467,
+      "light_condition": "lowlight",
+      "thermal_rendering": "pseudocolor",
+      "view": "None",
+      "scene_label": "road",
+      "view_type": "None",
+      "scene_family": "road"
+    },
+    {
+      "scene_name": "14_lowlight_pseudocolor_transmission_tower_673",
+      "scene_id": "14",
+      "num_pairs": 673,
+      "light_condition": "lowlight",
+      "thermal_rendering": "pseudocolor",
+      "view": "None",
+      "scene_label": "transmission_tower",
+      "view_type": "None",
+      "scene_family": "transmission_tower"
+    },
+    {
+      "scene_name": "15_lowlight_pseudocolor_woodland_186",
+      "scene_id": "15",
+      "num_pairs": 186,
+      "light_condition": "lowlight",
+      "thermal_rendering": "pseudocolor",
+      "view": "None",
+      "scene_label": "woodland",
+      "view_type": "None",
+      "scene_family": "woodland"
+    }
+  ]
+}

@@ -1,0 +1,450 @@
+{
+  "dataset_root": "G:\\UAV-TAlign\\UAV-TAlign-12K",
+  "dataset_manifest": {
+    "manifest_path": "G:\\UAV-TAlign\\UAV-TAlign\\manifests\\UAV-TAlign-12K_official_valid_evaluation_manifest.json",
+    "manifest_sha256": "a092f7ad00c6e02ead3bd39de5c246001f1d4bebbc4105ba715ef37bbb202c6c",
+    "manifest_hash_policy": "canonical_json_sort_keys_compact_utf8",
+    "manifest_file_sha256": "817d602dd82b8877d3a6e08ce22beb8511d41ce5c12715b98eaa7dee8f0509ec",
+    "dataset_name": "UAV-TAlign-12K",
+    "manifest_type": "official_valid_evaluation",
+    "manifest_version": "ipt_valid_v1",
+    "full_candidate_pairs": 6039,
+    "full_candidate_images": 12078,
+    "valid_pair_count": 6037,
+    "valid_image_count": 12074,
+    "excluded_pair_count": 2
+  },
+  "output_root": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main",
+  "runtime_environment": {
+    "python_executable": "G:\\UAV-TAlign\\uav_talign_envs\\uav-talign-e10a8be-py310\\python.exe",
+    "python_version": "3.10.18 | packaged by conda-forge | (main, Jun  4 2025, 14:42:04) [MSC v.1943 64 bit (AMD64)]",
+    "git_commit": "c55e39e49cda508bae68520f718894bb0c761cec"
+  },
+  "weight_provenance": {
+    "raw_minima_ckpt": {
+      "path": "",
+      "exists": false
+    },
+    "uav_talign_minima_ckpt": {
+      "path": "",
+      "exists": false
+    },
+    "official_xoftr_ckpt": {
+      "path": "G:\\UAV-TAlign\\UAV-TAlign\\third_party\\MINIMA\\third_party\\XoFTR\\weights\\weights_xoftr_640.ckpt",
+      "exists": true,
+      "size_bytes": 44486099,
+      "mtime": "2026-05-15 15:03:07",
+      "sha256": "6e7f24e553f76746ef49061bf44c7d11252e56057470d1421bcd4e6506af3a67"
+    },
+    "loftr_source": "kornia.feature.LoFTR(pretrained='outdoor')",
+    "roma_source": "third_party.MINIMA.third_party.RoMa_minima.romatch.roma_outdoor"
+  },
+  "methods": [
+    "sift_ransac",
+    "akaze_ransac",
+    "loftr_outdoor",
+    "roma_outdoor",
+    "xoftr_official",
+    "raw_minima",
+    "uav_talign_full"
+  ],
+  "scene_names": null,
+  "pair_ids_by_scene": null,
+  "num_scenes": 15,
+  "num_pairs": 6037,
+  "seed": 0,
+  "resume": false,
+  "runtime_isolation": {
+    "dataset_root": "G:\\UAV-TAlign\\UAV-TAlign-12K",
+    "dataset_write_policy": "read_only_expected",
+    "minima_root": "G:\\UAV-TAlign\\UAV-TAlign\\third_party\\MINIMA",
+    "minima_write_policy": "read_only_expected",
+    "output_root": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main",
+    "prepared_root_parent": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\_prepared",
+    "notes": [
+      "All experiment artifacts must stay under output_root.",
+      "The raw dataset root and algorithm source directories are treated as read-only inputs."
+    ]
+  },
+  "method_summaries": {
+    "sift_ransac": {
+      "num_records": 6037,
+      "status_counts": {
+        "ok": 5257,
+        "error": 153,
+        "fit_failed": 289,
+        "no_matches": 93,
+        "insufficient_matches": 245
+      },
+      "homography_available_count": 5257,
+      "num_matches_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 50.540334603279774,
+        "median": 23.0,
+        "max": 1657.0,
+        "std": 79.44021417214603
+      },
+      "num_inliers_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 13.031803876097399,
+        "median": 5.0,
+        "max": 657.0,
+        "std": 30.519243105147286
+      },
+      "inlier_ratio_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 0.2424565500338976,
+        "median": 0.2222222222222222,
+        "max": 1.0,
+        "std": 0.1631819108330913
+      },
+      "coverage_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 0.6271119761470929,
+        "median": 0.625,
+        "max": 1.0,
+        "std": 0.28071558159678556
+      },
+      "reprojection_error_summary": {
+        "n": 5257,
+        "min": 0.0,
+        "mean": 0.1667471413735846,
+        "median": 0.0003763847635127604,
+        "max": 1.9747623205184937,
+        "std": 0.28047812950704937
+      },
+      "runtime_sec_summary": {
+        "n": 6037,
+        "min": 0.9486162662506104,
+        "mean": 4.420841381528904,
+        "median": 1.5613517761230469,
+        "max": 32.459187746047974,
+        "std": 6.111730258685483
+      }
+    },
+    "akaze_ransac": {
+      "num_records": 6037,
+      "status_counts": {
+        "ok": 5692,
+        "fit_failed": 152,
+        "no_matches": 92,
+        "insufficient_matches": 101
+      },
+      "homography_available_count": 5692,
+      "num_matches_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 52.41626635746231,
+        "median": 44.0,
+        "max": 2071.0,
+        "std": 51.71299365291647
+      },
+      "num_inliers_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 6.819778035448071,
+        "median": 5.0,
+        "max": 384.0,
+        "std": 10.427041449576302
+      },
+      "inlier_ratio_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 0.15995910105292016,
+        "median": 0.125,
+        "max": 1.0,
+        "std": 0.12712342529837295
+      },
+      "coverage_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 0.7302882226271327,
+        "median": 0.8125,
+        "max": 1.0,
+        "std": 0.24704688604532646
+      },
+      "reprojection_error_summary": {
+        "n": 5692,
+        "min": 0.0,
+        "mean": 0.28394326152217236,
+        "median": 0.10491674020886421,
+        "max": 1.964774250984192,
+        "std": 0.38957744103429104
+      },
+      "runtime_sec_summary": {
+        "n": 6037,
+        "min": 0.6691062450408936,
+        "mean": 1.1028550224073561,
+        "median": 0.9697704315185547,
+        "max": 2.241406202316284,
+        "std": 0.2964349322624687
+      }
+    },
+    "loftr_outdoor": {
+      "num_records": 6037,
+      "status_counts": {
+        "error": 6037
+      },
+      "homography_available_count": 0,
+      "num_matches_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "max": 0.0,
+        "std": 0.0
+      },
+      "num_inliers_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "max": 0.0,
+        "std": 0.0
+      },
+      "inlier_ratio_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "max": 0.0,
+        "std": 0.0
+      },
+      "coverage_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 0.0,
+        "median": 0.0,
+        "max": 0.0,
+        "std": 0.0
+      },
+      "reprojection_error_summary": {
+        "n": 0,
+        "min": null,
+        "mean": null,
+        "median": null,
+        "max": null,
+        "std": null
+      },
+      "runtime_sec_summary": {
+        "n": 6037,
+        "min": 0.8593862056732178,
+        "mean": 1.255177767876661,
+        "median": 1.2599191665649414,
+        "max": 13.058764696121216,
+        "std": 0.181096738378213
+      }
+    },
+    "roma_outdoor": {
+      "num_records": 6037,
+      "status_counts": {
+        "ok": 6037
+      },
+      "homography_available_count": 6037,
+      "num_matches_summary": {
+        "n": 6037,
+        "min": 10000.0,
+        "mean": 10000.0,
+        "median": 10000.0,
+        "max": 10000.0,
+        "std": 0.0
+      },
+      "num_inliers_summary": {
+        "n": 6037,
+        "min": 13.0,
+        "mean": 3276.3347689249626,
+        "median": 3524.0,
+        "max": 9276.0,
+        "std": 1664.6684536363548
+      },
+      "inlier_ratio_summary": {
+        "n": 6037,
+        "min": 0.0013,
+        "mean": 0.3276334768924963,
+        "median": 0.3524,
+        "max": 0.9276,
+        "std": 0.16646684536363546
+      },
+      "coverage_summary": {
+        "n": 6037,
+        "min": 0.6875,
+        "mean": 0.9971115620341229,
+        "median": 1.0,
+        "max": 1.0,
+        "std": 0.02019185604847809
+      },
+      "reprojection_error_summary": {
+        "n": 6037,
+        "min": 0.7605899572372437,
+        "mean": 1.723027476949251,
+        "median": 1.7409451007843018,
+        "max": 2.116854190826416,
+        "std": 0.13580255640374234
+      },
+      "runtime_sec_summary": {
+        "n": 6037,
+        "min": 0.8587281703948975,
+        "mean": 0.9289362150172988,
+        "median": 0.9302065372467041,
+        "max": 1.4634613990783691,
+        "std": 0.0185954464700486
+      }
+    },
+    "xoftr_official": {
+      "num_records": 6037,
+      "status_counts": {
+        "ok": 5989,
+        "fit_failed": 11,
+        "insufficient_matches": 31,
+        "no_matches": 6
+      },
+      "homography_available_count": 5989,
+      "num_matches_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 855.2352161669703,
+        "median": 520.0,
+        "max": 4249.0,
+        "std": 856.581407960339
+      },
+      "num_inliers_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 98.60559880735465,
+        "median": 25.0,
+        "max": 2005.0,
+        "std": 173.39824238042195
+      },
+      "inlier_ratio_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 0.0890570767537626,
+        "median": 0.06896551724137931,
+        "max": 0.8,
+        "std": 0.07787191587036645
+      },
+      "coverage_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 0.9493953950637734,
+        "median": 1.0,
+        "max": 1.0,
+        "std": 0.13651112595325265
+      },
+      "reprojection_error_summary": {
+        "n": 5989,
+        "min": 0.0,
+        "mean": 1.3697989104802812,
+        "median": 1.732160210609436,
+        "max": 2.3582983016967773,
+        "std": 0.6431507374204647
+      },
+      "runtime_sec_summary": {
+        "n": 6037,
+        "min": 0.3231823444366455,
+        "mean": 0.6468350442608638,
+        "median": 0.6930723190307617,
+        "max": 1.1200616359710693,
+        "std": 0.16319227491329527
+      }
+    },
+    "raw_minima": {
+      "num_records": 6037,
+      "status_counts": {
+        "ok": 6037
+      },
+      "homography_available_count": 6037,
+      "num_matches_summary": {
+        "n": 6037,
+        "min": 10000.0,
+        "mean": 10000.0,
+        "median": 10000.0,
+        "max": 10000.0,
+        "std": 0.0
+      },
+      "num_inliers_summary": {
+        "n": 6037,
+        "min": 35.0,
+        "mean": 3191.6450223621005,
+        "median": 3391.0,
+        "max": 8864.0,
+        "std": 1474.9994367659888
+      },
+      "inlier_ratio_summary": {
+        "n": 6037,
+        "min": 0.0035,
+        "mean": 0.31916450223621007,
+        "median": 0.3391,
+        "max": 0.8864,
+        "std": 0.14749994367659885
+      },
+      "coverage_summary": {
+        "n": 6037,
+        "min": 0.6875,
+        "mean": 0.9996272983269836,
+        "median": 1.0,
+        "max": 1.0,
+        "std": 0.007094442309575959
+      },
+      "reprojection_error_summary": {
+        "n": 6037,
+        "min": 1.0642427206039429,
+        "mean": 1.7647968361625337,
+        "median": 1.7733666896820068,
+        "max": 2.102888584136963,
+        "std": 0.11438283746830376
+      },
+      "runtime_sec_summary": {
+        "n": 6037,
+        "min": 1.0486791133880615,
+        "mean": 1.3459013207021564,
+        "median": 1.400115728378296,
+        "max": 1.71875,
+        "std": 0.14690946058361362
+      }
+    },
+    "uav_talign_full": {
+      "num_records": 15,
+      "status_counts": {
+        "pass": 8,
+        "canonical_fail": 6,
+        "pass_with_warning": 1
+      },
+      "qa_status_counts": {
+        "pass": 8,
+        "fail": 6,
+        "pass_with_warning": 1
+      },
+      "canonical_scene_pass_count": 9,
+      "homography_available_count": 15,
+      "accepted_frames_summary": {
+        "n": 15,
+        "min": 32.0,
+        "mean": 164.86666666666667,
+        "median": 72.0,
+        "max": 891.0,
+        "std": 222.80899642718396
+      },
+      "attempted_frames_summary": {
+        "n": 15,
+        "min": 45.0,
+        "mean": 256.46666666666664,
+        "median": 181.0,
+        "max": 1037.0,
+        "std": 267.59667827202605
+      },
+      "runtime_sec_summary": {
+        "n": 15,
+        "min": 60.49904537200928,
+        "mean": 364.95366225242617,
+        "median": 233.18105244636536,
+        "max": 1449.2750024795532,
+        "std": 380.8586993099655
+      }
+    }
+  }
+}

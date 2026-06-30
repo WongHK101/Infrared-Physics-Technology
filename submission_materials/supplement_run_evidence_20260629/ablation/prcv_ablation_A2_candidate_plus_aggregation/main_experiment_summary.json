@@ -1,0 +1,107 @@
+{
+  "dataset_root": "G:\\UAV-TAlign\\UAV-TAlign-1K",
+  "dataset_manifest": {
+    "manifest_path": "G:\\UAV-TAlign\\UAV-TAlign-1K\\subset_manifest.json",
+    "manifest_sha256": "27c99fb9b0235d98242cdc649efcd75bdb9a75015092916b4215dbb3eeef4811",
+    "manifest_hash_policy": "canonical_json_sort_keys_compact_utf8",
+    "manifest_file_sha256": "03007a8bb590a519714b41aef30d3a290cda7a20aa4b8062806a1ceed66ec9f1",
+    "dataset_name": "UAV-TAlign-1K",
+    "manifest_type": "dataset_manifest",
+    "manifest_version": null,
+    "full_candidate_pairs": null,
+    "full_candidate_images": null,
+    "valid_pair_count": null,
+    "valid_image_count": null,
+    "excluded_pair_count": 0
+  },
+  "output_root": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p3p5_supplement_bundle_20260629_133127\\prcv_ablation_A2_candidate_plus_aggregation",
+  "runtime_environment": {
+    "python_executable": "G:\\UAV-TAlign\\uav_talign_envs\\uav-talign-e10a8be-py310\\python.exe",
+    "python_version": "3.10.18 | packaged by conda-forge | (main, Jun  4 2025, 14:42:04) [MSC v.1943 64 bit (AMD64)]",
+    "git_commit": "c55e39e49cda508bae68520f718894bb0c761cec"
+  },
+  "weight_provenance": {
+    "raw_minima_ckpt": {
+      "path": "",
+      "exists": false
+    },
+    "uav_talign_minima_ckpt": {
+      "path": "",
+      "exists": false
+    },
+    "official_xoftr_ckpt": {
+      "path": "",
+      "exists": false
+    },
+    "loftr_source": "kornia.feature.LoFTR(pretrained='outdoor')",
+    "roma_source": "third_party.MINIMA.third_party.RoMa_minima.romatch.roma_outdoor"
+  },
+  "methods": [
+    "uav_talign_full"
+  ],
+  "scene_names": [
+    "01_day_grayscale_wide_substation_power_lines_50",
+    "02_day_grayscale_zoom_substation_power_lines_50",
+    "03_night_grayscale_wide_substation_power_lines_45",
+    "04_night_grayscale_zoom_substation_power_lines_45",
+    "07_day_grayscale_transmission_tower_102",
+    "08_night_grayscale_urban_22",
+    "13_lowlight_pseudocolor_road_21",
+    "14_lowlight_pseudocolor_transmission_tower_18"
+  ],
+  "pair_ids_by_scene": null,
+  "num_scenes": 8,
+  "num_pairs": 353,
+  "seed": 0,
+  "resume": false,
+  "runtime_isolation": {
+    "dataset_root": "G:\\UAV-TAlign\\UAV-TAlign-1K",
+    "dataset_write_policy": "read_only_expected",
+    "minima_root": "G:\\UAV-TAlign\\UAV-TAlign\\third_party\\MINIMA",
+    "minima_write_policy": "read_only_expected",
+    "output_root": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p3p5_supplement_bundle_20260629_133127\\prcv_ablation_A2_candidate_plus_aggregation",
+    "prepared_root_parent": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p3p5_supplement_bundle_20260629_133127\\prcv_ablation_A2_candidate_plus_aggregation\\_prepared",
+    "notes": [
+      "All experiment artifacts must stay under output_root.",
+      "The raw dataset root and algorithm source directories are treated as read-only inputs."
+    ]
+  },
+  "method_summaries": {
+    "uav_talign_full": {
+      "num_records": 8,
+      "status_counts": {
+        "pass": 8
+      },
+      "qa_status_counts": {
+        "pass": 5,
+        "fail": 3
+      },
+      "canonical_scene_pass_count": 8,
+      "homography_available_count": 8,
+      "accepted_frames_summary": {
+        "n": 8,
+        "min": 8.0,
+        "mean": 13.625,
+        "median": 11.5,
+        "max": 34.0,
+        "std": 7.857122564908861
+      },
+      "attempted_frames_summary": {
+        "n": 8,
+        "min": 12.0,
+        "mean": 17.75,
+        "median": 12.0,
+        "max": 39.0,
+        "std": 8.98262211161084
+      },
+      "runtime_sec_summary": {
+        "n": 8,
+        "min": 21.175949096679688,
+        "mean": 30.60598674416542,
+        "median": 23.798341155052185,
+        "max": 53.88391923904419,
+        "std": 11.239911048016202
+      }
+    }
+  }
+}

@@ -11,13 +11,12 @@ focused on practical deployability rather than dataset-specific adaptation.
 Unified inference wrappers standardize model loading, image I/O, homography fitting, and output
 schemas while preserving the public pretrained baseline parameters and settings.
 
-The baseline suite includes a domain-specific infrared-visible classical method and modern
-dense/learned matchers. RIFT2 is evaluated through a Python implementation under a resize-aware
-setting. The modern pairwise baselines are Kornia LoFTR (pretrained="outdoor"), RoMa outdoor full,
-XoFTR-640, and raw MINIMA. Raw MINIMA uses the MINIMA RoMa branch as a direct pairwise baseline;
-reliability-guided evidence selection, robust scene consensus, and QA-aware verification are
-activated in the UAV-TAlign full framework
-\cite{li2020rift,sun2021loftr,edstedt2024roma,tuzcuoglu2024xoftr,ren2025minima}.
+The baseline suite covers classical keypoint pipelines and modern learned matchers. The classical
+pairwise references are SIFT and AKAZE, each followed by RANSAC-based homography fitting. The modern pairwise baselines are Kornia
+LoFTR (pretrained="outdoor"), RoMa outdoor full, XoFTR-640, and raw MINIMA. Raw MINIMA uses the
+MINIMA RoMa branch as a direct pairwise baseline. Reliability-guided evidence selection, robust
+scene consensus, and QA-aware verification are activated only in the full UAV-TAlign framework
+\cite{sun2021loftr,edstedt2024roma,tuzcuoglu2024xoftr,ren2025minima}.
 
 \subsection{Shared Geometric Fitting}
 
@@ -28,7 +27,7 @@ category. This unified post-processing is important because it makes the pairwis
 table comparable at the level of usable registration outcomes rather than raw matcher outputs
 alone.
 
-The common evaluator uses a robust homography backend across the modern pairwise baselines:
+The common evaluator uses a robust homography backend across the pairwise baselines:
 \begin{itemize}
 \item robust fitting method: USAC-MAGSAC;
 \item reprojection threshold: 3.0;
@@ -36,11 +35,6 @@ The common evaluator uses a robust homography backend across the modern pairwise
 \item maximum iterations: 10000;
 \item spatial coverage grid: $4 \times 4$.
 \end{itemize}
-
-RIFT2 is reported as \emph{RIFT2 (Python, resize-aware)}. Its disclosed configuration is
-\texttt{max\_dim=1200}, \texttt{npt=2000}, \texttt{patch\_size=64}, Lowe ratio 0.95, and OpenCV
-USAC-MAGSAC for downstream homography estimation. We report it as a fixed Python resize-aware
-deployment setting for the UAV-TAlign-12K evaluation.
 
 \subsection{Main-Table Baseline Choices}
 
@@ -52,13 +46,12 @@ model from Kornia.
 
 \subsection{Evaluation Details}
 
-The LoFTR baseline is evaluated under a resize-aware inference setting. The longest image
-dimension used for matching is limited to 1600, and automatic mixed precision is disabled. This
-deployment setting preserves the public pretrained model while supporting consistent full-subset
-evaluation within the fixed deployment budget.
+The LoFTR baseline is evaluated under a memory-safe resize-aware inference setting. The longest
+image dimension used for matching is limited to 1200, and automatic mixed precision is enabled.
+This accepted retry profile preserves the public pretrained model while supporting consistent
+full-subset evaluation within the fixed deployment budget.
 
 Journal-scale experiments were conducted in isolated Python environments on an NVIDIA RTX 4090
 workstation. The main environment used Python 3.10 with PyTorch 2.0.1, torchvision 0.15.2, CUDA
-11.8, OpenCV 4.11.0, and Kornia 0.6.11. RIFT2 ran separately under Python 3.11 with OpenCV 4.10.0
-and NumPy 1.26.4. All runs used the fixed official manifest, fixed public weights or model
-interfaces, isolated output roots, and read-only raw dataset directories.
+11.8, OpenCV 4.11.0, and Kornia 0.6.11. All runs used the fixed official manifest, fixed public
+weights or model interfaces, isolated output roots, and read-only raw dataset directories.

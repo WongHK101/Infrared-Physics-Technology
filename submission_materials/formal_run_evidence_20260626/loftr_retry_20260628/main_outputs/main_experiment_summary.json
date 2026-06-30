@@ -1,0 +1,120 @@
+{
+  "dataset_root": "G:\\UAV-TAlign\\UAV-TAlign-12K",
+  "dataset_manifest": {
+    "manifest_path": "G:\\UAV-TAlign\\UAV-TAlign\\manifests\\UAV-TAlign-12K_official_valid_evaluation_manifest.json",
+    "manifest_sha256": "a092f7ad00c6e02ead3bd39de5c246001f1d4bebbc4105ba715ef37bbb202c6c",
+    "manifest_hash_policy": "canonical_json_sort_keys_compact_utf8",
+    "manifest_file_sha256": "817d602dd82b8877d3a6e08ce22beb8511d41ce5c12715b98eaa7dee8f0509ec",
+    "dataset_name": "UAV-TAlign-12K",
+    "manifest_type": "official_valid_evaluation",
+    "manifest_version": "ipt_valid_v1",
+    "full_candidate_pairs": 6039,
+    "full_candidate_images": 12078,
+    "valid_pair_count": 6037,
+    "valid_image_count": 12074,
+    "excluded_pair_count": 2
+  },
+  "output_root": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_loftr_retry_20260626_140300",
+  "runtime_environment": {
+    "python_executable": "G:\\UAV-TAlign\\uav_talign_envs\\uav-talign-e10a8be-py310\\python.exe",
+    "python_version": "3.10.18 | packaged by conda-forge | (main, Jun  4 2025, 14:42:04) [MSC v.1943 64 bit (AMD64)]",
+    "git_commit": "c55e39e49cda508bae68520f718894bb0c761cec"
+  },
+  "weight_provenance": {
+    "raw_minima_ckpt": {
+      "path": "",
+      "exists": false
+    },
+    "uav_talign_minima_ckpt": {
+      "path": "",
+      "exists": false
+    },
+    "official_xoftr_ckpt": {
+      "path": "",
+      "exists": false
+    },
+    "loftr_source": "kornia.feature.LoFTR(pretrained='outdoor')",
+    "roma_source": "third_party.MINIMA.third_party.RoMa_minima.romatch.roma_outdoor"
+  },
+  "methods": [
+    "loftr_outdoor"
+  ],
+  "scene_names": null,
+  "pair_ids_by_scene": null,
+  "num_scenes": 15,
+  "num_pairs": 6037,
+  "seed": 0,
+  "resume": false,
+  "runtime_isolation": {
+    "dataset_root": "G:\\UAV-TAlign\\UAV-TAlign-12K",
+    "dataset_write_policy": "read_only_expected",
+    "minima_root": "G:\\UAV-TAlign\\UAV-TAlign\\third_party\\MINIMA",
+    "minima_write_policy": "read_only_expected",
+    "output_root": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_loftr_retry_20260626_140300",
+    "prepared_root_parent": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_loftr_retry_20260626_140300\\_prepared",
+    "notes": [
+      "All experiment artifacts must stay under output_root.",
+      "The raw dataset root and algorithm source directories are treated as read-only inputs."
+    ]
+  },
+  "method_summaries": {
+    "loftr_outdoor": {
+      "num_records": 6037,
+      "status_counts": {
+        "ok": 5984,
+        "fit_failed": 13,
+        "insufficient_matches": 35,
+        "no_matches": 5
+      },
+      "homography_available_count": 5984,
+      "num_matches_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 256.17856551267187,
+        "median": 213.0,
+        "max": 6281.0,
+        "std": 259.2330770246797
+      },
+      "num_inliers_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 14.861520622825907,
+        "median": 7.0,
+        "max": 615.0,
+        "std": 21.46882447310971
+      },
+      "inlier_ratio_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 0.07376900876141765,
+        "median": 0.05405405405405406,
+        "max": 1.0,
+        "std": 0.07296906814961931
+      },
+      "coverage_summary": {
+        "n": 6037,
+        "min": 0.0,
+        "mean": 0.8951258903428856,
+        "median": 1.0,
+        "max": 1.0,
+        "std": 0.18162950547964873
+      },
+      "reprojection_error_summary": {
+        "n": 5983,
+        "min": 0.0,
+        "mean": 0.9417955537244084,
+        "median": 0.8226231932640076,
+        "max": 2.378061294555664,
+        "std": 0.67178593503311
+      },
+      "runtime_sec_summary": {
+        "n": 6037,
+        "min": 0.12000083923339844,
+        "mean": 0.1688754416783756,
+        "median": 0.17078518867492676,
+        "max": 2.1654865741729736,
+        "std": 0.028221274490004375
+      }
+    }
+  }
+}

@@ -1,0 +1,687 @@
+[prcv-main:uav_talign_full] scene 1/8 name=01_day_grayscale_wide_substation_power_lines_50 pairs=50
+Using coarse resolution (560, 560), and upsample res (864, 864)
+[rectification:T] start MINIMA estimation: total_frames=50, min_good_frames=8, policy=adaptive, schedule=[12, 20, 25, 50]
+[rectification:T] candidate_count=12, new_records=12, accepted=0/8
+[rectification:T] matching 1/12 frame_id=000001 image=000001.jpg
+[rectification:T] result accepted=True raw=10000 conf=8843 inliers=4270 inlier_ratio=0.483 reproj=1.649 coverage=0.938 accepted_total=1/8
+[rectification:T] matching 2/12 frame_id=000005 image=000005.jpg
+[rectification:T] result accepted=True raw=10000 conf=7994 inliers=6005 inlier_ratio=0.751 reproj=1.342 coverage=0.750 accepted_total=2/8
+[rectification:T] matching 3/12 frame_id=000010 image=000010.jpg
+[rectification:T] result accepted=True raw=10000 conf=9756 inliers=4078 inlier_ratio=0.418 reproj=1.893 coverage=0.938 accepted_total=3/8
+[rectification:T] matching 4/12 frame_id=000014 image=000014.jpg
+[rectification:T] result accepted=True raw=10000 conf=9468 inliers=3800 inlier_ratio=0.401 reproj=1.915 coverage=0.938 accepted_total=4/8
+[rectification:T] matching 5/12 frame_id=000019 image=000019.jpg
+[rectification:T] result accepted=True raw=10000 conf=9527 inliers=5667 inlier_ratio=0.595 reproj=1.413 coverage=1.000 accepted_total=5/8
+[rectification:T] matching 6/12 frame_id=000023 image=000023.jpg
+[rectification:T] result accepted=True raw=10000 conf=9271 inliers=5853 inlier_ratio=0.631 reproj=1.564 coverage=1.000 accepted_total=6/8
+[rectification:T] matching 7/12 frame_id=000028 image=000028.jpg
+[rectification:T] result accepted=True raw=10000 conf=9989 inliers=3750 inlier_ratio=0.375 reproj=1.760 coverage=1.000 accepted_total=7/8
+[rectification:T] matching 8/12 frame_id=000032 image=000032.jpg
+[rectification:T] result accepted=True raw=10000 conf=9992 inliers=6203 inlier_ratio=0.621 reproj=1.622 coverage=1.000 accepted_total=8/8
+[rectification:T] matching 9/12 frame_id=000037 image=000037.jpg
+[rectification:T] result accepted=True raw=10000 conf=9249 inliers=4583 inlier_ratio=0.496 reproj=1.441 coverage=1.000 accepted_total=9/8
+[rectification:T] matching 10/12 frame_id=000041 image=000041.jpg
+[rectification:T] result accepted=True raw=10000 conf=9516 inliers=7247 inlier_ratio=0.762 reproj=1.322 coverage=0.875 accepted_total=10/8
+[rectification:T] matching 11/12 frame_id=000046 image=000046.jpg
+[rectification:T] result accepted=True raw=10000 conf=9750 inliers=7870 inlier_ratio=0.807 reproj=1.489 coverage=1.000 accepted_total=11/8
+[rectification:T] matching 12/12 frame_id=000050 image=000050.jpg
+[rectification:T] result accepted=True raw=10000 conf=9561 inliers=8312 inlier_ratio=0.869 reproj=1.326 coverage=0.938 accepted_total=12/8
+[rectification:T] expanding candidates: qa_status=pass accepted_enough=True stability_ok=False qa_ok=True
+[rectification:T] candidate_count=20, new_records=14, accepted=12/8
+[rectification:T] matching 1/14 frame_id=000004 image=000004.jpg
+[rectification:T] result accepted=True raw=10000 conf=9291 inliers=4143 inlier_ratio=0.446 reproj=1.555 coverage=1.000 accepted_total=13/8
+[rectification:T] matching 2/14 frame_id=000006 image=000006.jpg
+[rectification:T] result accepted=True raw=10000 conf=8565 inliers=5112 inlier_ratio=0.597 reproj=1.249 coverage=1.000 accepted_total=14/8
+[rectification:T] matching 3/14 frame_id=000009 image=000009.jpg
+[rectification:T] result accepted=True raw=10000 conf=9598 inliers=5515 inlier_ratio=0.575 reproj=1.444 coverage=1.000 accepted_total=15/8
+[rectification:T] matching 4/14 frame_id=000011 image=000011.jpg
+[rectification:T] result accepted=True raw=10000 conf=9053 inliers=3253 inlier_ratio=0.359 reproj=1.870 coverage=0.938 accepted_total=16/8
+[rectification:T] matching 5/14 frame_id=000016 image=000016.jpg
+[rectification:T] result accepted=True raw=10000 conf=9779 inliers=4155 inlier_ratio=0.425 reproj=1.891 coverage=1.000 accepted_total=17/8
+[rectification:T] matching 6/14 frame_id=000022 image=000022.jpg
+[rectification:T] result accepted=True raw=10000 conf=9707 inliers=3883 inlier_ratio=0.400 reproj=1.861 coverage=1.000 accepted_total=18/8
+[rectification:T] matching 7/14 frame_id=000024 image=000024.jpg
+[rectification:T] result accepted=True raw=10000 conf=9381 inliers=7116 inlier_ratio=0.759 reproj=1.474 coverage=1.000 accepted_total=19/8
+[rectification:T] matching 8/14 frame_id=000027 image=000027.jpg
+[rectification:T] result accepted=True raw=10000 conf=9998 inliers=4876 inlier_ratio=0.488 reproj=1.684 coverage=1.000 accepted_total=20/8
+[rectification:T] matching 9/14 frame_id=000029 image=000029.jpg
+[rectification:T] result accepted=True raw=10000 conf=9958 inliers=6053 inlier_ratio=0.608 reproj=1.759 coverage=1.000 accepted_total=21/8
+[rectification:T] matching 10/14 frame_id=000035 image=000035.jpg
+[rectification:T] result accepted=True raw=10000 conf=9562 inliers=4811 inlier_ratio=0.503 reproj=1.621 coverage=1.000 accepted_total=22/8
+[rectification:T] matching 11/14 frame_id=000040 image=000040.jpg
+[rectification:T] result accepted=True raw=10000 conf=9834 inliers=7543 inlier_ratio=0.767 reproj=1.280 coverage=1.000 accepted_total=23/8
+[rectification:T] matching 12/14 frame_id=000042 image=000042.jpg
+[rectification:T] result accepted=True raw=10000 conf=9503 inliers=5793 inlier_ratio=0.610 reproj=1.793 coverage=1.000 accepted_total=24/8
+[rectification:T] matching 13/14 frame_id=000045 image=000045.jpg
+[rectification:T] result accepted=True raw=10000 conf=9689 inliers=8828 inlier_ratio=0.911 reproj=1.250 coverage=1.000 accepted_total=25/8
+[rectification:T] matching 14/14 frame_id=000047 image=000047.jpg
+[rectification:T] result accepted=True raw=10000 conf=9755 inliers=7706 inlier_ratio=0.790 reproj=1.529 coverage=1.000 accepted_total=26/8
+[rectification:T] expanding candidates: qa_status=pass accepted_enough=True stability_ok=False qa_ok=True
+[rectification:T] candidate_count=25, new_records=13, accepted=26/8
+[rectification:T] matching 1/13 frame_id=000003 image=000003.jpg
+[rectification:T] result accepted=True raw=10000 conf=9290 inliers=4912 inlier_ratio=0.529 reproj=1.763 coverage=1.000 accepted_total=27/8
+[rectification:T] matching 2/13 frame_id=000007 image=000007.jpg
+[rectification:T] result accepted=True raw=10000 conf=9055 inliers=7547 inlier_ratio=0.833 reproj=1.161 coverage=0.938 accepted_total=28/8
+[rectification:T] matching 3/13 frame_id=000013 image=000013.jpg
+[rectification:T] result accepted=True raw=10000 conf=9603 inliers=3500 inlier_ratio=0.364 reproj=1.812 coverage=0.938 accepted_total=29/8
+[rectification:T] matching 4/13 frame_id=000015 image=000015.jpg
+[rectification:T] result accepted=True raw=10000 conf=9770 inliers=3275 inlier_ratio=0.335 reproj=1.922 coverage=1.000 accepted_total=30/8
+[rectification:T] matching 5/13 frame_id=000017 image=000017.jpg
+[rectification:T] result accepted=True raw=10000 conf=9891 inliers=6156 inlier_ratio=0.622 reproj=1.802 coverage=0.812 accepted_total=31/8
+[rectification:T] matching 6/13 frame_id=000021 image=000021.jpg
+[rectification:T] result accepted=True raw=10000 conf=9621 inliers=4789 inlier_ratio=0.498 reproj=1.803 coverage=0.938 accepted_total=32/8
+[rectification:T] matching 7/13 frame_id=000025 image=000025.jpg
+[rectification:T] result accepted=False raw=10000 conf=9414 inliers=1468 inlier_ratio=0.156 reproj=1.524 coverage=1.000 accepted_total=32/8
+[rectification:T] matching 8/13 frame_id=000030 image=000030.jpg
+[rectification:T] result accepted=True raw=10000 conf=9989 inliers=5479 inlier_ratio=0.549 reproj=1.787 coverage=1.000 accepted_total=33/8
+[rectification:T] matching 9/13 frame_id=000034 image=000034.jpg
+[rectification:T] result accepted=True raw=10000 conf=9988 inliers=6225 inlier_ratio=0.623 reproj=1.651 coverage=1.000 accepted_total=34/8
+[rectification:T] matching 10/13 frame_id=000036 image=000036.jpg
+[rectification:T] result accepted=True raw=10000 conf=9368 inliers=4745 inlier_ratio=0.507 reproj=1.560 coverage=1.000 accepted_total=35/8
+[rectification:T] matching 11/13 frame_id=000038 image=000038.jpg
+[rectification:T] result accepted=True raw=10000 conf=9677 inliers=5826 inlier_ratio=0.602 reproj=1.721 coverage=1.000 accepted_total=36/8
+[rectification:T] matching 12/13 frame_id=000044 image=000044.jpg
+[rectification:T] result accepted=True raw=10000 conf=9886 inliers=3792 inlier_ratio=0.384 reproj=1.568 coverage=0.938 accepted_total=37/8
+[rectification:T] matching 13/13 frame_id=000048 image=000048.jpg
+[rectification:T] result accepted=True raw=10000 conf=9429 inliers=5923 inlier_ratio=0.628 reproj=1.646 coverage=1.000 accepted_total=38/8
+[rectification:T] expanding candidates: qa_status=pass accepted_enough=True stability_ok=False qa_ok=True
+[rectification:T] candidate_count=50, new_records=11, accepted=38/8
+[rectification:T] matching 1/11 frame_id=000002 image=000002.jpg
+[rectification:T] result accepted=True raw=10000 conf=8847 inliers=4444 inlier_ratio=0.502 reproj=1.453 coverage=0.938 accepted_total=39/8
+[rectification:T] matching 2/11 frame_id=000008 image=000008.jpg
+[rectification:T] result accepted=True raw=10000 conf=9186 inliers=4905 inlier_ratio=0.534 reproj=1.306 coverage=1.000 accepted_total=40/8
+[rectification:T] matching 3/11 frame_id=000012 image=000012.jpg
+[rectification:T] result accepted=True raw=10000 conf=9329 inliers=3428 inlier_ratio=0.367 reproj=1.911 coverage=0.938 accepted_total=41/8
+[rectification:T] matching 4/11 frame_id=000018 image=000018.jpg
+[rectification:T] result accepted=True raw=10000 conf=8881 inliers=3693 inlier_ratio=0.416 reproj=1.347 coverage=1.000 accepted_total=42/8
+[rectification:T] matching 5/11 frame_id=000020 image=000020.jpg
+[rectification:T] result accepted=True raw=10000 conf=9080 inliers=5037 inlier_ratio=0.555 reproj=1.579 coverage=1.000 accepted_total=43/8
+[rectification:T] matching 6/11 frame_id=000026 image=000026.jpg
+[rectification:T] result accepted=True raw=10000 conf=9986 inliers=5306 inlier_ratio=0.531 reproj=1.686 coverage=1.000 accepted_total=44/8
+[rectification:T] matching 7/11 frame_id=000031 image=000031.jpg
+[rectification:T] result accepted=True raw=10000 conf=9992 inliers=5940 inlier_ratio=0.594 reproj=1.702 coverage=1.000 accepted_total=45/8
+[rectification:T] matching 8/11 frame_id=000033 image=000033.jpg
+[rectification:T] result accepted=True raw=10000 conf=9986 inliers=4654 inlier_ratio=0.466 reproj=1.770 coverage=1.000 accepted_total=46/8
+[rectification:T] matching 9/11 frame_id=000039 image=000039.jpg
+[rectification:T] result accepted=True raw=10000 conf=9751 inliers=6123 inlier_ratio=0.628 reproj=1.661 coverage=1.000 accepted_total=47/8
+[rectification:T] matching 10/11 frame_id=000043 image=000043.jpg
+[rectification:T] result accepted=True raw=10000 conf=9630 inliers=5863 inlier_ratio=0.609 reproj=1.635 coverage=0.938 accepted_total=48/8
+[rectification:T] matching 11/11 frame_id=000049 image=000049.jpg
+[rectification:T] result accepted=True raw=10000 conf=9281 inliers=6697 inlier_ratio=0.722 reproj=1.527 coverage=0.875 accepted_total=49/8
+[rectification:T] expanding candidates: qa_status=pass accepted_enough=True stability_ok=False qa_ok=True
+[rectification:T] accepted 49 high-quality frames after attempting 50/50
+[rectification:T] QA pass=True legacy_pass=True qa_status=pass delta_edge=0.1462 delta_grad=0.1246 stop_decision=False
+[prcv-main:uav_talign_full] scene 2/8 name=02_day_grayscale_zoom_substation_power_lines_50 pairs=50
+Using coarse resolution (560, 560), and upsample res (864, 864)
+[rectification:T] start MINIMA estimation: total_frames=50, min_good_frames=8, policy=adaptive, schedule=[12, 20, 25, 50]
+[rectification:T] candidate_count=12, new_records=12, accepted=0/8
+[rectification:T] matching 1/12 frame_id=000001 image=000001.jpg
+[rectification:T] result accepted=True raw=10000 conf=9107 inliers=3311 inlier_ratio=0.364 reproj=1.489 coverage=1.000 accepted_total=1/8
+[rectification:T] matching 2/12 frame_id=000005 image=000005.jpg
+[rectification:T] result accepted=True raw=10000 conf=8555 inliers=4927 inlier_ratio=0.576 reproj=1.346 coverage=0.750 accepted_total=2/8
+[rectification:T] matching 3/12 frame_id=000010 image=000010.jpg
+[rectification:T] result accepted=True raw=10000 conf=9784 inliers=5225 inlier_ratio=0.534 reproj=1.699 coverage=1.000 accepted_total=3/8
+[rectification:T] matching 4/12 frame_id=000014 image=000014.jpg
+[rectification:T] result accepted=True raw=10000 conf=9682 inliers=5568 inlier_ratio=0.575 reproj=1.889 coverage=0.938 accepted_total=4/8
+[rectification:T] matching 5/12 frame_id=000019 image=000019.jpg
+[rectification:T] result accepted=True raw=10000 conf=9677 inliers=4225 inlier_ratio=0.437 reproj=1.711 coverage=1.000 accepted_total=5/8
+[rectification:T] matching 6/12 frame_id=000023 image=000023.jpg
+[rectification:T] result accepted=True raw=10000 conf=9451 inliers=4031 inlier_ratio=0.427 reproj=1.220 coverage=0.875 accepted_total=6/8
+[rectification:T] matching 7/12 frame_id=000028 image=000028.jpg
+[rectification:T] result accepted=True raw=10000 conf=9990 inliers=3626 inlier_ratio=0.363 reproj=1.817 coverage=1.000 accepted_total=7/8
+[rectification:T] matching 8/12 frame_id=000032 image=000032.jpg
+[rectification:T] result accepted=True raw=10000 conf=9992 inliers=4172 inlier_ratio=0.418 reproj=1.781 coverage=1.000 accepted_total=8/8
+[rectification:T] matching 9/12 frame_id=000037 image=000037.jpg
+[rectification:T] result accepted=True raw=10000 conf=9344 inliers=6178 inlier_ratio=0.661 reproj=1.673 coverage=1.000 accepted_total=9/8
+[rectification:T] matching 10/12 frame_id=000041 image=000041.jpg
+[rectification:T] result accepted=True raw=10000 conf=9668 inliers=6266 inlier_ratio=0.648 reproj=1.669 coverage=0.750 accepted_total=10/8
+[rectification:T] matching 11/12 frame_id=000046 image=000046.jpg
+[rectification:T] result accepted=True raw=10000 conf=9846 inliers=5630 inlier_ratio=0.572 reproj=1.343 coverage=1.000 accepted_total=11/8
+[rectification:T] matching 12/12 frame_id=000050 image=000050.jpg
+[rectification:T] result accepted=True raw=10000 conf=9653 inliers=6416 inlier_ratio=0.665 reproj=1.495 coverage=0.938 accepted_total=12/8
+[rectification:T] expanding candidates: qa_status=fail accepted_enough=True stability_ok=False qa_ok=False
+[rectification:T] candidate_count=20, new_records=14, accepted=12/8
+[rectification:T] matching 1/14 frame_id=000004 image=000004.jpg
+[rectification:T] result accepted=True raw=10000 conf=9479 inliers=3066 inlier_ratio=0.323 reproj=1.547 coverage=1.000 accepted_total=13/8
+[rectification:T] matching 2/14 frame_id=000006 image=000006.jpg
+[rectification:T] result accepted=True raw=10000 conf=9103 inliers=5092 inlier_ratio=0.559 reproj=1.395 coverage=0.875 accepted_total=14/8
+[rectification:T] matching 3/14 frame_id=000009 image=000009.jpg
+[rectification:T] result accepted=True raw=10000 conf=9702 inliers=5095 inlier_ratio=0.525 reproj=1.474 coverage=1.000 accepted_total=15/8
+[rectification:T] matching 4/14 frame_id=000011 image=000011.jpg
+[rectification:T] result accepted=True raw=10000 conf=9676 inliers=4234 inlier_ratio=0.438 reproj=1.338 coverage=1.000 accepted_total=16/8
+[rectification:T] matching 5/14 frame_id=000016 image=000016.jpg
+[rectification:T] result accepted=True raw=10000 conf=9784 inliers=5126 inlier_ratio=0.524 reproj=1.714 coverage=1.000 accepted_total=17/8
+[rectification:T] matching 6/14 frame_id=000022 image=000022.jpg
+[rectification:T] result accepted=True raw=10000 conf=9751 inliers=4582 inlier_ratio=0.470 reproj=1.739 coverage=1.000 accepted_total=18/8
+[rectification:T] matching 7/14 frame_id=000024 image=000024.jpg
+[rectification:T] result accepted=True raw=10000 conf=9476 inliers=5037 inlier_ratio=0.532 reproj=1.763 coverage=1.000 accepted_total=19/8
+[rectification:T] matching 8/14 frame_id=000027 image=000027.jpg
+[rectification:T] result accepted=True raw=10000 conf=10000 inliers=3629 inlier_ratio=0.363 reproj=1.642 coverage=1.000 accepted_total=20/8
+[rectification:T] matching 9/14 frame_id=000029 image=000029.jpg
+[rectification:T] result accepted=True raw=10000 conf=9995 inliers=5309 inlier_ratio=0.531 reproj=1.769 coverage=1.000 accepted_total=21/8
+[rectification:T] matching 10/14 frame_id=000035 image=000035.jpg
+[rectification:T] result accepted=True raw=10000 conf=9573 inliers=3596 inlier_ratio=0.376 reproj=1.635 coverage=1.000 accepted_total=22/8
+[rectification:T] matching 11/14 frame_id=000040 image=000040.jpg
+[rectification:T] result accepted=True raw=10000 conf=9821 inliers=7318 inlier_ratio=0.745 reproj=1.460 coverage=1.000 accepted_total=23/8
+[rectification:T] matching 12/14 frame_id=000042 image=000042.jpg
+[rectification:T] result accepted=True raw=10000 conf=9668 inliers=4011 inlier_ratio=0.415 reproj=1.561 coverage=1.000 accepted_total=24/8
+[rectification:T] matching 13/14 frame_id=000045 image=000045.jpg
+[rectification:T] result accepted=True raw=10000 conf=9744 inliers=7714 inlier_ratio=0.792 reproj=1.483 coverage=1.000 accepted_total=25/8
+[rectification:T] matching 14/14 frame_id=000047 image=000047.jpg
+[rectification:T] result accepted=True raw=10000 conf=9786 inliers=5890 inlier_ratio=0.602 reproj=1.552 coverage=1.000 accepted_total=26/8
+[rectification:T] expanding candidates: qa_status=fail accepted_enough=True stability_ok=False qa_ok=False
+[rectification:T] candidate_count=25, new_records=13, accepted=26/8
+[rectification:T] matching 1/13 frame_id=000003 image=000003.jpg
+[rectification:T] result accepted=True raw=10000 conf=9486 inliers=3405 inlier_ratio=0.359 reproj=1.723 coverage=1.000 accepted_total=27/8
+[rectification:T] matching 2/13 frame_id=000007 image=000007.jpg
+[rectification:T] result accepted=True raw=10000 conf=9310 inliers=5975 inlier_ratio=0.642 reproj=1.675 coverage=0.938 accepted_total=28/8
+[rectification:T] matching 3/13 frame_id=000013 image=000013.jpg
+[rectification:T] result accepted=True raw=10000 conf=9748 inliers=5772 inlier_ratio=0.592 reproj=1.845 coverage=0.938 accepted_total=29/8
+[rectification:T] matching 4/13 frame_id=000015 image=000015.jpg
+[rectification:T] result accepted=True raw=10000 conf=9839 inliers=5790 inlier_ratio=0.588 reproj=1.753 coverage=1.000 accepted_total=30/8
+[rectification:T] matching 5/13 frame_id=000017 image=000017.jpg
+[rectification:T] result accepted=True raw=10000 conf=9965 inliers=4680 inlier_ratio=0.470 reproj=1.683 coverage=0.812 accepted_total=31/8
+[rectification:T] matching 6/13 frame_id=000021 image=000021.jpg
+[rectification:T] result accepted=True raw=10000 conf=9697 inliers=6039 inlier_ratio=0.623 reproj=1.490 coverage=1.000 accepted_total=32/8
+[rectification:T] matching 7/13 frame_id=000025 image=000025.jpg
+[rectification:T] result accepted=True raw=10000 conf=9998 inliers=4195 inlier_ratio=0.420 reproj=1.748 coverage=1.000 accepted_total=33/8
+[rectification:T] matching 8/13 frame_id=000030 image=000030.jpg
+[rectification:T] result accepted=True raw=10000 conf=9997 inliers=4078 inlier_ratio=0.408 reproj=1.677 coverage=1.000 accepted_total=34/8
+[rectification:T] matching 9/13 frame_id=000034 image=000034.jpg
+[rectification:T] result accepted=True raw=10000 conf=9995 inliers=4624 inlier_ratio=0.463 reproj=1.710 coverage=1.000 accepted_total=35/8
+[rectification:T] matching 10/13 frame_id=000036 image=000036.jpg
+[rectification:T] result accepted=True raw=10000 conf=9563 inliers=3311 inlier_ratio=0.346 reproj=1.667 coverage=1.000 accepted_total=36/8
+[rectification:T] matching 11/13 frame_id=000038 image=000038.jpg
+[rectification:T] result accepted=True raw=10000 conf=9697 inliers=7182 inlier_ratio=0.741 reproj=1.386 coverage=1.000 accepted_total=37/8
+[rectification:T] matching 12/13 frame_id=000044 image=000044.jpg
+[rectification:T] result accepted=False raw=10000 conf=9913 inliers=2670 inlier_ratio=0.269 reproj=1.716 coverage=0.938 accepted_total=37/8
+[rectification:T] matching 13/13 frame_id=000048 image=000048.jpg
+[rectification:T] result accepted=True raw=10000 conf=9740 inliers=4105 inlier_ratio=0.421 reproj=1.725 coverage=1.000 accepted_total=38/8
+[rectification:T] expanding candidates: qa_status=fail accepted_enough=True stability_ok=False qa_ok=False
+[rectification:T] candidate_count=50, new_records=11, accepted=38/8
+[rectification:T] matching 1/11 frame_id=000002 image=000002.jpg
+[rectification:T] result accepted=True raw=10000 conf=8935 inliers=3817 inlier_ratio=0.427 reproj=1.722 coverage=0.938 accepted_total=39/8
+[rectification:T] matching 2/11 frame_id=000008 image=000008.jpg
+[rectification:T] result accepted=True raw=10000 conf=9576 inliers=4432 inlier_ratio=0.463 reproj=1.311 coverage=0.938 accepted_total=40/8
+[rectification:T] matching 3/11 frame_id=000012 image=000012.jpg
+[rectification:T] result accepted=True raw=10000 conf=9603 inliers=4569 inlier_ratio=0.476 reproj=1.808 coverage=1.000 accepted_total=41/8
+[rectification:T] matching 4/11 frame_id=000018 image=000018.jpg
+[rectification:T] result accepted=True raw=10000 conf=9483 inliers=3800 inlier_ratio=0.401 reproj=1.619 coverage=0.938 accepted_total=42/8
+[rectification:T] matching 5/11 frame_id=000020 image=000020.jpg
+[rectification:T] result accepted=True raw=10000 conf=9544 inliers=4119 inlier_ratio=0.432 reproj=1.566 coverage=1.000 accepted_total=43/8
+[rectification:T] matching 6/11 frame_id=000026 image=000026.jpg
+[rectification:T] result accepted=True raw=10000 conf=9993 inliers=4162 inlier_ratio=0.416 reproj=1.788 coverage=1.000 accepted_total=44/8
+[rectification:T] matching 7/11 frame_id=000031 image=000031.jpg
+[rectification:T] result accepted=True raw=10000 conf=9993 inliers=4074 inlier_ratio=0.408 reproj=1.716 coverage=1.000 accepted_total=45/8
+[rectification:T] matching 8/11 frame_id=000033 image=000033.jpg
+[rectification:T] result accepted=True raw=10000 conf=9998 inliers=4562 inlier_ratio=0.456 reproj=1.652 coverage=1.000 accepted_total=46/8
+[rectification:T] matching 9/11 frame_id=000039 image=000039.jpg
+[rectification:T] result accepted=True raw=10000 conf=9744 inliers=7406 inlier_ratio=0.760 reproj=1.219 coverage=1.000 accepted_total=47/8
+[rectification:T] matching 10/11 frame_id=000043 image=000043.jpg
+[rectification:T] result accepted=True raw=10000 conf=9703 inliers=4782 inlier_ratio=0.493 reproj=1.663 coverage=0.938 accepted_total=48/8
+[rectification:T] matching 11/11 frame_id=000049 image=000049.jpg
+[rectification:T] result accepted=True raw=10000 conf=9619 inliers=4946 inlier_ratio=0.514 reproj=1.634 coverage=0.750 accepted_total=49/8
+[rectification:T] expanding candidates: qa_status=fail accepted_enough=True stability_ok=False qa_ok=False
+[rectification:T] accepted 49 high-quality frames after attempting 50/50
+[rectification:T] QA pass=False legacy_pass=False qa_status=fail delta_edge=0.0426 delta_grad=0.0536 stop_decision=False
+[prcv-main:uav_talign_full] scene 3/8 name=03_night_grayscale_wide_substation_power_lines_45 pairs=45
+Using coarse resolution (560, 560), and upsample res (864, 864)
+[rectification:T] start MINIMA estimation: total_frames=45, min_good_frames=8, policy=adaptive, schedule=[12, 19, 22, 45]
+[rectification:T] candidate_count=12, new_records=12, accepted=0/8
+[rectification:T] matching 1/12 frame_id=000001 image=000001.jpg
+[rectification:T] result accepted=True raw=10000 conf=7048 inliers=4015 inlier_ratio=0.570 reproj=1.382 coverage=0.938 accepted_total=1/8
+[rectification:T] matching 2/12 frame_id=000005 image=000005.jpg
+[rectification:T] result accepted=True raw=10000 conf=9313 inliers=7877 inlier_ratio=0.846 reproj=1.338 coverage=0.938 accepted_total=2/8
+[rectification:T] matching 3/12 frame_id=000009 image=000009.jpg
+[rectification:T] result accepted=True raw=10000 conf=8938 inliers=5004 inlier_ratio=0.560 reproj=1.517 coverage=1.000 accepted_total=3/8
+[rectification:T] matching 4/12 frame_id=000013 image=000013.jpg
+[rectification:T] result accepted=True raw=10000 conf=9889 inliers=4546 inlier_ratio=0.460 reproj=1.731 coverage=0.875 accepted_total=4/8
+[rectification:T] matching 5/12 frame_id=000017 image=000017.jpg
+[rectification:T] result accepted=True raw=10000 conf=9262 inliers=5271 inlier_ratio=0.569 reproj=1.810 coverage=1.000 accepted_total=5/8
+[rectification:T] matching 6/12 frame_id=000021 image=000021.jpg
+[rectification:T] result accepted=False raw=10000 conf=8778 inliers=1741 inlier_ratio=0.198 reproj=1.749 coverage=1.000 accepted_total=5/8
+[rectification:T] matching 7/12 frame_id=000025 image=000025.jpg
+[rectification:T] result accepted=True raw=10000 conf=9425 inliers=6047 inlier_ratio=0.642 reproj=1.411 coverage=1.000 accepted_total=6/8
+[rectification:T] matching 8/12 frame_id=000029 image=000029.jpg
+[rectification:T] result accepted=True raw=10000 conf=9699 inliers=4993 inlier_ratio=0.515 reproj=1.760 coverage=1.000 accepted_total=7/8
+[rectification:T] matching 9/12 frame_id=000033 image=000033.jpg
+[rectification:T] result accepted=False raw=10000 conf=9972 inliers=1611 inlier_ratio=0.162 reproj=1.964 coverage=1.000 accepted_total=7/8
+[rectification:T] matching 10/12 frame_id=000037 image=000037.jpg
+[rectification:T] result accepted=True raw=10000 conf=9393 inliers=4927 inlier_ratio=0.525 reproj=1.719 coverage=1.000 accepted_total=8/8
+[rectification:T] matching 11/12 frame_id=000041 image=000041.jpg
+[rectification:T] result accepted=True raw=10000 conf=9763 inliers=3314 inlier_ratio=0.339 reproj=1.850 coverage=1.000 accepted_total=9/8
+[rectification:T] matching 12/12 frame_id=000045 image=000045.jpg
+[rectification:T] result accepted=True raw=10000 conf=9874 inliers=4607 inlier_ratio=0.467 reproj=1.721 coverage=0.938 accepted_total=10/8
+[rectification:T] expanding candidates: qa_status=fail accepted_enough=True stability_ok=False qa_ok=False
+[rectification:T] candidate_count=19, new_records=13, accepted=10/8
+[rectification:T] matching 1/13 frame_id=000003 image=000003.jpg
+[rectification:T] result accepted=True raw=10000 conf=9141 inliers=6589 inlier_ratio=0.721 reproj=1.251 coverage=1.000 accepted_total=11/8
+[rectification:T] matching 2/13 frame_id=000006 image=000006.jpg
+[rectification:T] result accepted=True raw=10000 conf=9433 inliers=6197 inlier_ratio=0.657 reproj=1.522 coverage=1.000 accepted_total=12/8
+[rectification:T] matching 3/13 frame_id=000008 image=000008.jpg
+[rectification:T] result accepted=True raw=10000 conf=8962 inliers=4836 inlier_ratio=0.540 reproj=1.721 coverage=1.000 accepted_total=13/8
+[rectification:T] matching 4/13 frame_id=000011 image=000011.jpg
+[rectification:T] result accepted=True raw=10000 conf=9665 inliers=7594 inlier_ratio=0.786 reproj=1.448 coverage=1.000 accepted_total=14/8
+[rectification:T] matching 5/13 frame_id=000016 image=000016.jpg
+[rectification:T] result accepted=True raw=10000 conf=9023 inliers=5678 inlier_ratio=0.629 reproj=1.631 coverage=1.000 accepted_total=15/8
+[rectification:T] matching 6/13 frame_id=000018 image=000018.jpg
+[rectification:T] result accepted=True raw=10000 conf=9440 inliers=3048 inlier_ratio=0.323 reproj=1.838 coverage=0.875 accepted_total=16/8
+[rectification:T] matching 7/13 frame_id=000023 image=000023.jpg
+[rectification:T] result accepted=True raw=10000 conf=9036 inliers=5442 inlier_ratio=0.602 reproj=1.517 coverage=1.000 accepted_total=17/8
+[rectification:T] matching 8/13 frame_id=000028 image=000028.jpg
+[rectification:T] result accepted=True raw=10000 conf=9512 inliers=3565 inlier_ratio=0.375 reproj=1.903 coverage=0.938 accepted_total=18/8
+[rectification:T] matching 9/13 frame_id=000030 image=000030.jpg
+[rectification:T] result accepted=False raw=10000 conf=9153 inliers=2190 inlier_ratio=0.239 reproj=1.903 coverage=0.750 accepted_total=18/8
+[rectification:T] matching 10/13 frame_id=000035 image=000035.jpg
+[rectification:T] result accepted=True raw=10000 conf=8785 inliers=3449 inlier_ratio=0.393 reproj=1.770 coverage=1.000 accepted_total=19/8
+[rectification:T] matching 11/13 frame_id=000038 image=000038.jpg
+[rectification:T] result accepted=False raw=10000 conf=9466 inliers=1474 inlier_ratio=0.156 reproj=1.805 coverage=0.750 accepted_total=19/8
+[rectification:T] matching 12/13 frame_id=000040 image=000040.jpg
+[rectification:T] result accepted=True raw=10000 conf=9114 inliers=6855 inlier_ratio=0.752 reproj=1.528 coverage=0.938 accepted_total=20/8
+[rectification:T] matching 13/13 frame_id=000043 image=000043.jpg
+[rectification:T] result accepted=True raw=10000 conf=8965 inliers=3286 inlier_ratio=0.367 reproj=1.627 coverage=1.000 accepted_total=21/8
+[rectification:T] expanding candidates: qa_status=fail accepted_enough=True stability_ok=False qa_ok=False
+[rectification:T] candidate_count=22, new_records=8, accepted=21/8
+[rectification:T] matching 1/8 frame_id=000007 image=000007.jpg
+[rectification:T] result accepted=True raw=10000 conf=9887 inliers=7136 inlier_ratio=0.722 reproj=1.525 coverage=0.875 accepted_total=22/8
+[rectification:T] matching 2/8 frame_id=000014 image=000014.jpg
+[rectification:T] result accepted=True raw=10000 conf=8528 inliers=4944 inlier_ratio=0.580 reproj=1.603 coverage=1.000 accepted_total=23/8
+[rectification:T] matching 3/8 frame_id=000020 image=000020.jpg
+[rectification:T] result accepted=False raw=10000 conf=9684 inliers=1863 inlier_ratio=0.192 reproj=1.921 coverage=1.000 accepted_total=23/8
+[rectification:T] matching 4/8 frame_id=000022 image=000022.jpg
+[rectification:T] result accepted=True raw=10000 conf=6005 inliers=2426 inlier_ratio=0.404 reproj=1.663 coverage=0.938 accepted_total=24/8
+[rectification:T] matching 5/8 frame_id=000024 image=000024.jpg
+[rectification:T] result accepted=True raw=10000 conf=9504 inliers=5759 inlier_ratio=0.606 reproj=1.568 coverage=1.000 accepted_total=25/8
+[rectification:T] matching 6/8 frame_id=000026 image=000026.jpg
+[rectification:T] result accepted=True raw=10000 conf=9474 inliers=5997 inlier_ratio=0.633 reproj=1.675 coverage=1.000 accepted_total=26/8
+[rectification:T] matching 7/8 frame_id=000032 image=000032.jpg
+[rectification:T] result accepted=False raw=10000 conf=9931 inliers=1339 inlier_ratio=0.135 reproj=1.872 coverage=1.000 accepted_total=26/8
+[rectification:T] matching 8/8 frame_id=000039 image=000039.jpg
+[rectification:T] result accepted=True raw=10000 conf=9458 inliers=4818 inlier_ratio=0.509 reproj=1.488 coverage=1.000 accepted_total=27/8
+[rectification:T] expanding candidates: qa_status=fail accepted_enough=True stability_ok=False qa_ok=False
+[rectification:T] candidate_count=45, new_records=12, accepted=27/8
+[rectification:T] matching 1/12 frame_id=000002 image=000002.jpg
+[rectification:T] result accepted=True raw=10000 conf=8744 inliers=5642 inlier_ratio=0.645 reproj=1.401 coverage=1.000 accepted_total=28/8
+[rectification:T] matching 2/12 frame_id=000004 image=000004.jpg
+[rectification:T] result accepted=True raw=10000 conf=9310 inliers=6751 inlier_ratio=0.725 reproj=1.533 coverage=1.000 accepted_total=29/8
+[rectification:T] matching 3/12 frame_id=000010 image=000010.jpg
+[rectification:T] result accepted=True raw=10000 conf=8609 inliers=4163 inlier_ratio=0.484 reproj=1.662 coverage=0.938 accepted_total=30/8
+[rectification:T] matching 4/12 frame_id=000012 image=000012.jpg
+[rectification:T] result accepted=True raw=10000 conf=9780 inliers=7309 inlier_ratio=0.747 reproj=1.604 coverage=0.938 accepted_total=31/8
+[rectification:T] matching 5/12 frame_id=000015 image=000015.jpg
+[rectification:T] result accepted=True raw=10000 conf=8570 inliers=4312 inlier_ratio=0.503 reproj=1.280 coverage=1.000 accepted_total=32/8
+[rectification:T] matching 6/12 frame_id=000019 image=000019.jpg
+[rectification:T] result accepted=True raw=10000 conf=9764 inliers=3171 inlier_ratio=0.325 reproj=1.848 coverage=1.000 accepted_total=33/8
+[rectification:T] matching 7/12 frame_id=000027 image=000027.jpg
+[rectification:T] result accepted=False raw=10000 conf=6730 inliers=1437 inlier_ratio=0.214 reproj=1.701 coverage=0.938 accepted_total=33/8
+[rectification:T] matching 8/12 frame_id=000031 image=000031.jpg
+[rectification:T] result accepted=True raw=10000 conf=9936 inliers=4633 inlier_ratio=0.466 reproj=1.756 coverage=1.000 accepted_total=34/8
+[rectification:T] matching 9/12 frame_id=000034 image=000034.jpg
+[rectification:T] result accepted=True raw=10000 conf=9847 inliers=4124 inlier_ratio=0.419 reproj=1.837 coverage=0.938 accepted_total=35/8
+[rectification:T] matching 10/12 frame_id=000036 image=000036.jpg
+[rectification:T] result accepted=True raw=10000 conf=9186 inliers=4662 inlier_ratio=0.508 reproj=1.409 coverage=1.000 accepted_total=36/8
+[rectification:T] matching 11/12 frame_id=000042 image=000042.jpg
+[rectification:T] result accepted=True raw=10000 conf=9112 inliers=4038 inlier_ratio=0.443 reproj=1.569 coverage=1.000 accepted_total=37/8
+[rectification:T] matching 12/12 frame_id=000044 image=000044.jpg
+[rectification:T] result accepted=True raw=10000 conf=8370 inliers=2931 inlier_ratio=0.350 reproj=1.621 coverage=1.000 accepted_total=38/8
+[rectification:T] expanding candidates: qa_status=fail accepted_enough=True stability_ok=False qa_ok=False
+[rectification:T] accepted 38 high-quality frames after attempting 45/45
+[rectification:T] QA pass=False legacy_pass=False qa_status=fail delta_edge=0.1707 delta_grad=0.2109 stop_decision=False
+[prcv-main:uav_talign_full] scene 4/8 name=04_night_grayscale_zoom_substation_power_lines_45 pairs=45
+Using coarse resolution (560, 560), and upsample res (864, 864)
+[rectification:T] start MINIMA estimation: total_frames=45, min_good_frames=8, policy=adaptive, schedule=[12, 19, 22, 45]
+[rectification:T] candidate_count=12, new_records=12, accepted=0/8
+[rectification:T] matching 1/12 frame_id=000001 image=000001.jpg
+[rectification:T] result accepted=True raw=10000 conf=9003 inliers=2833 inlier_ratio=0.315 reproj=1.576 coverage=0.812 accepted_total=1/8
+[rectification:T] matching 2/12 frame_id=000005 image=000005.jpg
+[rectification:T] result accepted=True raw=10000 conf=9296 inliers=4888 inlier_ratio=0.526 reproj=1.574 coverage=0.938 accepted_total=2/8
+[rectification:T] matching 3/12 frame_id=000009 image=000009.jpg
+[rectification:T] result accepted=True raw=10000 conf=9228 inliers=3674 inlier_ratio=0.398 reproj=1.364 coverage=0.938 accepted_total=3/8
+[rectification:T] matching 4/12 frame_id=000013 image=000013.jpg
+[rectification:T] result accepted=True raw=10000 conf=9928 inliers=4257 inlier_ratio=0.429 reproj=1.797 coverage=0.750 accepted_total=4/8
+[rectification:T] matching 5/12 frame_id=000017 image=000017.jpg
+[rectification:T] result accepted=True raw=10000 conf=9607 inliers=3692 inlier_ratio=0.384 reproj=1.510 coverage=1.000 accepted_total=5/8
+[rectification:T] matching 6/12 frame_id=000021 image=000021.jpg
+[rectification:T] result accepted=False raw=10000 conf=9537 inliers=2196 inlier_ratio=0.230 reproj=1.579 coverage=0.875 accepted_total=5/8
+[rectification:T] matching 7/12 frame_id=000025 image=000025.jpg
+[rectification:T] result accepted=True raw=10000 conf=9556 inliers=4333 inlier_ratio=0.453 reproj=1.650 coverage=1.000 accepted_total=6/8
+[rectification:T] matching 8/12 frame_id=000029 image=000029.jpg
+[rectification:T] result accepted=False raw=10000 conf=9690 inliers=2546 inlier_ratio=0.263 reproj=1.901 coverage=1.000 accepted_total=6/8
+[rectification:T] matching 9/12 frame_id=000033 image=000033.jpg
+[rectification:T] result accepted=True raw=10000 conf=9976 inliers=3074 inlier_ratio=0.308 reproj=1.912 coverage=1.000 accepted_total=7/8
+[rectification:T] matching 10/12 frame_id=000037 image=000037.jpg
+[rectification:T] result accepted=True raw=10000 conf=9573 inliers=3835 inlier_ratio=0.401 reproj=1.802 coverage=1.000 accepted_total=8/8
+[rectification:T] matching 11/12 frame_id=000041 image=000041.jpg
+[rectification:T] result accepted=False raw=10000 conf=9737 inliers=2562 inlier_ratio=0.263 reproj=1.844 coverage=1.000 accepted_total=8/8
+[rectification:T] matching 12/12 frame_id=000045 image=000045.jpg
+[rectification:T] result accepted=False raw=10000 conf=9931 inliers=1855 inlier_ratio=0.187 reproj=1.787 coverage=1.000 accepted_total=8/8
+[rectification:T] stop at candidate_count=12: qa_status=pass median_disp=12.128px reject_ratio=0.000
+[rectification:T] accepted 8 high-quality frames after attempting 12/45
+[rectification:T] QA pass=True legacy_pass=True qa_status=pass delta_edge=0.0765 delta_grad=0.1077 stop_decision=True
+[prcv-main:uav_talign_full] scene 5/8 name=07_day_grayscale_transmission_tower_102 pairs=102
+Using coarse resolution (560, 560), and upsample res (864, 864)
+[rectification:T] start MINIMA estimation: total_frames=102, min_good_frames=15, policy=adaptive, schedule=[15, 30, 45, 51, 102]
+[rectification:T] candidate_count=15, new_records=15, accepted=0/15
+[rectification:T] matching 1/15 frame_id=000001 image=000001.jpg
+[rectification:T] result accepted=True raw=10000 conf=9955 inliers=4902 inlier_ratio=0.492 reproj=1.723 coverage=1.000 accepted_total=1/15
+[rectification:T] matching 2/15 frame_id=000008 image=000008.jpg
+[rectification:T] result accepted=True raw=10000 conf=9947 inliers=4444 inlier_ratio=0.447 reproj=1.561 coverage=1.000 accepted_total=2/15
+[rectification:T] matching 3/15 frame_id=000015 image=000015.jpg
+[rectification:T] result accepted=True raw=10000 conf=9886 inliers=3119 inlier_ratio=0.315 reproj=1.754 coverage=1.000 accepted_total=3/15
+[rectification:T] matching 4/15 frame_id=000023 image=000023.jpg
+[rectification:T] result accepted=False raw=10000 conf=9756 inliers=2784 inlier_ratio=0.285 reproj=1.683 coverage=1.000 accepted_total=3/15
+[rectification:T] matching 5/15 frame_id=000030 image=000030.jpg
+[rectification:T] result accepted=False raw=10000 conf=9838 inliers=2915 inlier_ratio=0.296 reproj=1.747 coverage=1.000 accepted_total=3/15
+[rectification:T] matching 6/15 frame_id=000037 image=000037.jpg
+[rectification:T] result accepted=True raw=10000 conf=9916 inliers=3241 inlier_ratio=0.327 reproj=1.643 coverage=1.000 accepted_total=4/15
+[rectification:T] matching 7/15 frame_id=000044 image=000044.jpg
+[rectification:T] result accepted=True raw=10000 conf=9964 inliers=3552 inlier_ratio=0.356 reproj=1.672 coverage=1.000 accepted_total=5/15
+[rectification:T] matching 8/15 frame_id=000051 image=000051.jpg
+[rectification:T] result accepted=True raw=10000 conf=9993 inliers=3716 inlier_ratio=0.372 reproj=1.761 coverage=1.000 accepted_total=6/15
+[rectification:T] matching 9/15 frame_id=000059 image=000059.jpg
+[rectification:T] result accepted=True raw=10000 conf=9988 inliers=4754 inlier_ratio=0.476 reproj=1.796 coverage=1.000 accepted_total=7/15
+[rectification:T] matching 10/15 frame_id=000066 image=000066.jpg
+[rectification:T] result accepted=True raw=10000 conf=9985 inliers=4969 inlier_ratio=0.498 reproj=1.704 coverage=1.000 accepted_total=8/15
+[rectification:T] matching 11/15 frame_id=000073 image=000073.jpg
+[rectification:T] result accepted=True raw=10000 conf=9997 inliers=3962 inlier_ratio=0.396 reproj=1.659 coverage=1.000 accepted_total=9/15
+[rectification:T] matching 12/15 frame_id=000080 image=000080.jpg
+[rectification:T] result accepted=True raw=10000 conf=9989 inliers=4096 inlier_ratio=0.410 reproj=1.740 coverage=1.000 accepted_total=10/15
+[rectification:T] matching 13/15 frame_id=000088 image=000088.jpg
+[rectification:T] result accepted=False raw=10000 conf=9970 inliers=2903 inlier_ratio=0.291 reproj=1.623 coverage=1.000 accepted_total=10/15
+[rectification:T] matching 14/15 frame_id=000095 image=000095.jpg
+[rectification:T] result accepted=True raw=10000 conf=9970 inliers=3911 inlier_ratio=0.392 reproj=1.709 coverage=1.000 accepted_total=11/15
+[rectification:T] matching 15/15 frame_id=000102 image=000102.jpg
+[rectification:T] result accepted=True raw=10000 conf=9990 inliers=4707 inlier_ratio=0.471 reproj=1.672 coverage=1.000 accepted_total=12/15
+[rectification:T] candidate_count=30, new_records=24, accepted=12/15
+[rectification:T] matching 1/24 frame_id=000004 image=000004.jpg
+[rectification:T] result accepted=True raw=10000 conf=9956 inliers=4783 inlier_ratio=0.480 reproj=1.740 coverage=1.000 accepted_total=13/15
+[rectification:T] matching 2/24 frame_id=000011 image=000011.jpg
+[rectification:T] result accepted=True raw=10000 conf=9928 inliers=3630 inlier_ratio=0.366 reproj=1.720 coverage=1.000 accepted_total=14/15
+[rectification:T] matching 3/24 frame_id=000018 image=000018.jpg
+[rectification:T] result accepted=True raw=10000 conf=9827 inliers=4041 inlier_ratio=0.411 reproj=1.717 coverage=1.000 accepted_total=15/15
+[rectification:T] matching 4/24 frame_id=000022 image=000022.jpg
+[rectification:T] result accepted=True raw=10000 conf=9747 inliers=3099 inlier_ratio=0.318 reproj=1.803 coverage=1.000 accepted_total=16/15
+[rectification:T] matching 5/24 frame_id=000025 image=000025.jpg
+[rectification:T] result accepted=False raw=10000 conf=9840 inliers=2897 inlier_ratio=0.294 reproj=1.656 coverage=1.000 accepted_total=16/15
+[rectification:T] matching 6/24 frame_id=000029 image=000029.jpg
+[rectification:T] result accepted=False raw=10000 conf=9800 inliers=2645 inlier_ratio=0.270 reproj=1.844 coverage=1.000 accepted_total=16/15
+[rectification:T] matching 7/24 frame_id=000032 image=000032.jpg
+[rectification:T] result accepted=True raw=10000 conf=9844 inliers=3291 inlier_ratio=0.334 reproj=1.782 coverage=1.000 accepted_total=17/15
+[rectification:T] matching 8/24 frame_id=000036 image=000036.jpg
+[rectification:T] result accepted=True raw=10000 conf=9925 inliers=3018 inlier_ratio=0.304 reproj=1.718 coverage=1.000 accepted_total=18/15
+[rectification:T] matching 9/24 frame_id=000039 image=000039.jpg
+[rectification:T] result accepted=False raw=10000 conf=9952 inliers=2923 inlier_ratio=0.294 reproj=1.487 coverage=1.000 accepted_total=18/15
+[rectification:T] matching 10/24 frame_id=000043 image=000043.jpg
+[rectification:T] result accepted=True raw=10000 conf=9951 inliers=3499 inlier_ratio=0.352 reproj=1.679 coverage=1.000 accepted_total=19/15
+[rectification:T] matching 11/24 frame_id=000046 image=000046.jpg
+[rectification:T] result accepted=True raw=10000 conf=9977 inliers=3374 inlier_ratio=0.338 reproj=1.598 coverage=1.000 accepted_total=20/15
+[rectification:T] matching 12/24 frame_id=000050 image=000050.jpg
+[rectification:T] result accepted=True raw=10000 conf=9991 inliers=3893 inlier_ratio=0.390 reproj=1.566 coverage=1.000 accepted_total=21/15
+[rectification:T] matching 13/24 frame_id=000053 image=000053.jpg
+[rectification:T] result accepted=True raw=10000 conf=9995 inliers=4707 inlier_ratio=0.471 reproj=1.672 coverage=1.000 accepted_total=22/15
+[rectification:T] matching 14/24 frame_id=000057 image=000057.jpg
+[rectification:T] result accepted=True raw=10000 conf=9991 inliers=4945 inlier_ratio=0.495 reproj=1.569 coverage=1.000 accepted_total=23/15
+[rectification:T] matching 15/24 frame_id=000060 image=000060.jpg
+[rectification:T] result accepted=True raw=10000 conf=9992 inliers=4833 inlier_ratio=0.484 reproj=1.656 coverage=1.000 accepted_total=24/15
+[rectification:T] matching 16/24 frame_id=000064 image=000064.jpg
+[rectification:T] result accepted=True raw=10000 conf=9978 inliers=4503 inlier_ratio=0.451 reproj=1.764 coverage=1.000 accepted_total=25/15
+[rectification:T] matching 17/24 frame_id=000067 image=000067.jpg
+[rectification:T] result accepted=True raw=10000 conf=9983 inliers=4988 inlier_ratio=0.500 reproj=1.795 coverage=1.000 accepted_total=26/15
+[rectification:T] matching 18/24 frame_id=000071 image=000071.jpg
+[rectification:T] result accepted=True raw=10000 conf=9981 inliers=4425 inlier_ratio=0.443 reproj=1.733 coverage=1.000 accepted_total=27/15
+[rectification:T] matching 19/24 frame_id=000074 image=000074.jpg
+[rectification:T] result accepted=True raw=10000 conf=9990 inliers=3708 inlier_ratio=0.371 reproj=1.812 coverage=1.000 accepted_total=28/15
+[rectification:T] matching 20/24 frame_id=000078 image=000078.jpg
+[rectification:T] result accepted=True raw=10000 conf=9990 inliers=4321 inlier_ratio=0.433 reproj=1.656 coverage=1.000 accepted_total=29/15
+[rectification:T] matching 21/24 frame_id=000081 image=000081.jpg
+[rectification:T] result accepted=True raw=10000 conf=9995 inliers=3628 inlier_ratio=0.363 reproj=1.848 coverage=1.000 accepted_total=30/15
+[rectification:T] matching 22/24 frame_id=000085 image=000085.jpg
+[rectification:T] result accepted=True raw=10000 conf=9985 inliers=3708 inlier_ratio=0.371 reproj=1.748 coverage=1.000 accepted_total=31/15
+[rectification:T] matching 23/24 frame_id=000092 image=000092.jpg
+[rectification:T] result accepted=True raw=10000 conf=9963 inliers=3176 inlier_ratio=0.319 reproj=1.787 coverage=1.000 accepted_total=32/15
+[rectification:T] matching 24/24 frame_id=000099 image=000099.jpg
+[rectification:T] result accepted=True raw=10000 conf=9967 inliers=3907 inlier_ratio=0.392 reproj=1.735 coverage=1.000 accepted_total=33/15
+[rectification:T] stop at candidate_count=30: qa_status=pass median_disp=5.316px reject_ratio=0.091
+[rectification:T] accepted 33 high-quality frames after attempting 39/102
+[rectification:T] QA pass=True legacy_pass=True qa_status=pass delta_edge=0.1419 delta_grad=0.2006 stop_decision=True
+[prcv-main:uav_talign_full] scene 6/8 name=08_night_grayscale_urban_22 pairs=22
+Using coarse resolution (560, 560), and upsample res (864, 864)
+[rectification:T] start MINIMA estimation: total_frames=22, min_good_frames=8, policy=adaptive, schedule=[12, 22]
+[rectification:T] candidate_count=12, new_records=12, accepted=0/8
+[rectification:T] matching 1/12 frame_id=000001 image=000001.jpg
+[rectification:T] result accepted=False raw=10000 conf=9948 inliers=2750 inlier_ratio=0.276 reproj=1.800 coverage=1.000 accepted_total=0/8
+[rectification:T] matching 2/12 frame_id=000003 image=000003.jpg
+[rectification:T] result accepted=False raw=10000 conf=9559 inliers=459 inlier_ratio=0.048 reproj=1.680 coverage=1.000 accepted_total=0/8
+[rectification:T] matching 3/12 frame_id=000005 image=000005.jpg
+[rectification:T] result accepted=False raw=10000 conf=9925 inliers=2445 inlier_ratio=0.246 reproj=1.848 coverage=1.000 accepted_total=0/8
+[rectification:T] matching 4/12 frame_id=000007 image=000007.jpg
+[rectification:T] result accepted=False raw=10000 conf=9976 inliers=1942 inlier_ratio=0.195 reproj=1.858 coverage=1.000 accepted_total=0/8
+[rectification:T] matching 5/12 frame_id=000009 image=000009.jpg
+[rectification:T] result accepted=False raw=10000 conf=9984 inliers=2462 inlier_ratio=0.247 reproj=1.934 coverage=1.000 accepted_total=0/8
+[rectification:T] matching 6/12 frame_id=000011 image=000011.jpg
+[rectification:T] result accepted=False raw=10000 conf=9975 inliers=2961 inlier_ratio=0.297 reproj=1.657 coverage=1.000 accepted_total=0/8
+[rectification:T] matching 7/12 frame_id=000012 image=000012.jpg
+[rectification:T] result accepted=False raw=10000 conf=9961 inliers=776 inlier_ratio=0.078 reproj=1.869 coverage=1.000 accepted_total=0/8
+[rectification:T] matching 8/12 frame_id=000014 image=000014.jpg
+[rectification:T] result accepted=False raw=10000 conf=9851 inliers=801 inlier_ratio=0.081 reproj=1.822 coverage=1.000 accepted_total=0/8
+[rectification:T] matching 9/12 frame_id=000016 image=000016.jpg
+[rectification:T] result accepted=True raw=10000 conf=9920 inliers=3166 inlier_ratio=0.319 reproj=1.708 coverage=1.000 accepted_total=1/8
+[rectification:T] matching 10/12 frame_id=000018 image=000018.jpg
+[rectification:T] result accepted=False raw=10000 conf=9976 inliers=1988 inlier_ratio=0.199 reproj=1.806 coverage=1.000 accepted_total=1/8
+[rectification:T] matching 11/12 frame_id=000020 image=000020.jpg
+[rectification:T] result accepted=True raw=10000 conf=9982 inliers=3473 inlier_ratio=0.348 reproj=1.674 coverage=1.000 accepted_total=2/8
+[rectification:T] matching 12/12 frame_id=000022 image=000022.jpg
+[rectification:T] result accepted=False raw=10000 conf=9821 inliers=2038 inlier_ratio=0.208 reproj=1.877 coverage=1.000 accepted_total=2/8
+[rectification:T] candidate_count=22, new_records=10, accepted=2/8
+[rectification:T] matching 1/10 frame_id=000002 image=000002.jpg
+[rectification:T] result accepted=False raw=10000 conf=9848 inliers=660 inlier_ratio=0.067 reproj=1.767 coverage=1.000 accepted_total=2/8
+[rectification:T] matching 2/10 frame_id=000004 image=000004.jpg
+[rectification:T] result accepted=True raw=10000 conf=9978 inliers=3155 inlier_ratio=0.316 reproj=1.857 coverage=1.000 accepted_total=3/8
+[rectification:T] matching 3/10 frame_id=000006 image=000006.jpg
+[rectification:T] result accepted=True raw=10000 conf=9988 inliers=3485 inlier_ratio=0.349 reproj=1.872 coverage=1.000 accepted_total=4/8
+[rectification:T] matching 4/10 frame_id=000008 image=000008.jpg
+[rectification:T] result accepted=True raw=10000 conf=9984 inliers=3871 inlier_ratio=0.388 reproj=1.676 coverage=1.000 accepted_total=5/8
+[rectification:T] matching 5/10 frame_id=000010 image=000010.jpg
+[rectification:T] result accepted=True raw=10000 conf=9986 inliers=4347 inlier_ratio=0.435 reproj=1.830 coverage=1.000 accepted_total=6/8
+[rectification:T] matching 6/10 frame_id=000013 image=000013.jpg
+[rectification:T] result accepted=False raw=10000 conf=9628 inliers=678 inlier_ratio=0.070 reproj=1.899 coverage=1.000 accepted_total=6/8
+[rectification:T] matching 7/10 frame_id=000015 image=000015.jpg
+[rectification:T] result accepted=True raw=10000 conf=9980 inliers=3144 inlier_ratio=0.315 reproj=1.677 coverage=1.000 accepted_total=7/8
+[rectification:T] matching 8/10 frame_id=000017 image=000017.jpg
+[rectification:T] result accepted=False raw=10000 conf=9961 inliers=2826 inlier_ratio=0.284 reproj=1.721 coverage=1.000 accepted_total=7/8
+[rectification:T] matching 9/10 frame_id=000019 image=000019.jpg
+[rectification:T] result accepted=False raw=10000 conf=9975 inliers=2302 inlier_ratio=0.231 reproj=1.896 coverage=1.000 accepted_total=7/8
+[rectification:T] matching 10/10 frame_id=000021 image=000021.jpg
+[rectification:T] result accepted=False raw=10000 conf=9983 inliers=2680 inlier_ratio=0.268 reproj=1.884 coverage=1.000 accepted_total=7/8
+[rectification:T] canonical threshold not met: accepted=7/8; continuing because rectification_allow_insufficient_frames=True
+[rectification:T] accepted 7 high-quality frames after attempting 22/22
+[rectification:T] QA pass=False legacy_pass=False qa_status=fail delta_edge=0.1142 delta_grad=0.0926 stop_decision=False
+[prcv-main:uav_talign_full] scene 7/8 name=13_lowlight_pseudocolor_road_21 pairs=21
+Using coarse resolution (560, 560), and upsample res (864, 864)
+[rectification:T] start MINIMA estimation: total_frames=21, min_good_frames=8, policy=adaptive, schedule=[12, 21]
+[rectification:T] candidate_count=12, new_records=12, accepted=0/8
+[rectification:T] matching 1/12 frame_id=000001 image=000001.jpg
+[rectification:T] result accepted=False raw=10000 conf=9911 inliers=966 inlier_ratio=0.097 reproj=1.501 coverage=1.000 accepted_total=0/8
+[rectification:T] matching 2/12 frame_id=000003 image=000003.jpg
+[rectification:T] result accepted=False raw=10000 conf=9924 inliers=1721 inlier_ratio=0.173 reproj=1.891 coverage=1.000 accepted_total=0/8
+[rectification:T] matching 3/12 frame_id=000005 image=000005.jpg
+[rectification:T] result accepted=False raw=10000 conf=9973 inliers=2967 inlier_ratio=0.298 reproj=1.802 coverage=1.000 accepted_total=0/8
+[rectification:T] matching 4/12 frame_id=000006 image=000006.jpg
+[rectification:T] result accepted=True raw=10000 conf=9954 inliers=3177 inlier_ratio=0.319 reproj=1.804 coverage=1.000 accepted_total=1/8
+[rectification:T] matching 5/12 frame_id=000008 image=000008.jpg
+[rectification:T] result accepted=True raw=10000 conf=9952 inliers=3310 inlier_ratio=0.333 reproj=1.769 coverage=1.000 accepted_total=2/8
+[rectification:T] matching 6/12 frame_id=000010 image=000010.jpg
+[rectification:T] result accepted=True raw=10000 conf=9994 inliers=4363 inlier_ratio=0.437 reproj=1.853 coverage=1.000 accepted_total=3/8
+[rectification:T] matching 7/12 frame_id=000012 image=000012.jpg
+[rectification:T] result accepted=True raw=10000 conf=9992 inliers=4466 inlier_ratio=0.447 reproj=1.811 coverage=1.000 accepted_total=4/8
+[rectification:T] matching 8/12 frame_id=000014 image=000014.jpg
+[rectification:T] result accepted=True raw=10000 conf=9983 inliers=4818 inlier_ratio=0.483 reproj=1.768 coverage=1.000 accepted_total=5/8
+[rectification:T] matching 9/12 frame_id=000016 image=000016.jpg
+[rectification:T] result accepted=False raw=10000 conf=9911 inliers=1108 inlier_ratio=0.112 reproj=1.684 coverage=1.000 accepted_total=5/8
+[rectification:T] matching 10/12 frame_id=000017 image=000017.jpg
+[rectification:T] result accepted=False raw=10000 conf=9910 inliers=621 inlier_ratio=0.063 reproj=1.748 coverage=1.000 accepted_total=5/8
+[rectification:T] matching 11/12 frame_id=000019 image=000019.jpg
+[rectification:T] result accepted=True raw=10000 conf=9957 inliers=4759 inlier_ratio=0.478 reproj=1.684 coverage=1.000 accepted_total=6/8
+[rectification:T] matching 12/12 frame_id=000021 image=000021.jpg
+[rectification:T] result accepted=True raw=10000 conf=9993 inliers=3320 inlier_ratio=0.332 reproj=1.808 coverage=1.000 accepted_total=7/8
+[rectification:T] candidate_count=21, new_records=9, accepted=7/8
+[rectification:T] matching 1/9 frame_id=000002 image=000002.jpg
+[rectification:T] result accepted=False raw=10000 conf=9736 inliers=648 inlier_ratio=0.067 reproj=1.769 coverage=1.000 accepted_total=7/8
+[rectification:T] matching 2/9 frame_id=000004 image=000004.jpg
+[rectification:T] result accepted=False raw=10000 conf=9960 inliers=2305 inlier_ratio=0.231 reproj=1.822 coverage=1.000 accepted_total=7/8
+[rectification:T] matching 3/9 frame_id=000007 image=000007.jpg
+[rectification:T] result accepted=True raw=10000 conf=9982 inliers=3521 inlier_ratio=0.353 reproj=1.865 coverage=1.000 accepted_total=8/8
+[rectification:T] matching 4/9 frame_id=000009 image=000009.jpg
+[rectification:T] result accepted=False raw=10000 conf=9962 inliers=2762 inlier_ratio=0.277 reproj=1.857 coverage=1.000 accepted_total=8/8
+[rectification:T] matching 5/9 frame_id=000011 image=000011.jpg
+[rectification:T] result accepted=True raw=10000 conf=9995 inliers=4156 inlier_ratio=0.416 reproj=1.734 coverage=1.000 accepted_total=9/8
+[rectification:T] matching 6/9 frame_id=000013 image=000013.jpg
+[rectification:T] result accepted=True raw=10000 conf=9978 inliers=3119 inlier_ratio=0.313 reproj=1.715 coverage=1.000 accepted_total=10/8
+[rectification:T] matching 7/9 frame_id=000015 image=000015.jpg
+[rectification:T] result accepted=True raw=10000 conf=9991 inliers=3724 inlier_ratio=0.373 reproj=1.788 coverage=1.000 accepted_total=11/8
+[rectification:T] matching 8/9 frame_id=000018 image=000018.jpg
+[rectification:T] result accepted=True raw=10000 conf=9981 inliers=3729 inlier_ratio=0.374 reproj=1.705 coverage=1.000 accepted_total=12/8
+[rectification:T] matching 9/9 frame_id=000020 image=000020.jpg
+[rectification:T] result accepted=True raw=10000 conf=9952 inliers=4483 inlier_ratio=0.450 reproj=1.809 coverage=1.000 accepted_total=13/8
+[rectification:T] expanding candidates: qa_status=pass accepted_enough=True stability_ok=False qa_ok=True
+[rectification:T] accepted 13 high-quality frames after attempting 21/21
+[rectification:T] QA pass=True legacy_pass=True qa_status=pass delta_edge=0.2868 delta_grad=0.2736 stop_decision=False
+[prcv-main:uav_talign_full] scene 8/8 name=14_lowlight_pseudocolor_transmission_tower_18 pairs=18
+Using coarse resolution (560, 560), and upsample res (864, 864)
+[rectification:T] start MINIMA estimation: total_frames=18, min_good_frames=8, policy=adaptive, schedule=[12, 18]
+[rectification:T] candidate_count=12, new_records=12, accepted=0/8
+[rectification:T] matching 1/12 frame_id=000001 image=000001.jpg
+[rectification:T] result accepted=True raw=10000 conf=9041 inliers=3891 inlier_ratio=0.430 reproj=1.373 coverage=1.000 accepted_total=1/8
+[rectification:T] matching 2/12 frame_id=000003 image=000003.jpg
+[rectification:T] result accepted=True raw=10000 conf=9854 inliers=2971 inlier_ratio=0.302 reproj=1.776 coverage=1.000 accepted_total=2/8
+[rectification:T] matching 3/12 frame_id=000004 image=000004.jpg
+[rectification:T] result accepted=False raw=10000 conf=9825 inliers=2092 inlier_ratio=0.213 reproj=1.486 coverage=1.000 accepted_total=2/8
+[rectification:T] matching 4/12 frame_id=000006 image=000006.jpg
+[rectification:T] result accepted=True raw=10000 conf=9997 inliers=5298 inlier_ratio=0.530 reproj=1.763 coverage=1.000 accepted_total=3/8
+[rectification:T] matching 5/12 frame_id=000007 image=000007.jpg
+[rectification:T] result accepted=True raw=10000 conf=9996 inliers=4749 inlier_ratio=0.475 reproj=1.770 coverage=1.000 accepted_total=4/8
+[rectification:T] matching 6/12 frame_id=000009 image=000009.jpg
+[rectification:T] result accepted=True raw=10000 conf=9964 inliers=4907 inlier_ratio=0.492 reproj=1.579 coverage=1.000 accepted_total=5/8
+[rectification:T] matching 7/12 frame_id=000010 image=000010.jpg
+[rectification:T] result accepted=True raw=10000 conf=9992 inliers=4672 inlier_ratio=0.468 reproj=1.813 coverage=1.000 accepted_total=6/8
+[rectification:T] matching 8/12 frame_id=000012 image=000012.jpg
+[rectification:T] result accepted=True raw=10000 conf=9994 inliers=4964 inlier_ratio=0.497 reproj=1.644 coverage=1.000 accepted_total=7/8
+[rectification:T] matching 9/12 frame_id=000013 image=000013.jpg
+[rectification:T] result accepted=True raw=10000 conf=9979 inliers=4854 inlier_ratio=0.486 reproj=1.486 coverage=1.000 accepted_total=8/8
+[rectification:T] matching 10/12 frame_id=000015 image=000015.jpg
+[rectification:T] result accepted=True raw=10000 conf=9984 inliers=4626 inlier_ratio=0.463 reproj=1.893 coverage=1.000 accepted_total=9/8
+[rectification:T] matching 11/12 frame_id=000016 image=000016.jpg
+[rectification:T] result accepted=True raw=10000 conf=9988 inliers=4997 inlier_ratio=0.500 reproj=1.862 coverage=1.000 accepted_total=10/8
+[rectification:T] matching 12/12 frame_id=000018 image=000018.jpg
+[rectification:T] result accepted=True raw=10000 conf=9998 inliers=5185 inlier_ratio=0.519 reproj=1.637 coverage=1.000 accepted_total=11/8
+[rectification:T] stop at candidate_count=12: qa_status=pass median_disp=13.787px reject_ratio=0.182
+[rectification:T] accepted 11 high-quality frames after attempting 12/18
+[rectification:T] QA pass=True legacy_pass=True qa_status=pass delta_edge=0.1919 delta_grad=0.1225 stop_decision=True
+{
+  "dataset_root": "G:\\UAV-TAlign\\UAV-TAlign-1K",
+  "dataset_manifest": {
+    "manifest_path": "G:\\UAV-TAlign\\UAV-TAlign-1K\\subset_manifest.json",
+    "manifest_sha256": "27c99fb9b0235d98242cdc649efcd75bdb9a75015092916b4215dbb3eeef4811",
+    "manifest_hash_policy": "canonical_json_sort_keys_compact_utf8",
+    "manifest_file_sha256": "03007a8bb590a519714b41aef30d3a290cda7a20aa4b8062806a1ceed66ec9f1",
+    "dataset_name": "UAV-TAlign-1K",
+    "manifest_type": "dataset_manifest",
+    "manifest_version": null,
+    "full_candidate_pairs": null,
+    "full_candidate_images": null,
+    "valid_pair_count": null,
+    "valid_image_count": null,
+    "excluded_pair_count": 0
+  },
+  "output_root": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p3p5_supplement_bundle_20260629_133127\\prcv_ablation_A3_candidate_plus_aggregation_plus_qa",
+  "runtime_environment": {
+    "python_executable": "G:\\UAV-TAlign\\uav_talign_envs\\uav-talign-e10a8be-py310\\python.exe",
+    "python_version": "3.10.18 | packaged by conda-forge | (main, Jun  4 2025, 14:42:04) [MSC v.1943 64 bit (AMD64)]",
+    "git_commit": "c55e39e49cda508bae68520f718894bb0c761cec"
+  },
+  "weight_provenance": {
+    "raw_minima_ckpt": {
+      "path": "",
+      "exists": false
+    },
+    "uav_talign_minima_ckpt": {
+      "path": "",
+      "exists": false
+    },
+    "official_xoftr_ckpt": {
+      "path": "",
+      "exists": false
+    },
+    "loftr_source": "kornia.feature.LoFTR(pretrained='outdoor')",
+    "roma_source": "third_party.MINIMA.third_party.RoMa_minima.romatch.roma_outdoor"
+  },
+  "methods": [
+    "uav_talign_full"
+  ],
+  "scene_names": [
+    "01_day_grayscale_wide_substation_power_lines_50",
+    "02_day_grayscale_zoom_substation_power_lines_50",
+    "03_night_grayscale_wide_substation_power_lines_45",
+    "04_night_grayscale_zoom_substation_power_lines_45",
+    "07_day_grayscale_transmission_tower_102",
+    "08_night_grayscale_urban_22",
+    "13_lowlight_pseudocolor_road_21",
+    "14_lowlight_pseudocolor_transmission_tower_18"
+  ],
+  "pair_ids_by_scene": null,
+  "num_scenes": 8,
+  "num_pairs": 353,
+  "seed": 0,
+  "resume": false,
+  "runtime_isolation": {
+    "dataset_root": "G:\\UAV-TAlign\\UAV-TAlign-1K",
+    "dataset_write_policy": "read_only_expected",
+    "minima_root": "G:\\UAV-TAlign\\UAV-TAlign\\third_party\\MINIMA",
+    "minima_write_policy": "read_only_expected",
+    "output_root": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p3p5_supplement_bundle_20260629_133127\\prcv_ablation_A3_candidate_plus_aggregation_plus_qa",
+    "prepared_root_parent": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p3p5_supplement_bundle_20260629_133127\\prcv_ablation_A3_candidate_plus_aggregation_plus_qa\\_prepared",
+    "notes": [
+      "All experiment artifacts must stay under output_root.",
+      "The raw dataset root and algorithm source directories are treated as read-only inputs."
+    ]
+  },
+  "method_summaries": {
+    "uav_talign_full": {
+      "num_records": 8,
+      "status_counts": {
+        "pass": 5,
+        "canonical_fail": 3
+      },
+      "qa_status_counts": {
+        "pass": 5,
+        "fail": 3
+      },
+      "canonical_scene_pass_count": 5,
+      "homography_available_count": 8,
+      "accepted_frames_summary": {
+        "n": 8,
+        "min": 7.0,
+        "mean": 26.0,
+        "median": 23.0,
+        "max": 49.0,
+        "std": 17.066048165876012
+      },
+      "attempted_frames_summary": {
+        "n": 8,
+        "min": 12.0,
+        "mean": 31.375,
+        "median": 30.5,
+        "max": 50.0,
+        "std": 15.345500154768498
+      },
+      "runtime_sec_summary": {
+        "n": 8,
+        "min": 21.066539525985718,
+        "mean": 50.690021216869354,
+        "median": 47.4507622718811,
+        "max": 79.34531807899475,
+        "std": 21.939863370594907
+      }
+    }
+  }
+}

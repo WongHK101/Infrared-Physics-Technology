@@ -1,0 +1,17 @@
+﻿window_tag=20260625_162041_direct
+repo_root=G:\UAV-TAlign\UAV-TAlign
+dataset_root=G:\UAV-TAlign\UAV-TAlign-12K
+manifest_path=G:\UAV-TAlign\UAV-TAlign\manifests\UAV-TAlign-12K_official_valid_evaluation_manifest.json
+output_root=G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p0c_12k_main
+conda_command=D:\anaconda\Scripts\conda.exe
+env_prefix=G:\UAV-TAlign\uav_talign_envs\uav-talign-e10a8be-py310
+methods=sift_ransac,akaze_ransac,loftr_outdoor,roma_outdoor,xoftr_official,raw_minima,uav_talign_full
+device=cuda:0
+seed=0
+resume=false
+launcher_batch=G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p0c_12k_main\_launcher\run_main_12k.cmd
+main_stdout=G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p0c_12k_main\_launcher\main_stdout.txt
+main_stderr=G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p0c_12k_main\_launcher\main_stderr.txt
+validate_stdout=G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p0c_12k_main\_launcher\validate_stdout.txt
+validate_stderr=G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p0c_12k_main\_launcher\validate_stderr.txt
+exit_code=0

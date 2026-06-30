@@ -1,0 +1,91 @@
+{
+  "output_dir": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_loftr_retry_20260626_140300",
+  "required_methods": [
+    "loftr_outdoor"
+  ],
+  "checks": [
+    {
+      "name": "experiment_config_exists",
+      "ok": true,
+      "detail": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_loftr_retry_20260626_140300\\experiment_config.json"
+    },
+    {
+      "name": "manifest_sha256",
+      "ok": true,
+      "detail": "expected=a092f7ad00c6e02ead3bd39de5c246001f1d4bebbc4105ba715ef37bbb202c6c actual=a092f7ad00c6e02ead3bd39de5c246001f1d4bebbc4105ba715ef37bbb202c6c"
+    },
+    {
+      "name": "summary_num_pairs",
+      "ok": true,
+      "detail": "expected=6037 actual=6037"
+    },
+    {
+      "name": "summary_num_scenes",
+      "ok": true,
+      "detail": "expected=15 actual=15"
+    },
+    {
+      "name": "summary_declares_loftr_outdoor",
+      "ok": true,
+      "detail": "summary methods=['loftr_outdoor']"
+    },
+    {
+      "name": "summary_has_method_summary_loftr_outdoor",
+      "ok": true,
+      "detail": "method_summaries keys=['loftr_outdoor']"
+    },
+    {
+      "name": "loftr_outdoor_results_exists",
+      "ok": true,
+      "detail": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_loftr_retry_20260626_140300\\loftr_outdoor\\results.jsonl"
+    },
+    {
+      "name": "loftr_outdoor_results_count",
+      "ok": true,
+      "detail": "expected=6037 actual=6037 path=G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_loftr_retry_20260626_140300\\loftr_outdoor\\results.jsonl"
+    },
+    {
+      "name": "loftr_outdoor_summary_status_counts_match",
+      "ok": true,
+      "detail": "summary={'ok': 5984, 'fit_failed': 13, 'insufficient_matches': 35, 'no_matches': 5} actual={'ok': 5984, 'fit_failed': 13, 'insufficient_matches': 35, 'no_matches': 5}"
+    },
+    {
+      "name": "loftr_outdoor_summary_homography_count_match",
+      "ok": true,
+      "detail": "summary=5984 actual=5984"
+    },
+    {
+      "name": "loftr_outdoor_not_all_runtime_error",
+      "ok": true,
+      "detail": "status_counts={'ok': 5984, 'fit_failed': 13, 'insufficient_matches': 35, 'no_matches': 5}"
+    },
+    {
+      "name": "loftr_outdoor_has_pairwise_evidence",
+      "ok": true,
+      "detail": "homography_available_count=5984 status_counts={'ok': 5984, 'fit_failed': 13, 'insufficient_matches': 35, 'no_matches': 5}"
+    }
+  ],
+  "failures": [],
+  "artifacts": {
+    "summary_path": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_loftr_retry_20260626_140300\\main_experiment_summary.json",
+    "experiment_config_path": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_loftr_retry_20260626_140300\\experiment_config.json",
+    "loftr_outdoor_results_jsonl": {
+      "path": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_loftr_retry_20260626_140300\\loftr_outdoor\\results.jsonl",
+      "count": 6037,
+      "status_counts": {
+        "ok": 5984,
+        "fit_failed": 13,
+        "insufficient_matches": 35,
+        "no_matches": 5
+      },
+      "homography_available_count": 5984,
+      "error_count": 0
+    },
+    "loftr_execution_profile": {
+      "loftr_match_max_dim": 1200,
+      "loftr_use_amp": true
+    }
+  },
+  "ok": true
+}
+

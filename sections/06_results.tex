@@ -8,18 +8,19 @@ Pairwise infrared-visible homography evidence is broadly available on UAV-TAlign
 Table~\ref{tab:pairwise_baselines} reports the full 6,037-pair official evaluation split.
 Classical keypoint baselines provide useful but less complete pairwise evidence: SIFT and AKAZE
 reach 87.08\% and 94.29\% homography availability, respectively. This provides a classical
-keypoint reference, while RIFT2 and modern dense and learned matchers further improve pairwise
-availability under infrared-visible appearance gaps. RIFT2 adds an infrared-visible classical
-reference point and completes all evaluated pairs. Raw MINIMA and RoMa also produce homographies
-for all pairs, while LoFTR and XoFTR remain near-saturated under the same manifest-based
-evaluation. This result sharpens the role of UAV-TAlign: the framework targets the decision layer
-that remains after strong pairwise homography evidence is available.
+keypoint reference, while modern dense and learned matchers further improve pairwise availability
+under infrared-visible appearance gaps. Raw MINIMA and RoMa produce homographies for all pairs,
+while the accepted LoFTR retry and XoFTR remain near-saturated under the same manifest-based
+evaluation. This result sharpens the role of UAV-TAlign: once pairwise homography evidence is
+broadly available, the main remaining operating question is whether the resulting scene-level
+product should be retained.
 
 \begin{table}[t]
 \caption{Pairwise infrared-visible homography evidence on UAV-TAlign-12K. Metrics are complementary
 diagnostics under the evaluated implementation and deployment settings, and should not be read as
-a single absolute ranking. LoFTR and XoFTR non-ok cases correspond to insufficient matches, no
-matches, or homography fitting failures.}
+a single absolute ranking. The LoFTR row is reported from the accepted memory-safe retry profile.
+LoFTR and XoFTR non-ok cases correspond to insufficient matches, no matches, or homography fitting
+failures.}
 \label{tab:pairwise_baselines}
 \centering
 \resizebox{\textwidth}{!}{
@@ -27,20 +28,22 @@ matches, or homography fitting failures.}
 \toprule
 Method & Category & OK / N $\uparrow$ & H (\%) $\uparrow$ & Inlier Ratio $\uparrow$ & Coverage $\uparrow$ & Median Reproj. $\downarrow$ & Runtime / Pair (s) $\downarrow$ \\
 \midrule
-SIFT + RANSAC & Classical keypoint & 5257/6037 & 87.08 & 0.242 & 0.627 & 0.000 & 9.008 \\
-AKAZE + RANSAC & Classical keypoint & 5692/6037 & 94.29 & 0.160 & 0.730 & 0.105 & 1.511 \\
-RIFT2 (Python, resize-aware) & Infrared-visible classical & 6037/6037 & \textbf{100.00} & 0.086 & 0.354 & 0.121 & 13.980 \\
-raw MINIMA & Modern dense / learned & 6037/6037 & \textbf{100.00} & 0.319 & 1.000 & 1.775 & 1.905 \\
-RoMa outdoor & Modern dense / learned & 6037/6037 & \textbf{100.00} & 0.328 & 0.997 & 1.739 & 0.844 \\
-Kornia LoFTR outdoor & Modern dense / learned & 6009/6037 & 99.54 & 0.099 & 0.922 & 1.405 & 0.288 \\
-XoFTR-640 & Modern dense / learned & 5989/6037 & 99.20 & 0.089 & 0.949 & 1.732 & 0.615 \\
+SIFT + RANSAC & Classical keypoint & 5257/6037 & 87.08 & 0.242 & 0.627 & 0.000 & 4.421 \\
+AKAZE + RANSAC & Classical keypoint & 5692/6037 & 94.29 & 0.160 & 0.730 & 0.105 & 1.103 \\
+raw MINIMA & Modern dense / learned & 6037/6037 & \textbf{100.00} & 0.319 & 1.000 & 1.773 & 1.346 \\
+RoMa outdoor & Modern dense / learned & 6037/6037 & \textbf{100.00} & 0.328 & 0.997 & 1.741 & 0.929 \\
+Kornia LoFTR outdoor (retry) & Modern dense / learned & 5984/6037 & 99.12 & 0.074 & 0.895 & 0.823 & 0.169 \\
+XoFTR-640 & Modern dense / learned & 5989/6037 & 99.20 & 0.089 & 0.949 & 1.732 & 0.647 \\
 \bottomrule
 \end{tabular}}
 \end{table}
 
-RIFT2 provides stable infrared-visible pairwise homographies with low fitted reprojection error,
-while modern dense and learned matchers provide broader spatial support and stronger coverage.
-These secondary fitting statistics are therefore best read jointly.
+The classical baselines remain informative reference points, but the modern dense and learned
+matchers provide substantially broader usable pairwise support. The LoFTR result is reported with
+the accepted resize-aware retry configuration, which enables stable full-subset evaluation under
+the fixed memory budget after the original full-resolution run exceeded that budget. These
+secondary fitting statistics are therefore most informative when read jointly rather than as a
+single absolute ranking.
 
 \subsection{Scene-Level Performance of UAV-TAlign}
 
@@ -56,11 +59,11 @@ preferred direction.}
 \label{tab:scene_level_main}
 \centering
 \resizebox{\textwidth}{!}{
-\begin{tabular}{llrrrrr}
+\begin{tabular}{llrrrrrr}
 \toprule
-Method & Eval Unit & H Available $\uparrow$ & Retained Scenes $\uparrow$ & Retention Rate (\%) $\uparrow$ & Accepted Frames & Accepted Ratio (\%) $\uparrow$ \\
+Method & Eval Unit & H Available $\uparrow$ & Retained Scenes $\uparrow$ & Retention Rate (\%) $\uparrow$ & Pair Coverage (\%) $\uparrow$ & Accepted / Attempted & Accepted Ratio (\%) $\uparrow$ \\
 \midrule
-UAV-TAlign & 15 scenes & 15/15 & 9/15 & 60.0 & 2473/3847 & 64.3 \\
+UAV-TAlign & 15 scenes & 15/15 & 9/15 & 60.0 & 74.4 & 1491/2304 & 64.7 \\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -68,12 +71,16 @@ UAV-TAlign & 15 scenes & 15/15 & 9/15 & 60.0 & 2473/3847 & 64.3 \\
 \subsection{Condition Breakdown}
 
 Retained alignments show meaningful condition structure across illumination and thermal rendering.
-Day, night, and low-light groups all contribute retained products, while their accepted-frame
-profiles differ substantially. These patterns support the view that the central challenge is
-scene-level decision quality rather than pairwise matcher availability alone.
+Table~\ref{tab:light_condition} separates condition-level scene retention from accepted-frame
+support aggregated over all scenes within each condition. Day scenes retain most frequently and
+also provide the strongest accepted-frame support, whereas night scenes are weakest on both axes.
+Low-light scenes retain less often than day scenes despite a moderate accepted-frame ratio,
+indicating that frame-level support alone does not determine the final scene-level decision.
 
 \begin{table}[t]
-\caption{Scene-level reliability breakdown by light condition on UAV-TAlign-12K.}
+\caption{Scene-level reliability breakdown by light condition on UAV-TAlign-12K. Accepted /
+attempted aggregates accepted and attempted frames over all scenes within each condition and thus
+complements the retained-scene counts.}
 \label{tab:light_condition}
 \centering
 \resizebox{\textwidth}{!}{
@@ -123,40 +130,42 @@ trade-off.
 
 \subsection{Cumulative Ablation}
 
-The strongest module-level gain is produced by robust scene consensus, while deterministic
-selection is best understood as a reproducible operating policy. Adding robust scene consensus
-substantially improves edge and gradient alignment proxies while reducing severe outliers. Adding
-QA-aware verification then converts accepted-frame evidence into a reliability-controlled
-scene-level criterion, matching the 1K-Lite ablation slice at 5/8 retained scenes.
+The accepted 8-scene supplement clarifies two complementary points. First, QA-aware verification
+turns a permissive scene-pass pipeline into a retained-product decision rule. Second, the frame
+selection policy matters primarily near the pass/fail boundary rather than through large changes
+in overall accepted-frame support. On this subset, the candidate-only and consensus-only variants
+both keep 8/8 scenes under the pre-verification criterion, whereas the deterministic-even
+QA-aware variant contracts to 5/8 retained scenes.
 
 \begin{table}[t]
-\caption{Cumulative module ablation on the fixed 8-scene subset. Bold values mark the strongest
-observed proxy values within each column; arrows indicate preferred direction.}
+\caption{Frozen cumulative ablation on the fixed 8-scene subset. The table emphasizes retained
+product behavior under the accepted local supplement evidence.}
 \label{tab:ablation_main}
 \centering
 \resizebox{\textwidth}{!}{
-\begin{tabular}{lccc rrrrr}
+\begin{tabular}{lcccrrrr}
 \toprule
-Variant & Evidence & Consensus & Verification & Retained/N $\uparrow$ & Acc. $\uparrow$ & $\Delta$Edge $\uparrow$ & $\Delta$Grad $\uparrow$ & Severe $\downarrow$ \\
+Variant & Selection & Consensus & Verification & Retained/N $\uparrow$ & QA Pass/N $\uparrow$ & Acc. Mean $\uparrow$ & Acc. Range \\
 \midrule
-Evidence selection only & \cmark & \xmark & \xmark & 8/8 & 77.4 & 0.124 & 0.126 & 10.4 \\
-+ Robust scene consensus & \cmark & \cmark & \xmark & 8/8 & 77.4 & 0.145 & 0.148 & \textbf{4.2} \\
-+ QA-aware verification & \cmark & \cmark & \cmark & 5/8 & 77.2 & \textbf{0.147} & \textbf{0.149} & \textbf{4.2} \\
-UAV-TAlign full (8-scene slice) & \cmark & \cmark & \cmark & 5/8 & \textbf{80.4} & \textbf{0.147} & \textbf{0.149} & \textbf{4.2} \\
+A1 candidate only & candidate-only & \xmark & \xmark & 8/8 & 5/8 & 13.6 & 8--34 \\
+A2 + robust scene consensus & candidate-only & \cmark & \xmark & 8/8 & 5/8 & 13.6 & 8--34 \\
+A3 + QA-aware verification & even & \cmark & \cmark & 5/8 & 5/8 & 26.0 & 7--49 \\
+Random selection full (seed0) & random & \cmark & \cmark & 5/8 & 6/8 & 26.6 & 7--49 \\
 \bottomrule
 \end{tabular}}
 \end{table}
 
-The completed random-selection supplement further shows a 4/8 to 7/8 spread across seeds on the
-same fixed subset. Deterministic-even selection therefore serves as a reproducible default
-operating policy, while robust scene consensus and QA-aware verification remain the primary
-empirical drivers.
+The accepted random-selection supplement further shows a 5/8 to 7/8 spread across seeds on the
+same fixed subset. The variation is concentrated in a small number of borderline scenes, while the
+accepted-frame means remain comparatively stable across seeds. Deterministic-even selection
+therefore serves as a reproducible default operating policy, and the multi-seed result is best
+read as boundary sensitivity rather than full-pipeline instability.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/fig_ablation_sensitivity.pdf}
 \caption{Cumulative ablation and random-selection supplement. Robust scene consensus improves proxy
-quality and reduces severe outliers, while the random-selection variant shows non-trivial seed
+quality before the final gate, while the random-selection variant shows non-trivial seed
 sensitivity on the same fixed 8-scene subset.}
 \label{fig:ablation_sensitivity}
 \end{figure}

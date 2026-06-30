@@ -1,0 +1,246 @@
+{
+  "output_dir": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main",
+  "required_methods": [
+    "sift_ransac",
+    "akaze_ransac",
+    "loftr_outdoor",
+    "roma_outdoor",
+    "xoftr_official",
+    "raw_minima",
+    "uav_talign_full"
+  ],
+  "checks": [
+    {
+      "name": "manifest_sha256",
+      "ok": true,
+      "detail": "expected=a092f7ad00c6e02ead3bd39de5c246001f1d4bebbc4105ba715ef37bbb202c6c actual=a092f7ad00c6e02ead3bd39de5c246001f1d4bebbc4105ba715ef37bbb202c6c"
+    },
+    {
+      "name": "summary_num_pairs",
+      "ok": true,
+      "detail": "expected=6037 actual=6037"
+    },
+    {
+      "name": "summary_num_scenes",
+      "ok": true,
+      "detail": "expected=15 actual=15"
+    },
+    {
+      "name": "summary_declares_sift_ransac",
+      "ok": true,
+      "detail": "summary methods=['sift_ransac', 'akaze_ransac', 'loftr_outdoor', 'roma_outdoor', 'xoftr_official', 'raw_minima', 'uav_talign_full']"
+    },
+    {
+      "name": "summary_has_method_summary_sift_ransac",
+      "ok": true,
+      "detail": "method_summaries keys=['akaze_ransac', 'loftr_outdoor', 'raw_minima', 'roma_outdoor', 'sift_ransac', 'uav_talign_full', 'xoftr_official']"
+    },
+    {
+      "name": "sift_ransac_results_exists",
+      "ok": true,
+      "detail": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\sift_ransac\\results.jsonl"
+    },
+    {
+      "name": "sift_ransac_results_count",
+      "ok": true,
+      "detail": "expected=6037 actual=6037 path=G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\sift_ransac\\results.jsonl"
+    },
+    {
+      "name": "summary_declares_akaze_ransac",
+      "ok": true,
+      "detail": "summary methods=['sift_ransac', 'akaze_ransac', 'loftr_outdoor', 'roma_outdoor', 'xoftr_official', 'raw_minima', 'uav_talign_full']"
+    },
+    {
+      "name": "summary_has_method_summary_akaze_ransac",
+      "ok": true,
+      "detail": "method_summaries keys=['akaze_ransac', 'loftr_outdoor', 'raw_minima', 'roma_outdoor', 'sift_ransac', 'uav_talign_full', 'xoftr_official']"
+    },
+    {
+      "name": "akaze_ransac_results_exists",
+      "ok": true,
+      "detail": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\akaze_ransac\\results.jsonl"
+    },
+    {
+      "name": "akaze_ransac_results_count",
+      "ok": true,
+      "detail": "expected=6037 actual=6037 path=G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\akaze_ransac\\results.jsonl"
+    },
+    {
+      "name": "summary_declares_loftr_outdoor",
+      "ok": true,
+      "detail": "summary methods=['sift_ransac', 'akaze_ransac', 'loftr_outdoor', 'roma_outdoor', 'xoftr_official', 'raw_minima', 'uav_talign_full']"
+    },
+    {
+      "name": "summary_has_method_summary_loftr_outdoor",
+      "ok": true,
+      "detail": "method_summaries keys=['akaze_ransac', 'loftr_outdoor', 'raw_minima', 'roma_outdoor', 'sift_ransac', 'uav_talign_full', 'xoftr_official']"
+    },
+    {
+      "name": "loftr_outdoor_results_exists",
+      "ok": true,
+      "detail": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\loftr_outdoor\\results.jsonl"
+    },
+    {
+      "name": "loftr_outdoor_results_count",
+      "ok": true,
+      "detail": "expected=6037 actual=6037 path=G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\loftr_outdoor\\results.jsonl"
+    },
+    {
+      "name": "summary_declares_roma_outdoor",
+      "ok": true,
+      "detail": "summary methods=['sift_ransac', 'akaze_ransac', 'loftr_outdoor', 'roma_outdoor', 'xoftr_official', 'raw_minima', 'uav_talign_full']"
+    },
+    {
+      "name": "summary_has_method_summary_roma_outdoor",
+      "ok": true,
+      "detail": "method_summaries keys=['akaze_ransac', 'loftr_outdoor', 'raw_minima', 'roma_outdoor', 'sift_ransac', 'uav_talign_full', 'xoftr_official']"
+    },
+    {
+      "name": "roma_outdoor_results_exists",
+      "ok": true,
+      "detail": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\roma_outdoor\\results.jsonl"
+    },
+    {
+      "name": "roma_outdoor_results_count",
+      "ok": true,
+      "detail": "expected=6037 actual=6037 path=G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\roma_outdoor\\results.jsonl"
+    },
+    {
+      "name": "summary_declares_xoftr_official",
+      "ok": true,
+      "detail": "summary methods=['sift_ransac', 'akaze_ransac', 'loftr_outdoor', 'roma_outdoor', 'xoftr_official', 'raw_minima', 'uav_talign_full']"
+    },
+    {
+      "name": "summary_has_method_summary_xoftr_official",
+      "ok": true,
+      "detail": "method_summaries keys=['akaze_ransac', 'loftr_outdoor', 'raw_minima', 'roma_outdoor', 'sift_ransac', 'uav_talign_full', 'xoftr_official']"
+    },
+    {
+      "name": "xoftr_official_results_exists",
+      "ok": true,
+      "detail": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\xoftr_official\\results.jsonl"
+    },
+    {
+      "name": "xoftr_official_results_count",
+      "ok": true,
+      "detail": "expected=6037 actual=6037 path=G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\xoftr_official\\results.jsonl"
+    },
+    {
+      "name": "summary_declares_raw_minima",
+      "ok": true,
+      "detail": "summary methods=['sift_ransac', 'akaze_ransac', 'loftr_outdoor', 'roma_outdoor', 'xoftr_official', 'raw_minima', 'uav_talign_full']"
+    },
+    {
+      "name": "summary_has_method_summary_raw_minima",
+      "ok": true,
+      "detail": "method_summaries keys=['akaze_ransac', 'loftr_outdoor', 'raw_minima', 'roma_outdoor', 'sift_ransac', 'uav_talign_full', 'xoftr_official']"
+    },
+    {
+      "name": "raw_minima_results_exists",
+      "ok": true,
+      "detail": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\raw_minima\\results.jsonl"
+    },
+    {
+      "name": "raw_minima_results_count",
+      "ok": true,
+      "detail": "expected=6037 actual=6037 path=G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\raw_minima\\results.jsonl"
+    },
+    {
+      "name": "summary_declares_uav_talign_full",
+      "ok": true,
+      "detail": "summary methods=['sift_ransac', 'akaze_ransac', 'loftr_outdoor', 'roma_outdoor', 'xoftr_official', 'raw_minima', 'uav_talign_full']"
+    },
+    {
+      "name": "summary_has_method_summary_uav_talign_full",
+      "ok": true,
+      "detail": "method_summaries keys=['akaze_ransac', 'loftr_outdoor', 'raw_minima', 'roma_outdoor', 'sift_ransac', 'uav_talign_full', 'xoftr_official']"
+    },
+    {
+      "name": "canonical_results_jsonl_exists",
+      "ok": true,
+      "detail": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\uav_talign_full\\results.jsonl"
+    },
+    {
+      "name": "canonical_results_jsonl_count",
+      "ok": true,
+      "detail": "expected=15 actual=15 path=G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\uav_talign_full\\results.jsonl"
+    },
+    {
+      "name": "compat_scene_results_jsonl_exists",
+      "ok": true,
+      "detail": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\uav_talign_full\\scene_results.jsonl"
+    },
+    {
+      "name": "compat_scene_results_jsonl_count",
+      "ok": true,
+      "detail": "expected=15 actual=15 path=G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\uav_talign_full\\scene_results.jsonl"
+    },
+    {
+      "name": "compat_top_level_jsonl_exists",
+      "ok": true,
+      "detail": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\uav_talign_full_scene_metrics_detailed.jsonl"
+    },
+    {
+      "name": "compat_top_level_jsonl_count",
+      "ok": true,
+      "detail": "expected=15 actual=15 path=G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\uav_talign_full_scene_metrics_detailed.jsonl"
+    },
+    {
+      "name": "canonical_results_jsonl_scene_name_alignment",
+      "ok": true,
+      "detail": "reference=canonical_results_jsonl actual=canonical_results_jsonl"
+    },
+    {
+      "name": "compat_scene_results_jsonl_scene_name_alignment",
+      "ok": true,
+      "detail": "reference=canonical_results_jsonl actual=compat_scene_results_jsonl"
+    },
+    {
+      "name": "compat_top_level_jsonl_scene_name_alignment",
+      "ok": true,
+      "detail": "reference=canonical_results_jsonl actual=compat_top_level_jsonl"
+    }
+  ],
+  "failures": [],
+  "artifacts": {
+    "summary_path": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\main_experiment_summary.json",
+    "sift_ransac_results_jsonl": {
+      "path": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\sift_ransac\\results.jsonl",
+      "count": 6037
+    },
+    "akaze_ransac_results_jsonl": {
+      "path": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\akaze_ransac\\results.jsonl",
+      "count": 6037
+    },
+    "loftr_outdoor_results_jsonl": {
+      "path": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\loftr_outdoor\\results.jsonl",
+      "count": 6037
+    },
+    "roma_outdoor_results_jsonl": {
+      "path": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\roma_outdoor\\results.jsonl",
+      "count": 6037
+    },
+    "xoftr_official_results_jsonl": {
+      "path": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\xoftr_official\\results.jsonl",
+      "count": 6037
+    },
+    "raw_minima_results_jsonl": {
+      "path": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\raw_minima\\results.jsonl",
+      "count": 6037
+    },
+    "canonical_results_jsonl": {
+      "path": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\uav_talign_full\\results.jsonl",
+      "count": 15
+    },
+    "compat_scene_results_jsonl": {
+      "path": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\uav_talign_full\\scene_results.jsonl",
+      "count": 15
+    },
+    "compat_top_level_jsonl": {
+      "path": "G:\\UAV-TAlign\\UAV-TAlign\\outputs\\ipt_p0c_12k_main\\uav_talign_full_scene_metrics_detailed.jsonl",
+      "count": 15
+    }
+  },
+  "ok": true
+}
+
