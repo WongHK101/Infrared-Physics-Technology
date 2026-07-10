@@ -32,10 +32,11 @@ $\{H_i\}$ and decide whether it should be retained as an alignment product.
 
 \begin{figure}[t]
 \centering
-\makebox[\textwidth][c]{\includegraphics[width=1.35\textwidth]{figures/fig_method_pipeline.pdf}}
-\caption{Overview of UAV-TAlign. The framework builds on strong pairwise matching, but
-makes the final decision at the scene level through reliability-guided evidence selection, robust
-scene consensus, and QA-aware verification.}
+\makebox[\textwidth][c]{\includegraphics[width=1.18\textwidth]{figures/fig_uav_talign_architecture_image2.png}}
+\caption{Detailed architecture of UAV-TAlign. A progressive frame schedule and deterministic
+representative selection provide pairwise evidence for geometry screening. Quality-weighted
+homography hypotheses are consolidated by robust scene consensus, after which QA-aware
+verification drives the canonical gate and the complementary reliability-ranking branch.}
 \label{fig:method_pipeline}
 \end{figure}
 

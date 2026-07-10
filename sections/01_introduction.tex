@@ -38,6 +38,21 @@ canonical acceptance therefore measure different operating questions and should 
 same success criterion. The key step is to aggregate evidence across a scene, suppress unstable
 homographies, and verify whether the final transform should be retained.
 
+Figure~\ref{fig:scene_reliability_principle} illustrates this distinction. Pairwise homographies
+can be available for most frames while their support and scene consistency remain uneven; robust
+consensus and QA therefore determine whether the resulting scene transform is retained, whereas
+the reliability score is used only to rank scenes for operating-profile analysis.
+
+\begin{figure}[t]
+\centering
+\makebox[\textwidth][c]{\includegraphics[width=1.05\textwidth]{figures/fig_scene_reliability_principle_image2.png}}
+\caption{Principle of scene-level reliability control. Broad pairwise homography availability
+does not imply that all frame-level hypotheses are equally trustworthy. UAV-TAlign suppresses
+unstable hypotheses, forms a robust scene consensus, and separates the canonical retain/reject
+decision from reliability-based ranking.}
+\label{fig:scene_reliability_principle}
+\end{figure}
+
 This observation motivates a scene-level framing of the problem. We study UAV infrared-visible
 registration as a reliability-centered alignment task rather than a collection of independent
 pairwise matches. Under this view, modern matchers are powerful evidence generators,
@@ -61,6 +76,21 @@ conditions. It is accompanied by a scalable label-free protocol that evaluates p
 homography evidence, scene-level retention, reliability diagnostics, and risk-coverage operating
 profiles. Together, the data and protocol provide a practical and reproducible way to study
 scene-level alignment reliability under real UAV infrared-visible conditions.
+
+Figure~\ref{fig:paper_overview} summarizes the complete paper-level view: UAV-TAlign-12K anchors
+pairwise evidence evaluation, UAV-TAlign converts the resulting multi-frame evidence into a
+reliability-controlled scene transform, and the protocol reports both canonical retention and the
+risk--coverage operating profile.
+
+\begin{figure}[t]
+\centering
+\makebox[\textwidth][c]{\includegraphics[width=1.15\textwidth]{figures/fig_uav_talign_overview_image2.png}}
+\caption{Paper-level overview of UAV-TAlign-12K and UAV-TAlign. The benchmark first measures
+pairwise homography evidence, while the proposed framework performs scene-level evidence
+selection, robust consensus, and QA-aware verification before producing retained alignment
+products and reliability--coverage diagnostics.}
+\label{fig:paper_overview}
+\end{figure}
 
 Our contributions are threefold:
 \begin{itemize}

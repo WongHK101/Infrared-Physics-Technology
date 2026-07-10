@@ -79,6 +79,21 @@ than by pairwise usability alone. The pairwise and scene-level tables therefore 
 complementary views of practical registration behavior: correspondence availability and retained
 scene-level alignment reliability.
 
+Figure~\ref{fig:benchmark_protocol} summarizes the manifest-fixed protocol. Track A evaluates
+independent pairwise homography evidence, Track B reports the canonical scene-level retain/reject
+decision, and Track C ranks scenes with the non-trained reliability score for risk--coverage
+analysis without replacing the canonical gate.
+
+\begin{figure}[t]
+\centering
+\makebox[\textwidth][c]{\includegraphics[width=1.10\textwidth]{figures/fig_benchmark_protocol_image2.png}}
+\caption{Unified evaluation protocol for UAV-TAlign-12K. The official manifest anchors all three
+tracks: pairwise homography evidence, canonical scene-level retention, and reliability--coverage
+analysis. The canonical gate is the hard main-result decision, whereas the reliability score is a
+ranking mechanism for operating-profile visualization.}
+\label{fig:benchmark_protocol}
+\end{figure}
+
 \subsection{Label-Free QA Proxies}
 
 The protocol relies on label-free relative QA signals designed for scalable scene-level reliability
