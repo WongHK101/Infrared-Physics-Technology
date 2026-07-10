@@ -1,4 +1,4 @@
-UAV-TAlign-12K provides 6,039 UAV infrared-visible image pairs.
-Label-free diagnostics evaluate retained scene-level alignment products.
-Off-the-shelf baselines show broad pairwise homography availability.
-UAV-TAlign converts pairwise evidence into reliability-controlled transforms.
+UAV-TAlign-12K provides 6,039 real cross-FOV UAV infrared-visible pairs.
+The dataset spans diverse illumination, thermal rendering, and UAV views.
+A manifest-fixed benchmark separates pairwise evidence from scene retention.
+UAV-TAlign is a reliability-controlled scene-level reference method.

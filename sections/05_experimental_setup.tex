@@ -12,9 +12,10 @@ Unified inference wrappers standardize model loading, image I/O, homography fitt
 schemas while preserving the public pretrained baseline parameters and settings.
 
 The baseline suite covers classical keypoint pipelines and modern learned matchers. The classical
-pairwise references are SIFT and AKAZE, each followed by RANSAC-based homography fitting. The modern pairwise baselines are Kornia
-LoFTR (pretrained="outdoor"), RoMa outdoor full, XoFTR-640, and raw MINIMA. Raw MINIMA uses the
-MINIMA RoMa branch as a direct pairwise baseline. Reliability-guided evidence selection, robust
+pairwise references are SIFT and AKAZE, each followed by RANSAC-based homography fitting. The
+modern pairwise baselines are Kornia LoFTR, RoMa outdoor full, XoFTR-640, and raw MINIMA. LoFTR
+uses Kornia's public outdoor-pretrained model, while raw MINIMA uses the MINIMA RoMa branch as a
+direct pairwise baseline. Reliability-guided evidence selection, robust
 scene consensus, and QA-aware verification are activated only in the full UAV-TAlign framework
 \cite{sun2021loftr,edstedt2024roma,tuzcuoglu2024xoftr,ren2025minima}.
 

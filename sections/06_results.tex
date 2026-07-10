@@ -45,13 +45,13 @@ the fixed memory budget after the original full-resolution run exceeded that bud
 secondary fitting statistics are therefore most informative when read jointly rather than as a
 single absolute ranking.
 
-\subsection{Scene-Level Performance of UAV-TAlign}
+\subsection{Scene-Level Reference Result}
 
-High pairwise usability does not automatically imply broad scene retention, because the canonical
+To instantiate the benchmark's scene-level track, we evaluate UAV-TAlign as the reference method.
+High pairwise usability does not automatically imply broad scene retention because the canonical
 decision answers a different operating question. UAV-TAlign produces scene-level homographies for
-all 15 scenes and retains 9 scenes under the strict canonical reliability gate. This operating
-point emphasizes high-confidence alignment products and shows how robust consensus and verification
-turn abundant frame-level matches into selected scene-level transforms.
+all 15 scenes and retains 9 under the strict canonical reliability gate. This result demonstrates
+how UAV-TAlign-12K distinguishes homography availability from retained scene reliability.
 
 \begin{table}[t]
 \caption{Strict canonical scene-level result for UAV-TAlign on UAV-TAlign-12K. Arrows indicate the

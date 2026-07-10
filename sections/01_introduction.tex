@@ -53,29 +53,25 @@ decision from reliability-based ranking.}
 \label{fig:scene_reliability_principle}
 \end{figure}
 
-This observation motivates a scene-level framing of the problem. We study UAV infrared-visible
-registration as a reliability-centered alignment task rather than a collection of independent
-pairwise matches. Under this view, modern matchers are powerful evidence generators,
-but the alignment algorithm must still answer three system-level questions: which frames should
-contribute evidence, how should multiple homographies be fused into a scene consensus, and when is
-the resulting transform reliable enough to use? This framing is especially important for UAV data,
-where the final output should favor trustworthy scene-level geometry over indiscriminate
-acceptance.
+This observation motivates a benchmark-first framing with two complementary evaluation questions:
+whether a method can produce usable pairwise homography evidence, and whether multi-frame evidence
+supports a scene transform that should be retained. Treating these as separate units prevents high
+pairwise availability from being interpreted as automatic scene-level reliability.
 
-We present UAV-TAlign, a scene-level UAV infrared-visible alignment framework designed around this
-decision layer. UAV-TAlign operates on top of modern pairwise matchers and uses
-reliability-guided evidence selection to obtain representative frame support, robust scene
-consensus to consolidate frame-level estimates, and QA-aware verification to retain scene-level
-transforms that satisfy strict quality criteria. In this sense, UAV-TAlign elevates strong pairwise
-multimodal matching into a deployable scene-level alignment decision.
+Our primary contribution is UAV-TAlign-12K, a real-world UAV infrared-visible alignment dataset
+with 6,039 candidate pairs and an integrity-checked 6,037-pair evaluation split across 15 scenes.
+The collection spans day, night, low-light, grayscale thermal, pseudocolor thermal, and wide,
+zoom, and standard UAV views. Its manifest-fixed, label-free protocol evaluates pairwise
+homography evidence, canonical scene retention, condition-aware reliability, and risk--coverage
+operating profiles. Together, the data and protocol make scene-level alignment reliability
+directly studyable under captured cross-FOV UAV conditions.
 
-We also package UAV-TAlign-12K, a public UAV infrared-visible alignment collection with 6,039
-candidate pairs and an integrity-checked 6,037-pair evaluation split across 15 scenes. The
-collection spans day, night, low-light, grayscale thermal, pseudocolor thermal, and wide/zoom scene
-conditions. It is accompanied by a scalable label-free protocol that evaluates pairwise
-homography evidence, scene-level retention, reliability diagnostics, and risk-coverage operating
-profiles. Together, the data and protocol provide a practical and reproducible way to study
-scene-level alignment reliability under real UAV infrared-visible conditions.
+To instantiate the scene-level benchmark track, we additionally present UAV-TAlign as a reference
+alignment method. It operates on top of strong pairwise matchers and uses reliability-guided
+evidence selection, robust scene consensus, and QA-aware verification to decide whether a
+scene-level transform should be retained. The method contribution is therefore complementary to
+the dataset: it provides a reproducible reference implementation for the reliability question
+exposed by UAV-TAlign-12K.
 
 Figure~\ref{fig:paper_overview} summarizes the complete paper-level view: UAV-TAlign-12K anchors
 pairwise evidence evaluation, UAV-TAlign converts the resulting multi-frame evidence into a
@@ -86,7 +82,7 @@ risk--coverage operating profile.
 \centering
 \makebox[\textwidth][c]{\includegraphics[width=1.15\textwidth]{figures/fig_uav_talign_overview_image2.png}}
 \caption{Paper-level overview of UAV-TAlign-12K and UAV-TAlign. The benchmark first measures
-pairwise homography evidence, while the proposed framework performs scene-level evidence
+pairwise homography evidence, while the reference framework performs scene-level evidence
 selection, robust consensus, and QA-aware verification before producing retained alignment
 products and reliability--coverage diagnostics.}
 \label{fig:paper_overview}
@@ -94,12 +90,11 @@ products and reliability--coverage diagnostics.}
 
 Our contributions are threefold:
 \begin{itemize}
-\item We introduce UAV-TAlign, a scene-level UAV infrared-visible alignment framework with
-reliability-guided evidence selection, robust scene consensus, and QA-aware verification.
-\item We package UAV-TAlign-12K, a 6,039-pair cross-FOV UAV infrared-visible alignment collection
-with an integrity-checked 6,037-pair evaluation split and a scalable label-free reliability
-protocol.
-\item We show through classical and modern off-the-shelf baselines, reliability
-diagnostics, and cumulative analyses that the central operating challenge shifts from pairwise
-match availability to reliability-controlled scene retention.
+\item We introduce UAV-TAlign-12K, a 6,039-pair real captured cross-FOV UAV infrared-visible
+dataset with an integrity-checked 6,037-pair official split across 15 diverse scenes.
+\item We establish a manifest-fixed benchmark that separates pairwise homography evidence from
+canonical scene-level retention and supports condition-aware and risk--coverage analysis.
+\item We provide UAV-TAlign as a scene-level reference method and use classical and modern
+off-the-shelf baselines, cumulative ablations, and seed analysis to demonstrate the benchmark's
+reliability-centered evaluation capability.
 \end{itemize}

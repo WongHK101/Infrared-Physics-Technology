@@ -2,21 +2,26 @@
 
 \section{Discussion}
 
-\subsection{Why Scene-Level Reliability Becomes Central}
+\subsection{What UAV-TAlign-12K Reveals}
 
-The results position UAV-TAlign as a scene-level reliability framework for UAV infrared-visible
-alignment. Modern pairwise matchers already provide abundant frame-level correspondences on
-UAV-TAlign-12K, which makes scene-level decision quality the central operating question. UAV-TAlign
-addresses this layer directly by turning strong pairwise correspondence models into
-reliability-controlled scene-level alignment products.
+The main contribution of UAV-TAlign-12K is a captured dataset and protocol that expose a gap hidden
+by pairwise-only reporting. Modern matchers provide abundant frame-level evidence on the official
+split, yet the strict scene-level criterion retains only a subset of scenes. The benchmark
+therefore separates two practically different capabilities: producing a pairwise homography and
+deciding whether multi-frame evidence supports a trustworthy scene transform.
 
-The protocol evidence supports this reliability framing. Retained and QA-filtered scenes show
+The protocol evidence supports this dataset-centered reliability framing. Retained and QA-filtered scenes show
 structured differences in accepted ratio, severe outlier behavior, and baseline-relative QA
 signals, indicating that the canonical criterion captures scene-level reliability beyond pairwise
 matcher availability alone. This gives the evaluation a clear diagnostic role: it tests when
 abundant pairwise evidence becomes a trustworthy scene-level transform. The canonical scene
 criterion is therefore designed for conservative retention of scene transforms rather than for
 maximizing unconditional scene acceptance.
+
+UAV-TAlign serves as a reference implementation for this second evaluation unit. Its evidence
+selection, robust consensus, and QA-aware verification demonstrate one reproducible way to convert
+pairwise hypotheses into a retained scene product; the benchmark remains compatible with future
+matchers and alternative scene-level aggregation strategies.
 
 The multi-seed random-selection supplement further strengthens the design rationale for
 deterministic evidence selection. On the accepted 8-scene subset, random selection spans 5/8 to
@@ -25,19 +30,17 @@ rather than in large shifts of accepted-frame support. Deterministic-even select
 provides a reproducible default operating policy, while robust scene consensus and QA-aware
 verification define the retained-product decision layer.
 
-\subsection{Scope and Validity}
+\subsection{Scope, Limitations, and Intended Use}
 
-UAV-TAlign targets real UAV scenes where a dominant planar or far-field transform is a useful
-operating model. Within this scope, public collection packaging, label-free diagnostics, and
-scene-level QA provide a benchmark-scale experimental foundation for studying infrared-visible
-alignment beyond isolated pairwise matching. This positioning is deliberately complementary to matcher-centric
-research and synthetic transform-supervised UAV alignment benchmarks: as correspondence models and
-trainable transform predictors continue to improve, reliability control becomes increasingly
-important for deployable infrared-visible systems operating on captured cross-FOV scenes.
+UAV-TAlign-12K targets captured UAV scenes where a dominant planar or far-field transform is a
+useful operating model. Its 15 scenes cover diverse illumination, thermal rendering, view, and
+scene-family conditions, but they do not represent every flight altitude, sensor configuration, or
+non-planar environment. The benchmark should therefore be interpreted as a focused resource for
+cross-FOV homography alignment rather than a universal model of all UAV registration settings.
 
-The protocol is designed for scalable reliability analysis. Its QA proxies operate as
-scene-consistency diagnostics for retained alignment products, while the risk-coverage profile
-shows how operating coverage changes under a fixed reliability-ranking view. The homography model
-is most appropriate when a dominant planar or far-field alignment is meaningful, and the
-UAV-TAlign-12K collection focuses on this practical operating regime for UAV infrared-visible
-alignment.
+The label-free QA proxies enable scalable analysis without dense geometric annotations, but they
+are scene-consistency diagnostics rather than substitutes for dense ground truth or downstream
+task evaluation. The canonical gate is intentionally conservative, and the reliability score is
+used only for ranking and coverage analysis. These boundaries make the protocol suitable for
+comparing deployable scene-level reliability while leaving room for future annotations, geometric
+models, and task-specific validation.

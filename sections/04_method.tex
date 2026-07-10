@@ -1,10 +1,11 @@
 % !TEX root = ../paper.tex
 
-\section{Method}
+\section{UAV-TAlign Reference Method}
 
 \subsection{Problem Formulation}
 
-We study infrared-visible registration as a scene-level alignment task. For each scene, the input is
+To instantiate the scene-level track of UAV-TAlign-12K, we provide UAV-TAlign as a reference
+alignment method. For each scene, the input is
 a set of paired RGB and thermal UAV frames
 $S = \{(I_i^R, I_i^T)\}_{i=1}^N$, where viewpoint variation, cross-resolution sensing, thermal
 appearance changes, and day/night conditions make individual frame estimates uneven in quality. The

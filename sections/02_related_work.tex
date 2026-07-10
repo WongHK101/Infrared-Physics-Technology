@@ -87,7 +87,9 @@ infrared-visible alignment places additional emphasis on reliability-aware geome
 In particular, a practical registration pipeline must decide not only how to align frames, but also
 when the scene-level evidence is strong enough to trust the resulting transform.
 
-This is the gap our paper targets. Complementary to new matcher architectures, we focus on a
-practical scene-level registration setting for real UAV infrared-visible imagery. Our contribution
-lies in a reliability-oriented alignment framework, a public 12K-scale collection, and a
-label-free protocol that make scene-level infrared-visible reliability directly studyable.
+This is the gap our paper targets. Complementary to new matcher architectures, our primary focus is
+a real captured dataset and benchmark protocol for cross-FOV UAV infrared-visible alignment. The
+collection and label-free protocol make pairwise evidence, retained scene transforms, and
+condition-dependent reliability directly studyable. UAV-TAlign is provided as a secondary
+scene-level reference method for instantiating this benchmark rather than as a replacement for
+matcher-centric research.

@@ -2,18 +2,17 @@
 
 \section{Conclusion}
 
-This work reframes UAV infrared-visible registration from pairwise match availability to scene-level
-alignment reliability. UAV-TAlign turns strong off-the-shelf multimodal matching into retained
-scene-level decisions through reliability-guided evidence selection, robust scene consensus, and
-QA-aware verification. Across formal evaluation, protocol-consistency analysis, and cumulative
-module ablations, the evidence shows that the decisive step is transforming abundant frame-level
-matches into trustworthy scene-level alignment products. On UAV-TAlign-12K, off-the-shelf
-baselines make pairwise homography evidence broadly available, whereas the canonical protocol
-retains 9 of 15 scenes as high-confidence alignment products.
+This work introduces UAV-TAlign-12K as a real-world cross-FOV UAV infrared-visible dataset and
+scene-level reliability benchmark. Its 6,039 pairs, integrity-checked official split, diverse
+capture conditions, and manifest-fixed protocol support reproducible evaluation at both the
+pairwise and scene levels. The benchmark shows that broad homography availability does not by
+itself guarantee a scene transform that should be retained.
 
-Together with UAV-TAlign-12K and the accompanying label-free evaluation setup, UAV-TAlign provides
-a practical and reproducible foundation for studying when scene-level alignment is reliable enough
-to retain in real UAV infrared-visible imagery.
+As a secondary algorithmic contribution, UAV-TAlign provides a reproducible scene-level reference
+method based on evidence selection, robust consensus, and QA-aware verification. It produces scene
+homographies for all 15 scenes and retains 9 under the strict canonical gate. Together, the dataset,
+protocol, and reference method provide a practical foundation for developing and evaluating more
+reliable UAV infrared-visible alignment systems.
 
 \section*{Data Availability}
 

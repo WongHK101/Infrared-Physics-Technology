@@ -14,38 +14,38 @@
 
 \begin{frontmatter}
 
-\title{UAV-TAlign-12K: Scene-Level Reliability Evaluation for\\ Cross-FOV UAV Infrared-Visible Image Alignment}
+\title{UAV-TAlign-12K: A Real-World Cross-FOV UAV Infrared-Visible\\ Dataset and Scene-Level Reliability Benchmark}
 
 \author[anon]{Anonymous Authors}
 \affiliation[anon]{organization={Anonymous submission}}
 
 \begin{abstract}
-UAV infrared-visible alignment is a prerequisite for reliable aerial inspection, nighttime
-monitoring, and multimodal thermal sensing. In cross-FOV aerial imagery, the operating question is
-not only whether two frames can be matched, but whether the resulting alignment should be retained
-as a scene-level product. We introduce UAV-TAlign-12K, a 6,039-pair UAV infrared-visible alignment
-collection with an integrity-checked 6,037-pair evaluation split, and a scalable label-free
-protocol for reliability-controlled scene evaluation. We further present UAV-TAlign, a scene-level
-alignment framework that converts strong pairwise multimodal evidence into retained scene
-transforms through reliability-guided evidence selection, robust scene consensus, and QA-aware
-verification. Journal-scale experiments show that pairwise homography evidence is broadly
-available: raw MINIMA and RoMa produce homographies for all 6,037 evaluated pairs, while LoFTR
-and XoFTR remain near-saturated and classical keypoint baselines remain less complete. Under the
-strict canonical QA gate, UAV-TAlign produces
-scene-level homographies for all 15 scenes and retains 9 high-confidence alignment products. The
-risk-coverage profile further shows how reliability-controlled retention can be studied as an
-operating trade-off rather than a single pairwise matching score.
+Reliable UAV infrared-visible alignment is important for aerial inspection, nighttime monitoring,
+and multimodal thermal sensing, yet existing resources provide limited support for evaluating
+real captured cross-FOV alignment at the scene level. We introduce UAV-TAlign-12K, which contains
+6,039 real-world UAV infrared-visible pairs across 15 scenes and provides an integrity-checked
+6,037-pair official evaluation split. The dataset spans day, night, and low-light
+capture, grayscale and pseudocolor thermal rendering, and wide, zoom, and standard UAV views. We
+further define a manifest-fixed, label-free benchmark that separates pairwise homography evidence
+from scene-level retained alignment and reports condition-aware and risk--coverage diagnostics.
+Evaluation with six off-the-shelf baselines shows that pairwise evidence is broadly available:
+raw MINIMA and RoMa produce homographies for all 6,037 evaluated pairs, while LoFTR and XoFTR
+remain near-saturated. As a scene-level reference method, UAV-TAlign aggregates frame evidence
+through reliability-guided selection, robust consensus, and QA-aware verification. It produces
+scene homographies for all 15 scenes and retains 9 under the strict canonical gate. Together, the
+dataset, protocol, and reference method establish a reproducible benchmark for studying when
+cross-FOV UAV infrared-visible alignment is reliable enough to retain.
 \end{abstract}
 
 \begin{highlights}
-\item UAV-TAlign-12K provides a 6,039-pair UAV infrared-visible alignment collection.
-\item A label-free scene-level reliability protocol evaluates retained alignment products.
-\item Off-the-shelf baselines show broadly available pairwise homography evidence.
-\item Robust consensus and QA-aware verification convert pairwise evidence into retained transforms.
+\item UAV-TAlign-12K provides 6,039 real cross-FOV UAV infrared-visible pairs.
+\item The dataset spans diverse illumination, thermal rendering, and UAV view settings.
+\item A manifest-fixed benchmark separates pairwise evidence from scene-level retention.
+\item UAV-TAlign is a reliability-controlled scene-level reference method.
 \end{highlights}
 
 \begin{keyword}
-infrared-visible registration \sep UAV imagery \sep thermal imaging \sep multimodal alignment \sep scene-level reliability
+infrared-visible dataset \sep UAV imagery \sep multimodal registration \sep alignment benchmark \sep scene-level reliability
 \end{keyword}
 
 \end{frontmatter}
