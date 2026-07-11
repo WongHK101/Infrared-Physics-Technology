@@ -6,7 +6,7 @@ generated after the original formal run exposed a full CUDA OOM collapse for
 
 ## Provenance
 
-- Remote host: `ssh Administrator@100.103.212.54`
+- Execution host: isolated Windows workstation with an NVIDIA RTX 4090
 - Remote code root: `G:\UAV-TAlign\UAV-TAlign`
 - Remote retry output root:
   `G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p0c_12k_loftr_retry_20260626_140300`

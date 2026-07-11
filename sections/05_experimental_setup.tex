@@ -11,11 +11,13 @@ focused on practical deployability rather than dataset-specific adaptation.
 Unified inference wrappers standardize model loading, image I/O, homography fitting, and output
 schemas while preserving the public pretrained baseline parameters and settings.
 
-The baseline suite covers classical keypoint pipelines and modern learned matchers. The classical
-pairwise references are SIFT and AKAZE, each followed by RANSAC-based homography fitting. The
-modern pairwise baselines are Kornia LoFTR, RoMa outdoor full, XoFTR-640, and raw MINIMA. LoFTR
+The baseline suite covers classical keypoint pipelines, an infrared-visible-specific method, and
+modern learned matchers. The classical pairwise references are SIFT and AKAZE, each followed by
+robust homography fitting. RIFT2 is evaluated through its Python implementation under a
+resize-aware setting. The modern pairwise baselines are Kornia LoFTR, RoMa outdoor full,
+XoFTR-640, and raw MINIMA. LoFTR
 uses Kornia's public outdoor-pretrained model, while raw MINIMA uses the MINIMA RoMa branch as a
-direct pairwise baseline. Reliability-guided evidence selection, robust
+direct pairwise baseline. Reliability-guided progressive evidence selection, robust
 scene consensus, and QA-aware verification are activated only in the full UAV-TAlign framework
 \cite{sun2021loftr,edstedt2024roma,tuzcuoglu2024xoftr,ren2025minima}.
 
@@ -28,7 +30,7 @@ category. This unified post-processing is important because it makes the pairwis
 table comparable at the level of usable registration outcomes rather than raw matcher outputs
 alone.
 
-The common evaluator uses a robust homography backend across the pairwise baselines:
+The shared evaluator uses a robust homography backend across the integrated pairwise baselines:
 \begin{itemize}
 \item robust fitting method: USAC-MAGSAC;
 \item reprojection threshold: 3.0;
@@ -36,6 +38,11 @@ The common evaluator uses a robust homography backend across the pairwise baseli
 \item maximum iterations: 10000;
 \item spatial coverage grid: $4 \times 4$.
 \end{itemize}
+
+RIFT2 is independently integrated and uses its frozen evaluated setting:
+\texttt{max\_dim=1200}, \texttt{npt=2000}, \texttt{patch\_size=64}, Lowe ratio 0.95, and
+USAC-MAGSAC with a 5.0-pixel reprojection threshold. Its fitting statistics are therefore reported
+as method-specific complementary diagnostics rather than treated as a scalar cross-method rank.
 
 \subsection{Main-Table Baseline Choices}
 
@@ -47,10 +54,18 @@ model from Kornia.
 
 \subsection{Evaluation Details}
 
-The LoFTR baseline is evaluated under a memory-safe resize-aware inference setting. The longest
+The LoFTR baseline is evaluated under a resize-aware inference setting. The longest
 image dimension used for matching is limited to 1200, and automatic mixed precision is enabled.
-This accepted retry profile preserves the public pretrained model while supporting consistent
-full-subset evaluation within the fixed deployment budget.
+This profile preserves the public pretrained model while supporting consistent full-subset
+evaluation.
+
+We additionally conduct two controlled protocol validations on the frozen formal outputs. First,
+five-fold leave-frame-out analysis partitions the accepted frame hypotheses deterministically,
+recomputes scene consensus after withholding one fold, and measures the resulting grid displacement
+from the full-evidence transform. Second, a synthetic sensitivity test applies translation,
+rotation, and scale perturbations at nominal severities of 2, 5, 10, 20, and 40 pixels to three
+representative frames per scene. It records the response of edge overlap and gradient-NCC without
+changing the canonical decision rule.
 
 Journal-scale experiments were conducted in isolated Python environments on an NVIDIA RTX 4090
 workstation. The main environment used Python 3.10 with PyTorch 2.0.1, torchvision 0.15.2, CUDA

@@ -1,0 +1,6 @@
+validation,scope,primary_metric,value,degraded_trial_fraction
+leave_frame_out_consensus,15 scenes / 75 folds,scene_median_displacement_px,1.38790725318006,
+leave_frame_out_consensus,15 scenes / 75 folds,all_scene_mean_displacement_px,2.25560828855959,
+synthetic_translation,45 frames / 225 trials,largest_severity_delta_joint_score,-0.0740778792462272,0.844444444444444
+synthetic_rotation,45 frames / 225 trials,largest_severity_delta_joint_score,-0.0309983866510211,0.8
+synthetic_scale,45 frames / 225 trials,largest_severity_delta_joint_score,-0.0251124756023101,0.733333333333333

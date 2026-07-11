@@ -42,6 +42,8 @@ Resource & Data basis & Alignment signal & Scale & Primary evaluation focus \\
 KAIST / FLIR / LLVIP / M3FD & Ground or mixed RGB-infrared data & Paired or aligned imagery & Dataset-specific & Detection, fusion, low-light perception \\
 DroneVehicle / VTUAV / LasHeR / Anti-UAV & UAV or tracking-centric RGB-infrared data & Task annotations & Dataset-specific & Detection or tracking under multimodal sensing \\
 UAVMatch / TGRS~\cite{gao2025uavmatch} & Synthetic transforms from UAV multimodal data & Affine / homography supervision & 81K train / 15K test pairs & Supervised transform regression and geometric metrics \\
+ATR-UMMIM~\cite{bin2025atrummim} & Real UAV visible / infrared / registered-visible triplets & Semi-automated pixel-level reference & 7,969 triplets & Pairwise registration accuracy and condition attributes \\
+UAV-TIRVis~\cite{vasile2025uavtirvis} & Real UAV thermal-visible imagery & Manual pairwise registration & 80 pairs & Direct image-domain registration quality \\
 UAV-TAlign-12K & Real captured cross-FOV UAV infrared-visible data & Manifest-fixed scene reliability protocol & 6,039 candidate / 6,037 valid pairs & Pairwise evidence and scene-level retained alignment \\
 \bottomrule
 \end{tabular}}
@@ -80,20 +82,9 @@ than by pairwise usability alone. The pairwise and scene-level tables therefore 
 complementary views of practical registration behavior: correspondence availability and retained
 scene-level alignment reliability.
 
-Figure~\ref{fig:benchmark_protocol} summarizes the manifest-fixed protocol. Track A evaluates
-independent pairwise homography evidence, Track B reports the canonical scene-level retain/reject
-decision, and Track C ranks scenes with the non-trained reliability score for risk--coverage
-analysis without replacing the canonical gate.
-
-\begin{figure}[t]
-\centering
-\makebox[\textwidth][c]{\includegraphics[width=1.10\textwidth]{figures/fig_benchmark_protocol_image2.png}}
-\caption{Unified evaluation protocol for UAV-TAlign-12K. The official manifest anchors all three
-tracks: pairwise homography evidence, canonical scene-level retention, and reliability--coverage
-analysis. The canonical gate is the hard main-result decision, whereas the reliability score is a
-ranking mechanism for operating-profile visualization.}
-\label{fig:benchmark_protocol}
-\end{figure}
+Track A evaluates independent pairwise homography evidence, Track B reports the canonical
+scene-level retain/reject decision, and Track C ranks scenes with the non-trained reliability score
+for risk--coverage analysis without replacing the canonical gate.
 
 \subsection{Label-Free QA Proxies}
 

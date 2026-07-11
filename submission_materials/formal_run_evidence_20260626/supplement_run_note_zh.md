@@ -23,8 +23,7 @@
 
 ## 2. 本次正式运行口径
 
-- 远端主机：
-  `Administrator@100.103.212.54`
+- 执行主机：独立 Windows RTX 4090 工作站
 - 代码仓库：
   `G:\UAV-TAlign\UAV-TAlign`
 - 代码提交：

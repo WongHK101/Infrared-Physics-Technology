@@ -8,10 +8,11 @@ This directory is a working skeleton for the IP&T supplementary material. It is 
 2. Threshold sensitivity.
 3. Per-scene reliability table.
 4. Condition reliability profile.
-5. RIFT2 light-vs-strong sanity check.
-6. Manifest integrity summary.
-7. Additional qualitative examples.
-8. SIFT/AKAZE 12K classical-keypoint completeness table.
+5. Controlled leave-frame-out and synthetic-perturbation validation.
+6. RIFT2 light-vs-strong sanity check.
+7. Manifest integrity summary.
+8. Additional qualitative examples.
+9. SIFT/AKAZE 12K classical-keypoint completeness table.
 
 ## Current Inputs
 
@@ -19,6 +20,7 @@ This directory is a working skeleton for the IP&T supplementary material. It is 
 - `tables/threshold_sensitivity.csv`
 - `tables/per_scene_reliability_table.csv`
 - `tables/condition_reliability_profile.csv`
+- `tables/protocol_validation_summary.csv`
 - `tables/rift2_light_vs_strong_sanity.csv`
 - `tables/manifest_integrity_summary.csv`
 - `tables/sift_akaze_completeness.md`

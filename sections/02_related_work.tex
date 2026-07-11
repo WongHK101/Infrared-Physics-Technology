@@ -60,15 +60,15 @@ variation, and low-light conditions.
 These factors make scene-level reliability a more central concern than in many standard
 visible-thermal evaluation setups.
 
-The most closely related UAV alignment benchmark direction is represented by synthetic
-transform-supervised visible-infrared alignment datasets and trainable baselines, such as the
-recent TGRS UAVMatch benchmark and transformer-based alignment network
-\cite{gao2025uavmatch}. That line provides controlled affine or homography supervision, train/test
-splits at large scale, and geometric metrics such as RMSE, AEE, and PCK. UAV-TAlign-12K is
-designed for the complementary real-data setting: it fixes an integrity-checked captured
-cross-FOV evaluation split, evaluates off-the-shelf infrared-visible evidence generators, and
-studies how frame-level homographies become retained scene-level alignment products under a
-label-free reliability protocol.
+Recent UAV registration resources now span several complementary evaluation regimes. UAVMatch
+provides synthetic transform supervision and a trainable alignment baseline with controlled
+geometric metrics \cite{gao2025uavmatch}. The 7,969-triplet ATR-UMMIM benchmark provides real UAV
+visible--infrared data, a semi-automated pixel-level reference, and condition attributes
+\cite{bin2025atrummim}, while UAV-TIRVis provides 80 manually registered aerial thermal-visible
+pairs for direct image-domain evaluation \cite{vasile2025uavtirvis}. UAV-TAlign-12K targets a
+distinct multi-frame operating question: it fixes an integrity-checked captured cross-FOV split,
+evaluates heterogeneous off-the-shelf evidence generators, and studies how frame-level
+homographies become retained scene products under a scalable reliability protocol.
 
 UAV-TAlign-12K extends this evaluation landscape by packaging real cross-FOV infrared-visible scenes
 together with scalable label-free diagnostics. The protocol measures scene consistency and relative
@@ -87,9 +87,9 @@ infrared-visible alignment places additional emphasis on reliability-aware geome
 In particular, a practical registration pipeline must decide not only how to align frames, but also
 when the scene-level evidence is strong enough to trust the resulting transform.
 
-This is the gap our paper targets. Complementary to new matcher architectures, our primary focus is
-a real captured dataset and benchmark protocol for cross-FOV UAV infrared-visible alignment. The
+This is the gap our paper targets. Complementary to pairwise geometric-accuracy benchmarks and new
+matcher architectures, our primary focus is a real captured dataset and benchmark protocol for
+cross-FOV UAV infrared-visible alignment. The
 collection and label-free protocol make pairwise evidence, retained scene transforms, and
-condition-dependent reliability directly studyable. UAV-TAlign is provided as a secondary
-scene-level reference method for instantiating this benchmark rather than as a replacement for
-matcher-centric research.
+condition-dependent reliability directly studyable. UAV-TAlign instantiates this scene-level
+benchmark as a reproducible reference framework.

@@ -1,13 +1,15 @@
 # SIFT/AKAZE 12K Classical-Keypoint Completeness
 
-SIFT and AKAZE were evaluated on the same official UAV-TAlign-12K valid evaluation manifest used by the main 12K experiments. The run completed for all 6,037 evaluation pairs with an empty `run_stderr.log`.
+SIFT and AKAZE were evaluated in the frozen main run on the same official UAV-TAlign-12K valid
+evaluation manifest used by all main-table methods. Both methods produced records for all 6,037
+evaluation pairs, and the composite formal-output validator passed.
 
 ## Pairwise Summary
 
 | Method | OK / N | H Available | H Availability (%) | Mean Inlier Ratio | Mean Coverage | Median Reproj. | Runtime / Pair (s) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| SIFT + RANSAC | 5257/6037 | 5257/6037 | 87.08 | 0.242 | 0.627 | 0.000 | 9.008 |
-| AKAZE + RANSAC | 5692/6037 | 5692/6037 | 94.29 | 0.160 | 0.730 | 0.105 | 1.511 |
+| SIFT + RANSAC | 5257/6037 | 5257/6037 | 87.08 | 0.242 | 0.627 | 0.000 | 4.421 |
+| AKAZE + RANSAC | 5692/6037 | 5692/6037 | 94.29 | 0.160 | 0.730 | 0.105 | 1.103 |
 
 ## Status Counts
 
@@ -27,5 +29,4 @@ The reported metrics remain complementary diagnostics under a unified downstream
 
 Very low fitted reprojection error can occur on sparse inlier sets and should be interpreted
 together with homography availability and spatial coverage. Error-status records are method-level
-backend statuses captured by the unified evaluator; the overall run completed normally with an
-empty `run_stderr.log`.
+backend statuses captured by the unified evaluator; they do not indicate a launcher-level failure.

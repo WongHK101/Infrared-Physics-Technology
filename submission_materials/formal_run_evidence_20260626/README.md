@@ -5,7 +5,7 @@ host after the formal `UAV-TAlign-12K` run completed.
 
 ## Provenance
 
-- Remote host: `ssh Administrator@100.103.212.54`
+- Execution host: isolated Windows workstation with an NVIDIA RTX 4090
 - Remote code root: `G:\UAV-TAlign\UAV-TAlign`
 - Remote raw-output root: `G:\UAV-TAlign\UAV-TAlign\outputs\ipt_p0c_12k_main`
 - Remote protocol-closure root:

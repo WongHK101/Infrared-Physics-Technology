@@ -36,7 +36,17 @@ Primary source:
 
 - `tables/condition_reliability_profile.csv`
 
-## S5. RIFT2 Parameter Sanity Check
+## S5. Controlled Protocol Validation
+
+Report the five-fold leave-frame-out consensus analysis and synthetic translation, rotation, and
+scale perturbation trials. Include the full severity response and per-scene resampling table.
+
+Primary sources:
+
+- `tables/protocol_validation_summary.csv`
+- `../submission_materials/protocol_validation_20260710/`
+
+## S6. RIFT2 Parameter Sanity Check
 
 Document the light-vs-strong resize-aware RIFT2 sanity check. The strong setting increases matches, inliers, coverage, and median reprojection quality at higher runtime, and is therefore used for the 12K RIFT2 baseline.
 
@@ -44,7 +54,7 @@ Primary source:
 
 - `tables/rift2_light_vs_strong_sanity.csv`
 
-## S6. Manifest Integrity Summary
+## S7. Manifest Integrity Summary
 
 Document the official evaluation split and manifest hash. Use paper-facing wording around integrity-checked evaluation pairs.
 
@@ -53,7 +63,7 @@ Primary sources:
 - `tables/manifest_integrity_summary.csv`
 - `../submission_materials/release_metadata_bundle/`
 
-## S7. Additional Qualitative Examples
+## S8. Additional Qualitative Examples
 
 Reserve space for additional retained and QA-filtered examples across day, night, lowlight, grayscale, pseudocolor, wide, and zoom scenes.
 
@@ -61,7 +71,7 @@ Primary source:
 
 - `figures/qualitative_examples_placeholder.md`
 
-## S8. Classical Keypoint Completeness
+## S9. Classical Keypoint Completeness
 
 Report the completed SIFT/AKAZE 12K full classical-keypoint results. The main manuscript includes
 the compact pairwise rows; the supplement keeps the status counts, per-scene summary, and

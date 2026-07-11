@@ -1,11 +1,11 @@
 % !TEX root = ../paper.tex
 
-\section{UAV-TAlign Reference Method}
+\section{UAV-TAlign Benchmark Reference Framework}
 
 \subsection{Problem Formulation}
 
-To instantiate the scene-level track of UAV-TAlign-12K, we provide UAV-TAlign as a reference
-alignment method. For each scene, the input is
+To instantiate the scene-level track of UAV-TAlign-12K, we provide UAV-TAlign as its reference
+alignment framework. For each scene, the input is
 a set of paired RGB and thermal UAV frames
 $S = \{(I_i^R, I_i^T)\}_{i=1}^N$, where viewpoint variation, cross-resolution sensing, thermal
 appearance changes, and day/night conditions make individual frame estimates uneven in quality. The
@@ -33,11 +33,11 @@ $\{H_i\}$ and decide whether it should be retained as an alignment product.
 
 \begin{figure}[t]
 \centering
-\makebox[\textwidth][c]{\includegraphics[width=1.18\textwidth]{figures/fig_uav_talign_architecture_image2.png}}
-\caption{Detailed architecture of UAV-TAlign. A progressive frame schedule and deterministic
-representative selection provide pairwise evidence for geometry screening. Quality-weighted
-homography hypotheses are consolidated by robust scene consensus, after which QA-aware
-verification drives the canonical gate and the complementary reliability-ranking branch.}
+\makebox[\textwidth][c]{\includegraphics[width=1.08\textwidth]{figures/fig_method_pipeline.pdf}}
+\caption{UAV-TAlign benchmark reference framework. Progressive deterministic sampling provides
+frame-level homography evidence through a MINIMA-RoMa backbone. A fixed geometry-derived quality
+function weights accepted hypotheses, median/MAD filtering suppresses transform outliers, and
+QA-aware verification produces the canonical scene decision.}
 \label{fig:method_pipeline}
 \end{figure}
 
@@ -48,13 +48,12 @@ implementation uses the MINIMA family with the RoMa branch as the default backen
 rest of the pipeline remains agnostic to the exact pairwise matcher
 \cite{edstedt2024roma,ren2025minima}.
 
-\subsection{Reliability-Guided Evidence Selection}
+\subsection{Reliability-Guided Progressive Evidence Selection}
 
-At the scene level, UAV-TAlign prioritizes the most informative frame evidence before expanding the
-support set. It uses a progressive evidence schedule that expands with scene size and can cover all
-frames when needed. This reliability-guided policy allows the framework to stop when a compact
-subset already yields a stable consensus, while still escalating to broader evidence when the scene
-benefits from more support.
+At the scene level, UAV-TAlign starts from a compact, evenly distributed frame subset before
+expanding the support set. The progressive schedule scales with scene size and can cover all frames
+when needed. Expansion stops when the accumulated evidence satisfies the accepted-support,
+consensus-stability, and QA conditions; otherwise, the next deterministic subset is evaluated.
 
 Within each stage, representative frames are selected with deterministic evenly distributed
 sampling by default. This default policy is used for reproducibility and stable scene coverage. A
@@ -100,10 +99,14 @@ median-absolute-deviation rule to suppress unstable estimates before weighted av
 retained homographies are then combined using the frame quality scores defined above.
 Let $\mathbf{h}_i$ be the scale-normalized vector form of $H_i$. The consensus set is
 \begin{equation}
-\mathcal{C}_S =
-\left\{i \in \mathcal{A}_S:
-\left\|\mathbf{h}_i - \operatorname{median}_{j \in \mathcal{A}_S}(\mathbf{h}_j)\right\|_1
-\le \tau_{\mathrm{mad}}\,\operatorname{MAD}(\{\mathbf{h}_j\}_{j \in \mathcal{A}_S})\right\},
+\begin{aligned}
+\mathbf{h}^{\mathrm{med}}_S
+&= \operatorname{median}_{j \in \mathcal{A}_S}(\mathbf{h}_j), \\
+d_i &= \left\|\mathbf{h}_i - \mathbf{h}^{\mathrm{med}}_S\right\|_2, \\
+m_d &= \operatorname{median}_{j \in \mathcal{A}_S}(d_j), \\
+s_d &= \operatorname{median}_{j \in \mathcal{A}_S}|d_j-m_d|, \\
+\mathcal{C}_S &= \left\{i \in \mathcal{A}_S: d_i \le m_d + 2.5s_d\right\}.
+\end{aligned}
 \label{eq:consensus_set}
 \end{equation}
 where $\mathcal{A}_S$ is the accepted-frame set before robust consensus. The scene transform is
@@ -143,7 +146,7 @@ reliability score,
 R(S) ={}&
 \beta_a A_S +
 \beta_o (1-O_S) +
-\beta_d (1-D_S) \\
+\beta_j (1-J_S) \\
 &+
 \beta_e \Delta E_S +
 \beta_g \Delta G_S +
@@ -153,17 +156,19 @@ R(S) ={}&
 \end{aligned}
 \label{eq:reliability_score}
 \end{equation}
-where $A_S$ is accepted-frame support, $O_S$ is severe baseline-relative outlier ratio, $D_S$ is
-homography dispersion, $\Delta E_S$ and $\Delta G_S$ are edge and gradient improvement proxies,
-and $\Gamma_S$ collects geometry diagnostics. The strict canonical gate remains a thresholded
-decision on the underlying diagnostics,
+where $A_S$ is accepted-frame support, $O_S$ is severe baseline-relative outlier ratio, $J_S$ is
+the robust-consensus rejection ratio, $\Delta E_S$ and $\Delta G_S$ are edge and gradient
+improvement proxies, and $\Gamma_S$ collects geometry diagnostics. The strict canonical decision also requires a
+minimum number of accepted frame hypotheses and one of two fixed QA paths,
 \begin{equation}
 y_S =
 \mathbb{1}\!\left[
-A_S \ge a_{\min},\ O_S \le o_{\max},\ D_S \le d_{\max},
-\Delta G_S \ge g_{\min},\ \Gamma_S \in \mathcal{G}
-\right].
+N_S \ge N_{\min}
+\right]
+\mathbb{1}\!\left[L_S \lor W_S\right].
 \label{eq:canonical_gate}
 \end{equation}
-Thus $R(S)$ ranks scenes for risk-coverage analysis, while $y_S$ defines the retained canonical
-alignment products reported in the main result.
+Here $L_S$ denotes the strict edge/gradient proxy gate and $W_S$ denotes the fixed high-modality
+path that jointly requires accepted support, stable consensus geometry, controlled relative
+outliers, and gradient improvement. Thus $R(S)$ ranks scenes for risk-coverage analysis, while
+$y_S$ defines the retained canonical alignment products reported in the main result.

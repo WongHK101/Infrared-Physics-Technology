@@ -18,6 +18,12 @@ abundant pairwise evidence becomes a trustworthy scene-level transform. The cano
 criterion is therefore designed for conservative retention of scene transforms rather than for
 maximizing unconditional scene acceptance.
 
+The controlled validations reinforce this interpretation from two independent directions.
+Leave-frame-out recomputation keeps the scene consensus close to its full-evidence estimate, while
+known translation, rotation, and scale perturbations progressively reduce the joint QA signal.
+Together, these results connect multi-frame consensus stability with sensitivity to controlled
+geometric degradation.
+
 UAV-TAlign serves as a reference implementation for this second evaluation unit. Its evidence
 selection, robust consensus, and QA-aware verification demonstrate one reproducible way to convert
 pairwise hypotheses into a retained scene product; the benchmark remains compatible with future
@@ -30,17 +36,15 @@ rather than in large shifts of accepted-frame support. Deterministic-even select
 provides a reproducible default operating policy, while robust scene consensus and QA-aware
 verification define the retained-product decision layer.
 
-\subsection{Scope, Limitations, and Intended Use}
+\subsection{Operating Scope and Extensibility}
 
 UAV-TAlign-12K targets captured UAV scenes where a dominant planar or far-field transform is a
-useful operating model. Its 15 scenes cover diverse illumination, thermal rendering, view, and
-scene-family conditions, but they do not represent every flight altitude, sensor configuration, or
-non-planar environment. The benchmark should therefore be interpreted as a focused resource for
-cross-FOV homography alignment rather than a universal model of all UAV registration settings.
+useful operating model. Its 15 scenes span complementary illumination, thermal rendering, view, and
+scene-family conditions, establishing a focused evaluation resource for cross-FOV homography
+alignment. The same manifest and evaluation interfaces can be extended to additional flight
+altitudes, sensor configurations, and geometric models.
 
-The label-free QA proxies enable scalable analysis without dense geometric annotations, but they
-are scene-consistency diagnostics rather than substitutes for dense ground truth or downstream
-task evaluation. The canonical gate is intentionally conservative, and the reliability score is
-used only for ranking and coverage analysis. These boundaries make the protocol suitable for
-comparing deployable scene-level reliability while leaving room for future annotations, geometric
-models, and task-specific validation.
+The label-free QA proxies provide scalable scene-consistency diagnostics, while the fixed canonical
+gate and the non-trained reliability ranking expose complementary retained-product and operating-
+profile views. This modular design supports direct combination with task-specific annotations,
+alternative scene geometries, learned quality estimators, and downstream thermal-sensing tasks.
