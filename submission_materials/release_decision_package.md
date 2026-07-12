@@ -8,6 +8,10 @@ This document prepares release options for user approval. It does not select a f
 - Candidate collection: 6,039 RGB-infrared pairs / 12,078 images.
 - Official evaluation split: 6,037 integrity-checked RGB-infrared pairs / 12,074 images.
 - Manifest SHA256: `a092f7ad00c6e02ead3bd39de5c246001f1d4bebbc4105ba715ef37bbb202c6c`.
+- Dataset rights holder and attribution: Guangxi University.
+- Dataset/content license: Creative Commons Attribution 4.0 International (CC BY 4.0).
+- Original UAV-TAlign software license: Apache License 2.0.
+- Vendored software: respective upstream licenses; the top-level license does not override them.
 - Current release metadata bundle: `submission_materials/release_metadata_bundle/`.
 - Current code repository state for release packaging: use the latest clean public code commit after user approval.
 
@@ -41,7 +45,7 @@ This document prepares release options for user approval. It does not select a f
 - Environment file or reproducibility notes.
 - Model-weight instructions; do not redistribute third-party weights unless licenses allow it.
 - README with dataset structure, manifest hash, evaluation entry point, and citation instructions.
-- License draft or terms-of-use statement selected by the user.
+- CC BY 4.0 dataset/content notice and Apache-2.0 original-code notice.
 - Code commit hash used for the journal-scale experiments and final public scripts.
 
 ## Data Availability Candidate Text
@@ -64,7 +68,6 @@ UAV-TAlign-12K is available at [repository/DOI to be inserted]. The official eva
 ## User Decisions Still Required
 
 - Final dataset hosting platform.
-- License or terms of use.
 - Whether to provide reviewer-access before publication.
 - Whether to publish a DOI before submission, reserve one, or release upon acceptance.
 - Final author, affiliation, and corresponding-author information.

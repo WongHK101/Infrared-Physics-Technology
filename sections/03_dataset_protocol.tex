@@ -86,8 +86,9 @@ that do not pass the documented integrity check.
 Release preparation removes embedded metadata and normalizes filenames while preserving image
 pixels. RGB and infrared files are paired through their shared H30T capture key, ordered by capture
 time and sequence index, and renamed with a common six-digit pair identifier. No resizing, cropping,
-rotation, recompression, or image enhancement is applied. The laboratory owns the collection, and
-the release package is prepared under the Creative Commons Attribution 4.0 International license.
+rotation, recompression, or image enhancement is applied. Guangxi University owns the collection,
+and the release package is prepared under the Creative Commons Attribution 4.0 International
+license.
 
 \subsection{Dataset Organization}
 
@@ -96,6 +97,12 @@ stems between \texttt{rgb/} and \texttt{thermal/} subdirectories. The dataset lo
 scene pairs from common RGB and thermal filenames, while scene-level metadata are loaded from the
 official manifest. For each pair, the loader stores scene identity, pair identity, light condition,
 thermal rendering, view type, and scene label.
+
+A scene is an evaluation unit defined by a common site/target context and acquisition condition,
+rather than a claim that all of its frames come from one uninterrupted flight. Depending on the
+operational capture, a scene may contain one continuous sequence or observations from multiple
+sorties under the same scene definition. Scene 07 is the explicitly documented single-orbit video
+sequence.
 
 This organization supports both pairwise baseline evaluation and scene-level pipeline evaluation
 under the same manifest definition, while also enabling condition-based breakdowns from a unified
