@@ -57,6 +57,38 @@ grayscale-thermal, pseudocolor-thermal, wide-view, and zoom-view conditions.}
 \label{fig:dataset_examples}
 \end{figure}
 
+\subsection{Acquisition and Curation}
+
+UAV-TAlign-12K was acquired between the second half of 2024 and the first half of 2026
+across multiple industrial and natural scenes in southern China. All 15 scenes were captured with
+the same DJI Matrice 350 RTK platform and Zenmuse H30T multisensor payload. The integrated payload
+automatically synchronized its visible and infrared products, so no manual geometric alignment was
+used to construct the released RGB-infrared pairs. The flights combined hovering and route-based
+capture. All operations used a registered aircraft, a CAAC-qualified pilot, and permitted flight
+areas.
+
+The released streams retain the native H30T acquisition modes. Wide-camera stills are
+$4032\!\times\!3024$, zoom-camera stills are $3664\!\times\!2748$, and thermal images are
+$1280\!\times\!1024$. In scenes 01 and 02, a short $3840\!\times\!2160$ segment was produced by
+triggering still capture while H30T video recording was active; these images are not extracted
+video frames. Scene 07 is the dedicated video-derived sequence: synchronized RGB and infrared
+streams were sampled at 2 frames per second over one complete orbit around a transmission tower.
+The grayscale scenes use the H30T \emph{White Hot} setting, whereas all pseudocolor scenes use the
+on-device \emph{Hot Iron} palette.
+
+Dataset curation was performed before algorithm evaluation. Images were removed when they did not
+capture the intended scene subject or showed clear acquisition-quality problems, including abnormal
+exposure, inaccurate focus, or damaged data. No image was selected or removed according to the
+output of any matcher, alignment method, or QA score. The resulting collection contains 6,039
+candidate synchronized pairs; the official split subsequently excludes only the two thermal files
+that do not pass the documented integrity check.
+
+Release preparation removes embedded metadata and normalizes filenames while preserving image
+pixels. RGB and infrared files are paired through their shared H30T capture key, ordered by capture
+time and sequence index, and renamed with a common six-digit pair identifier. No resizing, cropping,
+rotation, recompression, or image enhancement is applied. The laboratory owns the collection, and
+the release package is prepared under the Creative Commons Attribution 4.0 International license.
+
 \subsection{Dataset Organization}
 
 Each scene is stored under its own scene directory, and paired samples are formed by matching file
