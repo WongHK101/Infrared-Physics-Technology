@@ -1,0 +1,39 @@
+% !TEX root = ../paper_zh.tex
+
+\section{实验设置}
+
+\subsection{基线方法}
+
+本文使用公开预训练配置评测七种代表性基线，不针对 UAV-TAlign-12K 进行特定适配。基线覆盖
+三个方法类别。SIFT 与 AKAZE 构成经典关键点参考，随后均进行鲁棒单应性估计。RIFT2 通过
+Python 实现提供红外-可见光专用经典参考。现代方法包括 Kornia LoFTR、RoMa outdoor、
+XoFTR-640 和 raw MINIMA
+\cite{sun2021loftr,edstedt2024roma,tuzcuoglu2024xoftr,ren2025minima}。
+
+raw MINIMA 使用 \texttt{minima\_roma} 检查点族和完整 RoMa 分支。RoMa 使用公开 outdoor full
+模型，XoFTR 使用 640 分辨率可见光-热红外检查点，LoFTR 使用 Kornia 的公开 outdoor 预训练
+模型。统一推理封装在保留各预训练模型的同时，对图像输入输出、模型输出、单应性拟合和结果格式
+进行标准化。
+
+\subsection{几何拟合与部署配置}
+
+共享评测器使用 USAC-MAGSAC 将预测对应关系转化为单应性，重投影阈值为 3.0 像素，置信度
+为 0.999，最大迭代次数为 10,000，并采用 $4\!\times\!4$ 空间覆盖网格。该公共估计器支持
+对集成的成对基线进行一致结果统计。
+
+RIFT2 使用冻结的 resize-aware 配置：\texttt{max\_dim=1200}、\texttt{npt=2000}、
+\texttt{patch\_size=64}、Lowe ratio 0.95，并采用 5.0 像素重投影阈值的 USAC-MAGSAC。
+LoFTR 使用最长图像边为 1200 的 resize-aware 推理并启用自动混合精度。运行时间和拟合诊断量
+均在这些声明的部署配置下报告。
+
+\subsection{协议验证}
+
+本文在冻结的正式输出上开展两项受控实验。五折留帧分析以确定性方式划分接受帧假设，每次留出
+一折，重新计算场景共识，并测量其相对完整证据变换的网格位移。受控敏感性实验对每个场景的
+3 个代表帧施加平移、旋转和尺度扰动，标称严重度为 2、5、10、20 和 40 像素。实验记录边缘
+重叠与梯度 NCC 响应，同时保持规范决策不变。
+
+期刊规模实验在配备 NVIDIA RTX 4090 的工作站上、相互隔离的 Python 环境中完成。主环境采用
+Python 3.10、PyTorch 2.0.1、torchvision 0.15.2、CUDA 11.8、OpenCV 4.11.0 和
+Kornia 0.6.11。所有实验均使用正式 manifest、固定模型权重或接口、独立输出目录以及只读的
+原始数据目录。

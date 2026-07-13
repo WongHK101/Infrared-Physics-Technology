@@ -1,0 +1,48 @@
+% !TEX root = ../paper_zh.tex
+
+\section{相关工作}
+
+\subsection{跨模态对应关系与几何估计}
+
+经典配准流程通常结合局部特征提取、描述子匹配与鲁棒模型估计。尺度空间、二进制以及非线性扩散
+特征为多种成像条件提供了高效的几何参考
+\cite{lowe2004sift,bay2008surf,rublee2011orb,leutenegger2011brisk,alcantarilla2012kaze,alcantarilla2013akaze}。
+RANSAC 及其面向精度改进的后续方法，仍是将含噪对应关系转化为几何模型的核心技术
+\cite{fischler1981ransac,hartley2004multiple,barath2019magsac,barath2020magsacpp}。
+针对红外-可见光影像，RIFT 等辐射变化不敏感方法提高了描述子在模态特有外观变化下的重复性
+\cite{li2020rift}。这些方法为区分“对应关系质量”和“后续场景聚合”提供了可解释的基础。
+
+学习型对应关系方法同时扩展了成对证据的鲁棒性和空间密度。早期可训练检测器与描述子建立了
+数据驱动的局部表示
+\cite{detone2018superpoint,ono2018lfnet,dusmanu2019d2net,revaud2019r2d2,tyszkiewicz2020disk,germain2020s2dnet,mishchuk2017hardnet,tian2017l2net,tian2019sosnet}。
+随后，图推理、Transformer 与稠密形变预测使方法能够直接处理低纹理、重复结构和大幅外观变化
+\cite{sarlin2020superglue,rocco2018ncnet,zhou2021patch2pix,jiang2021cotr,sun2021loftr,chen2022aspanformer,lindenberger2023lightglue,edstedt2023dkm,edstedt2024roma,wang2024efficientloftr,jiang2024omniglue}。
+XoFTR 与 MINIMA 进一步面向可见光-热红外或更广泛的多模态对应关系
+\cite{tuzcuoglu2024xoftr,ren2025minima}。UAV-TAlign 在这些进展之上，将成对匹配器视为场景级几何
+流程中的证据生成器。
+
+\subsection{红外-可见光对齐}
+
+红外-可见光配准涵盖基于特征的匹配、直接优化与学习型对齐。辐射不敏感描述子用于处理非线性
+跨模态外观差异，而学习型方法则从训练数据中估计成对变换或稠密形变
+\cite{li2020rift,chang2017clkn,nie2021udis}。无人机双传感器影像还叠加了跨分辨率光学、视点位移、
+热成像渲染变化和光照变化。这些条件推动了专用成对方法和无人机数据资源的发展。
+
+UAVMatch 为可训练无人机对齐提供合成变换监督和受控几何指标 \cite{gao2025uavmatch}。
+ATR-UMMIM 提供 7,969 组真实无人机可见光--红外--已配准可见光三元组，并包含条件属性和半自动
+像素级参考 \cite{bin2025atrummim}。UAV-TIRVis 提供 80 对人工配准的航空热红外-可见光图像，用于
+直接图像域评测 \cite{vasile2025uavtirvis}。UAV-TAlign-12K 通过 6,039 对真实采集跨视场数据和
+多帧协议对这些资源形成补充，该协议把成对单应性、场景共识与可靠性--覆盖率运行分析联系起来。
+
+\subsection{无人机多模态基准与场景级评测}
+
+KAIST、FLIR、LLVIP、M3FD、DroneVehicle、VTUAV、LasHeR 和 Anti-UAV 等多模态数据集推动了
+检测、融合、跟踪和低照度感知的发展
+\cite{hwang2015kaist,flir2018thermal,jia2021llvip,liu2022tardal,sun2022dronevehicle,zhang2022vtuav,li2022lasher,jiang2023antiuav}。
+这些成果体现了同步可见光与红外感知的价值。对齐任务还需要输出明确的几何产品，因此适合采用
+超越孤立对应点数量的评测方式。
+
+UAV-TAlign-12K 定义了成对、场景和运行曲线三个评测轨道。成对轨道衡量单应性证据的可用性与
+支撑度；场景轨道衡量多组逐帧估计如何形成共识变换；运行曲线则使用固定、可解释的跨模态诊断
+对场景产品排序。该设计使经典方法、红外专用方法和现代学习型匹配器的场景级证据整合能够在
+统一真实采集协议下直接比较 \cite{ma2021survey,liao2024survey}。

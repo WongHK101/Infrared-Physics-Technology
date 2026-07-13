@@ -1,0 +1,62 @@
+\documentclass[UTF8,12pt,a4paper]{ctexart}
+
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{setspace}
+
+\setstretch{1.3}
+\emergencystretch=2em
+\newcommand{\cmark}{\checkmark}
+\newcommand{\xmark}{--}
+
+\title{UAV-TAlign-12K：面向跨视场无人机\\红外-可见光对齐的场景级可靠性基准}
+\author{匿名作者}
+\date{中文审阅稿，与英文投稿稿同步}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+跨视场红外-可见光对齐是无人机巡检、夜间感知与多模态场景理解中的核心能力。
+本文提出 UAV-TAlign-12K：一个基准规模的数据集，包含从 15 个工业与自然场景采集的
+6,039 对同步 RGB-红外图像，并提供经过完整性检查的 6,037 对正式评测划分。
+该基准从三个互补层级组织评测：成对单应性证据、场景级共识，以及可靠性--覆盖率运行分析。
+七种代表性方法涵盖经典关键点流程、红外-可见光专用匹配方法，以及现代稠密或学习型匹配器。
+成对证据在整体上具有很高可用性：RIFT2、RoMa 与 raw MINIMA 在全部 6,037 对图像上均能
+生成单应性，而 LoFTR 与 XoFTR 的可用率均超过 99\%。在此基础上，UAV-TAlign 结合渐进式
+证据调度、几何校准帧加权、鲁棒场景共识与跨模态质量验证。该框架为全部 15 个场景估计变换，
+并在规范运行点识别出 9 个高置信对齐产品，覆盖 74.4\% 的评测图像对。五折留帧分析得到
+1.39 像素的场景共识漂移中位数；受控平移、旋转与尺度扰动则使联合质量信号单调下降。
+UAV-TAlign-12K 为基准规模、置信度感知的无人机红外-可见光对齐研究建立了可复现基础。
+\end{abstract}
+
+\noindent\textbf{主要要点}
+\begin{itemize}
+\item UAV-TAlign-12K 提供 6,039 对同步跨视场无人机 RGB-红外图像。
+\item 七种基线表明，成对单应性证据已具有广泛可用性。
+\item UAV-TAlign 生成 15 个场景变换，并识别出 9 个高置信场景产品。
+\item 重采样和受控扰动验证了所提出的运行协议。
+\end{itemize}
+
+\noindent\textbf{关键词：} 红外-可见光数据集；无人机影像；多模态配准；对齐基准；场景级可靠性
+
+\input{sections_zh/01_introduction_zh}
+\input{sections_zh/02_related_work_zh}
+\input{sections_zh/03_dataset_protocol_zh}
+\input{sections_zh/04_method_zh}
+\input{sections_zh/05_experimental_setup_zh}
+\input{sections_zh/06_results_zh}
+\input{sections_zh/07_discussion_zh}
+\input{sections_zh/08_conclusion_zh}
+
+\bibliographystyle{elsarticle-num}
+\bibliography{references}
+
+\end{document}
