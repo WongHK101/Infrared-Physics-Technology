@@ -17,4 +17,3 @@
 
 Use `QA gate` only when defining the binary rule in the Method section. Use `RGB-infrared` for the
 paired data unit and `infrared-visible` for the task, benchmark positioning, and alignment system.
-
