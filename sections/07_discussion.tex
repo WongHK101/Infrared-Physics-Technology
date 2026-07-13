@@ -2,49 +2,46 @@
 
 \section{Discussion}
 
-\subsection{What UAV-TAlign-12K Reveals}
+\subsection{From Pairwise Evidence to Scene-Scale Geometry}
 
-The main contribution of UAV-TAlign-12K is a captured dataset and protocol that expose a gap hidden
-by pairwise-only reporting. Modern matchers provide abundant frame-level evidence on the official
-split, yet the strict scene-level criterion retains only a subset of scenes. The benchmark
-therefore separates two practically different capabilities: producing a pairwise homography and
-deciding whether multi-frame evidence supports a trustworthy scene transform.
+UAV-TAlign-12K reveals a transition in the UAV infrared-visible alignment problem. Infrared-specific
+and modern matchers generate homographies for nearly every pair, providing abundant geometric
+evidence across the official split. The evidence nevertheless varies in spatial support,
+cross-modal agreement, and consistency with other frames from the same scene. Scene consensus is
+therefore a distinct alignment stage: it converts heterogeneous frame estimates into one scene
+transform that can be used as a common geometric product.
 
-The protocol evidence supports this dataset-centered reliability framing. Retained and QA-filtered scenes show
-structured differences in accepted ratio, severe outlier behavior, and baseline-relative QA
-signals, indicating that the canonical criterion captures scene-level reliability beyond pairwise
-matcher availability alone. This gives the evaluation a clear diagnostic role: it tests when
-abundant pairwise evidence becomes a trustworthy scene-level transform. The canonical scene
-criterion is therefore designed for conservative retention of scene transforms rather than for
-maximizing unconditional scene acceptance.
+The ablation results identify robust consensus as the dominant module-level contribution. Relative
+to pairwise evidence alone, consensus improves edge and gradient agreement while sharply reducing
+severe-outlier incidence and transform dispersion. Cross-modal verification then maps this stable
+geometry to the canonical high-confidence product set. The combined design links local
+correspondence evidence with the scene-scale output required by UAV inspection and multimodal
+sensing.
 
-The controlled validations reinforce this interpretation from two independent directions.
-Leave-frame-out recomputation keeps the scene consensus close to its full-evidence estimate, while
-known translation, rotation, and scale perturbations progressively reduce the joint QA signal.
-Together, these results connect multi-frame consensus stability with sensitivity to controlled
-geometric degradation.
+\subsection{Coverage-Aware Operating Analysis}
 
-UAV-TAlign serves as a reference implementation for this second evaluation unit. Its evidence
-selection, robust consensus, and QA-aware verification demonstrate one reproducible way to convert
-pairwise hypotheses into a retained scene product; the benchmark remains compatible with future
-matchers and alternative scene-level aggregation strategies.
+The reliability--coverage profile adds an operating dimension to fixed-threshold evaluation. The
+canonical point provides nine high-confidence products covering 74.4\% of evaluated pairs, while
+the score-ranked sweep exposes broader coverage regimes. This representation allows an application
+to select scene-product coverage according to its quality requirements without changing the
+pairwise matcher or consensus estimator.
 
-The multi-seed random-selection supplement further strengthens the design rationale for
-deterministic evidence selection. On the accepted 8-scene subset, random selection spans 5/8 to
-7/8 retained scenes across seeds, but the variation is concentrated in a few borderline scenes
-rather than in large shifts of accepted-frame support. Deterministic-even selection therefore
-provides a reproducible default operating policy, while robust scene consensus and QA-aware
-verification define the retained-product decision layer.
+Two controlled analyses support the ordering signals used in this profile. Leave-frame-out
+recomputation preserves the full-evidence consensus with a 1.39-pixel median drift. Translation,
+rotation, and scale perturbations also produce monotonic degradation of the joint edge/gradient
+signal. Together, these observations connect the scene diagnostics to both evidence stability and
+known geometric degradation.
 
-\subsection{Operating Scope and Extensibility}
+\subsection{Benchmark Extensibility}
 
-UAV-TAlign-12K targets captured UAV scenes where a dominant planar or far-field transform is a
-useful operating model. Its 15 scenes span complementary illumination, thermal rendering, view, and
-scene-family conditions, establishing a focused evaluation resource for cross-FOV homography
-alignment. The same manifest and evaluation interfaces can be extended to additional flight
-altitudes, sensor configurations, and geometric models.
+The benchmark separates pairwise correspondence, scene aggregation, and cross-modal verification
+through a manifest-based interface. Future matchers can therefore be compared as evidence
+generators, while alternative consensus estimators and operating policies can be studied without
+changing the captured-data split. The same organization supports extensions to additional scene
+classes, acquisition geometries, sensor payloads, and downstream infrared sensing tasks.
 
-The label-free QA proxies provide scalable scene-consistency diagnostics, while the fixed canonical
-gate and the non-trained reliability ranking expose complementary retained-product and operating-
-profile views. This modular design supports direct combination with task-specific annotations,
-alternative scene geometries, learned quality estimators, and downstream thermal-sensing tasks.
+Deterministic evidence scheduling provides a stable default for this shared interface. The
+multi-seed study shows that random selection changes the product status of a small set of
+near-threshold scenes, whereas accepted-frame support remains comparatively stable. This result
+positions scheduling as a reproducibility mechanism and leaves robust consensus and cross-modal
+verification as the principal scene-product components.

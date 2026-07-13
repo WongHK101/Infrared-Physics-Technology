@@ -2,72 +2,42 @@
 
 \section{Experimental Setup}
 
-\subsection{Baselines}
+\subsection{Baseline Suite}
 
-We evaluate both classical and learning-based baselines under an explicit off-the-shelf setting.
-All learning-based methods use public pretrained weights or public pretrained model interfaces and
-are evaluated without training or adaptation on UAV-TAlign-12K. This choice keeps the comparison
-focused on practical deployability rather than dataset-specific adaptation.
-Unified inference wrappers standardize model loading, image I/O, homography fitting, and output
-schemas while preserving the public pretrained baseline parameters and settings.
-
-The baseline suite covers classical keypoint pipelines, an infrared-visible-specific method, and
-modern learned matchers. The classical pairwise references are SIFT and AKAZE, each followed by
-robust homography fitting. RIFT2 is evaluated through its Python implementation under a
-resize-aware setting. The modern pairwise baselines are Kornia LoFTR, RoMa outdoor full,
-XoFTR-640, and raw MINIMA. LoFTR
-uses Kornia's public outdoor-pretrained model, while raw MINIMA uses the MINIMA RoMa branch as a
-direct pairwise baseline. Reliability-guided progressive evidence selection, robust
-scene consensus, and QA-aware verification are activated only in the full UAV-TAlign framework
+We evaluate seven representative baselines using public pretrained configurations without
+UAV-TAlign-12K-specific adaptation. The suite covers three method families. SIFT and AKAZE provide
+classical keypoint references, each followed by robust homography estimation. RIFT2 provides an
+infrared-visible-specific classical reference through its Python implementation. The modern suite
+contains Kornia LoFTR, RoMa outdoor, XoFTR-640, and raw MINIMA
 \cite{sun2021loftr,edstedt2024roma,tuzcuoglu2024xoftr,ren2025minima}.
 
-\subsection{Shared Geometric Fitting}
+Raw MINIMA uses the \texttt{minima\_roma} checkpoint family with the full RoMa branch. RoMa uses
+the public outdoor full model, and XoFTR uses its 640-resolution visible-thermal checkpoint. LoFTR
+uses Kornia's public outdoor-pretrained model. Unified inference wrappers standardize image I/O,
+model output, homography fitting, and result schemas while preserving each pretrained model.
 
-For the pairwise methods, the common downstream step is homography fitting from the predicted
-correspondences. After each matcher returns point pairs and optional confidence values, the
-shared evaluator estimates a homography with a robust backend and then records a unified outcome
-category. This unified post-processing is important because it makes the pairwise baseline
-table comparable at the level of usable registration outcomes rather than raw matcher outputs
-alone.
+\subsection{Geometric Fitting and Deployment Profiles}
 
-The shared evaluator uses a robust homography backend across the integrated pairwise baselines:
-\begin{itemize}
-\item robust fitting method: USAC-MAGSAC;
-\item reprojection threshold: 3.0;
-\item confidence: 0.999;
-\item maximum iterations: 10000;
-\item spatial coverage grid: $4 \times 4$.
-\end{itemize}
+The shared evaluator converts predicted correspondences into homographies using USAC-MAGSAC, a
+3.0-pixel reprojection threshold, 0.999 confidence, 10,000 maximum iterations, and a
+$4\!\times\!4$ spatial-coverage grid. This common estimator supports matched outcome reporting
+across the integrated pairwise baselines.
 
-RIFT2 is independently integrated and uses its frozen evaluated setting:
-\texttt{max\_dim=1200}, \texttt{npt=2000}, \texttt{patch\_size=64}, Lowe ratio 0.95, and
-USAC-MAGSAC with a 5.0-pixel reprojection threshold. Its fitting statistics are therefore reported
-as method-specific complementary diagnostics rather than treated as a scalar cross-method rank.
+RIFT2 uses its frozen resize-aware profile: \texttt{max\_dim=1200}, \texttt{npt=2000},
+\texttt{patch\_size=64}, Lowe ratio 0.95, and USAC-MAGSAC with a 5.0-pixel reprojection threshold.
+LoFTR uses resize-aware inference with a longest image dimension of 1200 and automatic mixed
+precision. Runtime and fitting diagnostics are reported for these declared deployment profiles.
 
-\subsection{Main-Table Baseline Choices}
+\subsection{Protocol Validation}
 
-The main-table baseline choices are as follows. Raw MINIMA uses the MINIMA RoMa backend
-with the \texttt{minima\_roma} checkpoint family and the large/full RoMa branch. RoMa uses the
-public outdoor full model. XoFTR uses the 640-resolution visible-thermal checkpoint family as the
-default main-table setting. Kornia LoFTR (pretrained="outdoor") uses the public pretrained outdoor
-model from Kornia.
-
-\subsection{Evaluation Details}
-
-The LoFTR baseline is evaluated under a resize-aware inference setting. The longest
-image dimension used for matching is limited to 1200, and automatic mixed precision is enabled.
-This profile preserves the public pretrained model while supporting consistent full-subset
-evaluation.
-
-We additionally conduct two controlled protocol validations on the frozen formal outputs. First,
-five-fold leave-frame-out analysis partitions the accepted frame hypotheses deterministically,
-recomputes scene consensus after withholding one fold, and measures the resulting grid displacement
-from the full-evidence transform. Second, a synthetic sensitivity test applies translation,
-rotation, and scale perturbations at nominal severities of 2, 5, 10, 20, and 40 pixels to three
-representative frames per scene. It records the response of edge overlap and gradient-NCC without
-changing the canonical decision rule.
+Two controlled experiments evaluate the scene protocol on frozen formal outputs. Five-fold
+leave-frame-out analysis partitions accepted frame hypotheses deterministically, withholds one
+fold, recomputes scene consensus, and measures grid displacement from the full-evidence transform.
+A controlled sensitivity test applies translation, rotation, and scale perturbations at nominal
+severities of 2, 5, 10, 20, and 40 pixels to three representative frames per scene. The test
+records edge-overlap and gradient-NCC responses while keeping the canonical decision fixed.
 
 Journal-scale experiments were conducted in isolated Python environments on an NVIDIA RTX 4090
-workstation. The main environment used Python 3.10 with PyTorch 2.0.1, torchvision 0.15.2, CUDA
-11.8, OpenCV 4.11.0, and Kornia 0.6.11. All runs used the fixed official manifest, fixed public
-weights or model interfaces, isolated output roots, and read-only raw dataset directories.
+workstation. The main environment used Python 3.10, PyTorch 2.0.1, torchvision 0.15.2, CUDA 11.8,
+OpenCV 4.11.0, and Kornia 0.6.11. Every run used the official manifest, fixed model weights or
+interfaces, isolated output roots, and read-only raw dataset directories.

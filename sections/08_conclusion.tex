@@ -2,19 +2,19 @@
 
 \section{Conclusion}
 
-This work introduces UAV-TAlign-12K as a real-world cross-FOV UAV infrared-visible dataset and
-scene-level reliability benchmark. Its 6,039 pairs, integrity-checked official split, diverse
-capture conditions, and manifest-fixed protocol support reproducible evaluation at both the
-pairwise and scene levels. The benchmark shows that broad homography availability does not by
-itself guarantee a scene transform that should be retained.
+We introduced UAV-TAlign-12K, a benchmark-scale UAV infrared-visible alignment resource with
+6,039 synchronized pairs, an integrity-checked 6,037-pair evaluation split, and a multi-level
+protocol spanning pairwise evidence, scene consensus, and reliability--coverage analysis. Seven
+representative baselines show that infrared-specific and modern matchers already provide highly
+available pairwise homographies across captured cross-FOV conditions.
 
-UAV-TAlign provides the benchmark's reproducible scene-level reference framework based on
-reliability-guided progressive selection, robust consensus, and QA-aware verification. It produces scene
-homographies for all 15 scenes and retains 9 under the strict canonical gate. Controlled
-leave-frame-out and perturbation tests further verify consensus stability and QA sensitivity.
-Together, the dataset,
-protocol, and reference framework provide a practical foundation for developing and evaluating more
-reliable UAV infrared-visible alignment systems.
+UAV-TAlign converts this evidence into 15 scene transforms. It combines progressive scheduling,
+geometry-calibrated frame weighting, robust consensus, and cross-modal verification.
+At the canonical operating point, it identifies nine high-confidence products covering 74.4\% of
+the evaluated pairs. Leave-frame-out resampling and controlled perturbations further support the
+stability and geometric sensitivity of the scene diagnostics. These results establish scene-scale
+evidence consolidation and confidence-aware operating analysis as central evaluation dimensions
+for cross-FOV UAV infrared-visible alignment.
 
 \section*{Data Availability}
 
@@ -22,6 +22,6 @@ UAV-TAlign-12K, the official evaluation manifest, metadata, integrity report, an
 scripts have been prepared for public release. The official evaluation split contains 6,037
 integrity-checked RGB-infrared pairs from a 6,039-pair UAV infrared-visible alignment collection.
 The dataset, owned by Guangxi University, will be released under the Creative Commons Attribution
-4.0 International license,
-with code and evaluation materials provided through a public repository. Review access can be
-provided during peer review. The official manifest hash is provided for reproducible evaluation.
+4.0 International license, with code and evaluation materials provided through a public
+repository. Review access can be provided during peer review. The official manifest hash is
+provided for reproducible evaluation.

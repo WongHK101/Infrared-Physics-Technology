@@ -2,94 +2,61 @@
 
 \section{Related Work}
 
-\subsection{Classical Image Registration}
+\subsection{Cross-Modal Correspondence and Geometric Estimation}
 
-Classical image registration pipelines typically rely on hand-crafted local features followed by
-robust geometric fitting. Representative methods built on SIFT, SURF, ORB, BRISK, KAZE, or AKAZE
-remain attractive because they are simple, interpretable, and do not require task-specific
-training
+Classical registration combines local feature extraction, descriptor matching, and robust model
+estimation. Scale-space, binary, and nonlinear diffusion features provide efficient geometric
+references across diverse imaging conditions
 \cite{lowe2004sift,bay2008surf,rublee2011orb,leutenegger2011brisk,alcantarilla2012kaze,alcantarilla2013akaze}.
-In cross-modal settings, the appearance gap between visible and thermal imagery can reduce
-descriptor repeatability, especially when thermal frames contain low-texture or homogeneous
-regions. These methods nevertheless provide a strong geometric reference point for understanding
-which parts of the registration problem are addressed by local feature extraction and which parts
-require higher-level scene reasoning.
+RANSAC and its accuracy-oriented successors remain central to converting noisy correspondences
+into geometric models
+\cite{fischler1981ransac,hartley2004multiple,barath2019magsac,barath2020magsacpp}.
+For infrared-visible imagery, radiation-variation-insensitive constructions such as RIFT improve
+descriptor repeatability across modality-specific appearance changes \cite{li2020rift}. These
+methods provide an interpretable foundation for separating correspondence quality from downstream
+scene aggregation.
 
-These methods remain important baselines in our study because they represent the classical
-registration view of the problem: stable local features followed by robust homography fitting.
-Robust model estimation remains central in these pipelines, from RANSAC and multiple-view geometry
-to more recent variants such as MAGSAC and MAGSAC++
-\cite{fischler1981ransac,hartley2004multiple,barath2019magsac,barath2020magsacpp}. Our results
-show that real UAV infrared-visible scenes benefit from moving beyond a single-pair formulation toward
-scene-level evidence aggregation and reliability control.
+Learned correspondence methods have expanded both the robustness and spatial density of pairwise
+evidence. Early trainable detectors and descriptors established data-driven local representations
+\cite{detone2018superpoint,ono2018lfnet,dusmanu2019d2net,revaud2019r2d2,tyszkiewicz2020disk,germain2020s2dnet,mishchuk2017hardnet,tian2017l2net,tian2019sosnet}.
+Graph reasoning, transformers, and dense warp prediction subsequently enabled direct matching
+across low texture, repeated structure, and large appearance changes
+\cite{sarlin2020superglue,rocco2018ncnet,zhou2021patch2pix,jiang2021cotr,sun2021loftr,chen2022aspanformer,lindenberger2023lightglue,edstedt2023dkm,edstedt2024roma,wang2024efficientloftr,jiang2024omniglue}.
+XoFTR and MINIMA further target visible-thermal or broadly multimodal correspondence
+\cite{tuzcuoglu2024xoftr,ren2025minima}. UAV-TAlign builds on this progress by treating pairwise
+matchers as evidence generators within a scene-scale geometric pipeline.
 
-\subsection{Deep Pairwise Matching for Multimodal Registration}
+\subsection{Infrared-Visible Alignment}
 
-Recent dense and semi-dense matching methods have significantly improved pairwise geometric
-correspondence estimation. Learned local features have evolved from trainable detectors and
-descriptors such as SuperPoint, LF-Net, D2-Net, R2D2, DISK, S2DNet, HardNet, L2-Net, SOSNet,
-GeoDesc, ContextDesc, ASLFeat, ALIKE, and Key.Net
-\cite{detone2018superpoint,ono2018lfnet,dusmanu2019d2net,revaud2019r2d2,tyszkiewicz2020disk,germain2020s2dnet,mishchuk2017hardnet,tian2017l2net,tian2019sosnet,luo2018geodesc,luo2019contextdesc,luo2020aslfeat,zhao2023alike,barroso2019keynet},
-while match filtering and end-to-end correspondence reasoning have progressed through
-SuperGlue, NCNet, Patch2Pix, COTR, LoFTR, ASpanFormer, LightGlue, DKM, RoMa, Efficient LoFTR,
-OmniGlue, MINIMA, and XoFTR
-\cite{sarlin2020superglue,rocco2018ncnet,zhou2021patch2pix,jiang2021cotr,sun2021loftr,chen2022aspanformer,lindenberger2023lightglue,edstedt2023dkm,edstedt2024roma,wang2024efficientloftr,jiang2024omniglue,ren2025minima,tuzcuoglu2024xoftr}.
-In particular, these methods are better at recovering useful correspondences in low-texture
-regions, repetitive structures, or substantial appearance shifts. Broad reviews of this transition
-from classical pipelines to trainable matching, together with practical benchmarking studies,
-provide additional context
-\cite{ma2021survey,liao2024survey}.
+Infrared-visible registration spans feature-based matching, direct optimization, and learned
+alignment. Radiation-insensitive descriptors address nonlinear cross-modal appearance, while
+learned formulations estimate pairwise transforms or dense warps from training data
+\cite{li2020rift,chang2017clkn,nie2021udis}. UAV dual-sensor imagery adds cross-resolution optics,
+viewpoint displacement, thermal rendering variation, and illumination changes. Registration under
+these conditions has motivated dedicated pairwise methods and UAV-specific data resources.
 
-Our work builds directly on this progress by treating modern matchers as high-capacity evidence
-generators. The empirical picture in UAV-TAlign-12K is that strong off-the-shelf multimodal
-matchers and infrared-visible classical baselines already provide very high pairwise availability.
-This moves the central question from
-correspondence generation alone to the conversion of frame-level estimates into stable and reliable
-scene-level alignment under realistic UAV operating conditions.
+UAVMatch provides synthetic transform supervision and controlled geometric metrics for trainable
+UAV alignment \cite{gao2025uavmatch}. ATR-UMMIM contributes 7,969 real UAV
+visible--infrared--registered-visible triplets with condition attributes and a semi-automated
+pixel-level reference \cite{bin2025atrummim}. UAV-TIRVis provides 80 manually registered aerial
+thermal-visible pairs for image-domain evaluation \cite{vasile2025uavtirvis}. UAV-TAlign-12K
+complements these resources with a 6,039-pair captured cross-FOV collection and a multi-frame
+protocol that connects pairwise homographies, scene consensus, and reliability--coverage operating
+analysis.
 
-\subsection{Visible-Thermal Registration and Evaluation}
+\subsection{UAV Multimodal Benchmarks and Scene-Scale Evaluation}
 
-Visible-thermal registration has been studied under a range of assumptions, from same-view or
-near-same-view alignment to broader multimodal correspondence learning. Radiation-variation
-insensitive matching methods such as RIFT and deep alignment or stitching formulations such as
-CLKN and UDIS indicate the breadth of existing registration formulations
-\cite{li2020rift,chang2017clkn,nie2021udis}. Many existing settings emphasize relatively
-controlled viewpoint changes or pairwise registration outcomes. By contrast, practical UAV
-infrared-visible data frequently combine cross-FOV capture, cross-resolution sensing, thermal rendering
-variation, and low-light conditions.
-These factors make scene-level reliability a more central concern than in many standard
-visible-thermal evaluation setups.
-
-Recent UAV registration resources now span several complementary evaluation regimes. UAVMatch
-provides synthetic transform supervision and a trainable alignment baseline with controlled
-geometric metrics \cite{gao2025uavmatch}. The 7,969-triplet ATR-UMMIM benchmark provides real UAV
-visible--infrared data, a semi-automated pixel-level reference, and condition attributes
-\cite{bin2025atrummim}, while UAV-TIRVis provides 80 manually registered aerial thermal-visible
-pairs for direct image-domain evaluation \cite{vasile2025uavtirvis}. UAV-TAlign-12K targets a
-distinct multi-frame operating question: it fixes an integrity-checked captured cross-FOV split,
-evaluates heterogeneous off-the-shelf evidence generators, and studies how frame-level
-homographies become retained scene products under a scalable reliability protocol.
-
-UAV-TAlign-12K extends this evaluation landscape by packaging real cross-FOV infrared-visible scenes
-together with scalable label-free diagnostics. The protocol measures scene consistency and relative
-alignment quality, allowing the study to focus on reliability-controlled scene-level alignment
-under practical UAV acquisition conditions rather than isolated pairwise correspondence counts.
-
-\subsection{UAV Multimodal Datasets and the Remaining Gap}
-
-UAV multimodal datasets have supported progress in detection, tracking, segmentation, and broader
-cross-modal perception, spanning aligned pedestrian and automotive benchmarks as well as
-visible-thermal detection and tracking benchmarks such as KAIST, FLIR, LLVIP, M3FD, DroneVehicle,
-VTUAV, LasHeR, and Anti-UAV
+Multimodal datasets such as KAIST, FLIR, LLVIP, M3FD, DroneVehicle, VTUAV, LasHeR, and Anti-UAV
+have advanced detection, fusion, tracking, and low-light perception
 \cite{hwang2015kaist,flir2018thermal,jia2021llvip,liu2022tardal,sun2022dronevehicle,zhang2022vtuav,li2022lasher,jiang2023antiuav}.
-These resources have primarily advanced downstream perception tasks, while scene-level
-infrared-visible alignment places additional emphasis on reliability-aware geometric decision making.
-In particular, a practical registration pipeline must decide not only how to align frames, but also
-when the scene-level evidence is strong enough to trust the resulting transform.
+Their success demonstrates the value of synchronized visible and infrared sensing. Alignment,
+however, requires an explicit geometric product and benefits from evaluation beyond isolated
+correspondence counts.
 
-This is the gap our paper targets. Complementary to pairwise geometric-accuracy benchmarks and new
-matcher architectures, our primary focus is a real captured dataset and benchmark protocol for
-cross-FOV UAV infrared-visible alignment. The
-collection and label-free protocol make pairwise evidence, retained scene transforms, and
-condition-dependent reliability directly studyable. UAV-TAlign instantiates this scene-level
-benchmark as a reproducible reference framework.
+UAV-TAlign-12K defines pairwise, scene, and operating-profile tracks. The
+pairwise track measures the availability and support of homography evidence. The scene track
+measures how multiple frame estimates form a consensus transform. The operating profile then
+orders scene products using fixed, interpretable cross-modal diagnostics. This design makes
+scene-scale evidence consolidation directly comparable across classical, infrared-specific, and
+modern learned matchers while preserving a common captured-data protocol
+\cite{ma2021survey,liao2024survey}.

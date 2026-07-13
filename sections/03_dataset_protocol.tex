@@ -4,34 +4,22 @@
 
 \subsection{Dataset Scope}
 
-Our primary contribution is UAV-TAlign-12K, a dataset and benchmark for real UAV
-infrared-visible registration. The
-collection contains 6,039 candidate RGB-infrared pairs, corresponding to 12,078 images across 15
-UAV scenes. The official evaluation split contains 6,037 integrity-checked RGB-infrared pairs and
-12,074 images. Each sample is organized as an RGB image paired with a thermal image captured from
-the same scene context, while the collection spans practical UAV conditions that go beyond
-standard near-same-view multimodal matching. In scope and modality, it is closer to recent
-visible-thermal benchmarks such as
-KAIST, FLIR, LLVIP, M3FD, DroneVehicle, VTUAV, LasHeR, and Anti-UAV than to classical
-same-sensor image matching setups
-\cite{hwang2015kaist,flir2018thermal,jia2021llvip,liu2022tardal,sun2022dronevehicle,zhang2022vtuav,li2022lasher,jiang2023antiuav}.
+UAV-TAlign-12K is a benchmark for real captured UAV infrared-visible alignment. The collection
+contains 6,039 synchronized RGB-infrared pairs, corresponding to 12,078 images across 15 scenes.
+Its official evaluation split contains 6,037 integrity-checked pairs and 12,074 images. The
+collection spans cross-FOV and cross-resolution sensing under day, night, and low-light capture,
+grayscale and pseudocolor thermal rendering, and wide, zoom, and standard UAV views.
 
-All main journal-scale experiments are tied to the official manifest with canonical SHA256 prefix
-\texttt{a092f7ad...bb202c6c}. This manifest-based entry point fixes the evaluated split and
-prevents direct folder traversal from silently changing the reported results. We retain
-UAV-TAlign-1K-Lite as a development and ablation subset, while UAV-TAlign-12K is the main
-benchmark-scale evaluation collection for this article.
-
-At the scene level, UAV-TAlign-12K preserves the factors that make reliability assessment meaningful:
-day, night, and low-light capture; grayscale and pseudocolor thermal rendering; and both wide-view
-and zoom-view scene families. The packaged formal split includes 7 day scenes, 5 night scenes, and
-3 low-light scenes; 8 grayscale-thermal scenes and 7 pseudocolor-thermal scenes; and paired
-wide/zoom controls for the substation scene family.
+All journal-scale experiments use the same versioned manifest. UAV-TAlign-1K-Lite is retained as
+a fixed development and ablation subset, while UAV-TAlign-12K defines the benchmark-scale
+evaluation in this study. The official split comprises 7 day, 5 night, and 3 low-light scenes,
+together with 8 grayscale-thermal and 7 pseudocolor-thermal scenes. Paired wide and zoom views
+provide controlled cross-FOV comparisons within the substation scene family.
 
 \begin{table}[t]
 \caption{Positioning of UAV-TAlign-12K relative to representative infrared-visible and UAV
-multimodal resources. UAVMatch denotes the recent synthetic transform-supervised UAV
-visible-infrared alignment benchmark.}
+multimodal resources. UAVMatch denotes the synthetic transform-supervised UAV alignment
+benchmark.}
 \label{tab:dataset_positioning}
 \centering
 \resizebox{\textwidth}{!}{
@@ -44,7 +32,7 @@ DroneVehicle / VTUAV / LasHeR / Anti-UAV & UAV or tracking-centric RGB-infrared 
 UAVMatch / TGRS~\cite{gao2025uavmatch} & Synthetic transforms from UAV multimodal data & Affine / homography supervision & 81K train / 15K test pairs & Supervised transform regression and geometric metrics \\
 ATR-UMMIM~\cite{bin2025atrummim} & Real UAV visible / infrared / registered-visible triplets & Semi-automated pixel-level reference & 7,969 triplets & Pairwise registration accuracy and condition attributes \\
 UAV-TIRVis~\cite{vasile2025uavtirvis} & Real UAV thermal-visible imagery & Manual pairwise registration & 80 pairs & Direct image-domain registration quality \\
-UAV-TAlign-12K & Real captured cross-FOV UAV infrared-visible data & Manifest-fixed scene reliability protocol & 6,039 candidate / 6,037 valid pairs & Pairwise evidence and scene-level retained alignment \\
+UAV-TAlign-12K & Real captured cross-FOV UAV infrared-visible data & Multi-frame scene protocol & 6,039 candidate / 6,037 evaluated pairs & Pairwise evidence, scene consensus, and operating coverage \\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -52,91 +40,71 @@ UAV-TAlign-12K & Real captured cross-FOV UAV infrared-visible data & Manifest-fi
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/fig_dataset_examples.pdf}
-\caption{Representative UAV-TAlign-12K RGB-infrared pairs spanning day, night, low-light,
-grayscale-thermal, pseudocolor-thermal, wide-view, and zoom-view conditions.}
+\caption{Representative UAV-TAlign-12K RGB-infrared pairs spanning illumination, thermal
+rendering, and view conditions.}
 \label{fig:dataset_examples}
 \end{figure}
 
 \subsection{Acquisition and Curation}
 
-UAV-TAlign-12K was acquired between the second half of 2024 and the first half of 2026
-across multiple industrial and natural scenes in southern China. All 15 scenes were captured with
-the same DJI Matrice 350 RTK platform and Zenmuse H30T multisensor payload. The integrated payload
-automatically synchronized its visible and infrared products, so no manual geometric alignment was
-used to construct the released RGB-infrared pairs. The flights combined hovering and route-based
-capture. All operations used a registered aircraft, a CAAC-qualified pilot, and permitted flight
-areas.
+UAV-TAlign-12K was acquired between the second half of 2024 and the first half of 2026 across
+industrial and natural scenes in southern China. All scenes were captured with the same DJI
+Matrice 350 RTK platform and Zenmuse H30T multisensor payload. The integrated payload
+automatically synchronized the visible and infrared products, preserving the native cross-sensor
+geometry. The flights combined hovering and route-based capture using a registered aircraft, a
+CAAC-qualified pilot, and permitted flight areas.
 
 The released streams retain the native H30T acquisition modes. Wide-camera stills are
 $4032\!\times\!3024$, zoom-camera stills are $3664\!\times\!2748$, and thermal images are
-$1280\!\times\!1024$. In scenes 01 and 02, a short $3840\!\times\!2160$ segment was produced by
-triggering still capture while H30T video recording was active; these images are not extracted
-video frames. Scene 07 is the dedicated video-derived sequence: synchronized RGB and infrared
-streams were sampled at 2 frames per second over one complete orbit around a transmission tower.
-The grayscale scenes use the H30T \emph{White Hot} setting, whereas all pseudocolor scenes use the
-on-device \emph{Hot Iron} palette.
+$1280\!\times\!1024$. In scenes 01 and 02, $3840\!\times\!2160$ still images were triggered while
+H30T video recording was active. Scene 07 is a synchronized video-derived sequence sampled at
+2 frames per second over one complete orbit around a transmission tower. Grayscale scenes use the
+H30T \emph{White Hot} setting, and pseudocolor scenes use the on-device \emph{Hot Iron} palette.
 
-Dataset curation was performed before algorithm evaluation. Images were removed when they did not
-capture the intended scene subject or showed clear acquisition-quality problems, including abnormal
-exposure, inaccurate focus, or damaged data. No image was selected or removed according to the
-output of any matcher, alignment method, or QA score. The resulting collection contains 6,039
-candidate synchronized pairs; the official split subsequently excludes only the two thermal files
-that do not pass the documented integrity check.
+Curation criteria were fixed before algorithm evaluation and covered scene relevance, exposure,
+focus, and file integrity. The resulting candidate collection contains 6,039 synchronized pairs;
+the integrity audit defines the 6,037-pair official evaluation split. Selection did not use matcher
+outputs, alignment estimates, or quality scores.
 
 Release preparation removes embedded metadata and normalizes filenames while preserving image
-pixels. RGB and infrared files are paired through their shared H30T capture key, ordered by capture
-time and sequence index, and renamed with a common six-digit pair identifier. No resizing, cropping,
-rotation, recompression, or image enhancement is applied. Guangxi University owns the collection,
-and the release package is prepared under the Creative Commons Attribution 4.0 International
+pixels. RGB and infrared files are linked through their shared H30T capture key, ordered by capture
+time and sequence index, and assigned a common six-digit pair identifier. The release applies no
+resizing, cropping, rotation, recompression, or image enhancement. Guangxi University owns the
+collection, which is prepared for release under the Creative Commons Attribution 4.0 International
 license.
 
 \subsection{Dataset Organization}
 
-Each scene is stored under its own scene directory, and paired samples are formed by matching file
-stems between \texttt{rgb/} and \texttt{thermal/} subdirectories. The dataset loader constructs
-scene pairs from common RGB and thermal filenames, while scene-level metadata are loaded from the
-official manifest. For each pair, the loader stores scene identity, pair identity, light condition,
-thermal rendering, view type, and scene label.
+Each scene has dedicated \texttt{rgb/} and \texttt{thermal/} directories, and paired samples share
+the same filename stem. The official manifest records scene identity, pair identity, illumination,
+thermal rendering, view type, and scene label. A scene groups frames sharing a site or target
+context and acquisition condition. It may represent a continuous sequence or multiple sorties
+under the same scene definition. Scene 07 is the documented single-orbit video sequence.
 
-A scene is an evaluation unit defined by a common site/target context and acquisition condition,
-rather than a claim that all of its frames come from one uninterrupted flight. Depending on the
-operational capture, a scene may contain one continuous sequence or observations from multiple
-sorties under the same scene definition. Scene 07 is the explicitly documented single-orbit video
-sequence.
+One manifest supports all pairwise, scene, and condition analyses. It also maps every reported
+result to its source scene and pair identifier.
 
-This organization supports both pairwise baseline evaluation and scene-level pipeline evaluation
-under the same manifest definition, while also enabling condition-based breakdowns from a unified
-scene manifest.
+\subsection{Multi-Level Evaluation Protocol}
 
-\subsection{Complementary Evaluation Units}
+The benchmark defines three complementary tracks. Track A evaluates each of the 6,037 pairs
+independently and measures the availability and support of pairwise homography evidence. Track B
+aggregates frame estimates into a scene transform and reports the canonical set of high-confidence
+scene products. Track C orders scenes with a fixed, interpretable reliability score to construct
+coverage-aware operating profiles.
 
-The protocol uses two complementary evaluation units. First, off-the-shelf baselines are evaluated
-at the pair level. Each of the 6,037 integrity-checked RGB-infrared pairs is processed
-independently, and the resulting statistics describe whether a method can produce usable pairwise
-homography evidence under a fixed off-the-shelf setting.
+Together, the tracks connect matcher output to deployable scene geometry. Pairwise measurements
+characterize evidence generation, scene-level measurements characterize multi-frame consensus,
+and the operating profile exposes how product coverage changes with scene quality.
 
-Second, UAV-TAlign is evaluated at the scene level. Multiple frame-level estimates are aggregated
-into a scene-level transform, and the final decision is made by canonical scene acceptance rather
-than by pairwise usability alone. The pairwise and scene-level tables therefore provide two
-complementary views of practical registration behavior: correspondence availability and retained
-scene-level alignment reliability.
+\subsection{Label-Free Scene-Consistency Diagnostics}
 
-Track A evaluates independent pairwise homography evidence, Track B reports the canonical
-scene-level retain/reject decision, and Track C ranks scenes with the non-trained reliability score
-for risk--coverage analysis without replacing the canonical gate.
+The protocol uses label-free relative signals for scalable scene-consistency analysis. The stored
+diagnostics compare the optimized transform with its baseline initialization and quantify changes
+in cross-modal agreement. They include edge-overlap improvement, gradient-NCC improvement, the
+fraction of frames with improved gradient agreement, severe baseline-relative outlier count and
+ratio, accepted-frame support, homography dispersion, and robust-rejection ratio.
 
-\subsection{Label-Free QA Proxies}
-
-The protocol relies on label-free relative QA signals designed for scalable scene-level reliability
-analysis. The strongest stored proxies compare the optimized transform against a baseline
-initialization and summarize whether scene-level rectification improves cross-modal agreement. The
-proxy family includes edge-overlap improvement, gradient-NCC improvement, the ratio of
-frames with improved gradient agreement, severe baseline-relative outlier count and ratio,
-accepted-frame ratio, and homography-dispersion and robust-rejection diagnostics.
-
-These proxies provide a practical scene-consistency signal for comparing methods and for deciding
-whether a scene-level transform is reliable enough to retain. They provide scalable
-scene-consistency diagnostics for reliability-controlled evaluation and can be combined with
-task-specific annotation protocols when such labels are available, in the spirit of practical
-matching-oriented evaluation and benchmarking discussed in prior image-matching literature
+These signals jointly characterize cross-modal improvement, geometric support, and consensus
+stability. The resulting diagnostics support canonical product selection, condition-aware analysis,
+and reliability--coverage visualization under a common evaluation interface
 \cite{ma2021survey,liao2024survey}.

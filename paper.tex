@@ -21,32 +21,29 @@
 \affiliation[anon]{organization={Anonymous submission}}
 
 \begin{abstract}
-Reliable UAV infrared-visible alignment is important for aerial inspection, nighttime monitoring,
-and multimodal thermal sensing, yet existing resources provide limited support for evaluating
-real captured cross-FOV alignment at the scene level. We introduce UAV-TAlign-12K, which contains
-6,039 real-world UAV infrared-visible pairs across 15 scenes and provides an integrity-checked
-6,037-pair official evaluation split. The dataset spans day, night, and low-light
-capture, grayscale and pseudocolor thermal rendering, and wide, zoom, and standard UAV views. We
-further define a manifest-fixed, label-free benchmark that separates pairwise homography evidence
-from scene-level retained alignment and reports condition-aware and risk--coverage diagnostics.
-Evaluation with seven off-the-shelf baselines, spanning classical, infrared-visible-specific, and
-modern learned methods, shows that pairwise evidence is broadly available: RIFT2, raw MINIMA, and
-RoMa produce homographies for all 6,037 evaluated pairs, while LoFTR and XoFTR remain
-near-saturated. As the benchmark reference framework, UAV-TAlign aggregates frame evidence
-through reliability-guided progressive selection, robust consensus, and QA-aware verification. It produces
-scene homographies for all 15 scenes and retains 9 under the strict canonical gate. Five-fold
-leave-frame-out analysis yields a 1.39-pixel median scene-consensus drift, while controlled
-translation, rotation, and scale perturbations produce monotonic degradation of the joint QA signal.
-Together, the
-dataset, protocol, and reference framework establish a reproducible benchmark for studying when
-cross-FOV UAV infrared-visible alignment is reliable enough to retain.
+Cross-field-of-view infrared-visible alignment is a core capability for UAV inspection, nighttime
+sensing, and multimodal scene understanding. We introduce UAV-TAlign-12K, a benchmark-scale
+collection of 6,039 synchronized RGB-infrared pairs acquired across 15 industrial and natural
+scenes, together with an integrity-checked 6,037-pair evaluation split. The benchmark organizes
+evaluation at three complementary levels: pairwise homography evidence, scene-scale consensus,
+and reliability--coverage operating analysis. Seven representative methods span classical
+keypoint pipelines, infrared-visible-specific matching, and modern dense or learned matchers.
+Pairwise evidence is broadly available: RIFT2, RoMa, and raw MINIMA produce homographies for all
+6,037 evaluated pairs, while LoFTR and XoFTR exceed 99\% availability. Building on this evidence,
+UAV-TAlign combines progressive evidence scheduling, geometry-calibrated frame weighting, robust
+scene consensus, and cross-modal quality verification. It estimates transforms for all 15 scenes
+and identifies nine high-confidence alignment products at the canonical operating point, covering
+74.4\% of the evaluated pairs. Five-fold leave-frame-out analysis yields a 1.39-pixel median
+scene-consensus drift, and controlled translation, rotation, and scale perturbations produce
+monotonic degradation of the joint quality signal. UAV-TAlign-12K establishes a reproducible
+foundation for benchmark-scale, confidence-aware UAV infrared-visible alignment.
 \end{abstract}
 
 \begin{highlights}
-\item UAV-TAlign-12K provides 6,039 real cross-FOV UAV infrared-visible pairs.
-\item Seven baselines establish broad pairwise homography availability.
-\item UAV-TAlign produces 15/15 scene transforms and retains 9 at the strict gate.
-\item Resampling and controlled perturbations validate the reliability protocol.
+\item UAV-TAlign-12K offers 6,039 synchronized cross-FOV RGB-infrared pairs.
+\item Seven baselines reveal broadly available pairwise homography evidence.
+\item UAV-TAlign yields 15 scene transforms and nine high-confidence products.
+\item Resampling and controlled perturbations validate the operating protocol.
 \end{highlights}
 
 \begin{keyword}

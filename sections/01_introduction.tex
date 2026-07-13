@@ -2,73 +2,57 @@
 
 \section{Introduction}
 
-Infrared-visible alignment is becoming a foundational capability for UAV inspection, monitoring,
-and nighttime multimodal perception. Visible imagery provides semantic and structural detail,
-while infrared thermal imagery remains informative under illumination changes, smoke, haze, and
-low-light conditions. This complementarity has driven progress across multispectral pedestrian
-perception, thermal object detection, visible-thermal tracking, and UAV multimodal sensing
+Infrared-visible alignment is a foundational capability for UAV inspection, nighttime monitoring,
+and multimodal thermal sensing. Visible imagery provides semantic and structural detail, while
+infrared imagery preserves complementary target information across illumination changes, smoke,
+haze, and low-light conditions. This combination supports multispectral detection, tracking, and
+aerial perception across demanding operating environments
 \cite{hwang2015kaist,flir2018thermal,jia2021llvip,liu2022tardal,sun2022dronevehicle,zhang2022vtuav,li2022lasher,jiang2023antiuav}.
-For these systems to operate as fused sensors rather than separate streams, however, RGB and
-thermal observations must be aligned reliably at the scene level.
+Accurate cross-sensor geometry is therefore essential for treating the two streams as one sensing
+system rather than independent observations.
 
-Real UAV infrared-visible alignment is substantially more demanding than standard same-view image
-matching. Aerial platforms introduce viewpoint drift, cross-FOV capture, rolling scale changes, and
-cross-resolution sensors; thermal images further introduce low-texture regions, grayscale or
-pseudocolor rendering, and strong day/night appearance shifts. These factors make individual
-frame-level homographies uneven: some pairs are strongly supported, while others require additional
-scene context before they should influence the final transform. The practical question is therefore
-not only whether a matcher can produce correspondences for one pair, but whether a system can
-decide which scene-level alignment should be trusted.
+UAV acquisition introduces a distinct alignment problem. Cross-FOV optics, unequal sensor
+resolutions, changing viewpoints, and zoom variation reshape the same scene differently in the
+visible and infrared channels. Thermal rendering and day-to-night appearance changes further
+alter local texture and contrast. A flight sequence consequently provides heterogeneous geometric
+evidence: individual frame pairs may differ substantially in spatial support, homography
+stability, and cross-modal agreement. Effective alignment must consolidate this evidence into a
+scene transform that can support downstream sensing.
 
-Recent pairwise matching has advanced rapidly. Transformer, dense, and multimodal matchers such as
-LoFTR, LightGlue, DKM, RoMa, XoFTR, and MINIMA have substantially improved correspondence
-availability under difficult appearance changes
+Modern correspondence estimation has substantially increased the availability of pairwise
+evidence. Transformer, dense, and multimodal matchers such as LoFTR, LightGlue, DKM, RoMa, XoFTR,
+and MINIMA recover correspondences across increasingly difficult appearance changes
 \cite{sarlin2020superglue,sun2021loftr,chen2022aspanformer,lindenberger2023lightglue,edstedt2023dkm,edstedt2024roma,tuzcuoglu2024xoftr,ren2025minima}.
-At the benchmark level, recent UAV visible-infrared alignment studies have also shown that
-synthetic transform supervision can support trainable alignment baselines with controlled
-geometric metrics \cite{gao2025uavmatch}. UAV-TAlign-12K targets the complementary operating
-regime: real captured cross-FOV UAV infrared-visible scenes where the central product is a
-retained scene-level transform rather than only a supervised pairwise transform prediction.
-Our 12K-scale experiments confirm this progress in the UAV infrared-visible setting: strong
-off-the-shelf classical and modern baselines already provide broadly available pairwise homography
-evidence on UAV-TAlign-12K. This result creates a concrete
-tension: a method can approach saturated pairwise usability while producing only selective
-scene-level retention under a strict acceptance rule. Pairwise usability and scene-level
-canonical acceptance therefore measure different operating questions and should not be read as the
-same success criterion. The key step is to aggregate evidence across a scene, suppress unstable
-homographies, and verify whether the final transform should be retained.
+Recent UAV alignment benchmarks have also introduced synthetic transform supervision and direct
+geometric evaluation \cite{gao2025uavmatch}. These advances establish a strong pairwise
+foundation. They also motivate a broader benchmark question: how should variable-quality frame
+estimates be consolidated and assessed at the scale of a captured UAV scene?
 
-Pairwise homographies can be available for most frames while their support and scene consistency
-remain uneven. Robust consensus and QA therefore determine whether the resulting scene transform
-is retained, whereas the reliability score ranks scenes only for operating-profile analysis.
+We address this question with UAV-TAlign-12K, a real captured cross-FOV UAV infrared-visible
+benchmark comprising 6,039 synchronized pairs across 15 industrial and natural scenes. Its
+official evaluation split contains 6,037 integrity-checked pairs spanning day, night, and
+low-light capture; grayscale and pseudocolor thermal rendering; and wide, zoom, and standard UAV
+views. The benchmark defines three complementary tracks. Pairwise evaluation measures homography
+evidence availability, scene-level evaluation measures multi-frame consensus products, and a
+reliability--coverage profile characterizes selectable operating regimes. This hierarchy connects
+correspondence generation to the scene products required by UAV sensing systems.
 
-This observation motivates a benchmark-first framing with two complementary evaluation questions:
-whether a method can produce usable pairwise homography evidence, and whether multi-frame evidence
-supports a scene transform that should be retained. Treating these as separate units prevents high
-pairwise availability from being interpreted as automatic scene-level reliability.
-
-Our primary contribution is UAV-TAlign-12K, a real-world UAV infrared-visible alignment dataset
-with 6,039 candidate pairs and an integrity-checked 6,037-pair evaluation split across 15 scenes.
-The collection spans day, night, low-light, grayscale thermal, pseudocolor thermal, and wide,
-zoom, and standard UAV views. Its manifest-fixed, label-free protocol evaluates pairwise
-homography evidence, canonical scene retention, condition-aware reliability, and risk--coverage
-operating profiles. Together, the data and protocol make scene-level alignment reliability
-directly studyable under captured cross-FOV UAV conditions.
-
-To instantiate the scene-level benchmark track, we present UAV-TAlign as its reference alignment
-framework. It operates on top of strong pairwise matchers and uses reliability-guided progressive
-evidence selection, robust scene consensus, and QA-aware verification to decide whether a
-scene-level transform should be retained. The framework provides a reproducible implementation of
-the reliability question
-exposed by UAV-TAlign-12K.
+UAV-TAlign serves as the benchmark reference framework. It operates above a strong pairwise
+matcher and combines progressive evidence scheduling, geometry-calibrated frame weighting, robust
+scene consensus, and cross-modal quality verification. Across the official split, infrared-specific
+and modern matchers provide highly available pairwise homographies. UAV-TAlign converts this
+evidence into transforms for all 15 scenes and identifies nine high-confidence scene products at
+the canonical operating point, covering 74.4\% of the evaluated pairs. Controlled perturbations
+and leave-frame-out resampling independently support the resulting operating profile.
 
 Our contributions are threefold:
 \begin{itemize}
-\item We introduce UAV-TAlign-12K, a 6,039-pair real captured cross-FOV UAV infrared-visible
-dataset with an integrity-checked 6,037-pair official split across 15 diverse scenes.
-\item We establish a manifest-fixed benchmark that separates pairwise homography evidence from
-canonical scene-level retention and supports condition-aware and risk--coverage analysis.
-\item We provide UAV-TAlign as the scene-level benchmark reference framework and use classical,
-infrared-visible-specific, and modern off-the-shelf baselines, cumulative ablations, and controlled
-protocol validation to demonstrate its reliability-centered evaluation capability.
+\item We introduce UAV-TAlign-12K, a captured benchmark with 6,039 synchronized UAV
+RGB-infrared pairs across 15 scenes and an integrity-checked 6,037-pair evaluation split.
+\item We formulate a multi-level protocol spanning pairwise homography evidence, scene-scale
+consensus, and reliability--coverage analysis, supported by condition-aware diagnostics,
+resampling stability, and controlled perturbations.
+\item We present UAV-TAlign, a reference framework that converts strong pairwise evidence into
+high-confidence scene products through progressive evidence scheduling, robust consensus, and
+cross-modal quality verification.
 \end{itemize}
