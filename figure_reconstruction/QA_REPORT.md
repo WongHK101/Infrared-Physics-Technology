@@ -32,8 +32,8 @@ Date: 2026-07-21
 - Quantitative panels avoid dual y-axes and do not convert complementary diagnostics
   into a single absolute method ranking.
 
-## Open item
+## Resolved source item
 
-- Fig. 5 contains one intentional wireframe for the RIFT2 fixed-pair overlay. Replacing
-  it only requires the accepted strong-run per-pair 3 x 3 homography; no rerun is needed.
-
+- Fig. 5 contains the reproduced RIFT2 fixed-pair overlay. The single-pair record
+  matches the frozen strong configuration and is retained with the figure source data;
+  no full benchmark rerun was performed.

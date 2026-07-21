@@ -1,0 +1,84 @@
+{
+  "method": "RIFT2 (Python, resize-aware)",
+  "mapping_used_by_figure": "infrared_original_to_rgb_original",
+  "rgb_source": "04_night_grayscale_zoom_substation_power_lines_45/rgb/000020.jpg",
+  "infrared_source": "04_night_grayscale_zoom_substation_power_lines_45/thermal/000020.jpg",
+  "rgb_shape": [
+    2748,
+    3664
+  ],
+  "infrared_shape": [
+    1024,
+    1280
+  ],
+  "config": {
+    "max_dim": 1200,
+    "npt": 2000,
+    "patch_size": 64,
+    "lowes_ratio": 0.95,
+    "mutual": false,
+    "estimator": "USAC_MAGSAC",
+    "reproj_threshold": 5.0,
+    "opencv_version": "4.10.0"
+  },
+  "scale_rgb": 0.32751091703056767,
+  "scale_infrared": 0.9375,
+  "keypoints_rgb": 4053,
+  "keypoints_infrared": 3960,
+  "matches": 945,
+  "inliers": 52,
+  "inlier_ratio": 0.05502645502645503,
+  "mean_reprojection_resized_px": 8.631675154902041e-05,
+  "runtime_sec": 10.804477399971802,
+  "homography_rgb_resized_to_infrared_resized": [
+    [
+      2.0831977658181495,
+      -26.549793087362776,
+      824.9999562358418
+    ],
+    [
+      2.1867264114731793,
+      -27.869237724860902,
+      865.9999657256046
+    ],
+    [
+      0.002525088334947135,
+      -0.032181569085833285,
+      1.0
+    ]
+  ],
+  "homography_rgb_original_to_infrared_original": [
+    [
+      0.7277546780150741,
+      -9.275036886414943,
+      879.9999533182312
+    ],
+    [
+      0.7639218904709796,
+      -9.735978244492891,
+      923.7332967739783
+    ],
+    [
+      0.0008269939961617254,
+      -0.010539815202783827,
+      1.0
+    ]
+  ],
+  "homography_infrared_original_to_rgb_original": [
+    [
+      -6.652527185206209,
+      0.7180697333001614,
+      5190.918690374757
+    ],
+    [
+      -0.6435033102613381,
+      0.06939809546951319,
+      502.17755147221607
+    ],
+    [
+      -0.001280805931065973,
+      0.00013760374340913365,
+      1.0
+    ]
+  ]
+}
