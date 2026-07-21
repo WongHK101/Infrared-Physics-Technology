@@ -16,7 +16,6 @@ from figure_style import (  # noqa: E402
     configure_style,
     mm,
     panel_label,
-    placeholder,
     save_bundle,
     soften_axes,
 )
@@ -80,16 +79,15 @@ def main() -> None:
             panel_label(ax, "b", x=-0.10, y=1.03)
         matrix = selected["methods"].get(method)
         if matrix is None:
-            placeholder(ax, "RIFT2 overlay", "Insert frozen strong-run\nper-pair homography")
-        else:
-            overlay = edge_overlay(rgb_path, ir_path, matrix)
-            ax.imshow(overlay)
-            ax.set_xticks([])
-            ax.set_yticks([])
-            for spine in ax.spines.values():
-                spine.set_visible(True)
-                spine.set_color("#C8D0D6")
-                spine.set_linewidth(0.45)
+            raise KeyError(f"Missing frozen homography for {method}")
+        overlay = edge_overlay(rgb_path, ir_path, matrix)
+        ax.imshow(overlay)
+        ax.set_xticks([])
+        ax.set_yticks([])
+        for spine in ax.spines.values():
+            spine.set_visible(True)
+            spine.set_color("#C8D0D6")
+            spine.set_linewidth(0.45)
         ax.set_title(method, fontsize=6.5, fontweight="semibold", pad=2)
     fig.text(0.50, 0.015, "Fixed S04 pair · cyan: RGB edges · red: infrared edges · dark overlap: edge agreement", ha="center", fontsize=6.2, color=COLORS["muted"])
 
@@ -99,4 +97,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

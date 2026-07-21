@@ -38,6 +38,16 @@ availability with low fitted reprojection error, whereas raw MINIMA and RoMa pro
 spatial coverage. Jointly, availability, support, and coverage provide the geometric context for
 the scene-level benchmark track.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig05_pairwise_evidence.pdf}
+\caption{Pairwise homography evidence across matcher families. (a) Homography availability and
+mean spatial coverage provide complementary views of evidence completeness on the 6,037-pair
+official split. (b) Fixed-pair cyan/red edge overlays compare the geometric support produced by
+representative classical and learned matchers under a unified downstream estimator.}
+\label{fig:pairwise_evidence}
+\end{figure}
+
 \subsection{Scene-Level Reference Result}
 
 UAV-TAlign converts the pairwise evidence into scene transforms for all 15 scenes. At the canonical
@@ -59,6 +69,20 @@ UAV-TAlign & 15 scenes & 15/15 & 9/15 & 60.0 & 74.4 & 1491/2304 & 64.7 \\
 \bottomrule
 \end{tabular}}
 \end{table}
+
+Figure~\ref{fig:scene_products} presents representative canonical alignment products. They span
+illumination, rendering, and view regimes, while shared crops and edge-agreement views make the
+geometric improvement directly inspectable across modalities.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig06_scene_products.pdf}
+\caption{Representative high-confidence UAV-TAlign scene products at the canonical operating
+point. Rows cover day, night, and low-light scenes with grayscale and native pseudocolor infrared
+rendering. Columns show the RGB crop, infrared crop, unaligned overlay, scene-homography overlay,
+and edge-agreement visualization.}
+\label{fig:scene_products}
+\end{figure}
 
 \subsection{Condition-Aware Operating Profiles}
 
@@ -84,33 +108,50 @@ Low-light & 3 & 1 & 33.3 & 462/754 & 61.3 \\
 \end{tabular}}
 \end{table}
 
-\begin{figure}[H]
+Figure~\ref{fig:operating_profile}c,d extends this analysis to illumination, infrared rendering,
+and view type, reporting scene retention together with accepted-frame support.
+
+\subsection{Reliability-Controlled Scene Selection}
+
+Matched scene controls reveal why pairwise support alone does not determine the final product set.
+Figure~\ref{fig:reliability_selection} compares wide/zoom and night controls under identical output
+views, then places all 15 scenes in the accepted-support versus severe-outlier space. Canonical
+products concentrate in the low-outlier region, whereas accepted-frame ratio spans both retained
+and QA-filtered scenes.
+
+\begin{figure}[t]
 \centering
-\includegraphics[width=0.78\textwidth]{figures/fig_condition_reliability_profile.pdf}
-\caption{Condition-aware operating profile by illumination. Scene-product coverage and
-accepted-frame support summarize complementary aspects of scene-scale alignment.}
-\label{fig:condition_reliability}
+\includegraphics[width=\textwidth]{figures/fig07_reliability_selection.pdf}
+\caption{Reliability-controlled selection under matched scene conditions. (a,b) Wide/zoom and
+night paired controls show that strong pairwise support can coexist with different canonical scene
+outcomes. (c) Across all 15 scenes, canonical products occupy the low severe-outlier region, while
+accepted-frame ratio alone does not determine retention. Marker size encodes robust-rejection
+ratio.}
+\label{fig:reliability_selection}
 \end{figure}
 
 \subsection{Reliability-Coverage Operating Profile}
 
 The fixed cross-modal verification rule defines the canonical product set. The interpretable score
-orders scenes for a continuous reliability--coverage sweep. Figure~\ref{fig:risk_coverage} plots
+orders scenes for a continuous reliability--coverage sweep. Figure~\ref{fig:operating_profile} plots
 this score-ranked profile and overlays the fixed canonical operating point.
 
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
-\includegraphics[width=0.82\textwidth]{figures/fig_risk_coverage_curve.pdf}
-\caption{Reliability--coverage operating profile on UAV-TAlign-12K. Curves follow the fixed
-score-ranked scene order; the star denotes the canonical product set with 9/15 scenes and 74.4\%
-pair coverage.}
-\label{fig:risk_coverage}
+\includegraphics[width=\textwidth]{figures/fig08_operating_profile.pdf}
+\caption{Reliability--coverage operating profile on UAV-TAlign-12K. (a) The score-ranked curve
+traces mean severe-outlier ratio as scene coverage increases; the star marks the independent
+canonical QA point, not the score-ranked top-nine set. (b) Pair coverage and accepted-frame support
+expose the corresponding evidence footprint. (c,d) Condition-aware profiles summarize illumination,
+infrared rendering, and view regimes.}
+\label{fig:operating_profile}
 \end{figure}
 
 At the canonical point, UAV-TAlign identifies nine high-confidence products, covers 60.0\% of
 scenes and 74.4\% of evaluated pairs, and records a mean severe-outlier ratio of 0.009. The
 score-ranked curve provides a smooth transition from high-confidence operation to broader
-coverage.
+coverage. The canonical point in Figure~\ref{fig:operating_profile} corresponds to 9/15 scenes,
+60.0\% scene coverage, and 74.4\% pair coverage.
 
 \subsection{Controlled Validation of Scene Diagnostics}
 
@@ -124,6 +165,8 @@ perturbation family, increasing severity produces a monotonic decrease in the jo
 quality signal. At the largest severity, translation, rotation, and scale produce mean joint-score
 changes of $-0.074$, $-0.031$, and $-0.025$, respectively. The corresponding degradation rates are
 84.4\%, 80.0\%, and 73.3\%. Table~\ref{tab:protocol_validation} summarizes the independent evidence.
+Figure~\ref{fig:validation_attribution}a,b visualizes the full scene-wise resampling response and
+the severity-dependent perturbation trends.
 
 \begin{table}[H]
 \caption{Controlled validation of scene-consensus stability and cross-modal quality sensitivity. Synthetic
@@ -166,6 +209,20 @@ Pairwise evidence only & even & \xmark & \xmark & 8/8 & 0.124 & 0.126 & 0.104 & 
 \bottomrule
 \end{tabular}}
 \end{table}
+
+Figure~\ref{fig:validation_attribution}c,d connects the cumulative module effects with the
+multi-seed selection study: robust consensus supplies the largest diagnostic gain, while the
+deterministic schedule provides a stable reference operating policy.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig09_validation_attribution.pdf}
+\caption{Controlled validation and module attribution. (a) Five-fold leave-frame-out consensus
+across all 15 scenes. (b) Joint edge/gradient quality under increasing translation, rotation, and
+scale perturbations. (c) Cumulative module effects on the fixed eight-scene diagnostic subset.
+(d) Random-selection sensitivity across seeds on the same subset.}
+\label{fig:validation_attribution}
+\end{figure}
 
 Across random-selection seeds, the same fixed subset yields 5/8 to 7/8 scene products while mean
 accepted-frame support remains comparatively stable. The result confirms deterministic-even

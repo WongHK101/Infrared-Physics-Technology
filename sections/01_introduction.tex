@@ -37,6 +37,20 @@ evidence availability, scene-level evaluation measures multi-frame consensus pro
 reliability--coverage profile characterizes selectable operating regimes. This hierarchy connects
 correspondence generation to the scene products required by UAV sensing systems.
 
+Figure~\ref{fig:problem_benchmark} summarizes the sensing configuration, benchmark conditions,
+and the pair-to-scene transition that motivates the proposed evaluation hierarchy.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig01_problem_benchmark.pdf}
+\caption{UAV-TAlign-12K at a glance. (a) Synchronized RGB and infrared acquisition with a DJI
+M350 and H30T payload. (b) Representative pairs span illumination, infrared rendering, and view
+conditions. (c) A representative scene illustrates the transition from an unaligned overlay to a
+scene-level alignment product. The collection contains 6,039 synchronized pairs, of which 6,037
+form the integrity-checked official evaluation split.}
+\label{fig:problem_benchmark}
+\end{figure}
+
 UAV-TAlign serves as the benchmark reference framework. It operates above a strong pairwise
 matcher and combines progressive evidence scheduling, geometry-calibrated frame weighting, robust
 scene consensus, and cross-modal quality verification. Across the official split, infrared-specific

@@ -30,11 +30,13 @@ $\{H_i\}$ and assign its canonical product status.
 
 \begin{figure}[t]
 \centering
-\makebox[\textwidth][c]{\includegraphics[width=1.08\textwidth]{figures/fig_method_pipeline.pdf}}
-\caption{UAV-TAlign reference framework. Progressive evidence scheduling obtains frame-level
-homographies from a MINIMA-RoMa backbone. Geometry-calibrated weights, median/MAD consensus, and
-cross-modal verification convert the frame hypotheses into a canonical scene product.}
-\label{fig:method_pipeline}
+\includegraphics[width=\textwidth]{figures/fig03_scene_framework.pdf}
+\caption{UAV-TAlign scene-level alignment framework. (a) Synchronized RGB-infrared pairs pass
+through pairwise homography generation, progressive evidence scheduling, geometry-calibrated frame
+reliability, robust median/MAD consensus, and cross-modal QA. (b) Unsupported frame hypotheses are
+rejected before the fixed canonical gate defines high-confidence products; an interpretable score
+independently orders operating points for coverage analysis.}
+\label{fig:scene_framework}
 \end{figure}
 
 \subsection{Pairwise Evidence Generator}
@@ -158,3 +160,18 @@ Here $L_S$ denotes the primary edge/gradient path, and $W_S$ denotes a high-moda
 accepted support, consensus geometry, relative outlier control, and gradient improvement. The score
 $R(S)$ orders scenes for reliability--coverage analysis, while $y_S$ defines the canonical set of
 high-confidence alignment products.
+
+Figure~\ref{fig:consensus_qa} exposes the internal evidence flow on a matched scene control: the
+same accepted-frame count can lead to different product decisions once consensus rejection and
+cross-modal outliers are incorporated.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig04_consensus_qa.pdf}
+\caption{Mechanism of robust consensus and cross-modal QA on a matched scene control. (a) The
+median/MAD-supported cluster determines aggregation support. (b) Frame-level edge and gradient
+changes expose severe relative outliers. (c) Accepted support, robust rejection, and outlier
+control provide complementary decision evidence. (d) The fixed canonical gate converts these
+signals into a high-confidence scene product.}
+\label{fig:consensus_qa}
+\end{figure}

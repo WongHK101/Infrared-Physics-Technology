@@ -35,6 +35,15 @@ XoFTR-640 & 现代稠密 / 学习型 & 5989/6037 & 99.20 & 0.089 & 0.949 & 1.732
 MINIMA 与 RoMa 提供接近完整的空间覆盖。可用性、支撑度和覆盖率共同构成场景级基准轨道的
 几何背景。
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig05_pairwise_evidence.pdf}
+\caption{不同匹配器家族的成对单应性证据。（a）单应性可用率与平均空间覆盖率从互补角度刻画
+6,037 对正式评测划分上的证据完整性；（b）固定图像对的青色/红色边缘叠加，对比统一下游估计器
+下代表性经典与学习型匹配器产生的几何支撑。}
+\label{fig:pairwise_evidence_zh}
+\end{figure}
+
 \subsection{场景级参考结果}
 
 UAV-TAlign 将成对证据转化为全部 15 个场景的变换。在规范运行点，框架识别出 9 个高置信产品，
@@ -55,6 +64,18 @@ UAV-TAlign & 15 个场景 & 15/15 & 9/15 & 60.0 & 74.4 & 1491/2304 & 64.7 \\
 \bottomrule
 \end{tabular}}
 \end{table}
+
+图~\ref{fig:scene_products_zh} 展示代表性规范对齐产品，覆盖不同光照、红外渲染和视图条件。统一
+裁剪区域和边缘一致性视图使跨模态几何改善能够被直接检查。
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig06_scene_products.pdf}
+\caption{规范运行点下的代表性 UAV-TAlign 高置信场景产品。各行覆盖白天、夜间与低照度场景，
+并包含灰度和设备原生伪彩红外渲染；各列依次展示 RGB 裁剪、红外裁剪、未对齐叠加、场景单应性
+叠加和边缘一致性可视化。}
+\label{fig:scene_products_zh}
+\end{figure}
 
 \subsection{条件感知运行曲线}
 
@@ -78,28 +99,42 @@ UAV-TAlign & 15 个场景 & 15/15 & 9/15 & 60.0 & 74.4 & 1491/2304 & 64.7 \\
 \end{tabular}}
 \end{table}
 
-\begin{figure}[H]
+图~\ref{fig:operating_profile_zh}c,d 将分析扩展到光照、红外渲染与视图类型，同时报告场景保留率
+和接受帧支撑。
+
+\subsection{可靠性控制的场景选择}
+
+匹配场景对照说明了为何成对支撑不能单独决定最终产品集合。图~\ref{fig:reliability_selection_zh}
+在相同输出视图下比较广角/变焦和夜间对照，并将全部 15 个场景投影到接受支撑与严重离群点空间。
+规范产品集中在低离群区域，而接受帧比例横跨保留场景与质量过滤场景。
+
+\begin{figure}[t]
 \centering
-\includegraphics[width=0.78\textwidth]{figures/fig_condition_reliability_profile.pdf}
-\caption{按光照条件统计的运行曲线。场景产品覆盖率和接受帧支撑从两个互补角度刻画场景级对齐。}
-\label{fig:condition_reliability_zh}
+\includegraphics[width=\textwidth]{figures/fig07_reliability_selection.pdf}
+\caption{匹配场景条件下的可靠性控制选择。（a,b）广角/变焦与夜间成对对照表明，较强成对支撑仍可
+对应不同的规范场景结果；（c）在全部 15 个场景中，规范产品集中于较低严重离群点区域，而接受帧
+比例不能单独决定保留结果。标记大小表示鲁棒剔除比例。}
+\label{fig:reliability_selection_zh}
 \end{figure}
 
 \subsection{可靠性--覆盖率运行曲线}
 
 固定的跨模态验证规则定义规范产品集合，可解释分数则对场景排序以形成连续的可靠性--覆盖率扫描。
-图~\ref{fig:risk_coverage_zh} 绘制基于分数排序的曲线，并叠加固定的规范运行点。
+图~\ref{fig:operating_profile_zh} 绘制基于分数排序的曲线，并叠加固定的规范运行点。
 
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
-\includegraphics[width=0.82\textwidth]{figures/fig_risk_coverage_curve.pdf}
-\caption{UAV-TAlign-12K 上的可靠性--覆盖率运行曲线。曲线依据固定分数对场景排序，星号表示包含
-9/15 个场景、覆盖 74.4\% 图像对的规范产品集合。}
-\label{fig:risk_coverage_zh}
+\includegraphics[width=\textwidth]{figures/fig08_operating_profile.pdf}
+\caption{UAV-TAlign-12K 上的可靠性--覆盖率运行曲线。（a）基于分数排序的曲线刻画场景覆盖率提高
+时的平均严重离群点比例，星号表示独立的规范 QA 运行点，而非分数排序的前九场景；（b）图像对
+覆盖率和接受帧支撑给出相应证据范围；（c,d）条件感知曲线汇总光照、红外渲染与视图类型。}
+\label{fig:operating_profile_zh}
 \end{figure}
 
 在规范运行点，UAV-TAlign 识别出 9 个高置信产品，覆盖 60.0\% 的场景和 74.4\% 的评测图像对，
 平均严重离群点比例为 0.009。基于分数排序的曲线提供了从高置信运行到更广覆盖范围的平滑过渡。
+图~\ref{fig:operating_profile_zh} 中的规范点对应 9/15 个场景、60.0\% 场景覆盖率和 74.4\% 图像对
+覆盖率。
 
 \subsection{场景诊断的受控验证}
 
@@ -111,6 +146,7 @@ UAV-TAlign & 15 个场景 & 15/15 & 9/15 & 60.0 & 74.4 & 1491/2304 & 64.7 \\
 质量信号均单调下降。在最大扰动严重度下，平移、旋转和尺度扰动引起的平均联合分数变化分别为
 $-0.074$、$-0.031$ 和 $-0.025$，相应退化比例为 84.4\%、80.0\% 和 73.3\%。
 表~\ref{tab:protocol_validation_zh} 汇总了这些独立证据。
+图~\ref{fig:validation_attribution_zh}a,b 进一步展示逐场景重采样响应和随扰动强度变化的质量趋势。
 
 \begin{table}[H]
 \caption{场景共识稳定性与跨模态质量敏感性的受控验证。合成退化比例和联合分数变化均在最大测试
@@ -151,6 +187,18 @@ $-0.074$、$-0.031$ 和 $-0.025$，相应退化比例为 84.4\%、80.0\% 和 73.
 \bottomrule
 \end{tabular}}
 \end{table}
+
+图~\ref{fig:validation_attribution_zh}c,d 将累加式模块效应与多随机种子选择分析联系起来：鲁棒共识
+贡献最大的诊断增益，而确定性调度提供稳定的参考运行策略。
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig09_validation_attribution.pdf}
+\caption{受控验证与模块归因。（a）全部 15 个场景上的五折留帧共识；（b）随平移、旋转与尺度扰动
+增强而变化的联合边缘/梯度质量；（c）固定八场景诊断子集上的累加式模块效应；（d）同一子集上
+不同随机种子的选择敏感性。}
+\label{fig:validation_attribution_zh}
+\end{figure}
 
 在不同随机选择种子下，同一固定子集得到 5/8 至 7/8 个场景产品，而平均接受帧支撑保持相对稳定。
 该结果确认确定性均匀选择是一种可复现的运行策略，并将随机种子敏感性定位于少量接近阈值的场景。

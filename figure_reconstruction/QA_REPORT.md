@@ -1,6 +1,6 @@
 # Figure reconstruction QA report
 
-Date: 2026-07-21
+Date: 2026-07-22
 
 ## Build and export
 
@@ -31,9 +31,16 @@ Date: 2026-07-21
   high-confidence green, QA-filtered gray, and canonical decision red.
 - Quantitative panels avoid dual y-axes and do not convert complementary diagnostics
   into a single absolute method ranking.
+- The nine-figure sequence was reviewed against the four local high-quality reference
+  papers. It now provides comparable evidence density: benchmark overview, protocol,
+  algorithm mechanism, qualitative products, operating profile, and controlled validation.
+- Fig. 3 was rebuilt from a generic flowchart into an explicit algorithmic schematic with
+  progressive scheduling, frame reliability, median/MAD consensus, cross-modal QA, and
+  separate canonical/ranking branches.
 
 ## Resolved source item
 
 - Fig. 5 contains the reproduced RIFT2 fixed-pair overlay. The single-pair record
   matches the frozen strong configuration and is retained with the figure source data;
   no full benchmark rerun was performed.
+- No figure has an active placeholder or unresolved source dependency.

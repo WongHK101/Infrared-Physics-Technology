@@ -26,10 +26,11 @@ $\bar{H}_S$，并赋予其规范产品状态。
 
 \begin{figure}[t]
 \centering
-\makebox[\textwidth][c]{\includegraphics[width=1.08\textwidth]{figures/fig_method_pipeline.pdf}}
-\caption{UAV-TAlign 参考框架。渐进式证据调度从 MINIMA-RoMa 骨干获得逐帧单应性；几何校准
-权重、中位数/MAD 共识和跨模态验证进一步将逐帧假设转化为规范场景产品。}
-\label{fig:method_pipeline_zh}
+\includegraphics[width=\textwidth]{figures/fig03_scene_framework.pdf}
+\caption{UAV-TAlign 场景级对齐框架。（a）同步 RGB-红外图像对依次经过成对单应性生成、渐进式证据
+调度、几何校准帧可靠性、鲁棒中位数/MAD 共识和跨模态质量验证；（b）共识支撑外的逐帧假设在固定
+规范门控之前被剔除，门控定义高置信产品，可解释分数则独立用于运行覆盖率排序。}
+\label{fig:scene_framework_zh}
 \end{figure}
 
 \subsection{成对证据生成器}
@@ -138,3 +139,15 @@ N_S \ge N_{\min}
 其中，$L_S$ 表示主要边缘/梯度路径，$W_S$ 表示联合接受支撑、共识几何、相对离群点控制和
 梯度改善的高模态路径。$R(S)$ 用于可靠性--覆盖率分析中的场景排序，$y_S$ 则定义规范的高置信
 对齐产品集合。
+
+图~\ref{fig:consensus_qa_zh} 在一组匹配场景对照上揭示内部证据流：即使接受帧数量相同，引入共识
+剔除与跨模态离群点后，仍可得到不同的场景产品决策。
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig04_consensus_qa.pdf}
+\caption{匹配场景对照上的鲁棒共识与跨模态质量验证机制。（a）中位数/MAD 支撑簇确定聚合证据；
+（b）逐帧边缘与梯度变化揭示严重相对离群点；（c）接受支撑、鲁棒剔除和离群点控制构成互补决策
+证据；（d）固定规范门控将这些信号转换为高置信场景产品。}
+\label{fig:consensus_qa_zh}
+\end{figure}

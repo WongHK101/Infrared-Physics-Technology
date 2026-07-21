@@ -88,7 +88,7 @@ def main() -> None:
     rounded_box(ax_c, (0.73, 0.26), 0.25, 0.50, "Official split\n6,037 pairs", COLORS["confidence_light"], COLORS["confidence"])
     arrow(ax_c, (0.28, 0.51), (0.37, 0.51))
     arrow(ax_c, (0.63, 0.51), (0.72, 0.51))
-    ax_c.text(0.50, 0.12, "2 pair IDs excluded by the frozen manifest", ha="center", color=COLORS["muted"], fontsize=6.1)
+    ax_c.text(0.50, 0.12, "Frozen, versioned evaluation manifest", ha="center", color=COLORS["muted"], fontsize=6.1)
 
     ax_d = fig.add_subplot(gs[1, 1])
     panel_label(ax_d, "d")
@@ -110,4 +110,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
