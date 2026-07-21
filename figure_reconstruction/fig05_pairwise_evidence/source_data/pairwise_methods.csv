@@ -1,0 +1,9 @@
+method,category,h_available_pct,mean_inlier_ratio,mean_coverage,median_reproj,runtime_sec
+SIFT + RANSAC,Classical keypoint,87.08,0.242,0.627,0.000,4.421
+AKAZE + RANSAC,Classical keypoint,94.29,0.160,0.730,0.105,1.103
+RIFT2 (Python; resize-aware),Infrared-visible classical,100.00,0.086,0.354,0.121,13.980
+Kornia LoFTR,Modern dense / learned,99.12,0.074,0.895,0.823,0.169
+XoFTR-640,Modern dense / learned,99.20,0.089,0.949,1.732,0.647
+RoMa outdoor,Modern dense / learned,100.00,0.328,0.997,1.741,0.929
+raw MINIMA,Modern dense / learned,100.00,0.319,1.000,1.773,1.346
+

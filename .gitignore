@@ -29,3 +29,7 @@ build_zh/
 Thumbs.db
 *.tmp
 *.bak
+
+# Python figure-build caches
+__pycache__/
+*.py[cod]

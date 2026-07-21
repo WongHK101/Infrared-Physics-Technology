@@ -1,0 +1,13 @@
+section,method_or_block,evidence_status,source_bundle,source_file,records_or_scenes,h_available_or_retained,availability_or_retention_pct,mean_inlier_ratio,mean_coverage,median_reprojection_error,mean_runtime_sec,notes
+pairwise,sift_ransac,accepted,formal_run_evidence_20260626,main_outputs/main_experiment_summary.json,6037,5257,87.08,0.242457,0.627112,0.000376,4.420841,"Original formal 12K package"
+pairwise,akaze_ransac,accepted,formal_run_evidence_20260626,main_outputs/main_experiment_summary.json,6037,5692,94.29,0.159959,0.730288,0.104917,1.102855,"Original formal 12K package"
+pairwise,loftr_outdoor,accepted_retry,formal_run_evidence_20260626/loftr_retry_20260628,main_outputs/main_experiment_summary.json,6037,5984,99.12,0.073769,0.895126,0.822623,0.168875,"Accepted memory-safe retry with match_max_dim=1200 and AMP"
+pairwise,roma_outdoor,accepted,formal_run_evidence_20260626,main_outputs/main_experiment_summary.json,6037,6037,100.00,0.327633,0.997112,1.740945,0.928936,"Original formal 12K package"
+pairwise,xoftr_official,accepted,formal_run_evidence_20260626,main_outputs/main_experiment_summary.json,6037,5989,99.20,0.089057,0.949395,1.732160,0.646835,"Original formal 12K package"
+pairwise,raw_minima,accepted,formal_run_evidence_20260626,main_outputs/main_experiment_summary.json,6037,6037,100.00,0.319165,0.999627,1.773367,1.345901,"Original formal 12K package"
+scene_level,uav_talign_full,accepted,formal_run_evidence_20260626,protocol_closure/canonical_operating_point.csv,15,9,60.00,,,,,"15/15 scene homographies available; retained scene ids: 01,04,05,06,07,08,10,12,14"
+scene_level,uav_talign_full_pair_coverage,accepted,formal_run_evidence_20260626,protocol_closure/canonical_operating_point.csv,6037,4494,74.44,,,,,"Pair coverage micro under canonical QA gate"
+scene_level,uav_talign_full_accept_ratio,accepted,formal_run_evidence_20260626,protocol_closure/canonical_operating_point.csv,,,"64.71",,,,,"Accepted-attempted ratio micro under canonical QA gate"
+condition,light_condition_day,accepted,formal_run_evidence_20260626,protocol_closure/condition_reliability_profile.csv,7,5,71.43,,,,,"Canonical retained scenes under day condition"
+condition,light_condition_night,accepted,formal_run_evidence_20260626,protocol_closure/condition_reliability_profile.csv,5,3,60.00,,,,,"Canonical retained scenes under night condition"
+condition,light_condition_lowlight,accepted,formal_run_evidence_20260626,protocol_closure/condition_reliability_profile.csv,3,1,33.33,,,,,"Canonical retained scenes under lowlight condition"
