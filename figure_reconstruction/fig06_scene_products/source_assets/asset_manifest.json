@@ -1,0 +1,162 @@
+[
+  {
+    "scene_id": "04",
+    "scene_name": "04_night_grayscale_zoom_substation_power_lines_45",
+    "pair_id": "000020",
+    "rgb_source": "04_night_grayscale_zoom_substation_power_lines_45/rgb/000020.jpg",
+    "infrared_source": "04_night_grayscale_zoom_substation_power_lines_45/thermal/000020.jpg",
+    "rgb_original_size": [
+      3664,
+      2748
+    ],
+    "infrared_original_size": [
+      1280,
+      1024
+    ],
+    "working_scale": 0.7641921397379913,
+    "asset_dimensions": {
+      "rgb_selected_crop": [
+        2800,
+        1960
+      ],
+      "infrared_selected_crop": [
+        1280,
+        896
+      ],
+      "before_resize_overlay_crop": [
+        2800,
+        1960
+      ],
+      "after_scene_homography_overlay_crop": [
+        2800,
+        1960
+      ],
+      "edge_overlay_crop": [
+        2800,
+        1960
+      ]
+    },
+    "canonical_scene_pass": true,
+    "qa_status": "pass"
+  },
+  {
+    "scene_id": "07",
+    "scene_name": "07_day_grayscale_transmission_tower_102",
+    "pair_id": "000050",
+    "rgb_source": "07_day_grayscale_transmission_tower_102/rgb/000050.jpg",
+    "infrared_source": "07_day_grayscale_transmission_tower_102/thermal/000050.jpg",
+    "rgb_original_size": [
+      3840,
+      2160
+    ],
+    "infrared_original_size": [
+      1280,
+      1024
+    ],
+    "working_scale": 0.7291666666666666,
+    "asset_dimensions": {
+      "rgb_selected_crop": [
+        2250,
+        1575
+      ],
+      "infrared_selected_crop": [
+        1280,
+        896
+      ],
+      "before_resize_overlay_crop": [
+        2250,
+        1575
+      ],
+      "after_scene_homography_overlay_crop": [
+        2250,
+        1575
+      ],
+      "edge_overlay_crop": [
+        2250,
+        1575
+      ]
+    },
+    "canonical_scene_pass": true,
+    "qa_status": "pass"
+  },
+  {
+    "scene_id": "10",
+    "scene_name": "10_day_pseudocolor_factory_262",
+    "pair_id": "000100",
+    "rgb_source": "10_day_pseudocolor_factory_262/rgb/000100.jpg",
+    "infrared_source": "10_day_pseudocolor_factory_262/thermal/000100.jpg",
+    "rgb_original_size": [
+      4032,
+      3024
+    ],
+    "infrared_original_size": [
+      1280,
+      1024
+    ],
+    "working_scale": 0.6944444444444444,
+    "asset_dimensions": {
+      "rgb_selected_crop": [
+        2800,
+        1960
+      ],
+      "infrared_selected_crop": [
+        1280,
+        896
+      ],
+      "before_resize_overlay_crop": [
+        2800,
+        1960
+      ],
+      "after_scene_homography_overlay_crop": [
+        2800,
+        1960
+      ],
+      "edge_overlay_crop": [
+        2800,
+        1960
+      ]
+    },
+    "canonical_scene_pass": true,
+    "qa_status": "pass"
+  },
+  {
+    "scene_id": "14",
+    "scene_name": "14_lowlight_pseudocolor_transmission_tower_673",
+    "pair_id": "000300",
+    "rgb_source": "14_lowlight_pseudocolor_transmission_tower_673/rgb/000300.jpg",
+    "infrared_source": "14_lowlight_pseudocolor_transmission_tower_673/thermal/000300.jpg",
+    "rgb_original_size": [
+      4032,
+      3024
+    ],
+    "infrared_original_size": [
+      1280,
+      1024
+    ],
+    "working_scale": 0.6944444444444444,
+    "asset_dimensions": {
+      "rgb_selected_crop": [
+        2800,
+        1960
+      ],
+      "infrared_selected_crop": [
+        1280,
+        896
+      ],
+      "before_resize_overlay_crop": [
+        2800,
+        1960
+      ],
+      "after_scene_homography_overlay_crop": [
+        2800,
+        1960
+      ],
+      "edge_overlay_crop": [
+        2800,
+        1960
+      ]
+    },
+    "canonical_scene_pass": true,
+    "qa_status": "pass"
+  }
+]

@@ -204,9 +204,17 @@ def main() -> None:
         color=COLORS["muted"],
     )
 
+    candidate_ax = ax.inset_axes([0.595, 0.14, 0.145, 0.235])
+    image_panel(
+        candidate_ax,
+        only("*after_scene_homography_overlay_crop.jpg"),
+        "Aligned scene candidate",
+    )
+    arrow(ax, (0.565, 0.25), (0.592, 0.25), color=COLORS["visible"])
+
     rounded_box(
         ax,
-        (0.61, 0.245),
+        (0.785, 0.245),
         0.20,
         0.145,
         "Canonical gate\n$y_S$",
@@ -216,7 +224,7 @@ def main() -> None:
     )
     rounded_box(
         ax,
-        (0.61, 0.075),
+        (0.785, 0.075),
         0.20,
         0.125,
         "Reliability ordering\n$R(S)$",
@@ -224,37 +232,14 @@ def main() -> None:
         COLORS["filtered"],
         fontsize=6.4,
     )
-    arrow(ax, (0.565, 0.265), (0.608, 0.315), color=COLORS["confidence"])
-    arrow(ax, (0.565, 0.205), (0.608, 0.137), color=COLORS["filtered"])
+    arrow(ax, (0.742, 0.275), (0.782, 0.315), color=COLORS["confidence"])
+    arrow(ax, (0.742, 0.205), (0.782, 0.137), color=COLORS["filtered"])
+    ax.text(0.885, 0.222, "fixed product decision", ha="center", va="center", fontsize=5.5, color=COLORS["confidence"])
+    ax.text(0.885, 0.050, "coverage-aware operating profile", ha="center", va="center", fontsize=5.5, color=COLORS["filtered"])
+    ax.text(0.73, 0.405, "S02 / pair 000009", ha="right", va="center", fontsize=5.4, color=COLORS["muted"])
     ax.text(
-        0.71,
-        0.222,
-        "fixed product decision",
-        ha="center",
-        va="center",
-        fontsize=5.5,
-        color=COLORS["confidence"],
-    )
-    ax.text(
-        0.71,
-        0.050,
-        "coverage-aware operating profile",
-        ha="center",
-        va="center",
-        fontsize=5.5,
-        color=COLORS["filtered"],
-    )
-
-    product_ax = ax.inset_axes([0.855, 0.145, 0.14, 0.225])
-    image_panel(
-        product_ax,
-        only("*after_scene_homography_overlay_crop.jpg"),
-        "High-confidence scene product",
-    )
-    arrow(ax, (0.812, 0.315), (0.852, 0.265), color=COLORS["confidence"])
-    ax.text(
-        0.922,
-        0.095,
+        0.885,
+        0.020,
         r"$y_S$ defines products; $R(S)$ ranks operating points",
         ha="center",
         va="center",

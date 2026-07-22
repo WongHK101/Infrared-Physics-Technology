@@ -21,7 +21,7 @@ infrared registration journal paper.
   direct labels, vector charts, and real image crops match the conventions of the reference
   papers while preserving a coherent manuscript identity.
 - **Print readiness:** every figure is available as editable-text SVG, single-page PDF, and
-  300-dpi PNG. Critical distinctions also use marker shape, line style, or label text so that
+  600-dpi PNG. Critical distinctions also use marker shape, line style, or label text so that
   interpretation does not depend on color alone.
 - **Source closure:** all quantitative panels map to frozen CSV/JSON artifacts, all image
   panels use verified local assets, and no active placeholder remains.

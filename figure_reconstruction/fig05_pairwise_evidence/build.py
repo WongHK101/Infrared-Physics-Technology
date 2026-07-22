@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from PIL import Image
-from skimage import color, feature, transform
+from skimage import color, feature, morphology, transform
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "_shared"))
 from figure_style import (  # noqa: E402
@@ -29,20 +29,23 @@ ASSETS = ROOT / "source_assets"
 def edge_overlay(rgb_path: Path, ir_path: Path, matrix: list[list[float]]) -> np.ndarray:
     rgb = np.asarray(Image.open(rgb_path).convert("RGB")) / 255.0
     ir = np.asarray(Image.open(ir_path).convert("RGB")) / 255.0
-    target_scale = min(1.0, 1000.0 / max(rgb.shape[:2]))
+    target_scale = min(1.0, 1800.0 / max(rgb.shape[:2]))
     out_shape = (max(1, int(rgb.shape[0] * target_scale)), max(1, int(rgb.shape[1] * target_scale)))
     rgb_small = transform.resize(rgb, (*out_shape, 3), preserve_range=True, anti_aliasing=True)
     scale = np.array([[target_scale, 0, 0], [0, target_scale, 0], [0, 0, 1]], float)
     h_scaled = scale @ np.asarray(matrix, float)
     tform = transform.ProjectiveTransform(matrix=h_scaled)
     warped = transform.warp(ir, inverse_map=tform.inverse, output_shape=out_shape, preserve_range=True)
-    rgb_edge = feature.canny(color.rgb2gray(rgb_small), sigma=1.35)
-    ir_edge = feature.canny(color.rgb2gray(warped), sigma=1.15)
-    canvas = np.ones((*out_shape, 3), float)
-    canvas[rgb_edge] = np.array([0.05, 0.65, 0.78])
-    canvas[ir_edge] = np.array([0.88, 0.20, 0.18])
+    rgb_edge = feature.canny(color.rgb2gray(rgb_small), sigma=1.25)
+    ir_edge = feature.canny(color.rgb2gray(warped), sigma=1.10)
+    rgb_edge = morphology.binary_dilation(rgb_edge, morphology.disk(2))
+    ir_edge = morphology.binary_dilation(ir_edge, morphology.disk(2))
     both = rgb_edge & ir_edge
-    canvas[both] = np.array([0.18, 0.18, 0.18])
+    gray = color.rgb2gray(rgb_small)
+    canvas = np.repeat((0.05 + 0.28 * gray)[..., None], 3, axis=2)
+    canvas[rgb_edge] = np.array([0.00, 0.82, 0.96])
+    canvas[ir_edge] = np.array([0.98, 0.22, 0.16])
+    canvas[both] = np.array([1.00, 0.96, 0.62])
     return canvas
 
 
@@ -81,7 +84,7 @@ def main() -> None:
         if matrix is None:
             raise KeyError(f"Missing frozen homography for {method}")
         overlay = edge_overlay(rgb_path, ir_path, matrix)
-        ax.imshow(overlay)
+        ax.imshow(overlay, interpolation="lanczos")
         ax.set_xticks([])
         ax.set_yticks([])
         for spine in ax.spines.values():
@@ -89,7 +92,7 @@ def main() -> None:
             spine.set_color("#C8D0D6")
             spine.set_linewidth(0.45)
         ax.set_title(method, fontsize=6.5, fontweight="semibold", pad=2)
-    fig.text(0.50, 0.015, "Fixed S04 pair · cyan: RGB edges · red: infrared edges · dark overlap: edge agreement", ha="center", fontsize=6.2, color=COLORS["muted"])
+    fig.text(0.50, 0.015, "Fixed S04 pair · cyan: RGB edges · red: infrared edges · light overlap: edge agreement", ha="center", fontsize=6.2, color=COLORS["muted"])
 
     save_bundle(fig, ROOT / "outputs", "fig05_pairwise_evidence")
     plt.close(fig)

@@ -7,7 +7,6 @@
 - **Hero evidence:** score-ranked scene-coverage versus severe-outlier profile with a
   separately plotted canonical star.
 - **Supporting evidence:** pair-support profile and condition-aware scene/support ratios.
-- **Final size:** 183 x 108 mm; SVG/PDF plus 300-dpi PNG.
+- **Final size:** 183 x 108 mm; SVG/PDF plus 600-dpi PNG.
 - **Reviewer risk:** score-ranked top-K and canonical retained scenes are explicitly distinct;
   no dual y-axis is used.
-

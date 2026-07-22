@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -28,10 +29,13 @@ def main() -> None:
         )
         if result.returncode:
             failures.append(name)
+        else:
+            source = ROOT / name / "outputs" / f"{name}.pdf"
+            destination = ROOT.parent / "figures" / f"{name}.pdf"
+            shutil.copy2(source, destination)
     if failures:
         raise SystemExit(f"Figure builds failed: {', '.join(failures)}")
 
 
 if __name__ == "__main__":
     main()
-

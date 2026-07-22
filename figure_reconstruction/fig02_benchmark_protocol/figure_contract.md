@@ -5,6 +5,5 @@
 - **Archetype:** quantitative grid with schematic support.
 - **Hero evidence:** per-scene valid-pair distribution and condition matrix.
 - **Supporting evidence:** integrity flow and three evaluation tracks.
-- **Final size:** 183 x 105 mm; SVG/PDF plus 300-dpi PNG.
+- **Final size:** 183 x 105 mm; SVG/PDF plus 600-dpi PNG.
 - **Reviewer risk:** pair-level micro and scene-level macro units remain visually separate.
-

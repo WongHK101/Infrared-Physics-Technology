@@ -26,6 +26,8 @@ COLORS = {
     "purple": "#6F5A8A",
 }
 
+RASTER_DPI = 600
+
 
 def configure_style() -> None:
     mpl.rcParams.update(
@@ -60,11 +62,21 @@ def mm(value: float) -> float:
 
 def save_bundle(fig: plt.Figure, output_dir: Path, stem: str) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
-    fig.savefig(output_dir / f"{stem}.svg", bbox_inches="tight", pad_inches=0.03)
-    fig.savefig(output_dir / f"{stem}.pdf", bbox_inches="tight", pad_inches=0.03)
+    fig.savefig(
+        output_dir / f"{stem}.svg",
+        dpi=RASTER_DPI,
+        bbox_inches="tight",
+        pad_inches=0.03,
+    )
+    fig.savefig(
+        output_dir / f"{stem}.pdf",
+        dpi=RASTER_DPI,
+        bbox_inches="tight",
+        pad_inches=0.03,
+    )
     fig.savefig(
         output_dir / f"{stem}.png",
-        dpi=300,
+        dpi=RASTER_DPI,
         bbox_inches="tight",
         pad_inches=0.03,
     )
@@ -187,4 +199,3 @@ def arrow(
 def soften_axes(ax, grid_axis: str = "y") -> None:
     ax.grid(axis=grid_axis, color=COLORS["grid"], linewidth=0.55, alpha=0.85)
     ax.set_axisbelow(True)
-

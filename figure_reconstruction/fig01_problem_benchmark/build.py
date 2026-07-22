@@ -125,15 +125,16 @@ def main() -> None:
     card.text(0.83, 0.30, "evaluation\npairs", ha="center", va="center", fontsize=5.8, color=COLORS["muted"])
     before_ax = ax_a.inset_axes([0.02, 0.00, 0.46, 0.16])
     after_ax = ax_a.inset_axes([0.52, 0.00, 0.46, 0.16])
-    image_panel(before_ax, find("scene01", "before_resize_overlay_crop"), "Before")
-    image_panel(after_ax, find("scene01", "after_scene_homography_overlay_crop"), "Scene product")
+    image_panel(before_ax, find("scene07", "before_resize_overlay_crop"), "Before")
+    image_panel(after_ax, find("scene07", "after_scene_homography_overlay_crop"), "Scene product")
+    panel_label(before_ax, "c", x=-0.10, y=1.10)
     arrow(ax_a, (0.47, 0.075), (0.53, 0.075), color=COLORS["confidence"])
 
     examples = [
         ("scene01", "S01  day · gray · wide"),
         ("scene04", "S04  night · gray · zoom"),
         ("scene05", "S05  night · pseudocolor"),
-        ("scene06", "S06  day · pseudocolor"),
+        ("scene10", "S10  day · pseudocolor"),
         ("scene13", "S13  low-light · pseudocolor"),
         ("scene14", "S14  low-light · tower"),
     ]

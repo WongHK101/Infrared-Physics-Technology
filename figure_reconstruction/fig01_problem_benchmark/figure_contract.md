@@ -6,7 +6,6 @@
 - **Hero evidence:** six real RGB/infrared pairs from the frozen public-safe shortlist.
 - **Supporting evidence:** synchronized acquisition schematic, integrity-checked data card,
   and a real before/after overlay example.
-- **Final size:** 183 x 98 mm; SVG/PDF plus 300-dpi PNG.
+- **Final size:** 183 x 98 mm; SVG/PDF plus 600-dpi PNG.
 - **Reviewer risk:** the acquisition panel is explicitly schematic; all image panels are
   traceable selected crops and retain the native infrared rendering.
-

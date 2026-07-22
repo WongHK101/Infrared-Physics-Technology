@@ -7,7 +7,8 @@ Date: 2026-07-22
 - Backend: Python / Matplotlib only.
 - Nine figure directories build successfully through `build_all.py`.
 - Every figure exports one editable-text SVG, one single-page selectable-text PDF,
-  and one 300-dpi PNG preview.
+  and one 600-dpi PNG preview. Raster panels embedded in SVG/PDF are rendered at
+  600 dpi rather than Matplotlib's 100-dpi default.
 - All PNG previews are wider than 1,500 pixels.
 - Python syntax compilation passes for all drawing scripts.
 
@@ -17,7 +18,9 @@ Date: 2026-07-22
 - Main-split values follow the current manuscript evidence freeze, including LoFTR
   `5984/6037`, the canonical `9/15` product set, `74.4%` pair coverage, and
   `1491/2304 (64.7%)` accepted/attempted support.
-- The 60 selected JPEG source assets contain no EXIF metadata.
+- The 82 selected JPEG source assets contain no EXIF metadata. Figure-local
+  qualitative crops are at least 1280 x 896 pixels; RGB-space overlays are
+  generally 2800 x 1960 pixels.
 - No raw dataset file or experiment output is modified by the build scripts.
 - No account name, server address, credential, or absolute local path is present in
   the tracked figure scripts and text/data manifests.
@@ -36,7 +39,12 @@ Date: 2026-07-22
   algorithm mechanism, qualitative products, operating profile, and controlled validation.
 - Fig. 3 was rebuilt from a generic flowchart into an explicit algorithmic schematic with
   progressive scheduling, frame reliability, median/MAD consensus, cross-modal QA, and
-  separate canonical/ranking branches.
+  separate canonical/ranking branches. Its visual example is the requested S02/000009
+  pair and is presented as an aligned scene candidate before the two decision branches.
+- S06 is not used as a qualitative case. It remains only where all-scene quantitative
+  evidence is shown, preserving the complete 15-scene analysis.
+- Fig. 5 uses a dark image-plate background with thicker cyan/red edge traces and a light
+  agreement cue, so method-specific alignment evidence remains legible at print size.
 
 ## Resolved source item
 

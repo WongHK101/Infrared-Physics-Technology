@@ -25,9 +25,9 @@ def main() -> None:
     fig = plt.figure(figsize=(mm(183), mm(122)))
     gs = fig.add_gridspec(4, 5, wspace=0.035, hspace=0.14)
     scenes = [
-        ("scene01", "S01 · day · gray · wide"),
+        ("scene07", "S07 · day · gray · tower"),
         ("scene04", "S04 · night · gray · zoom"),
-        ("scene06", "S06 · day · pseudocolor"),
+        ("scene10", "S10 · day · pseudocolor"),
         ("scene14", "S14 · low-light · pseudocolor"),
     ]
     columns = [
@@ -63,4 +63,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

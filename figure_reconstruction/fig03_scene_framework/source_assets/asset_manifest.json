@@ -1,0 +1,42 @@
+[
+  {
+    "scene_id": "02",
+    "scene_name": "02_day_grayscale_zoom_substation_power_lines_50",
+    "pair_id": "000009",
+    "rgb_source": "02_day_grayscale_zoom_substation_power_lines_50/rgb/000009.jpg",
+    "infrared_source": "02_day_grayscale_zoom_substation_power_lines_50/thermal/000009.jpg",
+    "rgb_original_size": [
+      3664,
+      2748
+    ],
+    "infrared_original_size": [
+      1280,
+      1024
+    ],
+    "working_scale": 0.7641921397379913,
+    "asset_dimensions": {
+      "rgb_selected_crop": [
+        2800,
+        1960
+      ],
+      "infrared_selected_crop": [
+        1280,
+        896
+      ],
+      "before_resize_overlay_crop": [
+        2800,
+        1960
+      ],
+      "after_scene_homography_overlay_crop": [
+        2800,
+        1960
+      ],
+      "edge_overlay_crop": [
+        2800,
+        1960
+      ]
+    },
+    "canonical_scene_pass": false,
+    "qa_status": "fail"
+  }
+]
