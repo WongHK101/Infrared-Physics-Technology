@@ -1,11 +1,12 @@
 # Figure reconstruction QA report
 
-Date: 2026-07-22
+Date: 2026-07-24
 
 ## Build and export
 
-- Backend: Python / Matplotlib only.
-- Nine figure directories build successfully through `build_all.py`.
+- Backend: Draw.io live graph editing for schematic panels and Python/Matplotlib
+  for data-bound plots and verified raster evidence.
+- Nine figure directories build or validate successfully through `build_all.py`.
 - Every figure exports one editable-text SVG, one single-page selectable-text PDF,
   and one 600-dpi PNG preview. Raster panels embedded in SVG/PDF are rendered at
   600 dpi rather than Matplotlib's 100-dpi default.
@@ -37,10 +38,10 @@ Date: 2026-07-22
 - The nine-figure sequence was reviewed against the four local high-quality reference
   papers. It now provides comparable evidence density: benchmark overview, protocol,
   algorithm mechanism, qualitative products, operating profile, and controlled validation.
-- Fig. 3 was rebuilt from a generic flowchart into an explicit algorithmic schematic with
+- Fig. 3 was rebuilt from a generic flowchart into an explicit editable-vector schematic with
   progressive scheduling, frame reliability, median/MAD consensus, cross-modal QA, and
-  separate canonical/ranking branches. Its visual example is the requested S02/000009
-  pair and is presented as an aligned scene candidate before the two decision branches.
+  separate canonical/ranking branches. The requested S02/000009 qualitative case remains
+  in Fig. 7, where its real image evidence is presented at a larger scale.
 - S06 is not used as a qualitative case. It remains only where all-scene quantitative
   evidence is shown, preserving the complete 15-scene analysis.
 - Fig. 5 uses a dark image-plate background with thicker cyan/red edge traces and a light

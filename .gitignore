@@ -33,3 +33,10 @@ Thumbs.db
 # Python figure-build caches
 __pycache__/
 *.py[cod]
+
+# Draw.io live-edit QA artifacts (regenerated locally)
+figure_reconstruction/*/drawio_source/drawio_*_report.json
+figure_reconstruction/*/drawio_source/live_plan.json
+figure_reconstruction/*/drawio_source/stage_*.png
+figure_reconstruction/*/drawio_source/review_*.png
+figure_reconstruction/*/outputs/*_cropped.pdf

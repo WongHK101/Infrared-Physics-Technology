@@ -7,16 +7,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from matplotlib.gridspec import GridSpec
-from matplotlib.patches import Rectangle
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "_shared"))
 from figure_style import (  # noqa: E402
     COLORS,
-    arrow,
     configure_style,
     mm,
     panel_label,
-    rounded_box,
     save_bundle,
     soften_axes,
 )
@@ -24,6 +21,7 @@ from figure_style import (  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "source_data"
+DRAWIO_PROTOCOL = ROOT / "drawio_source" / "fig02_protocol_hierarchy.png"
 
 
 def main() -> None:
@@ -80,29 +78,9 @@ def main() -> None:
     for spine in ax_b.spines.values():
         spine.set_visible(False)
 
-    ax_c = fig.add_subplot(gs[1, 0])
-    panel_label(ax_c, "c")
-    ax_c.axis("off")
-    rounded_box(ax_c, (0.02, 0.26), 0.25, 0.50, "Collection\n6,039 pairs", COLORS["visible_light"], COLORS["visible"])
-    rounded_box(ax_c, (0.38, 0.26), 0.24, 0.50, "Integrity gate\ndecode · pairing · hash", "#F5F7F8", COLORS["muted"], fontsize=6.3)
-    rounded_box(ax_c, (0.73, 0.26), 0.25, 0.50, "Official split\n6,037 pairs", COLORS["confidence_light"], COLORS["confidence"])
-    arrow(ax_c, (0.28, 0.51), (0.37, 0.51))
-    arrow(ax_c, (0.63, 0.51), (0.72, 0.51))
-    ax_c.text(0.50, 0.12, "Frozen, versioned evaluation manifest", ha="center", color=COLORS["muted"], fontsize=6.1)
-
-    ax_d = fig.add_subplot(gs[1, 1])
-    panel_label(ax_d, "d")
-    ax_d.axis("off")
-    tracks = [
-        (0.68, "Pairwise evidence", "availability · support · coverage", COLORS["visible_light"], COLORS["visible"]),
-        (0.38, "Scene products", "consensus · QA · canonical decision", COLORS["confidence_light"], COLORS["confidence"]),
-        (0.08, "Operating profile", "score ranking · coverage · condition", COLORS["infrared_light"], COLORS["infrared"]),
-    ]
-    for y, title, subtitle, fc, ec in tracks:
-        rounded_box(ax_d, (0.04, y), 0.92, 0.22, "", fc, ec)
-        ax_d.text(0.09, y + 0.14, title, fontweight="bold", fontsize=7.0, va="center")
-        ax_d.text(0.09, y + 0.07, subtitle, fontsize=6.1, color=COLORS["muted"], va="center")
-        ax_d.add_patch(Rectangle((0.84, y + 0.065), 0.07, 0.09, fc="white", ec=ec, lw=0.8))
+    ax_cd = fig.add_subplot(gs[1, :])
+    ax_cd.imshow(plt.imread(DRAWIO_PROTOCOL))
+    ax_cd.axis("off")
 
     save_bundle(fig, ROOT / "outputs", "fig02_benchmark_protocol")
     plt.close(fig)

@@ -1,0 +1,51 @@
+{
+  "report": "drawio_export_report.json",
+  "calls": [
+    {
+      "name": "drawio_validate",
+      "arguments": {
+        "input_path": "${PLAN_DIR}/fig01_acquisition_panel.drawio"
+      },
+      "timeout_ms": 30000
+    },
+    {
+      "name": "drawio_export",
+      "arguments": {
+        "input_path": "${PLAN_DIR}/fig01_acquisition_panel.drawio",
+        "format": "png",
+        "output_path": "${PLAN_DIR}/fig01_acquisition_panel.png",
+        "width": 1600,
+        "border": 15,
+        "transparent": false,
+        "embed": false,
+        "overwrite": true
+      },
+      "timeout_ms": 180000
+    },
+    {
+      "name": "drawio_export",
+      "arguments": {
+        "input_path": "${PLAN_DIR}/fig01_acquisition_panel.drawio",
+        "format": "svg",
+        "output_path": "${PLAN_DIR}/fig01_acquisition_panel.svg",
+        "border": 15,
+        "transparent": false,
+        "embed": true,
+        "overwrite": true
+      },
+      "timeout_ms": 180000
+    },
+    {
+      "name": "drawio_export",
+      "arguments": {
+        "input_path": "${PLAN_DIR}/fig01_acquisition_panel.drawio",
+        "format": "pdf",
+        "output_path": "${PLAN_DIR}/fig01_acquisition_panel.pdf",
+        "border": 15,
+        "embed": true,
+        "overwrite": true
+      },
+      "timeout_ms": 180000
+    }
+  ]
+}

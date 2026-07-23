@@ -1,0 +1,51 @@
+{
+  "report": "drawio_export_report.json",
+  "calls": [
+    {
+      "name": "drawio_validate",
+      "arguments": {
+        "input_path": "${PLAN_DIR}/fig04_matched_control_logic.drawio"
+      },
+      "timeout_ms": 30000
+    },
+    {
+      "name": "drawio_export",
+      "arguments": {
+        "input_path": "${PLAN_DIR}/fig04_matched_control_logic.drawio",
+        "format": "png",
+        "output_path": "${PLAN_DIR}/fig04_matched_control_logic.png",
+        "width": 2400,
+        "border": 15,
+        "transparent": false,
+        "embed": false,
+        "overwrite": true
+      },
+      "timeout_ms": 180000
+    },
+    {
+      "name": "drawio_export",
+      "arguments": {
+        "input_path": "${PLAN_DIR}/fig04_matched_control_logic.drawio",
+        "format": "svg",
+        "output_path": "${PLAN_DIR}/fig04_matched_control_logic.svg",
+        "border": 15,
+        "transparent": false,
+        "embed": true,
+        "overwrite": true
+      },
+      "timeout_ms": 180000
+    },
+    {
+      "name": "drawio_export",
+      "arguments": {
+        "input_path": "${PLAN_DIR}/fig04_matched_control_logic.drawio",
+        "format": "pdf",
+        "output_path": "${PLAN_DIR}/fig04_matched_control_logic.pdf",
+        "border": 15,
+        "embed": true,
+        "overwrite": true
+      },
+      "timeout_ms": 180000
+    }
+  ]
+}

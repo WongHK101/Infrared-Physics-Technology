@@ -10,11 +10,9 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "_shared"))
 from figure_style import (  # noqa: E402
     COLORS,
-    arrow,
     configure_style,
     mm,
     panel_label,
-    rounded_box,
     save_bundle,
     soften_axes,
 )
@@ -22,6 +20,7 @@ from figure_style import (  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "source_data"
+DRAWIO_LOGIC = ROOT / "drawio_source" / "fig04_matched_control_logic.png"
 
 
 def load_scene(scene: str) -> dict:
@@ -35,7 +34,14 @@ def main() -> None:
     b1, b2 = s01["band_payload"], s02["band_payload"]
 
     fig = plt.figure(figsize=(mm(183), mm(105)))
-    gs = fig.add_gridspec(2, 3, width_ratios=[1.18, 1.1, 0.92], height_ratios=[1, 0.88], wspace=0.32, hspace=0.39)
+    gs = fig.add_gridspec(
+        2,
+        3,
+        width_ratios=[1.18, 1.1, 0.92],
+        height_ratios=[1, 0.78],
+        wspace=0.32,
+        hspace=0.28,
+    )
 
     ax_a = fig.add_subplot(gs[0, 0])
     panel_label(ax_a, "a", x=-0.10)
@@ -95,16 +101,8 @@ def main() -> None:
     ax_c.legend(loc="upper right")
 
     ax_d = fig.add_subplot(gs[1, :])
-    panel_label(ax_d, "d", x=-0.015, y=1.02)
+    ax_d.imshow(plt.imread(DRAWIO_LOGIC))
     ax_d.axis("off")
-    rounded_box(ax_d, (0.03, 0.30), 0.20, 0.45, "S01\n49/50 accepted", COLORS["visible_light"], COLORS["visible"], fontsize=7.0)
-    rounded_box(ax_d, (0.30, 0.30), 0.20, 0.45, "0 severe outliers\n0.0% robust rejection", COLORS["confidence_light"], COLORS["confidence"], fontsize=6.7)
-    rounded_box(ax_d, (0.57, 0.30), 0.16, 0.45, "Canonical\ngate", "#FFFFFF", COLORS["canonical"], fontsize=7.0)
-    rounded_box(ax_d, (0.80, 0.30), 0.17, 0.45, "High-confidence\nscene product", COLORS["confidence_light"], COLORS["confidence"], fontsize=7.0)
-    for a, b in [(0.23, 0.30), (0.50, 0.57), (0.73, 0.80)]:
-        arrow(ax_d, (a, 0.525), (b, 0.525))
-    ax_d.text(0.03, 0.12, "Matched control: S02 also accepts 49/50 frames, but QA-relative outliers and consensus rejection trigger filtering.", fontsize=6.4, color=COLORS["muted"])
-    ax_d.text(0.965, 0.12, "Diagnostic subset", ha="right", fontsize=5.8, color=COLORS["muted"], style="italic")
 
     save_bundle(fig, ROOT / "outputs", "fig04_consensus_qa")
     plt.close(fig)

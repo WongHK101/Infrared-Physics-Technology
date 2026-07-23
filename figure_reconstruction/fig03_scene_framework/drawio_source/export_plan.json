@@ -1,0 +1,65 @@
+{
+  "report": "drawio_export_report.json",
+  "calls": [
+    {
+      "name": "drawio_validate",
+      "arguments": {
+        "input_path": "${PLAN_DIR}/fig03_scene_framework.drawio"
+      },
+      "timeout_ms": 30000
+    },
+    {
+      "name": "drawio_export",
+      "arguments": {
+        "input_path": "${PLAN_DIR}/fig03_scene_framework.drawio",
+        "format": "png",
+        "output_path": "${PLAN_DIR}/review_fig03_scene_framework.png",
+        "width": 2400,
+        "border": 20,
+        "transparent": false,
+        "embed": false,
+        "overwrite": true
+      },
+      "timeout_ms": 180000
+    },
+    {
+      "name": "drawio_export",
+      "arguments": {
+        "input_path": "${PLAN_DIR}/fig03_scene_framework.drawio",
+        "format": "svg",
+        "output_path": "${PLAN_DIR}/../outputs/fig03_scene_framework.svg",
+        "border": 15,
+        "transparent": false,
+        "embed": true,
+        "overwrite": true
+      },
+      "timeout_ms": 180000
+    },
+    {
+      "name": "drawio_export",
+      "arguments": {
+        "input_path": "${PLAN_DIR}/fig03_scene_framework.drawio",
+        "format": "pdf",
+        "output_path": "${PLAN_DIR}/review_fig03_scene_framework_page.pdf",
+        "border": 15,
+        "embed": true,
+        "overwrite": true
+      },
+      "timeout_ms": 180000
+    },
+    {
+      "name": "drawio_export",
+      "arguments": {
+        "input_path": "${PLAN_DIR}/fig03_scene_framework.drawio",
+        "format": "png",
+        "output_path": "${PLAN_DIR}/../outputs/fig03_scene_framework.png",
+        "width": 3000,
+        "border": 15,
+        "transparent": false,
+        "embed": true,
+        "overwrite": true
+      },
+      "timeout_ms": 180000
+    }
+  ]
+}
