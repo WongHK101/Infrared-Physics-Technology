@@ -4,8 +4,8 @@
 
 Infrared-visible alignment is a foundational capability for UAV inspection, nighttime monitoring,
 and multimodal thermal sensing. Visible imagery provides semantic and structural detail, while
-infrared imagery preserves complementary target information across illumination changes, smoke,
-haze, and low-light conditions. This combination supports multispectral detection, tracking, and
+infrared imagery provides complementary thermal information under changing illumination and
+low-light conditions. This combination supports multispectral detection, tracking, and
 aerial perception across demanding operating environments
 \cite{hwang2015kaist,flir2018thermal,jia2021llvip,liu2022tardal,sun2022dronevehicle,zhang2022vtuav,li2022lasher,jiang2023antiuav}.
 Accurate cross-sensor geometry is therefore essential for treating the two streams as one sensing
@@ -13,7 +13,8 @@ system rather than independent observations.
 
 UAV acquisition introduces a distinct alignment problem. Cross-FOV optics, unequal sensor
 resolutions, changing viewpoints, and zoom variation reshape the same scene differently in the
-visible and infrared channels. Thermal rendering and day-to-night appearance changes further
+visible and infrared channels. Time-synchronized capture preserves these cross-sensor differences
+rather than geometrically registering the images. Thermal rendering and day-to-night appearance changes further
 alter local texture and contrast. A flight sequence consequently provides heterogeneous geometric
 evidence: individual frame pairs may differ substantially in spatial support, homography
 stability, and cross-modal agreement. Effective alignment must consolidate this evidence into a
@@ -51,12 +52,12 @@ integrity-checked official evaluation split.}
 \end{figure}
 
 UAV-TAlign serves as the benchmark reference framework. It operates above a strong pairwise
-matcher and combines progressive evidence scheduling, geometry-calibrated frame weighting, robust
+matcher and combines progressive evidence scheduling, geometry-informed frame weighting, robust
 scene consensus, and cross-modal quality verification. Across the official split, infrared-specific
 and modern matchers provide highly available pairwise homographies. UAV-TAlign converts this
 evidence into transforms for all 15 scenes and identifies nine high-confidence scene products at
 the canonical operating point, covering 74.4\% of the evaluated pairs. Controlled perturbations
-and leave-frame-out resampling independently support the resulting operating profile.
+and leave-frame-out resampling characterize quality-signal sensitivity and consensus stability.
 
 Our contributions are threefold:
 \begin{itemize}

@@ -1,0 +1,87 @@
+% !TEX root = ../paper_zh.tex
+
+\section{协议定义与可复现细节}
+\label{sec:protocol_details_zh}
+
+\subsection{探针帧与相对质量信号}
+
+每个场景从 manifest 中均匀选取至多 12 对图像作为 QA 探针，不仅从已接受匹配中选取。
+图像以四分之一尺度评测，最长边上限为 640 像素，场景单应性同步转换到评测坐标。
+每个探针的变换后图像和尺寸匹配参考均在同一个红外变换有效掩膜内评分。参考仅将红外边缘和梯度
+缩放至 RGB 评测网格，其全图尺寸映射记为 $H_0$，不是拟合得到的配准。
+
+令 $E_i(H)$ 为具有一像素膨胀容差的边缘重叠 F1，$G_i(H)$ 为有效掩膜内梯度幅值的归一化互相关。
+定义
+\begin{equation}
+\delta E_i = E_i(\bar H_S)-E_i(H_0), \qquad
+\delta G_i = G_i(\bar H_S)-G_i(H_0).
+\end{equation}
+场景增益 $\Delta E_S$ 和 $\Delta G_S$ 是探针均值。严重相对离群帧同时满足
+$\delta E_i<-0.01$ 和 $\delta G_i<-0.01$；$O_S$ 为其占探针帧的比例。$p_{\lor}$ 为任一增益
+为正的帧比例，$p_G$ 为梯度增益为正的帧比例。这些图像域诊断量衡量相对尺寸匹配参考的一致性。
+
+\subsection{支撑与规范验证}
+\label{sec:canonical_details_zh}
+
+帧进入接受池需满足：单应性拟合成功、至少 80 个候选匹配、内点率不低于 0.30、平均内点重投影
+误差不超过 4 像素、覆盖率不低于 0.25。对于包含 $N$ 对有效图像的场景，固定的最低接受支撑为
+\begin{equation}
+N_{\min}=\max\!\left(4,\min\!\left(N,\max\!\left(8,
+\min\!\left(20,\operatorname{round}(0.15N)\right)\right)\right)\right).
+\end{equation}
+S01--S04 的阈值为 8，S07 为 15，其余场景为 20。接受支撑 $A_S$ 为接受帧数除以尝试帧数。
+鲁棒剔除率 $J_S$ 为共识阶段从接受池剔除的比例。离散度 $D_S$ 先在红外图像的 $5\times5$
+网格上计算每个接受假设相对共识的平均位移，再在假设间取中位数，单位为 RGB 图像像素。
+
+主要路径 $L_S$ 要求 $\Delta E_S>0$、$\Delta G_S>0$、$p_{\lor}\ge0.60$，且无严重相对离群帧。
+替代路径 $W_S$ 适用于尺寸初始化的红外输入，且要求同时满足
+\begin{equation}
+\begin{aligned}
+A_S&\ge0.80, & \bar r_S&\ge0.30, & \bar e_S&\le4\text{ px}, & \bar c_S&\ge0.25, \\
+D_S&\le25\text{ px}, & J_S&\le0.25, & O_S&\le0.10, & n_{\mathrm{out}}&\le1, \\
+\Delta E_S&\ge-0.05, & \Delta G_S&>0, & p_G&\ge0.60. &&
+\end{aligned}
+\end{equation}
+其中 $\bar r_S,\bar e_S,\bar c_S$ 为接受帧的均值。通过 $L_S$ 给出 pass；未通过 $L_S$ 而通过
+$W_S$ 给出 pass with warning。二者在 $N_S\ge N_{\min}$ 时均计入规范保留。
+自适应扩展在保留条件和 $D_S\le25$、$J_S\le0.25$ 稳定性检查均满足时停止。
+遍历完整调度后，最终规范决策仍遵循式~\ref{eq:canonical_gate_zh}；停止检查不是主要路径的额外
+保留条件。因此，提前停止和最终保留承担不同作用。
+
+\subsection{归一化可靠性评分}
+\label{sec:score_normalization_zh}
+
+令 $C(x)=\min(1,\max(0,x))$，式~\ref{eq:reliability_score_zh} 中的分量为
+\begin{equation}
+\begin{aligned}
+\hat a_S &= C(A_S), & \hat o_S &= 1-C(O_S/0.10), \\
+\hat j_S &= 1-C(J_S/0.25), & \hat e_S &= C((\Delta E_S+0.05)/0.20), \\
+\hat g_S &= C(\Delta G_S/0.15), &&
+\end{aligned}
+\end{equation}
+\begin{equation}
+\hat z_S=0.5C(\bar r_S/0.50)+0.3C(\bar c_S)
+       +0.2\left[1-C\!\left((\bar e_S-1.5)/1.0\right)\right].
+\end{equation}
+全部常数固定，不对场景结果拟合模型。所得 $[0,100]$ 评分提供诊断排序，不是校准概率。
+分数排序覆盖率点选择前 $K$ 个场景，规范运行点则在其独立的保留集合上计算。
+
+\subsection{指标汇总}
+\label{sec:metric_aggregation_zh}
+
+\paragraph{成对统计。}
+内点率为拟合内点数除以候选匹配数。覆盖率是鲁棒拟合前候选匹配占据的红外图像 16 个网格单元的
+比例。单对重投影误差为 RGB 图像像素坐标中的平均内点欧氏残差；主表报告这些单对均值的中位数。
+每个汇总指标使用记录中有限且非空的值：已记录的零内点率和零覆盖率参与汇总，缺失重投影值不参与。
+运行时间为所声明实现与部署配置下记录的单对时间均值。
+
+\paragraph{场景与条件统计。}
+场景覆盖率为保留场景比例，图像对覆盖率按各保留场景的有效 manifest 图像对数量加权。
+接受/尝试比使用指定场景集合中的累加帧数。因此，保留集合支撑为 $1491/2304=64.7\%$，
+全场景支撑为 $2473/3847=64.3\%$。条件保留率是场景宏统计，接受支撑是帧微统计。
+
+\paragraph{重采样与扰动。}
+留帧分析先在每折内计算网格位移均值，再对每个场景的五折取均值。报告的 1.39 像素是 15 个
+场景均值的中位数；这些场景均值的平均值为 2.26 像素。扰动曲线对每一强度和类型的 45 帧取联合
+边缘/梯度分数变化均值。退化率为该设置下联合分数变化为负的帧比例。这两类检验分别评价共识
+稳定性与质量信号响应，不拟合或重新校准排序评分。

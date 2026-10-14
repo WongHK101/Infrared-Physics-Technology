@@ -17,6 +17,8 @@ FIGURES = [
     "fig07_reliability_selection",
     "fig08_operating_profile",
     "fig09_validation_attribution",
+    "fig10_condition_profile",
+    "fig11_module_attribution",
 ]
 
 

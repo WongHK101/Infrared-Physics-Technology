@@ -19,19 +19,26 @@ UAV-TAlign-12K 是面向真实无人机红外-可见光对齐的基准。数据�
 合成变换监督的无人机对齐基准。}
 \label{tab:dataset_positioning_zh}
 \centering
-\resizebox{\textwidth}{!}{
-\begin{tabular}{lllll}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
-资源 & 数据基础 & 对齐信号 & 规模 & 主要评测重点 \\
+资源 & 数据与对齐参考 & 规模 & 评测重点 \\
 \midrule
-KAIST / FLIR / LLVIP / M3FD & 地面或混合 RGB-红外数据 & 成对或已对齐影像 & 依数据集而定 & 检测、融合、低照度感知 \\
-DroneVehicle / VTUAV / LasHeR / Anti-UAV & 无人机或跟踪型 RGB-红外数据 & 任务标注 & 依数据集而定 & 多模态检测或跟踪 \\
-UAVMatch / TGRS~\cite{gao2025uavmatch} & 无人机多模态数据的合成变换 & 仿射 / 单应性监督 & 81K 训练 / 15K 测试对 & 监督式变换回归与几何指标 \\
-ATR-UMMIM~\cite{bin2025atrummim} & 真实无人机可见光 / 红外 / 已配准可见光三元组 & 半自动像素级参考 & 7,969 个三元组 & 成对配准精度与条件属性 \\
-UAV-TIRVis~\cite{vasile2025uavtirvis} & 真实无人机热红外-可见光影像 & 人工成对配准 & 80 对 & 直接图像域配准质量 \\
-UAV-TAlign-12K & 真实采集跨视场无人机红外-可见光数据 & 多帧场景协议 & 6,039 个候选 / 6,037 个评测对 & 成对证据、场景共识与运行覆盖率 \\
+KAIST / FLIR / LLVIP / M3FD & 地面或混合 RGB-红外数据；成对或已对齐影像 & 依数据集而定 & 检测、融合、低照度感知 \\
+\addlinespace
+DroneVehicle / VTUAV / LasHeR / Anti-UAV & 无人机或跟踪型 RGB-红外数据；任务标注 & 依数据集而定 & 多模态检测或跟踪 \\
+\addlinespace
+UAVMatch~\cite{gao2025uavmatch} & 从无人机数据构造合成仿射 / 单应性监督 & 81K 训练 / 15K 测试对 & 变换回归与几何指标 \\
+\addlinespace
+ATR-UMMIM~\cite{bin2025atrummim} & 含已配准可见光图像的真实无人机三元组；半自动像素参考 & 7,969 个三元组 & 成对配准与条件属性 \\
+\addlinespace
+UAV-TIRVis~\cite{vasile2025uavtirvis} & 真实航空热红外-可见光图像对；人工配准 & 80 对 & 图像域配准质量 \\
+\addlinespace
+UAV-TAlign-12K & 真实采集跨视场无人机图像对；多帧场景协议 & 6,039 个候选 / 6,037 个评测对 & 成对证据、场景共识、运行覆盖率 \\
 \bottomrule
-\end{tabular}}
+\end{tabularx}
 \end{table}
 
 \begin{figure}[t]
@@ -47,7 +54,8 @@ UAV-TAlign-12K & 真实采集跨视场无人机红外-可见光数据 & 多帧�
 
 UAV-TAlign-12K 的采集时间跨度为 2024 年下半年至 2026 年上半年，覆盖中国南部的工业与自然
 场景。全部场景均使用同一套 DJI Matrice 350 RTK 平台和 Zenmuse H30T 多传感器载荷采集。
-集成载荷自动同步可见光与红外产品，从而保留原生跨传感器几何关系。飞行方式包括悬停和航线式
+集成载荷在时间上自动同步可见光与红外采集；图像保留原生跨传感器几何关系，不进行人工几何对齐。
+飞行方式包括悬停和航线式
 采集，所用无人机完成实名登记，飞手具有 CAAC 资质，并在允许飞行的空域内执行任务。
 
 发布的数据流保留 H30T 原生采集模式。广角相机静态图像分辨率为 $4032\!\times\!3024$，变焦
@@ -85,9 +93,10 @@ $3840\!\times\!2160$ 静态图像是在 H30T 录像期间触发拍照获得。�
 
 \subsection{无标注场景一致性诊断}
 
-该协议采用无标注相对信号进行可扩展的场景一致性分析。所存储的诊断量比较优化后变换与基线初始
-变换，并量化跨模态一致性的变化，包括边缘重叠增益、梯度 NCC 增益、梯度一致性改善帧比例、
+该协议测量应用场景共识变换后的跨模态一致性，并与尺寸匹配的红外参考进行比较。参考图像仅将
+红外图缩放到 RGB 评测网格，不估计对齐变换。诊断量包括边缘重叠增益、梯度 NCC 增益、梯度一致性改善帧比例、
 严重基线相对离群点数量与比例、接受帧支撑、单应性离散度，以及鲁棒剔除比例。
+附录~\ref{sec:protocol_details_zh} 给出统一使用的参考、探针帧、归一化与汇总约定。
 
 这些信号共同刻画跨模态改善、几何支撑和共识稳定性，并通过统一评测接口支撑规范产品选择、条件
 感知分析和可靠性--覆盖率可视化 \cite{ma2021survey,liao2024survey}。

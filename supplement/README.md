@@ -4,6 +4,12 @@ This directory is a working skeleton for the IP&T supplementary material. It is 
 
 ## Proposed Structure
 
+The October 2026 manuscript now renders the exact score normalization, QA probe
+definitions, canonical paths, and metric aggregation as Appendix A in both English
+and Chinese PDFs. These definitions no longer depend on an uncompiled supplementary
+placeholder. The remaining files below are still supplementary source materials,
+not a separately compiled submission PDF.
+
 1. Reliability score design and formula.
 2. Threshold sensitivity.
 3. Per-scene reliability table.

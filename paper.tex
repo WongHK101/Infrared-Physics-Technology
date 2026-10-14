@@ -5,6 +5,9 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{tabularx}
+\usepackage{xurl}
+\usepackage[hidelinks,hypertexnames=false]{hyperref}
 
 \journal{Infrared Physics \& Technology}
 
@@ -30,12 +33,12 @@ and reliability--coverage operating analysis. Seven representative methods span 
 keypoint pipelines, infrared-visible-specific matching, and modern dense or learned matchers.
 Pairwise evidence is broadly available: RIFT2, RoMa, and raw MINIMA produce homographies for all
 6,037 evaluated pairs, while LoFTR and XoFTR exceed 99\% availability. Building on this evidence,
-UAV-TAlign combines progressive evidence scheduling, geometry-calibrated frame weighting, robust
+UAV-TAlign combines progressive evidence scheduling, geometry-informed frame weighting, robust
 scene consensus, and cross-modal quality verification. It estimates transforms for all 15 scenes
 and identifies nine high-confidence alignment products at the canonical operating point, covering
-74.4\% of the evaluated pairs. Five-fold leave-frame-out analysis yields a 1.39-pixel median
-scene-consensus drift, and controlled translation, rotation, and scale perturbations produce
-monotonic degradation of the joint quality signal. UAV-TAlign-12K establishes a reproducible
+74.4\% of the evaluated pairs. Five-fold leave-frame-out analysis yields a median scene-wise mean
+displacement of 1.39 pixels, while controlled translation, rotation, and scale perturbations
+progressively reduce the mean joint quality signal. UAV-TAlign-12K establishes a reproducible
 foundation for benchmark-scale, confidence-aware UAV infrared-visible alignment.
 \end{abstract}
 
@@ -43,7 +46,7 @@ foundation for benchmark-scale, confidence-aware UAV infrared-visible alignment.
 \item UAV-TAlign-12K offers 6,039 synchronized cross-FOV RGB-infrared pairs.
 \item Seven baselines reveal broadly available pairwise homography evidence.
 \item UAV-TAlign yields 15 scene transforms and nine high-confidence products.
-\item Resampling and controlled perturbations validate the operating protocol.
+\item Resampling and perturbations probe consensus stability and QA sensitivity.
 \end{highlights}
 
 \begin{keyword}
@@ -60,6 +63,9 @@ infrared-visible dataset \sep UAV imagery \sep multimodal registration \sep alig
 \input{sections/06_results}
 \input{sections/07_discussion}
 \input{sections/08_conclusion}
+
+\appendix
+\input{sections/09_protocol_details}
 
 \bibliographystyle{elsarticle-num}
 \bibliography{references}

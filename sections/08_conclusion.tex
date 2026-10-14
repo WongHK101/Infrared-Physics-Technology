@@ -2,19 +2,15 @@
 
 \section{Conclusion}
 
-We introduced UAV-TAlign-12K, a benchmark-scale UAV infrared-visible alignment resource with
-6,039 synchronized pairs, an integrity-checked 6,037-pair evaluation split, and a multi-level
-protocol spanning pairwise evidence, scene consensus, and reliability--coverage analysis. Seven
-representative baselines show that infrared-specific and modern matchers already provide highly
-available pairwise homographies across captured cross-FOV conditions.
-
-UAV-TAlign converts this evidence into 15 scene transforms. It combines progressive scheduling,
-geometry-calibrated frame weighting, robust consensus, and cross-modal verification.
-At the canonical operating point, it identifies nine high-confidence products covering 74.4\% of
-the evaluated pairs. Leave-frame-out resampling and controlled perturbations further support the
-stability and geometric sensitivity of the scene diagnostics. These results establish scene-scale
-evidence consolidation and confidence-aware operating analysis as central evaluation dimensions
-for cross-FOV UAV infrared-visible alignment.
+UAV-TAlign-12K connects captured UAV infrared-visible imagery with evaluation of pairwise evidence,
+scene consensus, and operating coverage. Across its 6,037-pair official split, seven baselines
+show that infrared-specific and modern matchers provide abundant homography evidence. The
+remaining task is to consolidate that evidence and decide which scene transforms to retain.
+UAV-TAlign produces transforms for all 15 scenes and retains nine, covering 74.4\% of evaluated
+pairs. Cumulative ablations identify robust consensus as the main source of improved image
+agreement and reduced dispersion; resampling and controlled perturbations characterize stability
+and diagnostic sensitivity. Together, the dataset and reference framework make scene-scale
+evidence consolidation an explicit, reproducible evaluation target for UAV infrared-visible alignment.
 
 \section*{Data Availability}
 
@@ -25,3 +21,11 @@ The dataset, owned by Guangxi University, will be released under the Creative Co
 4.0 International license, with code and evaluation materials provided through a public
 repository. Review access can be provided during peer review. The official manifest hash is
 provided for reproducible evaluation.
+
+\section*{Declaration of Generative AI and AI-Assisted Technologies}
+
+OpenAI ChatGPT and Codex assisted with language editing, translation, manuscript organization,
+LaTeX preparation, diagram layout, and plotting-script development. Quantitative plots use
+archived experimental outputs, and image panels use captured UAV imagery and deterministic
+visualization operations. Responsibility for the scientific content and its verification remains
+with the authors.

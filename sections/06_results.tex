@@ -12,25 +12,32 @@ pair, while LoFTR and XoFTR exceed 99\% availability. These results establish in
 and modern dense matchers as strong evidence generators for scene-scale alignment.
 
 \begin{table}[H]
-\caption{Pairwise infrared-visible homography evidence on UAV-TAlign-12K. Homography availability
-reports successful robust estimation, while the remaining columns characterize correspondence
-support, spatial extent, fitting residual, and runtime under the declared deployment profiles.}
+\caption{Pairwise infrared-visible homography evidence on UAV-TAlign-12K. IR and Cov. are mean
+inlier ratio and mean candidate-match coverage. Reproj. is the median of pair-level mean inlier
+residuals (pixels); Time is mean seconds per pair. Statistics use recorded finite values
+(Appendix~\ref{sec:metric_aggregation}). These are complementary diagnostics, not a single quality ranking.}
 \label{tab:pairwise_baselines}
 \centering
-\resizebox{\textwidth}{!}{
-\begin{tabular}{llrrrrrr}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}Xrrrrrr@{}}
 \toprule
-Method & Category & OK / N $\uparrow$ & H (\%) $\uparrow$ & Inlier Ratio $\uparrow$ & Coverage $\uparrow$ & Median Reproj. $\downarrow$ & Runtime / Pair (s) $\downarrow$ \\
+Method & H / N & H (\%) & IR & Cov. & Reproj. & Time \\
 \midrule
-SIFT + RANSAC & Classical keypoint & 5257/6037 & 87.08 & 0.242 & 0.627 & 0.000 & 4.421 \\
-AKAZE + RANSAC & Classical keypoint & 5692/6037 & 94.29 & 0.160 & 0.730 & 0.105 & 1.103 \\
-RIFT2 (Python, resize-aware) & Infrared-visible classical & 6037/6037 & \textbf{100.00} & 0.086 & 0.354 & 0.121 & 13.980 \\
-raw MINIMA & Modern dense / learned & 6037/6037 & \textbf{100.00} & 0.319 & 1.000 & 1.773 & 1.346 \\
-RoMa outdoor & Modern dense / learned & 6037/6037 & \textbf{100.00} & 0.328 & 0.997 & 1.741 & 0.929 \\
-Kornia LoFTR outdoor (resize-aware) & Modern dense / learned & 5984/6037 & 99.12 & 0.074 & 0.895 & 0.823 & 0.169 \\
-XoFTR-640 & Modern dense / learned & 5989/6037 & 99.20 & 0.089 & 0.949 & 1.732 & 0.647 \\
+\multicolumn{7}{@{}l}{\textit{Classical keypoint}} \\
+SIFT & 5257/6037 & 87.08 & 0.242 & 0.627 & 0.000 & 4.421 \\
+AKAZE & 5692/6037 & 94.29 & 0.160 & 0.730 & 0.105 & 1.103 \\
+\addlinespace
+\multicolumn{7}{@{}l}{\textit{Infrared-visible classical}} \\
+RIFT2 (Python, resize-aware) & 6037/6037 & \textbf{100.00} & 0.086 & 0.354 & 0.121 & 13.980 \\
+\addlinespace
+\multicolumn{7}{@{}l}{\textit{Modern dense / learned}} \\
+Kornia LoFTR & 5984/6037 & 99.12 & 0.074 & 0.895 & 0.823 & 0.169 \\
+XoFTR-640 & 5989/6037 & 99.20 & 0.089 & 0.949 & 1.732 & 0.647 \\
+RoMa outdoor & 6037/6037 & \textbf{100.00} & 0.328 & 0.997 & 1.741 & 0.929 \\
+raw MINIMA & 6037/6037 & \textbf{100.00} & 0.319 & 1.000 & 1.773 & 1.346 \\
 \bottomrule
-\end{tabular}}
+\end{tabularx}
 \end{table}
 
 The method families exhibit complementary evidence profiles. RIFT2 combines complete homography
@@ -44,7 +51,7 @@ the scene-level benchmark track.
 \caption{Pairwise homography evidence across matcher families. (a) Homography availability and
 mean spatial coverage provide complementary views of evidence completeness on the 6,037-pair
 official split. (b) Fixed-pair cyan/red edge overlays compare the geometric support produced by
-representative classical and learned matchers under a unified downstream estimator.}
+representative classical and learned matchers under the declared fitting profiles.}
 \label{fig:pairwise_evidence}
 \end{figure}
 
@@ -54,20 +61,26 @@ UAV-TAlign converts the pairwise evidence into scene transforms for all 15 scene
 operating point, it identifies nine high-confidence products, representing 60.0\% scene coverage
 and 74.4\% pair coverage. The accepted-frame support within these products reaches 1491/2304
 (64.7\%).
+Across all 15 scenes, accepted support is 2473/3847 (64.3\%); the two ratios use different scene sets.
 
 \begin{table}[H]
 \caption{Canonical scene-level operating point for UAV-TAlign on UAV-TAlign-12K. Pair coverage and
 accepted-frame support are computed over the nine high-confidence scene products.}
 \label{tab:scene_level_main}
 \centering
-\resizebox{\textwidth}{!}{
-\begin{tabular}{llrrrrrr}
+\small
+\begin{tabular}{lr}
 \toprule
-Method & Eval Unit & H Available $\uparrow$ & High-conf. Scenes $\uparrow$ & Scene Coverage (\%) $\uparrow$ & Pair Coverage (\%) $\uparrow$ & Accepted / Attempted & Accepted Ratio (\%) $\uparrow$ \\
+UAV-TAlign scene-level measure & Value \\
 \midrule
-UAV-TAlign & 15 scenes & 15/15 & 9/15 & 60.0 & 74.4 & 1491/2304 & 64.7 \\
+Homographies available & 15/15 \\
+Canonical retained scenes & 9/15 \\
+Scene coverage & 60.0\% \\
+Pair coverage & 74.4\% \\
+Retained-set accepted / attempted & 1491/2304 \\
+Retained-set accepted ratio & 64.7\% \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
 Figure~\ref{fig:scene_products} presents representative canonical alignment products. They span
@@ -96,20 +109,30 @@ These complementary measurements separate available frame support from the final
 support over all scenes in each condition.}
 \label{tab:light_condition}
 \centering
-\resizebox{\textwidth}{!}{
-\begin{tabular}{lrrrrr}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}Xrrrr@{}}
 \toprule
-Condition & Scenes & High-conf. $\uparrow$ & Scene Coverage (\%) $\uparrow$ & Accepted / Attempted $\uparrow$ & Accepted Ratio (\%) $\uparrow$ \\
+Condition & \shortstack{Retained /\\scenes} & \shortstack{Scene\\coverage (\%)} & \shortstack{Accepted /\\attempted} & \shortstack{Accepted\\ratio (\%)} \\
 \midrule
-Day & 7 & \textbf{5} & \textbf{71.4} & \textbf{1650/2203} & \textbf{74.9} \\
-Night & 5 & 3 & 60.0 & 361/890 & 40.6 \\
-Low-light & 3 & 1 & 33.3 & 462/754 & 61.3 \\
+Day & 5/7 & 71.4 & 1650/2203 & 74.9 \\
+Night & 3/5 & 60.0 & 361/890 & 40.6 \\
+Low-light & 1/3 & 33.3 & 462/754 & 61.3 \\
 \bottomrule
-\end{tabular}}
+\end{tabularx}
 \end{table}
 
-Figure~\ref{fig:operating_profile}c,d extends this analysis to illumination, infrared rendering,
+Figure~\ref{fig:condition_profile} extends this analysis to illumination, infrared rendering,
 and view type, reporting scene retention together with accepted-frame support.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig10_condition_profile.pdf}
+\caption{Condition-aware operating profiles by (a) illumination, (b) infrared rendering, and
+(c) view type. Filled circles show scene retention; open squares show accepted/attempted frame
+support. Labels give retained/total scenes. The same scenes recur across attribute groups.}
+\label{fig:condition_profile}
+\end{figure}
 
 \subsection{Reliability-Controlled Scene Selection}
 
@@ -133,7 +156,7 @@ ratio.}
 \subsection{Reliability-Coverage Operating Profile}
 
 The fixed cross-modal verification rule defines the canonical product set. The interpretable score
-orders scenes for a continuous reliability--coverage sweep. Figure~\ref{fig:operating_profile} plots
+orders scenes into discrete reliability--coverage operating points. Figure~\ref{fig:operating_profile} plots
 this score-ranked profile and overlays the fixed canonical operating point.
 
 \begin{figure}[t]
@@ -142,30 +165,28 @@ this score-ranked profile and overlays the fixed canonical operating point.
 \caption{Reliability--coverage operating profile on UAV-TAlign-12K. (a) The score-ranked curve
 traces mean severe-outlier ratio as scene coverage increases; the star marks the independent
 canonical QA point, not the score-ranked top-nine set. (b) Pair coverage and accepted-frame support
-expose the corresponding evidence footprint. (c,d) Condition-aware profiles summarize illumination,
-infrared rendering, and view regimes.}
+expose the corresponding evidence footprint. Lines connect observed operating points.}
 \label{fig:operating_profile}
 \end{figure}
 
 At the canonical point, UAV-TAlign identifies nine high-confidence products, covers 60.0\% of
 scenes and 74.4\% of evaluated pairs, and records a mean severe-outlier ratio of 0.009. The
-score-ranked curve provides a smooth transition from high-confidence operation to broader
-coverage. The canonical point in Figure~\ref{fig:operating_profile} corresponds to 9/15 scenes,
-60.0\% scene coverage, and 74.4\% pair coverage.
+score-ranked points expose the diagnostic trade-off as additional scenes enter the selected set.
 
 \subsection{Controlled Validation of Scene Diagnostics}
 
 The scene diagnostics respond consistently under independent resampling and controlled geometric
 perturbations. Five-fold leave-frame-out analysis covers all 15 scenes and 75 consensus
 recomputations. With approximately one fifth of accepted frame hypotheses withheld per fold, the
-median displacement from the full-evidence consensus is 1.39 pixels (mean 2.26 pixels).
+median of the 15 scene-wise mean displacements from the full-evidence consensus is 1.39 pixels;
+the mean of those scene means is 2.26 pixels.
 
 The perturbation test covers 45 representative frames and 675 controlled trials. Within each
-perturbation family, increasing severity produces a monotonic decrease in the joint edge/gradient
+perturbation family, increasing severity produces a monotonic decrease in the mean joint edge/gradient
 quality signal. At the largest severity, translation, rotation, and scale produce mean joint-score
 changes of $-0.074$, $-0.031$, and $-0.025$, respectively. The corresponding degradation rates are
 84.4\%, 80.0\%, and 73.3\%. Table~\ref{tab:protocol_validation} summarizes the independent evidence.
-Figure~\ref{fig:validation_attribution}a,b visualizes the full scene-wise resampling response and
+Figure~\ref{fig:protocol_validation} visualizes the full scene-wise resampling response and
 the severity-dependent perturbation trends.
 
 \begin{table}[H]
@@ -173,18 +194,28 @@ the severity-dependent perturbation trends.
 degradation rates and joint-score changes are reported at the largest tested severity.}
 \label{tab:protocol_validation}
 \centering
-\resizebox{0.92\textwidth}{!}{
-\begin{tabular}{llrr}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}Xp{2.7cm}Xr@{}}
 \toprule
-Validation & Scope & Primary response & Degraded trials (\%) \\
+Validation & Scope & Primary response & \shortstack{Degraded\\trials (\%)} \\
 \midrule
-Leave-frame-out consensus & 15 scenes / 75 folds & 1.39 px scene-median drift & -- \\
+Leave-frame-out consensus & 15 scenes / 75 folds & 1.39 px median of scene means & -- \\
 Synthetic translation & 45 frames / 225 trials & $\Delta$Joint $=-0.074$ & 84.4 \\
 Synthetic rotation & 45 frames / 225 trials & $\Delta$Joint $=-0.031$ & 80.0 \\
 Synthetic scale & 45 frames / 225 trials & $\Delta$Joint $=-0.025$ & 73.3 \\
 \bottomrule
-\end{tabular}}
+\end{tabularx}
 \end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig09_validation_attribution.pdf}
+\caption{Controlled validation on UAV-TAlign-12K. (a) Mean five-fold leave-frame-out displacement
+for each scene; the dashed line marks the median of scene means. (b) Mean joint quality change
+over 45 frames per perturbation mode and severity.}
+\label{fig:protocol_validation}
+\end{figure}
 
 \subsection{Cumulative Ablation}
 
@@ -195,36 +226,38 @@ from 151.2 to 52.5 pixels. Cross-modal verification then maps the stage output t
 product decision.
 
 \begin{table}[H]
-\caption{Cumulative ablation on the fixed 8-scene UAV-TAlign-1K-Lite subset.}
+\caption{Cumulative ablation on the fixed 8-scene UAV-TAlign-1K-Lite subset. Output/N counts
+available transforms in the first two rows and canonically retained scenes in the last row.
+Diagnostic means use all eight scenes at each stage; even selection is fixed throughout.}
 \label{tab:ablation_main}
 \centering
-\resizebox{\textwidth}{!}{
-\begin{tabular}{lcccrrrrr}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\textwidth}{@{}Xccrrrrr@{}}
 \toprule
-Variant & Selection & Consensus & Verification & Stage Pass/N $\uparrow$ & $\Delta$Edge $\uparrow$ & $\Delta$Grad $\uparrow$ & Severe $\downarrow$ & Disp. (px) $\downarrow$ \\
+Variant & \shortstack{Con-\\sensus} & QA & \shortstack{Output\\/N} & \shortstack{$\Delta$Edge\\$\uparrow$} & \shortstack{$\Delta$Grad\\$\uparrow$} & \shortstack{Severe\\$\downarrow$} & \shortstack{Disp.\\(px) $\downarrow$} \\
 \midrule
-Pairwise evidence only & even & \xmark & \xmark & 8/8 & 0.124 & 0.126 & 0.104 & 151.2 \\
-+ Robust scene consensus & even & \cmark & \xmark & 8/8 & 0.146 & 0.149 & 0.042 & 52.5 \\
-+ Cross-modal verification & even & \cmark & \cmark & 5/8 & 0.146 & 0.148 & 0.042 & 57.7 \\
+Pairwise evidence only & \xmark & \xmark & 8/8 & 0.124 & 0.126 & 0.104 & 151.2 \\
++ Robust scene consensus & \cmark & \xmark & 8/8 & 0.146 & 0.149 & 0.042 & 52.5 \\
++ Cross-modal verification & \cmark & \cmark & 5/8 & 0.146 & 0.148 & 0.042 & 57.7 \\
 \bottomrule
-\end{tabular}}
+\end{tabularx}
 \end{table}
 
-Figure~\ref{fig:validation_attribution}c,d connects the cumulative module effects with the
+Figure~\ref{fig:module_attribution} connects the cumulative module effects with the
 multi-seed selection study: robust consensus supplies the largest diagnostic gain, while the
 deterministic schedule provides a stable reference operating policy.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\textwidth]{figures/fig09_validation_attribution.pdf}
-\caption{Controlled validation and module attribution. (a) Five-fold leave-frame-out consensus
-across all 15 scenes. (b) Joint edge/gradient quality under increasing translation, rotation, and
-scale perturbations. (c) Cumulative module effects on the fixed eight-scene diagnostic subset.
-(d) Random-selection sensitivity across seeds on the same subset.}
-\label{fig:validation_attribution}
+\includegraphics[width=\textwidth]{figures/fig11_module_attribution.pdf}
+\caption{Module attribution on the fixed eight-scene UAV-TAlign-1K-Lite subset. (a) Cumulative
+changes in edge and gradient agreement. (b) Canonical retained-scene counts for four random seeds;
+the dashed line denotes the deterministic-even reference.}
+\label{fig:module_attribution}
 \end{figure}
 
 Across random-selection seeds, the same fixed subset yields 5/8 to 7/8 scene products while mean
-accepted-frame support remains comparatively stable. The result confirms deterministic-even
-selection as a reproducible operating policy and localizes seed sensitivity to a small set of
+accepted-frame support remains comparatively stable. Deterministic-even selection provides a
+reproducible reference, while the random runs localize seed sensitivity to a small set of
 near-threshold scenes.

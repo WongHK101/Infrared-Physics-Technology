@@ -1,0 +1,102 @@
+% !TEX root = ../paper.tex
+
+\section{Protocol Definitions and Reproducibility Details}
+\label{sec:protocol_details}
+
+\subsection{Probe Frames and Relative Quality Signals}
+
+Each scene uses up to 12 evenly distributed manifest pairs as QA probes, selected from the scene
+rather than only from accepted matches. Images are evaluated at quarter scale with the longest
+dimension capped at 640 pixels. The scene homography is converted to these evaluation coordinates.
+For each probe, both the transformed image and the size-matched reference are scored within the
+same warped infrared validity mask. The reference resizes infrared edges and gradients to the RGB
+evaluation grid. Its full-image size mapping is denoted by $H_0$; it is not a fitted registration.
+
+Let $E_i(H)$ denote edge-overlap F1 with a one-pixel dilation tolerance, and $G_i(H)$ denote
+normalized cross-correlation between gradient magnitudes inside the validity mask. Define
+\begin{equation}
+\delta E_i = E_i(\bar H_S)-E_i(H_0), \qquad
+\delta G_i = G_i(\bar H_S)-G_i(H_0).
+\end{equation}
+The scene gains $\Delta E_S$ and $\Delta G_S$ are probe means. A severe relative outlier has both
+$\delta E_i<-0.01$ and $\delta G_i<-0.01$; $O_S$ is its fraction among probes. Let $p_{\lor}$ be
+the fraction with either gain positive and $p_G$ the fraction with positive gradient gain.
+These image-domain diagnostics measure agreement relative to the size-matched reference.
+
+\subsection{Support and Canonical Verification}
+\label{sec:canonical_details}
+
+A frame enters the accepted pool when homography fitting succeeds with at least 80 candidate
+matches, inlier ratio at least 0.30, mean inlier reprojection error at most 4 pixels, and coverage
+at least 0.25. For a scene with $N$ valid pairs, the frozen minimum accepted support is
+\begin{equation}
+N_{\min}=\max\!\left(4,\min\!\left(N,\max\!\left(8,
+\min\!\left(20,\operatorname{round}(0.15N)\right)\right)\right)\right).
+\end{equation}
+This yields thresholds of 8 for S01--S04, 15 for S07, and 20 for the remaining scenes.
+Accepted support $A_S$ is the number of accepted frames divided by the number attempted.
+The robust-rejection ratio $J_S$ is the fraction removed from this accepted pool during consensus.
+Dispersion $D_S$ is the median, across accepted hypotheses, of mean displacement from the consensus
+on a $5\times5$ infrared-image grid, measured in RGB-image pixels.
+
+The primary path $L_S$ requires $\Delta E_S>0$, $\Delta G_S>0$, $p_{\lor}\ge0.60$, and zero
+severe relative outliers. The alternative path $W_S$ applies to infrared input with size-based
+initialization and requires all of the following:
+\begin{equation}
+\begin{aligned}
+A_S&\ge0.80, & \bar r_S&\ge0.30, & \bar e_S&\le4\text{ px}, & \bar c_S&\ge0.25, \\
+D_S&\le25\text{ px}, & J_S&\le0.25, & O_S&\le0.10, & n_{\mathrm{out}}&\le1, \\
+\Delta E_S&\ge-0.05, & \Delta G_S&>0, & p_G&\ge0.60. &&
+\end{aligned}
+\end{equation}
+Here $\bar r_S,\bar e_S,\bar c_S$ are accepted-frame means. Path $L_S$ gives a pass;
+path $W_S$ gives a pass with warning when $L_S$ is not met. Both contribute to canonical retention
+once $N_S\ge N_{\min}$. Adaptive expansion stops when this retention condition and the
+$D_S\le25$, $J_S\le0.25$ stability checks hold. After exhausting the schedule, the final
+canonical decision still follows Eq.~\ref{eq:canonical_gate}; the stopping checks are not an
+additional requirement on the primary path. Thus early stopping and final retention have distinct roles.
+
+\subsection{Normalized Reliability Score}
+\label{sec:score_normalization}
+
+Let $C(x)=\min(1,\max(0,x))$. The components used in Eq.~\ref{eq:reliability_score} are
+\begin{equation}
+\begin{aligned}
+\hat a_S &= C(A_S), & \hat o_S &= 1-C(O_S/0.10), \\
+\hat j_S &= 1-C(J_S/0.25), & \hat e_S &= C((\Delta E_S+0.05)/0.20), \\
+\hat g_S &= C(\Delta G_S/0.15), &&
+\end{aligned}
+\end{equation}
+\begin{equation}
+\hat z_S=0.5C(\bar r_S/0.50)+0.3C(\bar c_S)
+       +0.2\left[1-C\!\left((\bar e_S-1.5)/1.0\right)\right].
+\end{equation}
+All constants are fixed and no model is fitted to scene outcomes. The resulting $[0,100]$ score
+provides a diagnostic ordering, not a calibrated probability. Score-ranked coverage points select
+the first $K$ scenes in this ordering. The canonical point is evaluated on its own retained set.
+
+\subsection{Metric Aggregation}
+\label{sec:metric_aggregation}
+
+\paragraph{Pairwise statistics.}
+Inlier ratio is the number of fitted inliers divided by the candidate-match count. Coverage is
+the fraction of the 16 infrared-image grid cells occupied by candidate matches, before robust
+fitting. Reprojection error is the mean Euclidean inlier residual in RGB-image pixels for one
+pair; the main table reports the median of these pair-level means. Each summary uses the recorded
+finite, non-null values of that metric. Recorded zero inlier ratios and coverages are included,
+whereas missing reprojection values are excluded. Runtime is the mean recorded time per pair
+under the stated implementation and deployment profile.
+
+\paragraph{Scene and condition statistics.}
+Scene coverage is the fraction of scenes retained. Pair coverage weights each retained scene by
+its valid manifest pair count. Accepted/attempted ratios use the summed frame counts within the
+indicated scene set. Accordingly, retained-set support is $1491/2304=64.7\%$, whereas all-scene
+support is $2473/3847=64.3\%$. Condition retention is scene-macro; accepted support is frame-micro.
+
+\paragraph{Resampling and perturbations.}
+For leave-frame-out analysis, grid displacement is averaged within each fold, then across the
+five folds of each scene. The reported 1.39 pixels is the median of these 15 scene means;
+their mean is 2.26 pixels. Perturbation curves average the joint edge/gradient score change
+over 45 frames at each severity and mode. A degradation rate counts frames with a negative joint
+score change at that setting. These tests assess consensus stability and quality-signal response,
+respectively, rather than fitting or recalibrating the ranking score.

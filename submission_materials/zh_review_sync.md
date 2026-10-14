@@ -26,6 +26,7 @@
 | `sections/06_results.tex` | `sections_zh/06_results_zh.tex` |
 | `sections/07_discussion.tex` | `sections_zh/07_discussion_zh.tex` |
 | `sections/08_conclusion.tex` | `sections_zh/08_conclusion_zh.tex` |
+| `sections/09_protocol_details.tex` | `sections_zh/09_protocol_details_zh.tex` |
 
 ## 固定术语
 
@@ -38,4 +39,5 @@
 | high-confidence scene product | 高置信场景产品 |
 | canonical operating point | 规范运行点 |
 | cross-modal scene verification | 跨模态场景验证 |
+| geometry-informed frame weighting | 几何引导帧加权 |
 | reliability--coverage profile | 可靠性--覆盖率曲线 |

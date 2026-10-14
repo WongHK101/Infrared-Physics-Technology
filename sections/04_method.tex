@@ -31,11 +31,10 @@ $\{H_i\}$ and assign its canonical product status.
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/fig03_scene_framework.pdf}
-\caption{UAV-TAlign scene-level alignment framework. (a) Synchronized RGB-infrared pairs pass
-through pairwise homography generation, progressive evidence scheduling, geometry-calibrated frame
-reliability, robust median/MAD consensus, and cross-modal QA. (b) Unsupported frame hypotheses are
-rejected before the fixed canonical gate defines high-confidence products; an interpretable score
-independently orders operating points for coverage analysis.}
+\caption{UAV-TAlign scene-level alignment framework. (a) Progressive scheduling gathers pairwise
+homographies and geometry-informed weights. (b) Median/MAD filtering and weighted aggregation form
+the scene consensus. (c) Cross-modal diagnostics feed two separate branches: the fixed canonical
+gate defines retained products, while the reliability score orders operating points.}
 \label{fig:scene_framework}
 \end{figure}
 
@@ -52,11 +51,15 @@ UAV-TAlign starts from a compact, evenly distributed frame subset and expands th
 deterministic stages. The schedule scales with scene size and can cover the complete sequence.
 Expansion stops when accepted support, consensus stability, and cross-modal quality conditions are
 satisfied; otherwise, the next subset is evaluated.
+Scenes with at most 300 pairs use all available pairs. Larger scenes start with approximately
+15\% of the pairs and expand in 15-percentage-point increments up to 50\%, followed by the full
+scene if needed. The 12-frame setting controls the representative QA probes, not a fixed cap on
+matching evidence. Exact support and stopping rules are specified in Appendix~\ref{sec:protocol_details}.
 
 Within each stage, evenly distributed sampling provides reproducible temporal or index coverage.
 The random-selection variant is evaluated separately through a multi-seed sensitivity analysis.
 
-\subsection{Geometry-Calibrated Frame Reliability}
+\subsection{Geometry-Informed Frame Weighting}
 
 For each selected pair, the matcher produces cross-modal correspondences and a frame-level
 homography estimate. UAV-TAlign measures match count, inlier support, inlier ratio, reprojection
@@ -68,21 +71,17 @@ fitting practice
 Each accepted frame also receives a continuous quality weight. The weight combines inlier ratio,
 spatial coverage, reprojection quality, matcher confidence, and inlier support, giving greater
 influence to homographies with stronger geometry.
-In normalized form, the frame quality weight is written as
+The fixed frame quality weight is
 \begin{equation}
-q_i =
-\alpha_r \phi(r_i) +
-\alpha_c \phi(c_i) +
-\alpha_e \phi(e_i) +
-\alpha_m \phi(m_i) +
-\alpha_n \phi(n_i),
-\qquad
-\sum_k \alpha_k = 1,\ \alpha_k \ge 0,
+\begin{aligned}
+q_i ={}& 0.42r_i + 0.28c_i + \frac{0.15}{1+\max(e_i,0)} \\
+&+ 0.10m_i + 0.05\tanh(n_i/300),
+\end{aligned}
 \label{eq:frame_quality}
 \end{equation}
-where $r_i$ is inlier ratio, $c_i$ is spatial coverage, $e_i$ is reprojection quality, $m_i$ is
-matcher confidence, $n_i$ is inlier support, and $\phi(\cdot)$ maps each diagnostic into a
-consistent quality direction. The weights remain fixed across all UAV-TAlign-12K evaluations.
+where $r_i$ is inlier ratio, $c_i$ is spatial match coverage, $e_i$ is mean inlier reprojection
+error in RGB-image pixels, $m_i$ is mean matcher confidence, and $n_i$ is the number of inliers.
+The coefficients remain fixed across all UAV-TAlign-12K evaluations.
 
 \subsection{Robust Scene Consensus}
 
@@ -90,14 +89,15 @@ Once enough frame-level homographies have been accepted, UAV-TAlign forms a robu
 Homographies are mapped into parameter space, centered with a median reference, and filtered by a
 median-absolute-deviation rule to suppress unstable estimates before weighted averaging. The
 retained homographies are then combined using the frame quality scores defined above.
-Let $\mathbf{h}_i$ be the scale-normalized vector form of $H_i$. The consensus set is
+Let $\mathbf{h}_i$ contain the eight free entries of $H_i$ after scaling its bottom-right entry
+to one. The consensus set is
 \begin{equation}
 \begin{aligned}
 \mathbf{h}^{\mathrm{med}}_S
 &= \operatorname{median}_{j \in \mathcal{A}_S}(\mathbf{h}_j), \\
 d_i &= \left\|\mathbf{h}_i - \mathbf{h}^{\mathrm{med}}_S\right\|_2, \\
 m_d &= \operatorname{median}_{j \in \mathcal{A}_S}(d_j), \\
-s_d &= \operatorname{median}_{j \in \mathcal{A}_S}|d_j-m_d|, \\
+s_d &= \operatorname{median}_{j \in \mathcal{A}_S}|d_j-m_d| + 10^{-9}, \\
 \mathcal{C}_S &= \left\{i \in \mathcal{A}_S: d_i \le m_d + 2.5s_d\right\}.
 \end{aligned}
 \label{eq:consensus_set}
@@ -120,33 +120,25 @@ These diagnostics connect consensus formation with the final scene-product decis
 \subsection{Cross-Modal Scene Verification}
 
 The final stage integrates geometric support with cross-modal scene consistency. UAV-TAlign
-evaluates the optimized transform on representative frames using edge-overlap improvement,
+evaluates the consensus transform on representative frames using edge-overlap improvement,
 gradient-NCC improvement, the fraction of improved frames, and severe relative outliers. It also
 records accepted-frame support, mean inlier ratio, mean reprojection error, spatial coverage,
 dispersion around the aggregate transform, and robust-rejection ratio.
 
-The canonical decision uses a baseline-aware verification rule. High-confidence products combine
-strong accepted-frame support, stable consensus geometry, controlled baseline-relative outliers,
-and improved gradient alignment. A fixed, interpretable reliability score summarizes the same
-diagnostics for operating-profile visualization,
+The canonical decision combines accepted support with either a primary edge/gradient test or a
+baseline-aware path that additionally constrains geometry and outliers. A fixed, interpretable
+score summarizes normalized diagnostics for operating-profile visualization,
 \begin{equation}
 \begin{aligned}
-R(S) ={}&
-\beta_a A_S +
-\beta_o (1-O_S) +
-\beta_j (1-J_S) \\
-&+
-\beta_e \Delta E_S +
-\beta_g \Delta G_S +
-\beta_{\gamma} \Gamma_S,
-\qquad
-\sum_k \beta_k = 1 .
+R(S) = 100\big(&0.25\hat a_S + 0.25\hat o_S + 0.20\hat j_S \\
+&+ 0.15\hat e_S + 0.10\hat g_S + 0.05\hat z_S\big).
 \end{aligned}
 \label{eq:reliability_score}
 \end{equation}
-where $A_S$ is accepted-frame support, $O_S$ is the severe baseline-relative outlier ratio, $J_S$ is
-the robust-consensus rejection ratio, $\Delta E_S$ and $\Delta G_S$ are edge and gradient
-improvement proxies, and $\Gamma_S$ collects geometry diagnostics. The canonical decision requires
+Here each hatted component lies in $[0,1]$, with larger values representing stronger accepted
+support, outlier control, consensus retention, edge improvement, gradient improvement, and
+geometric support, respectively. Appendix~\ref{sec:score_normalization} gives every normalization
+and clipping constant. The canonical decision requires
 a minimum number of accepted frame hypotheses and one of two fixed verification paths,
 \begin{equation}
 y_S =
@@ -156,8 +148,10 @@ N_S \ge N_{\min}
 \mathbb{1}\!\left[L_S \lor W_S\right].
 \label{eq:canonical_gate}
 \end{equation}
-Here $L_S$ denotes the primary edge/gradient path, and $W_S$ denotes a high-modality path combining
-accepted support, consensus geometry, relative outlier control, and gradient improvement. The score
+Here $N_S$ is the accepted-frame count and $N_{\min}$ is the scene-size-dependent support threshold.
+$L_S$ denotes the primary edge/gradient path; $W_S$ combines accepted support, consensus geometry,
+relative outlier control, and gradient improvement when the initialization is size-based.
+Appendix~\ref{sec:canonical_details} specifies both paths. The score
 $R(S)$ orders scenes for reliability--coverage analysis, while $y_S$ defines the canonical set of
 high-confidence alignment products.
 

@@ -27,9 +27,9 @@ $\bar{H}_S$，并赋予其规范产品状态。
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/fig03_scene_framework.pdf}
-\caption{UAV-TAlign 场景级对齐框架。（a）同步 RGB-红外图像对依次经过成对单应性生成、渐进式证据
-调度、几何校准帧可靠性、鲁棒中位数/MAD 共识和跨模态质量验证；（b）共识支撑外的逐帧假设在固定
-规范门控之前被剔除，门控定义高置信产品，可解释分数则独立用于运行覆盖率排序。}
+\caption{UAV-TAlign 场景级对齐框架。（a）渐进式调度收集成对单应性与几何引导权重；（b）中位数/MAD
+过滤与加权聚合形成场景共识；（c）跨模态诊断输入两个独立分支：固定规范门控定义保留产品，可靠性
+评分用于运行点排序。}
 \label{fig:scene_framework_zh}
 \end{figure}
 
@@ -44,11 +44,14 @@ UAV-TAlign 使用预训练多模态匹配器生成成对证据。参考实现采
 UAV-TAlign 从一个紧凑、均匀分布的帧子集开始，并以确定性阶段逐步扩展支撑集合。调度规模随
 场景长度变化，必要时可以覆盖完整序列。当接受支撑、共识稳定性和跨模态质量条件满足时停止扩展；
 否则评测下一阶段子集。
+不超过 300 对图像的场景使用全部图像对。更大场景从约 15\% 的图像对开始，以 15 个百分点为步长
+扩展到 50\%，必要时再使用全场景。12 帧设置控制代表性 QA 探针，不是匹配证据的固定上限。
+附录~\ref{sec:protocol_details_zh} 给出支撑与停止规则。
 
 在每个阶段内，均匀分布采样提供可复现的时间或索引覆盖。随机选择变体通过独立的多随机种子
 敏感性分析进行评测。
 
-\subsection{几何校准帧可靠性}
+\subsection{几何引导帧加权}
 
 对于每个选定图像对，匹配器产生跨模态对应关系和逐帧单应性估计。UAV-TAlign 测量匹配数量、
 内点支撑、内点率、重投影误差和空间覆盖率。当这些统计量满足几何质量准则时，对应帧进入场景
@@ -56,34 +59,30 @@ UAV-TAlign 从一个紧凑、均匀分布的帧子集开始，并以确定性阶
 \cite{hartley2004multiple,fischler1981ransac,barath2019magsac,barath2020magsacpp}。
 
 每个接受帧还会获得一个连续质量权重。该权重综合内点率、空间覆盖率、重投影质量、匹配器置信度
-以及内点支撑，使具有更强几何依据的单应性在场景聚合中具有更大影响。归一化帧质量权重写为：
+以及内点支撑，使具有更强几何依据的单应性在场景聚合中具有更大影响。固定帧质量权重为：
 \begin{equation}
-q_i =
-\alpha_r \phi(r_i) +
-\alpha_c \phi(c_i) +
-\alpha_e \phi(e_i) +
-\alpha_m \phi(m_i) +
-\alpha_n \phi(n_i),
-\qquad
-\sum_k \alpha_k = 1,\ \alpha_k \ge 0,
+\begin{aligned}
+q_i ={}& 0.42r_i + 0.28c_i + \frac{0.15}{1+\max(e_i,0)} \\
+&+ 0.10m_i + 0.05\tanh(n_i/300),
+\end{aligned}
 \label{eq:frame_quality_zh}
 \end{equation}
-其中，$r_i$ 是内点率，$c_i$ 是空间覆盖率，$e_i$ 是重投影质量，$m_i$ 是匹配器置信度，
-$n_i$ 是内点支撑，$\phi(\cdot)$ 将各诊断量映射到一致的质量方向。所有 UAV-TAlign-12K
-评测均使用固定权重。
+其中，$r_i$ 是内点率，$c_i$ 是空间匹配覆盖率，$e_i$ 是以 RGB 图像像素为单位的平均内点重投影
+误差，$m_i$ 是平均匹配置信度，$n_i$ 是内点数量。所有 UAV-TAlign-12K 评测均使用固定系数。
 
 \subsection{鲁棒场景共识}
 
 在获得足够的逐帧单应性后，UAV-TAlign 构建鲁棒场景共识。首先将单应性映射到参数空间，以
 中位数作为中心参考，并采用中位数绝对偏差（MAD）准则剔除不稳定估计；随后使用上述帧质量分数
-对保留单应性进行加权聚合。令 $\mathbf{h}_i$ 表示 $H_i$ 的尺度归一化向量形式，则共识集合为：
+对保留单应性进行加权聚合。将 $H_i$ 的右下元素归一化为一后，令 $\mathbf{h}_i$ 包含其八个自由
+分量，则共识集合为：
 \begin{equation}
 \begin{aligned}
 \mathbf{h}^{\mathrm{med}}_S
 &= \operatorname{median}_{j \in \mathcal{A}_S}(\mathbf{h}_j), \\
 d_i &= \left\|\mathbf{h}_i - \mathbf{h}^{\mathrm{med}}_S\right\|_2, \\
 m_d &= \operatorname{median}_{j \in \mathcal{A}_S}(d_j), \\
-s_d &= \operatorname{median}_{j \in \mathcal{A}_S}|d_j-m_d|, \\
+s_d &= \operatorname{median}_{j \in \mathcal{A}_S}|d_j-m_d| + 10^{-9}, \\
 \mathcal{C}_S &= \left\{i \in \mathcal{A}_S: d_i \le m_d + 2.5s_d\right\}.
 \end{aligned}
 \label{eq:consensus_set_zh}
@@ -103,30 +102,21 @@ s_d &= \operatorname{median}_{j \in \mathcal{A}_S}|d_j-m_d|, \\
 
 \subsection{跨模态场景验证}
 
-最后阶段融合几何支撑与跨模态场景一致性。UAV-TAlign 在代表帧上测量优化后变换的边缘重叠增益、
+最后阶段融合几何支撑与跨模态场景一致性。UAV-TAlign 在代表帧上测量共识变换的边缘重叠增益、
 梯度 NCC 增益、改善帧比例和严重相对离群点。同时记录接受帧支撑、平均内点率、平均重投影误差、
 空间覆盖率、相对于聚合变换的离散度，以及鲁棒剔除比例。
 
-规范决策采用基线感知验证规则。高置信产品需要同时具备较强的接受帧支撑、稳定的共识几何、
-受控的基线相对离群点和改善后的梯度对齐。为绘制运行曲线，使用一个固定、可解释的可靠性分数
-汇总同一组诊断量：
+规范决策将接受支撑与两条路径之一结合：主要边缘/梯度检验，或额外约束几何与离群点的基线感知
+路径。一个固定、可解释的评分汇总归一化诊断量，用于运行曲线可视化：
 \begin{equation}
 \begin{aligned}
-R(S) ={}&
-\beta_a A_S +
-\beta_o (1-O_S) +
-\beta_j (1-J_S) \\
-&+
-\beta_e \Delta E_S +
-\beta_g \Delta G_S +
-\beta_{\gamma} \Gamma_S,
-\qquad
-\sum_k \beta_k = 1 .
+R(S) = 100\big(&0.25\hat a_S + 0.25\hat o_S + 0.20\hat j_S \\
+&+ 0.15\hat e_S + 0.10\hat g_S + 0.05\hat z_S\big).
 \end{aligned}
 \label{eq:reliability_score_zh}
 \end{equation}
-其中，$A_S$ 是接受帧支撑，$O_S$ 是严重基线相对离群点比例，$J_S$ 是鲁棒共识剔除比例，
-$\Delta E_S$ 与 $\Delta G_S$ 分别为边缘和梯度增益代理量，$\Gamma_S$ 汇总几何诊断量。
+每个带帽分量均位于 $[0,1]$，较大的值依次代表更强的接受支撑、离群点控制、共识保留、边缘改善、
+梯度改善与几何支撑。附录~\ref{sec:score_normalization_zh} 列出全部归一化和截断常数。
 规范决策要求满足最低接受帧假设数量，并通过两条固定验证路径之一：
 \begin{equation}
 y_S =
@@ -136,8 +126,9 @@ N_S \ge N_{\min}
 \mathbb{1}\!\left[L_S \lor W_S\right].
 \label{eq:canonical_gate_zh}
 \end{equation}
-其中，$L_S$ 表示主要边缘/梯度路径，$W_S$ 表示联合接受支撑、共识几何、相对离群点控制和
-梯度改善的高模态路径。$R(S)$ 用于可靠性--覆盖率分析中的场景排序，$y_S$ 则定义规范的高置信
+其中，$N_S$ 为接受帧数，$N_{\min}$ 是随场景规模确定的支撑阈值。$L_S$ 表示主要边缘/梯度路径，
+$W_S$ 在基于尺寸的初始化条件下联合接受支撑、共识几何、相对离群点控制和梯度改善。
+附录~\ref{sec:canonical_details_zh} 给出两条路径的具体定义。$R(S)$ 用于可靠性--覆盖率分析中的场景排序，$y_S$ 则定义规范的高置信
 对齐产品集合。
 
 图~\ref{fig:consensus_qa_zh} 在一组匹配场景对照上揭示内部证据流：即使接受帧数量相同，引入共识

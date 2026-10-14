@@ -12,7 +12,9 @@ RANSAC and its accuracy-oriented successors remain central to converting noisy c
 into geometric models
 \cite{fischler1981ransac,hartley2004multiple,barath2019magsac,barath2020magsacpp}.
 For infrared-visible imagery, radiation-variation-insensitive constructions such as RIFT improve
-descriptor repeatability across modality-specific appearance changes \cite{li2020rift}. These
+descriptor repeatability across modality-specific appearance changes \cite{li2020rift}.
+RIFT2 reduces its computational cost through a revised rotation-invariant construction
+\cite{li2023rift2}. These
 methods provide an interpretable foundation for separating correspondence quality from downstream
 scene aggregation.
 
@@ -28,10 +30,10 @@ matchers as evidence generators within a scene-scale geometric pipeline.
 
 \subsection{Infrared-Visible Alignment}
 
-Infrared-visible registration spans feature-based matching, direct optimization, and learned
-alignment. Radiation-insensitive descriptors address nonlinear cross-modal appearance, while
-learned formulations estimate pairwise transforms or dense warps from training data
-\cite{li2020rift,chang2017clkn,nie2021udis}. UAV dual-sensor imagery adds cross-resolution optics,
+Infrared-visible registration spans feature-based matching and learned correspondence estimation
+\cite{li2020rift,li2023rift2,tuzcuoglu2024xoftr,ren2025minima}. More broadly, learned image alignment
+and stitching estimate transforms or reconstruct aligned imagery from training data
+\cite{chang2017clkn,nie2021udis}. UAV dual-sensor imagery adds cross-resolution optics,
 viewpoint displacement, thermal rendering variation, and illumination changes. Registration under
 these conditions has motivated dedicated pairwise methods and UAV-specific data resources.
 
@@ -56,7 +58,7 @@ correspondence counts.
 UAV-TAlign-12K defines pairwise, scene, and operating-profile tracks. The
 pairwise track measures the availability and support of homography evidence. The scene track
 measures how multiple frame estimates form a consensus transform. The operating profile then
-orders scene products using fixed, interpretable cross-modal diagnostics. This design makes
-scene-scale evidence consolidation directly comparable across classical, infrared-specific, and
-modern learned matchers while preserving a common captured-data protocol
+orders scene products using fixed, interpretable cross-modal diagnostics. This design places
+classical, infrared-specific, and modern learned evidence generators within a common captured-data
+protocol, with UAV-TAlign as the scene-level reference framework
 \cite{ma2021survey,liao2024survey}.

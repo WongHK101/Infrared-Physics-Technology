@@ -26,19 +26,20 @@ the score-ranked sweep exposes broader coverage regimes. This representation all
 to select scene-product coverage according to its quality requirements without changing the
 pairwise matcher or consensus estimator.
 
-Two controlled analyses support the ordering signals used in this profile. Leave-frame-out
-recomputation preserves the full-evidence consensus with a 1.39-pixel median drift. Translation,
-rotation, and scale perturbations also produce monotonic degradation of the joint edge/gradient
-signal. Together, these observations connect the scene diagnostics to both evidence stability and
-known geometric degradation.
+The controlled analyses probe the underlying diagnostics. With one fold withheld, recomputed
+consensus yields a 1.39-pixel median of scene-wise mean displacements, characterizing sensitivity to the
+selected evidence. Translation, rotation, and scale perturbations progressively reduce the mean
+joint edge/gradient signal, characterizing its response to geometric disturbance. These observations
+support the use of consensus stability and image agreement as complementary diagnostics.
 
 \subsection{Benchmark Extensibility}
 
 The benchmark separates pairwise correspondence, scene aggregation, and cross-modal verification
-through a manifest-based interface. Future matchers can therefore be compared as evidence
-generators, while alternative consensus estimators and operating policies can be studied without
-changing the captured-data split. The same organization supports extensions to additional scene
-classes, acquisition geometries, sensor payloads, and downstream infrared sensing tasks.
+through a manifest-based interface. Future matchers and consensus estimators can therefore be
+studied on the same captured-data split. The scene homography describes a dominant planar or
+far-field alignment; spatially varying geometry calls for local or nonrigid representations.
+The reported operating profiles characterize relative image agreement and evidence consistency
+within the 15 captured scenes.
 
 Deterministic evidence scheduling provides a stable default for this shared interface. The
 multi-seed study shows that random selection changes the product status of a small set of

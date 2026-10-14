@@ -1,6 +1,6 @@
 # UAV-TAlign figure reconstruction
 
-This directory contains the reproducible source package for the nine redesigned
+This directory contains the reproducible source package for eleven
 main-text figure groups. Each figure has an independent directory with:
 
 - `build.py`: rendering or validated-export entry point;
@@ -14,8 +14,15 @@ main-text figure groups. Each figure has an independent directory with:
 Figures 1, 2, and 4 are hybrid compositions: Draw.io supplies the editable
 schematic panels, while Python renders the data-bound plots and verified
 RGB/infrared imagery. Figure 3 is a fully editable Draw.io schematic. Figures
-5--9 remain Python-rendered because their primary evidence is image- or
+5--11 remain Python-rendered because their primary evidence is image- or
 data-bound rather than diagrammatic.
+
+The October 2026 revision separates the previous four-panel groups: `fig08` now
+contains only risk/coverage and evidence support; `fig10` contains condition
+profiles. `fig09` now contains only protocol validation; `fig11` contains
+1K-Lite module/seed diagnostics. Directory identifiers remain stable; LaTeX
+assigns the displayed figure numbers from manuscript order. The Chinese
+student-asset handoff is `STUDENT_FIGURE_HANDOFF_ZH.md`.
 
 Run the Python/hybrid assembly and verify the Draw.io-managed export with:
 

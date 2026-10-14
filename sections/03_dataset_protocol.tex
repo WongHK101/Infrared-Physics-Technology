@@ -22,19 +22,26 @@ multimodal resources. UAVMatch denotes the synthetic transform-supervised UAV al
 benchmark.}
 \label{tab:dataset_positioning}
 \centering
-\resizebox{\textwidth}{!}{
-\begin{tabular}{lllll}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
-Resource & Data basis & Alignment signal & Scale & Primary evaluation focus \\
+Resource & Data and alignment reference & Scale & Evaluation focus \\
 \midrule
-KAIST / FLIR / LLVIP / M3FD & Ground or mixed RGB-infrared data & Paired or aligned imagery & Dataset-specific & Detection, fusion, low-light perception \\
-DroneVehicle / VTUAV / LasHeR / Anti-UAV & UAV or tracking-centric RGB-infrared data & Task annotations & Dataset-specific & Detection or tracking under multimodal sensing \\
-UAVMatch / TGRS~\cite{gao2025uavmatch} & Synthetic transforms from UAV multimodal data & Affine / homography supervision & 81K train / 15K test pairs & Supervised transform regression and geometric metrics \\
-ATR-UMMIM~\cite{bin2025atrummim} & Real UAV visible / infrared / registered-visible triplets & Semi-automated pixel-level reference & 7,969 triplets & Pairwise registration accuracy and condition attributes \\
-UAV-TIRVis~\cite{vasile2025uavtirvis} & Real UAV thermal-visible imagery & Manual pairwise registration & 80 pairs & Direct image-domain registration quality \\
-UAV-TAlign-12K & Real captured cross-FOV UAV infrared-visible data & Multi-frame scene protocol & 6,039 candidate / 6,037 evaluated pairs & Pairwise evidence, scene consensus, and operating coverage \\
+KAIST / FLIR / LLVIP / M3FD & Ground or mixed RGB-infrared data; paired or aligned imagery & Dataset-specific & Detection, fusion, low-light perception \\
+\addlinespace
+DroneVehicle / VTUAV / LasHeR / Anti-UAV & UAV or tracking-centric RGB-infrared data; task annotations & Dataset-specific & Multimodal detection or tracking \\
+\addlinespace
+UAVMatch~\cite{gao2025uavmatch} & Synthetic affine / homography supervision from UAV data & 81K train / 15K test pairs & Transform regression and geometric metrics \\
+\addlinespace
+ATR-UMMIM~\cite{bin2025atrummim} & Real UAV triplets with registered-visible images; semi-automated pixel reference & 7,969 triplets & Pairwise registration and condition attributes \\
+\addlinespace
+UAV-TIRVis~\cite{vasile2025uavtirvis} & Real aerial thermal-visible pairs; manual registration & 80 pairs & Image-domain registration quality \\
+\addlinespace
+UAV-TAlign-12K & Captured cross-FOV UAV pairs; multi-frame scene protocol & 6,039 candidate / 6,037 evaluated pairs & Pairwise evidence, scene consensus, operating coverage \\
 \bottomrule
-\end{tabular}}
+\end{tabularx}
 \end{table}
 
 \begin{figure}[t]
@@ -53,8 +60,8 @@ profile.}
 UAV-TAlign-12K was acquired between the second half of 2024 and the first half of 2026 across
 industrial and natural scenes in southern China. All scenes were captured with the same DJI
 Matrice 350 RTK platform and Zenmuse H30T multisensor payload. The integrated payload
-automatically synchronized the visible and infrared products, preserving the native cross-sensor
-geometry. The flights combined hovering and route-based capture using a registered aircraft, a
+automatically synchronized the visible and infrared capture in time. Images retain their native
+cross-sensor geometry without manual geometric alignment. The flights combined hovering and route-based capture using a registered aircraft, a
 CAAC-qualified pilot, and permitted flight areas.
 
 The released streams retain the native H30T acquisition modes. Wide-camera stills are
@@ -101,11 +108,13 @@ and the operating profile exposes how product coverage changes with scene qualit
 
 \subsection{Label-Free Scene-Consistency Diagnostics}
 
-The protocol uses label-free relative signals for scalable scene-consistency analysis. The stored
-diagnostics compare the optimized transform with its baseline initialization and quantify changes
-in cross-modal agreement. They include edge-overlap improvement, gradient-NCC improvement, the
+The protocol measures cross-modal agreement after applying the scene consensus and compares it
+with a size-matched infrared reference. This reference resizes the infrared image to the RGB
+evaluation grid without estimating alignment. Diagnostics include edge-overlap improvement, gradient-NCC improvement, the
 fraction of frames with improved gradient agreement, severe baseline-relative outlier count and
 ratio, accepted-frame support, homography dispersion, and robust-rejection ratio.
+Appendix~\ref{sec:protocol_details} specifies the reference, probe frames, normalization, and
+aggregation conventions used throughout the evaluation.
 
 These signals jointly characterize cross-modal improvement, geometric support, and consensus
 stability. The resulting diagnostics support canonical product selection, condition-aware analysis,
