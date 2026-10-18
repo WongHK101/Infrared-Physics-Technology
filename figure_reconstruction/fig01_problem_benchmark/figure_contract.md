@@ -1,11 +1,9 @@
-# Figure 1 contract
+# Figure contract (2026-10-18)
 
-- **Core conclusion:** UAV-TAlign-12K captures synchronized, cross-FOV UAV
-  infrared-visible imagery across diverse illumination, rendering, and view regimes.
-- **Archetype:** asymmetric mixed-modality figure.
-- **Hero evidence:** six real RGB/infrared pairs from the frozen public-safe shortlist.
-- **Supporting evidence:** synchronized acquisition schematic, integrity-checked data card,
-  and a real before/after overlay example.
-- **Final size:** 183 x 98 mm; SVG/PDF plus 600-dpi PNG.
-- **Reviewer risk:** the acquisition panel is explicitly schematic; all image panels are
-  traceable selected crops and retain the native infrared rendering.
+Six paired RGB/infrared examples with a compact acquisition/data card. Student-inspired two-column groups; native image bytes, no blank acquisition placeholder. Six scenes: S01/S04/S05/S10/S13/S14.
+
+- Source of truth: frozen figure-local records and the English manuscript.
+- Outputs: SVG/PDF/PNG; Draw.io source where applicable.
+- No new inference, numerical changes or raw-data writes.
+- Photo/overlay panels remain unretouched; labels and layout are editable vectors.
+- Main and appendix captions are mirrored in the Chinese manuscript.

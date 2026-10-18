@@ -37,6 +37,14 @@ def main() -> None:
             shutil.copy2(source, destination)
     if failures:
         raise SystemExit(f"Figure builds failed: {', '.join(failures)}")
+    for directory, stem in [
+        ("fig02_benchmark_protocol", "fig02_dataset_details"),
+        ("fig06_scene_products", "fig06_additional_product"),
+        ("fig07_reliability_selection", "fig07_night_control"),
+        ("fig07_reliability_selection", "fig07_qa_scatter"),
+    ]:
+        shutil.copy2(ROOT / directory / "outputs" / f"{stem}.pdf",
+                     ROOT.parent / "figures" / f"{stem}.pdf")
 
 
 if __name__ == "__main__":

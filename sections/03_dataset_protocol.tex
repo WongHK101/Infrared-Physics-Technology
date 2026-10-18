@@ -44,14 +44,13 @@ UAV-TAlign-12K & Captured cross-FOV UAV pairs; multi-frame scene protocol & 6,03
 \end{tabularx}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig02_benchmark_protocol.pdf}
-\caption{Organization of UAV-TAlign-12K and its multi-level protocol. (a) Integrity-checked pair
-counts across 15 scenes. (b) Coverage of illumination, infrared rendering, and view attributes.
-(c) The frozen, versioned manifest maps the collection to the official 6,037-pair evaluation
-split. (d) Complementary tracks evaluate pairwise evidence, scene products, and the operating
-profile.}
+\caption{Three complementary benchmark tracks. Pairwise homography evidence is evaluated before
+multi-frame aggregation; the fixed canonical gate selects scene products; an independent score
+orders scenes for coverage-aware analysis. All tracks use the same official manifest.
+Per-scene counts and acquisition attributes are detailed in Appendix~\ref{sec:visual_details}.}
 \label{fig:benchmark_protocol}
 \end{figure}
 

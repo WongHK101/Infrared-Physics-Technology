@@ -1,13 +1,9 @@
-# Figure 3 contract
+# Figure contract (2026-10-18)
 
-- **Core conclusion:** UAV-TAlign converts synchronized pairwise evidence into one
-  traceable, high-confidence scene-level alignment product.
-- **Archetype:** fully editable vector schematic.
-- **Hero evidence:** explicit pairwise evidence, progressive scheduling, frame reliability,
-  median/MAD consensus, and cross-modal QA stages.
-- **Supporting evidence:** canonical decision and independent score-ranked operating profile.
-- **Final size:** 183 x 103 mm; SVG/PDF plus 600-dpi PNG.
-- **Reviewer risk:** ranking is shown as an analysis branch and never replaces the fixed
-  canonical gate.
-- **Qualitative link:** the requested S02/000009 matched-control example is retained in
-  Fig. 7, where the real RGB/infrared and alignment evidence can be shown at useful size.
+Three stages: progressive evidence, robust consensus, cross-modal verification. S02/000009 input. The cluster is explicitly schematic; circles=kept, crosses=rejected, star=consensus. Canonical gate and score ranking are independent outputs; q_i is a geometry-informed frame weight.
+
+- Source of truth: frozen figure-local records and the English manuscript.
+- Outputs: SVG/PDF/PNG; Draw.io source where applicable.
+- No new inference, numerical changes or raw-data writes.
+- Photo/overlay panels remain unretouched; labels and layout are editable vectors.
+- Main and appendix captions are mirrored in the Chinese manuscript.

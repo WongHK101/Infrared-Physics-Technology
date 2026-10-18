@@ -6,6 +6,7 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{placeins}
 \usepackage{tabularx}
 \usepackage{xurl}
 \usepackage[numbers,sort&compress]{natbib}
@@ -52,14 +53,19 @@ UAV-TAlign-12K 为基准规模、置信度感知的无人机红外-可见光对�
 \input{sections_zh/01_introduction_zh}
 \input{sections_zh/02_related_work_zh}
 \input{sections_zh/03_dataset_protocol_zh}
+\FloatBarrier
 \input{sections_zh/04_method_zh}
+\FloatBarrier
 \input{sections_zh/05_experimental_setup_zh}
 \input{sections_zh/06_results_zh}
+\FloatBarrier
 \input{sections_zh/07_discussion_zh}
 \input{sections_zh/08_conclusion_zh}
 
 \appendix
 \input{sections_zh/09_protocol_details_zh}
+\input{sections_zh/10_visual_details_zh}
+\FloatBarrier
 
 \bibliographystyle{elsarticle-num}
 \bibliography{references}

@@ -4,23 +4,11 @@ import json
 import sys
 from pathlib import Path
 
-import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 from PIL import Image
 from skimage import color, feature, morphology, transform
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "_shared"))
-from figure_style import (  # noqa: E402
-    COLORS,
-    configure_style,
-    mm,
-    panel_label,
-    save_bundle,
-    soften_axes,
-)
-
-
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "source_data"
 ASSETS = ROOT / "source_assets"
@@ -50,52 +38,27 @@ def edge_overlay(rgb_path: Path, ir_path: Path, matrix: list[list[float]]) -> np
 
 
 def main() -> None:
-    configure_style()
-    metrics = pd.read_csv(DATA / "pairwise_methods.csv")
+    from editable_diagram import Diagram
     selected = json.loads((DATA / "selected_pair_homographies.json").read_text(encoding="utf-8"))
-    fig = plt.figure(figsize=(mm(183), mm(105)))
-    gs = fig.add_gridspec(2, 1, height_ratios=[0.88, 1.12], hspace=0.35)
-
-    ax_a = fig.add_subplot(gs[0])
-    panel_label(ax_a, "a", x=-0.015, y=1.02)
-    y = np.arange(len(metrics))[::-1]
-    availability = metrics["h_available_pct"].to_numpy() / 100.0
-    coverage = metrics["mean_coverage"].to_numpy()
-    for yi, a, c in zip(y, availability, coverage):
-        ax_a.plot([c, a], [yi, yi], color=COLORS["grid"], lw=2.1, zorder=1)
-    ax_a.scatter(coverage, y, s=35, color=COLORS["visible"], label="Mean coverage", zorder=3)
-    ax_a.scatter(availability, y, s=42, facecolor="white", edgecolor=COLORS["confidence"], linewidth=1.3, label="H availability", zorder=4)
-    ax_a.set_yticks(y, metrics["method"])
-    ax_a.set_xlim(0.30, 1.025)
-    ax_a.set_xlabel("Fraction of evaluated pairs / normalized spatial support")
-    ax_a.set_title("Availability and coverage are complementary", fontweight="semibold", pad=4)
-    soften_axes(ax_a, "x")
-    ax_a.legend(loc="lower right", ncol=2)
-
-    bottom = gs[1].subgridspec(1, 6, wspace=0.05)
     methods = ["SIFT", "RIFT2", "LoFTR", "XoFTR", "RoMa", "raw MINIMA"]
-    rgb_path = ASSETS / "scene04_pair000020_rgb.jpg"
-    ir_path = ASSETS / "scene04_pair000020_infrared.jpg"
-    for idx, method in enumerate(methods):
-        ax = fig.add_subplot(bottom[0, idx])
-        if idx == 0:
-            panel_label(ax, "b", x=-0.10, y=1.03)
-        matrix = selected["methods"].get(method)
-        if matrix is None:
-            raise KeyError(f"Missing frozen homography for {method}")
-        overlay = edge_overlay(rgb_path, ir_path, matrix)
-        ax.imshow(overlay, interpolation="lanczos")
-        ax.set_xticks([])
-        ax.set_yticks([])
-        for spine in ax.spines.values():
-            spine.set_visible(True)
-            spine.set_color("#C8D0D6")
-            spine.set_linewidth(0.45)
-        ax.set_title(method, fontsize=6.5, fontweight="semibold", pad=2)
-    fig.text(0.50, 0.015, "Fixed S04 pair · cyan: RGB edges · red: infrared edges · light overlap: edge agreement", ha="center", fontsize=6.2, color=COLORS["muted"])
-
-    save_bundle(fig, ROOT / "outputs", "fig05_pairwise_evidence")
-    plt.close(fig)
+    d = Diagram(1200, 685)
+    tiles = ROOT / "outputs" / "tiles"
+    tiles.mkdir(parents=True, exist_ok=True)
+    for i, method in enumerate(methods):
+        overlay = edge_overlay(
+            ASSETS / "scene04_pair000020_rgb.jpg",
+            ASSETS / "scene04_pair000020_infrared.jpg",
+            selected["methods"][method],
+        )
+        tile = tiles / f"{method.replace(' ', '_')}_edges.png"
+        Image.fromarray((overlay.clip(0, 1)*255).astype(np.uint8)).save(tile)
+        x, y = 8 + (i % 3)*402, 10 + (i // 3)*315
+        d.text(x, y, 388, 35, method, size=28, bold=True)
+        d.photo(x, y+40, 388, 265, tile)
+    d.text(15, 645, 1175, 32,
+           "S04 / 000020   |   Cyan: RGB edges   |   Red: infrared edges   |   Pale yellow: overlap",
+           size=24)
+    d.export(ROOT, "fig05_pairwise_evidence")
 
 
 if __name__ == "__main__":

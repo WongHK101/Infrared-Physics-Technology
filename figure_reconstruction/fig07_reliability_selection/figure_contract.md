@@ -1,10 +1,9 @@
-# Figure 7 contract
+# Figure contract (2026-10-18)
 
-- **Core conclusion:** Canonical scene selection is explained by QA-relative outlier and
-  consensus evidence rather than pairwise availability alone.
-- **Archetype:** image plate + quantification.
-- **Hero evidence:** two matched controls (S01/S02 and S04/S03) with identical panel order.
-- **Supporting evidence:** all-scene accepted-support versus severe-outlier map.
-- **Final size:** 183 x 116 mm; SVG/PDF plus 600-dpi PNG.
-- **Image-integrity note:** all qualitative panels are fixed selected crops; canonical labels
-  come from the frozen per-scene table.
+Main plate: S01/S02 day wide/zoom control. Appendix: S04/S03 night zoom/wide control and all-scene QA scatter. Scene labels are canonical decisions, not per-frame labels. The 0.10 reference belongs to the baseline-aware path, not the entire gate.
+
+- Source of truth: frozen figure-local records and the English manuscript.
+- Outputs: SVG/PDF/PNG; Draw.io source where applicable.
+- No new inference, numerical changes or raw-data writes.
+- Photo/overlay panels remain unretouched; labels and layout are editable vectors.
+- Main and appendix captions are mirrored in the Chinese manuscript.

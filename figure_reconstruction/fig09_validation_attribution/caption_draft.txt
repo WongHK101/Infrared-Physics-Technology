@@ -1,2 +1,3 @@
-Controlled validation and module attribution. (a) Five-fold leave-frame-out recomputation across all 15 scenes yields a scene-median mean displacement of 1.39 px. (b) The joint edge/gradient quality signal decreases with increasing synthetic translation, rotation, and scale perturbations. (c) Robust scene consensus increases edge and gradient gains while reducing severe relative outliers on the fixed eight-scene diagnostic subset; QA verification maps the stage output to the canonical decision. (d) Random-selection seeds vary between five and seven retained products, while accepted-frame support remains comparatively stable.
-
+Controlled validation on UAV-TAlign-12K. (a) Mean five-fold leave-frame-out displacement
+for each scene; the dashed line marks the median of scene means. (b) Mean joint quality change
+over 45 frames per perturbation mode and severity.

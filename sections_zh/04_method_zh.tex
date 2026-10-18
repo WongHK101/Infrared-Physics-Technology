@@ -24,12 +24,13 @@ H_i = \arg\min_H \sum_{j \in \mathcal{I}_i}
 $\rho(\cdot)$ 是鲁棒估计损失。场景级问题是在证据集合 $\{H_i\}$ 上估计共识变换
 $\bar{H}_S$，并赋予其规范产品状态。
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig03_scene_framework.pdf}
 \caption{UAV-TAlign 场景级对齐框架。（a）渐进式调度收集成对单应性与几何引导权重；（b）中位数/MAD
 过滤与加权聚合形成场景共识；（c）跨模态诊断输入两个独立分支：固定规范门控定义保留产品，可靠性
-评分用于运行点排序。}
+评分用于运行点排序。参数空间中的簇为示意图；圆点、叉号和星形分别表示保留假设、
+剔除假设与共识中心。}
 \label{fig:scene_framework_zh}
 \end{figure}
 
@@ -134,11 +135,11 @@ $W_S$ 在基于尺寸的初始化条件下联合接受支撑、共识几何、�
 图~\ref{fig:consensus_qa_zh} 在一组匹配场景对照上揭示内部证据流：即使接受帧数量相同，引入共识
 剔除与跨模态离群点后，仍可得到不同的场景产品决策。
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig04_consensus_qa.pdf}
-\caption{匹配场景对照上的鲁棒共识与跨模态质量验证机制。（a）中位数/MAD 支撑簇确定聚合证据；
-（b）逐帧边缘与梯度变化揭示严重相对离群点；（c）接受支撑、鲁棒剔除和离群点控制构成互补决策
-证据；（d）固定规范门控将这些信号转换为高置信场景产品。}
+\caption{S01/S02 场景对照中的鲁棒共识与跨模态质量验证。（a）参数空间距离标识中位数/MAD
+过滤剔除的假设；（b）QA 探测帧呈现不同的边缘/梯度响应及严重相对离群点。S01 和 S02 的
+接受支撑相同（49/50），但规范结果不同。}
 \label{fig:consensus_qa_zh}
 \end{figure}

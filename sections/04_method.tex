@@ -28,13 +28,15 @@ homogeneous coordinate to image coordinates, and $\rho(\cdot)$ is the robust est
 scene-level problem is then to estimate a consensus transform $\bar{H}_S$ from the evidence set
 $\{H_i\}$ and assign its canonical product status.
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig03_scene_framework.pdf}
 \caption{UAV-TAlign scene-level alignment framework. (a) Progressive scheduling gathers pairwise
 homographies and geometry-informed weights. (b) Median/MAD filtering and weighted aggregation form
 the scene consensus. (c) Cross-modal diagnostics feed two separate branches: the fixed canonical
-gate defines retained products, while the reliability score orders operating points.}
+gate defines retained products, while the reliability score orders operating points.
+The parameter-space cluster is schematic; circles, crosses, and the star denote kept
+hypotheses, rejected hypotheses, and the consensus, respectively.}
 \label{fig:scene_framework}
 \end{figure}
 
@@ -159,13 +161,12 @@ Figure~\ref{fig:consensus_qa} exposes the internal evidence flow on a matched sc
 same accepted-frame count can lead to different product decisions once consensus rejection and
 cross-modal outliers are incorporated.
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig04_consensus_qa.pdf}
-\caption{Mechanism of robust consensus and cross-modal QA on a matched scene control. (a) The
-median/MAD-supported cluster determines aggregation support. (b) Frame-level edge and gradient
-changes expose severe relative outliers. (c) Accepted support, robust rejection, and outlier
-control provide complementary decision evidence. (d) The fixed canonical gate converts these
-signals into a high-confidence scene product.}
+\caption{Robust consensus and cross-modal QA on the S01/S02 scene control. (a) Parameter-space
+distances identify hypotheses excluded by median/MAD filtering. (b) QA probe frames expose
+different edge/gradient responses and severe relative outliers. S01 and S02 have identical
+accepted support (49/50) but different canonical outcomes.}
 \label{fig:consensus_qa}
 \end{figure}

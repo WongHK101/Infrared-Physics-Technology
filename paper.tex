@@ -5,6 +5,7 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{placeins}
 \usepackage{tabularx}
 \usepackage{xurl}
 \usepackage[hidelinks,hypertexnames=false]{hyperref}
@@ -58,14 +59,19 @@ infrared-visible dataset \sep UAV imagery \sep multimodal registration \sep alig
 \input{sections/01_introduction}
 \input{sections/02_related_work}
 \input{sections/03_dataset_protocol}
+\FloatBarrier
 \input{sections/04_method}
+\FloatBarrier
 \input{sections/05_experimental_setup}
 \input{sections/06_results}
+\FloatBarrier
 \input{sections/07_discussion}
 \input{sections/08_conclusion}
 
 \appendix
 \input{sections/09_protocol_details}
+\input{sections/10_visual_details}
+\FloatBarrier
 
 \bibliographystyle{elsarticle-num}
 \bibliography{references}

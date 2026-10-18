@@ -41,12 +41,12 @@ UAV-TAlign-12K & 真实采集跨视场无人机图像对；多帧场景协议 & 
 \end{tabularx}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig02_benchmark_protocol.pdf}
-\caption{UAV-TAlign-12K 的组织方式与多层评测协议。（a）15 个场景中经过完整性检查的图像对数量；
-（b）光照、红外渲染与视图属性覆盖；（c）冻结的版本化 manifest 将 6,039 对候选集合映射为
-6,037 对正式评测划分；（d）互补轨道分别评测成对证据、场景产品和运行曲线。}
+\caption{三个互补的基准评测轨道。首先评测成对单应性证据，再进行多帧聚合；
+固定规范门控选择场景产品，独立评分用于覆盖率分析中的场景排序。所有轨道使用同一正式
+manifest。逐场景数量与采集属性详见附录~\ref{sec:visual_details_zh}。}
 \label{fig:benchmark_protocol_zh}
 \end{figure}
 

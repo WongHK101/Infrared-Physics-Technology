@@ -45,13 +45,14 @@ availability with low fitted reprojection error, whereas raw MINIMA and RoMa pro
 spatial coverage. Jointly, availability, support, and coverage provide the geometric context for
 the scene-level benchmark track.
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig05_pairwise_evidence.pdf}
-\caption{Pairwise homography evidence across matcher families. (a) Homography availability and
-mean spatial coverage provide complementary views of evidence completeness on the 6,037-pair
-official split. (b) Fixed-pair cyan/red edge overlays compare the geometric support produced by
-representative classical and learned matchers under the declared fitting profiles.}
+\caption{Fixed-pair homography evidence from six representative matchers on S04/000020.
+All panels use the same RGB coordinate system and edge-display settings: cyan denotes RGB
+edges, red denotes warped infrared edges, and pale yellow denotes overlap. Transforms follow
+the declared fitting profiles. Full-split availability and coverage are reported in
+Table~\ref{tab:pairwise_baselines}.}
 \label{fig:pairwise_evidence}
 \end{figure}
 
@@ -87,13 +88,15 @@ Figure~\ref{fig:scene_products} presents representative canonical alignment prod
 illumination, rendering, and view regimes, while shared crops and edge-agreement views make the
 geometric improvement directly inspectable across modalities.
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig06_scene_products.pdf}
 \caption{Representative high-confidence UAV-TAlign scene products at the canonical operating
 point. Rows cover day, night, and low-light scenes with grayscale and native pseudocolor infrared
-rendering. Columns show the RGB crop, infrared crop, unaligned overlay, scene-homography overlay,
-and edge-agreement visualization.}
+rendering. Columns show the size-matched reference, scene-homography overlay, and edge agreement,
+using a fixed crop within each row. RGB and infrared inputs are shown in
+Figure~\ref{fig:problem_benchmark}; an additional tower example appears in
+Appendix~\ref{sec:visual_details}.}
 \label{fig:scene_products}
 \end{figure}
 
@@ -125,7 +128,7 @@ Low-light & 1/3 & 33.3 & 462/754 & 61.3 \\
 Figure~\ref{fig:condition_profile} extends this analysis to illumination, infrared rendering,
 and view type, reporting scene retention together with accepted-frame support.
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig10_condition_profile.pdf}
 \caption{Condition-aware operating profiles by (a) illumination, (b) infrared rendering, and
@@ -137,19 +140,18 @@ support. Labels give retained/total scenes. The same scenes recur across attribu
 \subsection{Reliability-Controlled Scene Selection}
 
 Matched scene controls reveal why pairwise support alone does not determine the final product set.
-Figure~\ref{fig:reliability_selection} compares wide/zoom and night controls under identical output
-views, then places all 15 scenes in the accepted-support versus severe-outlier space. Canonical
-products concentrate in the low-outlier region, whereas accepted-frame ratio spans both retained
-and QA-filtered scenes.
+Figure~\ref{fig:reliability_selection} compares the day wide/zoom control under identical
+display conventions. The night control and all-scene QA plot are presented separately in
+Appendix~\ref{sec:visual_details}. Canonical products concentrate in the low-outlier region,
+whereas accepted-frame ratio spans both retained and QA-filtered scenes.
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig07_reliability_selection.pdf}
-\caption{Reliability-controlled selection under matched scene conditions. (a,b) Wide/zoom and
-night paired controls show that strong pairwise support can coexist with different canonical scene
-outcomes. (c) Across all 15 scenes, canonical products occupy the low severe-outlier region, while
-accepted-frame ratio alone does not determine retention. Marker size encodes robust-rejection
-ratio.}
+\caption{Day wide/zoom control: S01 is canonically retained, while S02 is QA-filtered.
+Columns show the size-matched reference, estimated scene homography, and edge agreement.
+The S02 estimate is displayed for inspection, not as a retained product. Canonical labels
+describe scene-level decisions, rather than separate decisions on the displayed frames.}
 \label{fig:reliability_selection}
 \end{figure}
 
@@ -159,7 +161,7 @@ The fixed cross-modal verification rule defines the canonical product set. The i
 orders scenes into discrete reliability--coverage operating points. Figure~\ref{fig:operating_profile} plots
 this score-ranked profile and overlays the fixed canonical operating point.
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig08_operating_profile.pdf}
 \caption{Reliability--coverage operating profile on UAV-TAlign-12K. (a) The score-ranked curve
@@ -208,7 +210,7 @@ Synthetic scale & 45 frames / 225 trials & $\Delta$Joint $=-0.025$ & 73.3 \\
 \end{tabularx}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig09_validation_attribution.pdf}
 \caption{Controlled validation on UAV-TAlign-12K. (a) Mean five-fold leave-frame-out displacement
@@ -248,7 +250,7 @@ Figure~\ref{fig:module_attribution} connects the cumulative module effects with 
 multi-seed selection study: robust consensus supplies the largest diagnostic gain, while the
 deterministic schedule provides a stable reference operating policy.
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig11_module_attribution.pdf}
 \caption{Module attribution on the fixed eight-scene UAV-TAlign-1K-Lite subset. (a) Cumulative

@@ -1,12 +1,9 @@
-# Figure 4 contract
+# Figure contract (2026-10-18)
 
-- **Core conclusion:** Robust scene consensus suppresses unstable hypotheses, while
-  frame-level cross-modal diagnostics distinguish a high-confidence product from a
-  QA-filtered scene even when accepted-frame support is high.
-- **Archetype:** quantitative grid with mechanism schematic.
-- **Hero evidence:** real per-homography robust-keep decisions and real per-frame QA
-  deltas for matched scenes S01 and S02.
-- **Supporting evidence:** threshold-aware diagnostic bars and final canonical outcomes.
-- **Final size:** 183 x 105 mm; SVG/PDF plus 600-dpi PNG.
-- **Reviewer risk:** values come from the frozen 1K-Lite ablation scene records and are
-  labelled as mechanism evidence rather than the 12K main operating result.
+Two panels only: median/MAD hypothesis support and frame-level QA response from frozen S01/S02 records. Both scenes accept 49/50 frames. No universal threshold is inferred from a single reference line.
+
+- Source of truth: frozen figure-local records and the English manuscript.
+- Outputs: SVG/PDF/PNG; Draw.io source where applicable.
+- No new inference, numerical changes or raw-data writes.
+- Photo/overlay panels remain unretouched; labels and layout are editable vectors.
+- Main and appendix captions are mirrored in the Chinese manuscript.

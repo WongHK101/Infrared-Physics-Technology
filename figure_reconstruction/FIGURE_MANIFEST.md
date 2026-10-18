@@ -1,16 +1,22 @@
-# Reconstructed figure manifest
+# Figure manifest (2026-10-18)
 
-| Figure | Directory | Status | Primary evidence | Missing source |
-|---|---|---|---|---|
-| Fig. 1 | `fig01_problem_benchmark/` | Manuscript-ready | Selected RGB/infrared crops, benchmark counts | None |
-| Fig. 2 | `fig02_benchmark_protocol/` | Manuscript-ready | Scene/condition counts, integrity summary | None |
-| Fig. 3 | `fig03_scene_framework/` | Manuscript-ready | Vector framework plus real input/output crops | None |
-| Fig. 4 | `fig04_consensus_qa/` | Manuscript-ready | Frozen S01/S02 diagnostic records | None |
-| Fig. 5 | `fig05_pairwise_evidence/` | Manuscript-ready | Full-split metrics and reproduced strong-setting RIFT2 evidence | None |
-| Fig. 6 | `fig06_scene_products/` | Manuscript-ready | Four high-confidence selected scene products | None |
-| Fig. 7 | `fig07_reliability_selection/` | Manuscript-ready | Two matched controls and all-scene QA table | None |
-| Fig. 8 | `fig08_operating_profile/` | Manuscript-ready | Risk-coverage, canonical point, condition profile | None |
-| Fig. 9 | `fig09_validation_attribution/` | Manuscript-ready | Resampling, perturbation, ablation, multi-seed data | None |
+Displayed figure numbers follow LaTeX order, not directory IDs.
 
-Every directory contains its Python source, figure contract, caption draft, local source
-data/assets, and `SVG/PDF/PNG` outputs. The plotting scripts do not access or modify raw data.
+| Directory | Main-text content | Appendix content | Evidence status |
+|---|---|---|---|
+| fig01_problem_benchmark | Six RGB/infrared pairs and compact dataset card | - | Frozen source images; student byte matches verified |
+| fig02_benchmark_protocol | Three evaluation tracks | Pair counts and scene attributes | Versioned valid-split CSV |
+| fig03_scene_framework | Scheduling, consensus and separate gate/ranking branches | - | Method definitions; S02/000009 input; cluster explicitly schematic |
+| fig04_consensus_qa | Two-panel S01/S02 diagnostic comparison | - | Frozen per-hypothesis and QA records |
+| fig05_pairwise_evidence | Six same-pair edge overlays in 2x3 layout | - | Frozen S04/000020 matrices; exact student-pixel reproduction |
+| fig06_scene_products | S10/S04/S14, three display columns | S07 tower-orbit product | Frozen scene transforms and selected crops |
+| fig07_reliability_selection | S01/S02 day control | S04/S03 night control; all-scene QA scatter | Scene decisions, frozen crops and diagnostic CSV |
+| fig08_operating_profile | Risk and evidence coverage | - | Canonical star evaluated separately from ranked curve |
+| fig10_condition_profile | Three condition profiles | - | Scene-macro and frame-micro denominators |
+| fig09_validation_attribution | Leave-frame-out and perturbation validation | - | Median of all 15 scene means; mode-level mean curves |
+| fig11_module_attribution | Lite ablation and random-seed sensitivity | - | Fixed eight-scene slice, not 12K main results |
+
+No missing assets for the adopted layout. Each figure has PDF, SVG and PNG;
+editable Draw.io sources accompany the schematic and photo-plate figures.
+Additional plates remain in the originating figure directory rather than
+creating duplicated source trees. No S06 photographic example is used.

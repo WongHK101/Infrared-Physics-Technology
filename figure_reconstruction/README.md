@@ -1,39 +1,37 @@
-# UAV-TAlign figure reconstruction
+# UAV-TAlign figure sources
 
-This directory contains the reproducible source package for eleven
-main-text figure groups. Each figure has an independent directory with:
+The manuscript uses eleven main-text figures and four appendix figures. Stable
+directory IDs are not the displayed LaTeX figure numbers.
 
-- `build.py`: rendering or validated-export entry point;
-- `drawio_source/`: editable Draw.io source for schematic panels where applicable;
-- `figure_contract.md`: claim, evidence hierarchy, panel map, and review risks;
-- `source_data/`: frozen, figure-local CSV/JSON inputs;
-- `source_assets/`: selected public-safe image crops or visual inputs;
-- `outputs/`: SVG, PDF, and 600-dpi PNG exports; raster panels are embedded
-  at 600 dpi in the vector containers.
+Each directory contains its build.py, figure_contract.md, caption draft, frozen
+source_data/source_assets as applicable, and SVG/PDF/PNG outputs. Figures 1--3,
+5--7 use editable Draw.io compositions. Their text and diagram shapes remain
+vector objects, and verified JPEG/PNG assets are embedded without resampling.
+Figure 4 and the quantitative figures 8--11 are data-driven Matplotlib plots.
 
-Figures 1, 2, and 4 are hybrid compositions: Draw.io supplies the editable
-schematic panels, while Python renders the data-bound plots and verified
-RGB/infrared imagery. Figure 3 is a fully editable Draw.io schematic. Figures
-5--11 remain Python-rendered because their primary evidence is image- or
-data-bound rather than diagrammatic.
+## Rebuild
 
-The October 2026 revision separates the previous four-panel groups: `fig08` now
-contains only risk/coverage and evidence support; `fig10` contains condition
-profiles. `fig09` now contains only protocol validation; `fig11` contains
-1K-Lite module/seed diagnostics. Directory identifiers remain stable; LaTeX
-assigns the displayed figure numbers from manuscript order. The Chinese
-student-asset handoff is `STUDENT_FIGURE_HANDOFF_ZH.md`.
+Set DRAWIO_EXECUTABLE to your installed draw.io desktop executable, then run
+python build_all.py in this directory. Python needs NumPy, pandas, Matplotlib,
+Pillow and scikit-image. The script exports each figure and copies the PDF
+versions, including the appendix plates, to the manuscript figures directory.
 
-Run the Python/hybrid assembly and verify the Draw.io-managed export with:
+PNG exports are previews (4400 pixels wide for Draw.io, 600 dpi for Matplotlib).
+The manuscript uses PDF; SVG and Draw.io are the editable handoff formats.
+The old make_live_plan.py and auxiliary Draw.io panel files are historical;
+build.py is the authoritative entry point for the October 18 revision.
 
-```powershell
-python build_all.py
-```
+## Evidence
 
-Refresh verified qualitative assets from the read-only dataset and frozen
-scene-result record with `prepare_highres_assets.py` before rebuilding when the
-case shortlist changes.
+The source assets are selected figure crops, not the full dataset. Builds do not
+read or modify raw dataset directories, weights or experiment outputs. The
+pairwise edge panels are deterministic renders of frozen matrices, not new
+model inference.
 
-The scripts never write to the raw dataset or experiment-output directories.
-Missing visual evidence is represented by an explicitly labelled wireframe;
-no synthetic result or fabricated image is used.
+STUDENT_ASSET_ADOPTION_ZH.md documents the 2026-10-18 student delivery and the
+selective visual merge. The accompanying provenance JSON records original-file
+hashes, 44 exact JPEG matches and six pixel-exact edge-panel checks. The student
+originals remain unchanged outside this repository.
+
+The canonical set, source CSVs, all numerical results, and the corrected
+risk/validation/ablation definitions remain unchanged.

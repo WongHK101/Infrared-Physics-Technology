@@ -1,2 +1,4 @@
-Mechanism of robust consensus and QA-aware scene verification on a matched scene pair from the frozen diagnostic subset. (a) Robust consensus assigns zero aggregation weight to homography hypotheses outside the median/MAD-supported cluster. (b) Frame-level edge and gradient changes expose severe relative outliers. (c) Accepted-frame support alone is insufficient to define a scene product; stability and outlier diagnostics supply complementary evidence. (d) The fixed canonical rule retains S01 and filters S02 despite their identical accepted-frame ratio, illustrating reliability-controlled scene selection.
-
+Robust consensus and cross-modal QA on the S01/S02 scene control. (a) Parameter-space
+distances identify hypotheses excluded by median/MAD filtering. (b) QA probe frames expose
+different edge/gradient responses and severe relative outliers. S01 and S02 have identical
+accepted support (49/50) but different canonical outcomes.

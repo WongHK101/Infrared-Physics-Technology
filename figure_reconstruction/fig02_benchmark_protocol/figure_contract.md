@@ -1,9 +1,9 @@
-# Figure 2 contract
+# Figure contract (2026-10-18)
 
-- **Core conclusion:** The fixed official manifest organizes an unbalanced 15-scene
-  collection into complementary pairwise, scene-product, and operating-profile tracks.
-- **Archetype:** quantitative grid with schematic support.
-- **Hero evidence:** per-scene valid-pair distribution and condition matrix.
-- **Supporting evidence:** integrity flow and three evaluation tracks.
-- **Final size:** 183 x 105 mm; SVG/PDF plus 600-dpi PNG.
-- **Reviewer risk:** pair-level micro and scene-level macro units remain visually separate.
+Main figure: three parallel evaluation tracks, with canonical gate separate from reliability ranking. Appendix: valid per-scene counts and acquisition-attribute matrix. All values from the existing valid-split CSV.
+
+- Source of truth: frozen figure-local records and the English manuscript.
+- Outputs: SVG/PDF/PNG; Draw.io source where applicable.
+- No new inference, numerical changes or raw-data writes.
+- Photo/overlay panels remain unretouched; labels and layout are editable vectors.
+- Main and appendix captions are mirrored in the Chinese manuscript.

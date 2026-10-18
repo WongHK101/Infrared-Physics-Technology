@@ -1,1 +1,6 @@
-UAV-TAlign scene-level alignment framework. (a) Synchronized RGB-infrared pairs pass through pairwise homography generation, progressive evidence scheduling, geometry-calibrated frame reliability, robust median/MAD consensus, and cross-modal QA. (b) Frame hypotheses outside the consensus support are rejected before the fixed canonical gate defines high-confidence products; an interpretable reliability score independently orders operating points for coverage analysis.
+UAV-TAlign scene-level alignment framework. (a) Progressive scheduling gathers pairwise
+homographies and geometry-informed weights. (b) Median/MAD filtering and weighted aggregation form
+the scene consensus. (c) Cross-modal diagnostics feed two separate branches: the fixed canonical
+gate defines retained products, while the reliability score orders operating points.
+The parameter-space cluster is schematic; circles, crosses, and the star denote kept
+hypotheses, rejected hypotheses, and the consensus, respectively.

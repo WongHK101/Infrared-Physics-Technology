@@ -1,12 +1,9 @@
-# Figure 5 contract
+# Figure contract (2026-10-18)
 
-- **Core conclusion:** Classical, infrared-specific, and modern learned matchers provide
-  complementary pairwise homography evidence; availability and spatial coverage must be
-  interpreted jointly.
-- **Archetype:** image plate + quantitative comparison.
-- **Hero evidence:** frozen full-split availability/coverage profile.
-- **Supporting evidence:** fixed-pair cyan/red edge overlays from frozen homographies.
-- **Final size:** 183 x 105 mm; SVG/PDF plus 600-dpi PNG.
-- **Reviewer risk:** The RIFT2 fixed-pair support is spatially local and must be read
-  together with its full-split availability and coverage rather than as a standalone
-  ranking. Its overlay uses the frozen strong resize-aware configuration.
+Six fixed-pair S04/000020 edge overlays, 2x3 layout. Same coordinate grid, Canny settings, dilation and colors for all methods; frozen matrices unchanged. Full-split metrics remain in the main table. Color: RGB cyan, infrared red, overlap pale yellow.
+
+- Source of truth: frozen figure-local records and the English manuscript.
+- Outputs: SVG/PDF/PNG; Draw.io source where applicable.
+- No new inference, numerical changes or raw-data writes.
+- Photo/overlay panels remain unretouched; labels and layout are editable vectors.
+- Main and appendix captions are mirrored in the Chinese manuscript.

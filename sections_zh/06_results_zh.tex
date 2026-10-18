@@ -42,12 +42,12 @@ raw MINIMA & 6037/6037 & \textbf{100.00} & 0.319 & 1.000 & 1.773 & 1.346 \\
 MINIMA 与 RoMa 提供接近完整的空间覆盖。可用性、支撑度和覆盖率共同构成场景级基准轨道的
 几何背景。
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig05_pairwise_evidence.pdf}
-\caption{不同匹配器家族的成对单应性证据。（a）单应性可用率与平均空间覆盖率从互补角度刻画
-6,037 对正式评测划分上的证据完整性；（b）固定图像对的青色/红色边缘叠加，对比所声明拟合配置
-下代表性经典与学习型匹配器产生的几何支撑。}
+\caption{六种代表性匹配器在固定图像对 S04/000020 上的单应性证据。所有子图使用同一 RGB
+坐标系和边缘显示设置：青色为 RGB 边缘，红色为变换后的红外边缘，浅黄色表示重叠。
+变换遵循所声明的拟合配置。完整划分上的可用率与覆盖率见表~\ref{tab:pairwise_baselines_zh}。}
 \label{fig:pairwise_evidence_zh}
 \end{figure}
 
@@ -81,12 +81,13 @@ UAV-TAlign 场景级指标 & 数值 \\
 图~\ref{fig:scene_products_zh} 展示代表性规范对齐产品，覆盖不同光照、红外渲染和视图条件。统一
 裁剪区域和边缘一致性视图使跨模态几何改善能够被直接检查。
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig06_scene_products.pdf}
 \caption{规范运行点下的代表性 UAV-TAlign 高置信场景产品。各行覆盖白天、夜间与低照度场景，
-并包含灰度和设备原生伪彩红外渲染；各列依次展示 RGB 裁剪、红外裁剪、未对齐叠加、场景单应性
-叠加和边缘一致性可视化。}
+并包含灰度和设备原生伪彩红外渲染；各列依次展示尺寸匹配参考、场景单应性叠加和边缘一致性，
+每行采用固定裁剪范围。RGB 和红外输入见图~\ref{fig:problem_benchmark_zh}；
+附录~\ref{sec:visual_details_zh} 给出另一个电塔案例。}
 \label{fig:scene_products_zh}
 \end{figure}
 
@@ -116,7 +117,7 @@ UAV-TAlign 场景级指标 & 数值 \\
 图~\ref{fig:condition_profile_zh} 将分析扩展到光照、红外渲染与视图类型，同时报告场景保留率
 和接受帧支撑。
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig10_condition_profile.pdf}
 \caption{按（a）光照、（b）红外渲染、（c）视图类型组织的条件感知运行曲线。实心圆为场景保留率，
@@ -127,15 +128,16 @@ UAV-TAlign 场景级指标 & 数值 \\
 \subsection{可靠性控制的场景选择}
 
 匹配场景对照说明了为何成对支撑不能单独决定最终产品集合。图~\ref{fig:reliability_selection_zh}
-在相同输出视图下比较广角/变焦和夜间对照，并将全部 15 个场景投影到接受支撑与严重离群点空间。
-规范产品集中在低离群区域，而接受帧比例横跨保留场景与质量过滤场景。
+采用一致显示规则比较白天广角/变焦对照。夜间对照与全场景 QA 散点图分别见
+附录~\ref{sec:visual_details_zh}。规范产品集中在低离群区域，而接受帧比例横跨保留场景与
+质量过滤场景。
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig07_reliability_selection.pdf}
-\caption{匹配场景条件下的可靠性控制选择。（a,b）广角/变焦与夜间成对对照表明，较强成对支撑仍可
-对应不同的规范场景结果；（c）在全部 15 个场景中，规范产品集中于较低严重离群点区域，而接受帧
-比例不能单独决定保留结果。标记大小表示鲁棒剔除比例。}
+\caption{白天广角/变焦对照：S01 被规范门控保留，S02 被 QA 过滤。各列依次展示尺寸匹配参考、
+估计的场景单应性和边缘一致性。S02 变换仅用于检查，不属于保留产品。规范标签描述的是
+场景级决策，而非对所展示单帧分别作出的决策。}
 \label{fig:reliability_selection_zh}
 \end{figure}
 
@@ -144,7 +146,7 @@ UAV-TAlign 场景级指标 & 数值 \\
 固定的跨模态验证规则定义规范产品集合，可解释分数则对场景排序以形成离散的可靠性--覆盖率运行点。
 图~\ref{fig:operating_profile_zh} 绘制基于分数排序的曲线，并叠加固定的规范运行点。
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig08_operating_profile.pdf}
 \caption{UAV-TAlign-12K 上的可靠性--覆盖率运行曲线。（a）基于分数排序的曲线刻画场景覆盖率提高
@@ -187,7 +189,7 @@ $-0.074$、$-0.031$ 和 $-0.025$，相应退化比例为 84.4\%、80.0\% 和 73.
 \end{tabularx}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig09_validation_attribution.pdf}
 \caption{UAV-TAlign-12K 上的受控验证。（a）各场景的五折留帧平均位移，虚线为场景均值的中位数；
@@ -222,7 +224,7 @@ $-0.074$、$-0.031$ 和 $-0.025$，相应退化比例为 84.4\%、80.0\% 和 73.
 图~\ref{fig:module_attribution_zh} 将累加式模块效应与多随机种子选择分析联系起来：鲁棒共识
 贡献最大的诊断增益，而确定性调度提供稳定的参考运行策略。
 
-\begin{figure}[t]
+\begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig11_module_attribution.pdf}
 \caption{固定八场景 UAV-TAlign-1K-Lite 子集上的模块归因。（a）边缘与梯度一致性的累加变化；

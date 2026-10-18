@@ -1,0 +1,973 @@
+{
+  "student_files_unchanged": 81,
+  "jpeg_source_exact_matches": 44,
+  "jpeg_exif_tags": 0,
+  "edge_panels_before_layout_adaptation": [
+    {
+      "method": "SIFT",
+      "pixel_exact": true,
+      "dimensions": [
+        1800,
+        1350
+      ]
+    },
+    {
+      "method": "RIFT2",
+      "pixel_exact": true,
+      "dimensions": [
+        1800,
+        1350
+      ]
+    },
+    {
+      "method": "LoFTR",
+      "pixel_exact": true,
+      "dimensions": [
+        1800,
+        1350
+      ]
+    },
+    {
+      "method": "XoFTR",
+      "pixel_exact": true,
+      "dimensions": [
+        1800,
+        1350
+      ]
+    },
+    {
+      "method": "RoMa",
+      "pixel_exact": true,
+      "dimensions": [
+        1800,
+        1350
+      ]
+    },
+    {
+      "method": "raw_MINIMA",
+      "pixel_exact": true,
+      "dimensions": [
+        1800,
+        1350
+      ]
+    }
+  ],
+  "delivery_inventory": [
+    {
+      "path": "README.md",
+      "bytes": 1699,
+      "sha256": "ce6a8136438c57f181b0ad9dc3a8bd57a72973b3549c6b8693847ef311422817"
+    },
+    {
+      "path": "图1/01_scene01_RGB.jpg",
+      "bytes": 1737859,
+      "sha256": "a824e0b193895f5b2c164847ae3cf14e560352292424e65738b572bbe6b107a2",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene01_pair000009_rgb_selected_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene01_pair000009_rgb_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图1/02_scene01_Infrared.jpg",
+      "bytes": 244700,
+      "sha256": "21b25233c9dda8f3be5e786fedcc534724d05b0dd08c7d3d8a58380268d1f933",
+      "pixels": [
+        1280,
+        896
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene01_pair000009_infrared_selected_crop.jpg",
+        "figure_reconstruction/fig03_scene_framework/source_assets/scene02_pair000009_infrared_selected_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene01_pair000009_infrared_selected_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene02_pair000009_infrared_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图1/03_scene04_RGB.jpg",
+      "bytes": 1039655,
+      "sha256": "71bdb13f1d62dfe712e3382a6e49b19a9f757d996d665a461bcbf5777e7c2e25",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene04_pair000020_rgb_selected_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene04_pair000020_rgb_selected_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene04_pair000020_rgb_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图1/04_scene04_Infrared.jpg",
+      "bytes": 157166,
+      "sha256": "a2853be0ed5390d055b84d527c26bec10f26edaa77b19ff61c5dd5cf65432b8f",
+      "pixels": [
+        1280,
+        896
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene04_pair000020_infrared_selected_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene04_pair000020_infrared_selected_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene03_pair000020_infrared_selected_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene04_pair000020_infrared_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图1/05_scene05_RGB.jpg",
+      "bytes": 591964,
+      "sha256": "1287b13d113f69302e9952626280e79a0df2cf21a6a8ff3c6ed7554503c2d498",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene05_pair000650_rgb_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图1/06_scene05_Infrared.jpg",
+      "bytes": 733848,
+      "sha256": "1af6002592a533a131cf41f140356cfc86ec53dd64a4c343b706f4ae1fb95a7a",
+      "pixels": [
+        1280,
+        896
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene05_pair000650_infrared_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图1/07_scene10_RGB.jpg",
+      "bytes": 2941460,
+      "sha256": "1da97ba4357ff1481fe091fbade6c44fa1a6374ffa8a0b9467efa1b97e7c9617",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene10_pair000100_rgb_selected_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene10_pair000100_rgb_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图1/08_scene10_Infrared.jpg",
+      "bytes": 343831,
+      "sha256": "a30c4c5e7f93aea39b93f7d9279b9b8376139c0e21b6ce1acb07c3c89ccd3fc9",
+      "pixels": [
+        1280,
+        896
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene10_pair000100_infrared_selected_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene10_pair000100_infrared_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图1/09_scene13_RGB.jpg",
+      "bytes": 2430111,
+      "sha256": "31c481e50ed0cba73481f9cffce99b54549c3b61d9bb0e25418b08f758e1d1cc",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene13_pair000200_rgb_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图1/10_scene13_Infrared.jpg",
+      "bytes": 360076,
+      "sha256": "189cd11b5783aa8b9d7b50332abb3af4c88d71f0d8b07fdf05ab696a0496b98d",
+      "pixels": [
+        1280,
+        896
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene13_pair000200_infrared_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图1/11_scene14_RGB.jpg",
+      "bytes": 3315353,
+      "sha256": "c5867842c3916c4e16769b206d08662838e5b8b11240a0e75c53b8739243871e",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene14_pair000300_rgb_selected_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene14_pair000300_rgb_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图1/12_scene14_Infrared.jpg",
+      "bytes": 556821,
+      "sha256": "46d89a42cbbd649eddfc8dbbe050fd811163c0109d965ddb0d3ddd15b1a14a58",
+      "pixels": [
+        1280,
+        896
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene14_pair000300_infrared_selected_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene14_pair000300_infrared_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图1/figure1_subimages.py",
+      "bytes": 1303,
+      "sha256": "8659e2054e97818e73f884ef36fc3c2166c8ef671cf1ee92e8665bee14465903"
+    },
+    {
+      "path": "图1/图1.drawio",
+      "bytes": 2416494,
+      "sha256": "e3bc74e8f7bbbdea33e270bd83384bd6831f0b3e022a3ed2dbf852d0382f002d"
+    },
+    {
+      "path": "图10/figure10.py",
+      "bytes": 288,
+      "sha256": "64dcc13e4d0554c4c36595d3bb8bae99a5872649bb9a7a51af4ee466300d69a8"
+    },
+    {
+      "path": "图10/figure10_a.png",
+      "bytes": 114281,
+      "sha256": "a8e2eb2c1876f0b8376c92b6d05640d8d50d9de6945769d9c8f4dbbf78e92601",
+      "pixels": [
+        1929,
+        1612
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图10/figure10_b.png",
+      "bytes": 108919,
+      "sha256": "8362d092c29791978d9a97c686530dc1b1c49f3d95773885183aa1b3166fd379",
+      "pixels": [
+        1929,
+        1612
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图11/figure11.py",
+      "bytes": 302,
+      "sha256": "8090c3b4ff7657fd105b2fa1aa3ec2ba7bfeb4532f4fc715b03976ae4f34d783"
+    },
+    {
+      "path": "图11/figure11_a.png",
+      "bytes": 346262,
+      "sha256": "c55a89711e4d81af07fa30943cd150b37978845d081b7e42e4eb364f17f4224d",
+      "pixels": [
+        1947,
+        1614
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图11/figure11_b.png",
+      "bytes": 189437,
+      "sha256": "9afe8cc0bb9ee1ee5dd42078e8960c249c2c5099e1772cb634aea16acc15a800",
+      "pixels": [
+        1947,
+        1614
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图12/figure12.py",
+      "bytes": 305,
+      "sha256": "1ccb93ba5fa258268dbdebd49c3b00245d359e763cddacfdeacdc3b74d61dbcc"
+    },
+    {
+      "path": "图12/figure12_a.png",
+      "bytes": 215890,
+      "sha256": "5a195789b9bfa7dc0426a2c0d962c3376905d925c4652011a6ce3fb1124c9949",
+      "pixels": [
+        1960,
+        1586
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图12/figure12_b.png",
+      "bytes": 118798,
+      "sha256": "5c008a5f6f62ccacb773fa8a1eb9e674e6683637e59f814b14ed416e39749563",
+      "pixels": [
+        1960,
+        1586
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图2/image_02.drawio",
+      "bytes": 14318,
+      "sha256": "266a28c1cafa2765f485bf4e67ea98604f847c95a61efa7b53b8c05da50e09a9"
+    },
+    {
+      "path": "图3/图3.drawio",
+      "bytes": 7433236,
+      "sha256": "1767c0390d2ed4db553e2c51bcbb6635f9902e7f8775c5e2fd5478f4a294ee06"
+    },
+    {
+      "path": "图4/figure4.py",
+      "bytes": 326,
+      "sha256": "46e070809995468c2fa99a01ce812d42be2be002d1756d00dd31c26184b83129"
+    },
+    {
+      "path": "图4/figure4_a.png",
+      "bytes": 199654,
+      "sha256": "4bec66d8145656350b34fe1b0ec410c180d147bd1de7145b2dd9b4dd48bdd39f",
+      "pixels": [
+        3936,
+        1144
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图4/figure4_b.png",
+      "bytes": 170573,
+      "sha256": "5f42bbee605f252a51f40ba2f7d7bc60ab71a33c9e3c15aeb4b266aaacd90c9b",
+      "pixels": [
+        3862,
+        1129
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图4/figure4_c.png",
+      "bytes": 108410,
+      "sha256": "100f2a00430bebf06f265db16ce147f4e90e8407a5e6b51d4a9d02ef1dec0c9d",
+      "pixels": [
+        3863,
+        1093
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图5/图5.drawio",
+      "bytes": 1737447,
+      "sha256": "a281f8c699d97658585e443f1506aaacf835125cf54dd4406e2f1ed40194e3f3"
+    },
+    {
+      "path": "图6/01_SIFT_edge_overlay.png",
+      "bytes": 535836,
+      "sha256": "2ab9bb07d31425901a4f316bee7e1b1e60ea1a51bac2c5ab46e51dd518074654",
+      "pixels": [
+        1800,
+        1350
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图6/02_RIFT2_edge_overlay.png",
+      "bytes": 491987,
+      "sha256": "23319b2da2340a06a05c14657e516dc2eb28f0fbcbc94f9b2f7028e5d5441690",
+      "pixels": [
+        1800,
+        1350
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图6/03_LoFTR_edge_overlay.png",
+      "bytes": 542626,
+      "sha256": "2a41a961ed67a34cd718a104b0996caee09293bd0b42660e9951ecc8a21f4e24",
+      "pixels": [
+        1800,
+        1350
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图6/04_XoFTR_edge_overlay.png",
+      "bytes": 543390,
+      "sha256": "80ccc0bf1050a9137fe3db1d996eedac8752c43b09800927b4afd0665b0096a9",
+      "pixels": [
+        1800,
+        1350
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图6/05_RoMa_edge_overlay.png",
+      "bytes": 545262,
+      "sha256": "5f2e38f783323a781743283ef4a1fa3b9bc0466281f88665b0c795ed760de622",
+      "pixels": [
+        1800,
+        1350
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图6/06_raw_MINIMA_edge_overlay.png",
+      "bytes": 541622,
+      "sha256": "2502ca00774ad1cbb2917fdb496a101a698dac76b081543343c85892d9db76d7",
+      "pixels": [
+        1800,
+        1350
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图6/figure6_subimages.py",
+      "bytes": 2976,
+      "sha256": "c692b182d5e6619609390a2a4957cdcc792da28e00c72d1cf6b6f7efc6e663dc"
+    },
+    {
+      "path": "图7/01_scene07_RGB.jpg",
+      "bytes": 1535937,
+      "sha256": "ff1071b58edda962b5e9c31d7fc1760f0c8c070b1f5b2f98543892f281c32b4f",
+      "pixels": [
+        2250,
+        1575
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene07_pair000050_rgb_selected_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene07_pair000050_rgb_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/02_scene07_Infrared.jpg",
+      "bytes": 209380,
+      "sha256": "b591c7a9561a4ed1917c38f802de4fcc0fba74610e9491d87daeb921d67d971a",
+      "pixels": [
+        1280,
+        896
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene07_pair000050_infrared_selected_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene07_pair000050_infrared_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/03_scene07_Before.jpg",
+      "bytes": 2185622,
+      "sha256": "168ad0ad7aca8cf0932e7830b53ac16d7a17e75b754126f0eb8eb30da933974f",
+      "pixels": [
+        2250,
+        1575
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene07_pair000050_before_resize_overlay_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene07_pair000050_before_resize_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/04_scene07_Scene_product.jpg",
+      "bytes": 2171786,
+      "sha256": "7131ee551af7ab1c8ccb637313d827a65eeb5cbbb844f989a7f36be6e3417d2e",
+      "pixels": [
+        2250,
+        1575
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene07_pair000050_after_scene_homography_overlay_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene07_pair000050_after_scene_homography_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/05_scene07_Edge_agreement.jpg",
+      "bytes": 4401119,
+      "sha256": "f896a3ed8470b786fd804b5200ecafb2550c2038af61386e2b601a73300ce118",
+      "pixels": [
+        2250,
+        1575
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene07_pair000050_edge_overlay_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene07_pair000050_edge_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/06_scene04_RGB.jpg",
+      "bytes": 1039655,
+      "sha256": "71bdb13f1d62dfe712e3382a6e49b19a9f757d996d665a461bcbf5777e7c2e25",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene04_pair000020_rgb_selected_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene04_pair000020_rgb_selected_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene04_pair000020_rgb_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/07_scene04_Infrared.jpg",
+      "bytes": 157166,
+      "sha256": "a2853be0ed5390d055b84d527c26bec10f26edaa77b19ff61c5dd5cf65432b8f",
+      "pixels": [
+        1280,
+        896
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene04_pair000020_infrared_selected_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene04_pair000020_infrared_selected_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene03_pair000020_infrared_selected_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene04_pair000020_infrared_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/08_scene04_Before.jpg",
+      "bytes": 1313840,
+      "sha256": "38bd9de69c15dea3c0e688dd0b8d864c1a880fa6b1293bae9b66dc2c13f77c77",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene04_pair000020_before_resize_overlay_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene04_pair000020_before_resize_overlay_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene04_pair000020_before_resize_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/09_scene04_Scene_product.jpg",
+      "bytes": 1291328,
+      "sha256": "0fb6512724700b6ba2ffa06e179c99f48af872b92335ee855d63de9f5436ea09",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene04_pair000020_after_scene_homography_overlay_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene04_pair000020_after_scene_homography_overlay_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene04_pair000020_after_scene_homography_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/10_scene04_Edge_agreement.jpg",
+      "bytes": 2717402,
+      "sha256": "428de53c255b26c5d30fa9f4a33e32988c3b5b16242b0bda251cae1d44413141",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene04_pair000020_edge_overlay_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene04_pair000020_edge_overlay_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene04_pair000020_edge_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/11_scene10_RGB.jpg",
+      "bytes": 2941460,
+      "sha256": "1da97ba4357ff1481fe091fbade6c44fa1a6374ffa8a0b9467efa1b97e7c9617",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene10_pair000100_rgb_selected_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene10_pair000100_rgb_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/12_scene10_Infrared.jpg",
+      "bytes": 343831,
+      "sha256": "a30c4c5e7f93aea39b93f7d9279b9b8376139c0e21b6ce1acb07c3c89ccd3fc9",
+      "pixels": [
+        1280,
+        896
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene10_pair000100_infrared_selected_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene10_pair000100_infrared_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/13_scene10_Before.jpg",
+      "bytes": 3442324,
+      "sha256": "4654ef9dc37531ead9c807b294a60a750e86e89ec16d42878860b4f51bbf0716",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene10_pair000100_before_resize_overlay_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene10_pair000100_before_resize_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/14_scene10_Scene_product.jpg",
+      "bytes": 3405938,
+      "sha256": "4935651cc13bd737dc2d6c609164d43867d1faad61f0d1db0fb7cf18ad7cfd37",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene10_pair000100_after_scene_homography_overlay_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene10_pair000100_after_scene_homography_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/15_scene10_Edge_agreement.jpg",
+      "bytes": 6162315,
+      "sha256": "ea8e6783d5091aaa6d970ded7a2a7270a9c6cf5228bca843636566bbf2a260c8",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene10_pair000100_edge_overlay_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene10_pair000100_edge_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/16_scene14_RGB.jpg",
+      "bytes": 3315353,
+      "sha256": "c5867842c3916c4e16769b206d08662838e5b8b11240a0e75c53b8739243871e",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene14_pair000300_rgb_selected_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene14_pair000300_rgb_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/17_scene14_Infrared.jpg",
+      "bytes": 556821,
+      "sha256": "46d89a42cbbd649eddfc8dbbe050fd811163c0109d965ddb0d3ddd15b1a14a58",
+      "pixels": [
+        1280,
+        896
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene14_pair000300_infrared_selected_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene14_pair000300_infrared_selected_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/18_scene14_Before.jpg",
+      "bytes": 4595807,
+      "sha256": "6821e4220a62f26ed9c6dbf8c94ec2393c6f67fcba9069a79c408920958266f3",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene14_pair000300_before_resize_overlay_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene14_pair000300_before_resize_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/19_scene14_Scene_product.jpg",
+      "bytes": 4553586,
+      "sha256": "9b5b30d00b9af68df5ba72a47e13c93be4cac6041f86c1f7e44c914715f07d8f",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene14_pair000300_after_scene_homography_overlay_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene14_pair000300_after_scene_homography_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/20_scene14_Edge_agreement.jpg",
+      "bytes": 8934902,
+      "sha256": "d4a5bebebe8d10fe8a135585b73d72efbd56a444a08481b6018f48c2b280c517",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene14_pair000300_edge_overlay_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene14_pair000300_edge_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图7/figure7_subimages.py",
+      "bytes": 1442,
+      "sha256": "f3ec7ac114ce1e52846016875196500733c63c4287bded87b59fa6d00acf90ac"
+    },
+    {
+      "path": "图7/图7 .drawio",
+      "bytes": 2398876,
+      "sha256": "a347496a9cbf8e667a9d5009d1a16c11073bcc98870bdf4faf7a85679dc9a7c5"
+    },
+    {
+      "path": "图8/01_scene01_Before.jpg",
+      "bytes": 2663407,
+      "sha256": "2f7fa39d354d49a0090085023289da328c90d9019f9028e871763efb6c8af5f3",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene01_pair000009_before_resize_overlay_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene01_pair000009_before_resize_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图8/02_scene01_Scene_product.jpg",
+      "bytes": 2427046,
+      "sha256": "1acb94ed0cbf5584aaad091c4fb8cacb68914c82c04dca26ce0923021a3707d6",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene01_pair000009_after_scene_homography_overlay_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene01_pair000009_after_scene_homography_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图8/03_scene01_Edge_agreement.jpg",
+      "bytes": 3849005,
+      "sha256": "a9e5c77c53fee17b50f0799d29114aaa8e79ad6899d99200f11a0f8aa3cdf2b4",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene01_pair000009_edge_overlay_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene01_pair000009_edge_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图8/04_scene02_Before.jpg",
+      "bytes": 2601571,
+      "sha256": "1f1ca23092d73d346c97fd48e4a3c133d10fa5fa077ed4d7c4ef184f3ae3899d",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig03_scene_framework/source_assets/scene02_pair000009_before_resize_overlay_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene02_pair000009_before_resize_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图8/05_scene02_Scene_product.jpg",
+      "bytes": 2585801,
+      "sha256": "8ab6d552bb4c508b8fca7247d38f8626310ee1d7c310a014f87e7996c73c2cb8",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig03_scene_framework/source_assets/scene02_pair000009_after_scene_homography_overlay_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene02_pair000009_after_scene_homography_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图8/06_scene02_Edge_agreement.jpg",
+      "bytes": 4414058,
+      "sha256": "1c9ad6903dc16c7ec462c2bc97d11d0e8a43c79f455c88edcbaff150cb4b1d34",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig03_scene_framework/source_assets/scene02_pair000009_edge_overlay_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene02_pair000009_edge_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图8/07_scene04_Before.jpg",
+      "bytes": 1313840,
+      "sha256": "38bd9de69c15dea3c0e688dd0b8d864c1a880fa6b1293bae9b66dc2c13f77c77",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene04_pair000020_before_resize_overlay_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene04_pair000020_before_resize_overlay_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene04_pair000020_before_resize_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图8/08_scene04_Scene_product.jpg",
+      "bytes": 1291328,
+      "sha256": "0fb6512724700b6ba2ffa06e179c99f48af872b92335ee855d63de9f5436ea09",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene04_pair000020_after_scene_homography_overlay_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene04_pair000020_after_scene_homography_overlay_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene04_pair000020_after_scene_homography_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图8/09_scene04_Edge_agreement.jpg",
+      "bytes": 2717402,
+      "sha256": "428de53c255b26c5d30fa9f4a33e32988c3b5b16242b0bda251cae1d44413141",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig01_problem_benchmark/source_assets/scene04_pair000020_edge_overlay_crop.jpg",
+        "figure_reconstruction/fig06_scene_products/source_assets/scene04_pair000020_edge_overlay_crop.jpg",
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene04_pair000020_edge_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图8/10_scene03_Before.jpg",
+      "bytes": 1860475,
+      "sha256": "7ef6b67fcbf91106695c56a09fe85911ba08a057ea3d917349417b5f60098c1e",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene03_pair000020_before_resize_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图8/11_scene03_Scene_product.jpg",
+      "bytes": 1753438,
+      "sha256": "94cfb85e9a4a92d6642d1db106f050e9448fcf4d792c1562fbbff01c64a02c86",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene03_pair000020_after_scene_homography_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图8/12_scene03_Edge_agreement.jpg",
+      "bytes": 3089478,
+      "sha256": "c6e748ee1153c0af13f509be95a5f065fa84364308a860cf0f7d546f41bfff1e",
+      "pixels": [
+        2800,
+        1960
+      ],
+      "exif_count": 0,
+      "repo_match": [
+        "figure_reconstruction/fig07_reliability_selection/source_assets/scene03_pair000020_edge_overlay_crop.jpg"
+      ]
+    },
+    {
+      "path": "图8/figure8a_subimages.py",
+      "bytes": 1377,
+      "sha256": "f9a49fb70676a6dab5c88adf07d3e797aea68bca0376f45226257163bd22c863"
+    },
+    {
+      "path": "图8/figure8b.py",
+      "bytes": 278,
+      "sha256": "7b41c6dc486a1409e51a97b247c858013a212699620674490eaeefde4b3bf280"
+    },
+    {
+      "path": "图8/figure8_b.png",
+      "bytes": 220416,
+      "sha256": "ec0d27e23f468ed09030a9972b5fd3822a2eeabd0ce3503d3f5d9f1c62aef7bf",
+      "pixels": [
+        3955,
+        1101
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图8/图8 .drawio",
+      "bytes": 15594531,
+      "sha256": "268e10b57135ef7ddc6f762096dbfcf2015da50df9f6b02ec553b29df2a3a4ed"
+    },
+    {
+      "path": "图9/figure9.py",
+      "bytes": 287,
+      "sha256": "ab053cd0fdb7bba69ee0733b52eba41bc56584a5a7c26931334d514487fa1bb3"
+    },
+    {
+      "path": "图9/figure9_a.png",
+      "bytes": 174892,
+      "sha256": "d702664ca9e64ad2666202a56064beabb04d04c402df802cfefb5b97459a77d7",
+      "pixels": [
+        1980,
+        1406
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "图9/figure9_b.png",
+      "bytes": 146700,
+      "sha256": "ab50dae9b23eec655946ac12bccfc969d02c6b7b2f7a2300448a07f84a16419e",
+      "pixels": [
+        1980,
+        1406
+      ],
+      "exif_count": 0,
+      "repo_match": []
+    },
+    {
+      "path": "总脚本/all_numerical_figures.py",
+      "bytes": 26992,
+      "sha256": "1e5b15540a3a65cb0a797b19ed90a5b5d2f7dd70685700870596f7ce2c9b67b7"
+    },
+    {
+      "path": "总脚本/export_subimages.py",
+      "bytes": 5525,
+      "sha256": "60d8c1b947962349beaa98f848565b8afbd1f08aa197f92064f882940f3fae3f"
+    }
+  ]
+}
