@@ -14,11 +14,11 @@ def main():
         ("scene14", "Low-light / pseudocolor"),
     ]
     overlay_gallery(ROOT, "fig06_scene_products", [
-        (s, f"S{s[-2:]}   {label}", True)
+        (s, f"S{s[-2:]}<br/>{label}", True)
         for s, label in rows
     ])
     overlay_gallery(ROOT, "fig06_additional_product", [
-        ("scene07", "S07   Tower orbit", True),
+        ("scene07", "S07<br/>Tower orbit", True),
     ])
 
 

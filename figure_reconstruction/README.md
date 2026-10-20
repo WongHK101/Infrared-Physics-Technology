@@ -43,3 +43,6 @@ risk/validation/ablation definitions remain unchanged. Figure labels identify
 objects, conditions and metrics; explanatory prose belongs in captions/text.
 The October 20 update removes the Fig. 1 metadata banner and shortens redundant
 photo-panel and operating-profile annotations.
+The subsequent layout pass uses native-aspect-ratio boxes and a compact central
+legend in the pairwise plate. The scene-product and paired-control plates use
+vertical left-side labels and tight gutters, including their appendix versions.

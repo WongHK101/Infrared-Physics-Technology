@@ -41,7 +41,7 @@ def main() -> None:
     from editable_diagram import Diagram
     selected = json.loads((DATA / "selected_pair_homographies.json").read_text(encoding="utf-8"))
     methods = ["SIFT", "RIFT2", "LoFTR", "XoFTR", "RoMa", "raw MINIMA"]
-    d = Diagram(1200, 685)
+    d = Diagram(1200, 700)
     tiles = ROOT / "outputs" / "tiles"
     tiles.mkdir(parents=True, exist_ok=True)
     for i, method in enumerate(methods):
@@ -52,14 +52,17 @@ def main() -> None:
         )
         tile = tiles / f"{method.replace(' ', '_')}_edges.png"
         Image.fromarray((overlay.clip(0, 1)*255).astype(np.uint8)).save(tile)
-        x, y = 8 + (i % 3)*402, 10 + (i // 3)*315
-        d.text(x, y, 388, 35, method, size=28, bold=True)
-        d.photo(x, y+40, 388, 265, tile)
-    for x, label, color in [(225, "RGB", "#00D1F5"),
-                             (485, "Infrared", "#FA3829"),
-                             (795, "Overlap", "#FFF59E")]:
-        d.box(x, 649, 24, 18, fill=color, stroke="#67737C", rounded=False)
-        d.text(x+35, 641, 180, 34, label, size=24, align="left")
+        x, y = 6 + (i % 3)*398, 4 + (i // 3)*331
+        d.text(x, y, 392, 30, method, size=28, bold=True)
+        # Match the native 4:3 tile ratio so the image boxes add no white gutters.
+        d.photo(x, y+33, 392, 294, tile)
+    x = (1200 - 355) / 2
+    for label, color, text_width in [("RGB", "#00D1F5", 55),
+                                     ("Infrared", "#FA3829", 90),
+                                     ("Overlap", "#FFF59E", 95)]:
+        d.box(x, 672, 18, 16, fill=color, stroke="#67737C", rounded=False)
+        d.text(x+25, 665, text_width, 30, label, size=24, align="left")
+        x += 25 + text_width + 20
     d.export(ROOT, "fig05_pairwise_evidence")
 
 

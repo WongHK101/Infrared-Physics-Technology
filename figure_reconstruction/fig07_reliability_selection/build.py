@@ -46,12 +46,12 @@ def qa_scatter():
 
 def main():
     overlay_gallery(ROOT, "fig07_reliability_selection", [
-        ("scene01", "S01   Wide   |   Retained", True),
-        ("scene02", "S02   Zoom   |   Filtered", False),
+        ("scene01", "S01 Wide<br/>Retained", True),
+        ("scene02", "S02 Zoom<br/>Filtered", False),
     ])
     overlay_gallery(ROOT, "fig07_night_control", [
-        ("scene04", "S04   Zoom   |   Retained", True),
-        ("scene03", "S03   Wide   |   Filtered", False),
+        ("scene04", "S04 Zoom<br/>Retained", True),
+        ("scene03", "S03 Wide<br/>Filtered", False),
     ])
     qa_scatter()
 

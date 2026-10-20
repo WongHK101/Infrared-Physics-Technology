@@ -45,12 +45,14 @@ class Diagram:
             f"fillColor={fill};strokeColor={stroke};strokeWidth=1.4;"
         ))
 
-    def text(self, x, y, w, h, value, size=24, color=INK, align="center", bold=False):
+    def text(self, x, y, w, h, value, size=24, color=INK, align="center", bold=False,
+             rotation=0):
         return self.cell(x, y, w, h, value, (
             "text;html=1;whiteSpace=wrap;overflow=visible;rounded=0;"
             "fillColor=none;strokeColor=none;verticalAlign=middle;"
             f"fontFamily=Times New Roman;fontSize={size};fontColor={color};"
             f"align={align};fontStyle={int(bold)};spacing=0;"
+            + (f"rotation={rotation};" if rotation else "")
         ))
 
     def photo(self, x, y, w, h, path: Path):
@@ -116,18 +118,25 @@ def find_asset(folder: Path, scene: str, suffix: str) -> Path:
 
 
 def overlay_gallery(root: Path, stem: str, rows):
-    """Three comparable, uncropped panels per row; scene labels stay horizontal."""
-    d = Diagram(1200, 55 + 320 * len(rows))
+    """Three tightly spaced panels per row, with vertical scene labels at left."""
+    left, gap, panel_width = 64, 6, 372
+    panel_height = panel_width * .7
+    top = 38
+    d = Diagram(1200, top + (panel_height + gap) * len(rows))
     for col, text in enumerate(["Size-matched reference", "Scene homography", "Edge agreement"]):
-        d.text(8 + col * 402, 0, 388, 35, text, size=26, bold=True)
+        d.text(left + col * (panel_width + gap), 0, panel_width, 32, text,
+               size=26, bold=True)
     suffixes = ["before_resize_overlay_crop", "after_scene_homography_overlay_crop",
                 "edge_overlay_crop"]
     for row, (scene, label, retained) in enumerate(rows):
-        y = 45 + 320 * row
-        d.box(8, y, 1192, 34, fill="#EEF4F2" if retained else "#F0F2F4", stroke="none")
-        d.text(20, y, 1170, 34, label, size=24,
-               color=GREEN if retained else INK, align="left", bold=True)
+        y = top + (panel_height + gap) * row
+        d.box(4, y, 52, panel_height,
+              fill="#EEF4F2" if retained else "#F0F2F4", stroke="none")
+        # Rotate about the label-strip center, not around the unrotated text origin.
+        d.text(30 - panel_height / 2, y + panel_height / 2 - 24,
+               panel_height, 48, label, size=22,
+               color=GREEN if retained else INK, bold=True, rotation=270)
         for col, suffix in enumerate(suffixes):
-            d.photo(8 + col * 402, y + 40, 388, 271.6,
+            d.photo(left + col * (panel_width + gap), y, panel_width, panel_height,
                     find_asset(root / "source_assets", scene, suffix))
     d.export(root, stem)

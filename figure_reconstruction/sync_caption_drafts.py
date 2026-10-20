@@ -20,12 +20,14 @@ def balanced(text, start):
 for section in sorted((ROOT.parent / "sections").glob("*.tex")):
     text = section.read_text(encoding="utf-8")
     for block in re.findall(r"\\begin\{figure\}.*?\\end\{figure\}", text, re.S):
-        asset = re.search(r"\{figures/(fig\d+_[^}]+)\.pdf\}", block)
-        if not asset:
-            continue
-        stem = asset.group(1)
-        directory = next(ROOT.glob(stem[:5]+"_*"))
-        start = block.index(r"\caption{") + len(r"\caption{")
-        caption = balanced(block, start)
-        name = "caption_draft.txt" if directory.name == stem else f"{stem}_caption.txt"
-        (directory / name).write_text(caption.strip()+"\n", encoding="utf-8")
+        assets = list(re.finditer(r"\{figures/(fig\d+_[^}]+)\.pdf\}", block))
+        # An appendix float may contain two independently numbered figures.
+        for i, asset in enumerate(assets):
+            end = assets[i+1].start() if i+1 < len(assets) else len(block)
+            segment = block[asset.end():end]
+            stem = asset.group(1)
+            directory = next(ROOT.glob(stem[:5]+"_*"))
+            start = segment.index(r"\caption{") + len(r"\caption{")
+            caption = balanced(segment, start)
+            name = "caption_draft.txt" if directory.name == stem else f"{stem}_caption.txt"
+            (directory / name).write_text(caption.strip()+"\n", encoding="utf-8")

@@ -22,7 +22,7 @@ model output, homography fitting, and result schemas while preserving each pretr
 All pairwise methods use USAC-MAGSAC for homography estimation. The shared profile uses a
 3.0-pixel reprojection threshold, 0.999 confidence, and 10,000 maximum iterations;
 RIFT2 retains its separately specified 5.0-pixel profile. Spatial match coverage is measured on
-the same $4\!\times\!4$ grid for all methods. Appendix~\ref{sec:metric_aggregation} defines the
+the same $4\!\times\!4$ grid for all methods. \ref{sec:metric_aggregation} defines the
 fitting diagnostics and their aggregation.
 
 RIFT2 uses its frozen resize-aware profile: \texttt{max\_dim=1200}, \texttt{npt=2000},

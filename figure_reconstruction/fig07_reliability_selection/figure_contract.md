@@ -1,6 +1,9 @@
-# Figure contract (2026-10-18)
+# Figure contract (2026-10-20)
 
 Main plate: S01/S02 day wide/zoom control. Appendix: S04/S03 night zoom/wide control and all-scene QA scatter. Scene labels are canonical decisions, not per-frame labels. The 0.10 reference belongs to the baseline-aware path, not the entire gate.
+
+Scene/view/status labels are vertical in the narrow left strip. Use six-unit row and
+column gutters, with unchanged image crops and retained/filtered status.
 
 - Source of truth: frozen figure-local records and the English manuscript.
 - Outputs: SVG/PDF/PNG; Draw.io source where applicable.

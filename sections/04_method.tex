@@ -54,7 +54,7 @@ satisfied; otherwise, the next subset is evaluated.
 Scenes with at most 300 pairs use all available pairs. Larger scenes start with approximately
 15\% of the pairs and expand in 15-percentage-point increments up to 50\%, followed by the full
 scene if needed. The 12-frame setting controls the representative QA probes, not a fixed cap on
-matching evidence. Exact support and stopping rules are specified in Appendix~\ref{sec:protocol_details}.
+matching evidence. Exact support and stopping rules are specified in \ref{sec:protocol_details}.
 
 Within each stage, evenly distributed sampling provides reproducible temporal or index coverage.
 The random-selection variant is evaluated separately through a multi-seed sensitivity analysis.
@@ -137,7 +137,7 @@ R(S) = 100\big(&0.25\hat a_S + 0.25\hat o_S + 0.20\hat j_S \\
 \end{equation}
 Here each hatted component lies in $[0,1]$, with larger values representing stronger accepted
 support, outlier control, consensus retention, edge improvement, gradient improvement, and
-geometric support, respectively. Appendix~\ref{sec:score_normalization} gives every normalization
+geometric support, respectively. \ref{sec:score_normalization} gives every normalization
 and clipping constant. The canonical decision requires
 a minimum number of accepted frame hypotheses and one of two fixed verification paths,
 \begin{equation}
@@ -151,7 +151,7 @@ N_S \ge N_{\min}
 Here $N_S$ is the accepted-frame count and $N_{\min}$ is the scene-size-dependent support threshold.
 $L_S$ denotes the primary edge/gradient path; $W_S$ combines accepted support, consensus geometry,
 relative outlier control, and gradient improvement when the initialization is size-based.
-Appendix~\ref{sec:canonical_details} specifies both paths. The score
+\ref{sec:canonical_details} specifies both paths. The score
 $R(S)$ orders scenes for reliability--coverage analysis, while $y_S$ defines the canonical set of
 high-confidence alignment products.
 
