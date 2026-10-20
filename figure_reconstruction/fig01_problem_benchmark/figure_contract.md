@@ -1,6 +1,6 @@
 # Figure contract (2026-10-18)
 
-Six paired RGB/infrared examples with a compact acquisition/data card. Student-inspired two-column groups; native image bytes, no blank acquisition placeholder. Six scenes: S01/S04/S05/S10/S13/S14.
+Six paired RGB/infrared examples, without a dataset/metadata header. Student-inspired two-column groups; native image bytes. Six scenes: S01/S04/S05/S10/S13/S14. Counts and acquisition details belong in the caption and text.
 
 - Source of truth: frozen figure-local records and the English manuscript.
 - Outputs: SVG/PDF/PNG; Draw.io source where applicable.

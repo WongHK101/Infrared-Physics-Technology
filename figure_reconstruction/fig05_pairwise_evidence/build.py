@@ -55,9 +55,11 @@ def main() -> None:
         x, y = 8 + (i % 3)*402, 10 + (i // 3)*315
         d.text(x, y, 388, 35, method, size=28, bold=True)
         d.photo(x, y+40, 388, 265, tile)
-    d.text(15, 645, 1175, 32,
-           "S04 / 000020   |   Cyan: RGB edges   |   Red: infrared edges   |   Pale yellow: overlap",
-           size=24)
+    for x, label, color in [(225, "RGB", "#00D1F5"),
+                             (485, "Infrared", "#FA3829"),
+                             (795, "Overlap", "#FFF59E")]:
+        d.box(x, 649, 24, 18, fill=color, stroke="#67737C", rounded=False)
+        d.text(x+35, 641, 180, 34, label, size=24, align="left")
     d.export(ROOT, "fig05_pairwise_evidence")
 
 

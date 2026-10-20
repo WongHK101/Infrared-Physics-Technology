@@ -27,10 +27,9 @@ $\bar{H}_S$，并赋予其规范产品状态。
 \begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig03_scene_framework.pdf}
-\caption{UAV-TAlign 场景级对齐框架。（a）渐进式调度收集成对单应性与几何引导权重；（b）中位数/MAD
-过滤与加权聚合形成场景共识；（c）跨模态诊断输入两个独立分支：固定规范门控定义保留产品，可靠性
-评分用于运行点排序。参数空间中的簇为示意图；圆点、叉号和星形分别表示保留假设、
-剔除假设与共识中心。}
+\caption{UAV-TAlign 工作流程。渐进式证据选择为鲁棒场景共识提供成对单应性与帧质量权重，
+跨模态 QA 输出规范产品决策及独立的评分排序。图像示例取自 S02；支撑网格与参数空间簇用于
+示意计算过程。}
 \label{fig:scene_framework_zh}
 \end{figure}
 

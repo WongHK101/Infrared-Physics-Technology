@@ -55,16 +55,16 @@ def main():
     tracks = [
         (0, BLUE, "#EEF5FB", "A  Pairwise evidence",
          "RGB-infrared pair<br/>(I<sub>i</sub><sup>R</sup>, I<sub>i</sub><sup>T</sup>)",
-         "Homography H<sub>i</sub>", "Availability and<br/>correspondence support",
+         "Homography H<sub>i</sub>", "Availability<br/>Spatial support",
          "Match + fit", "Summarize"),
         (145, GREEN, "#EEF6F0", "B  Scene products",
          "Scene evidence<br/>{H<sub>i</sub>, q<sub>i</sub>}",
-         "Scene consensus H&#772;<sub>S</sub><br/>and diagnostics",
-         "Canonical decision<br/>y<sub>S</sub> = 0 or 1",
+         "Scene consensus H&#772;<sub>S</sub>",
+         "Canonical status y<sub>S</sub>",
          "Aggregate", "Fixed QA gate"),
         (290, ORANGE, "#FCF3EB", "C  Operating profile",
          "Scene diagnostics", "Reliability score R(S)",
-         "Scene and pair coverage<br/>with quality diagnostics",
+         "Reliability-coverage",
          "Fixed score", "Rank / top-K"),
     ]
     for y, color, fill, title, left, middle, right, link1, link2 in tracks:

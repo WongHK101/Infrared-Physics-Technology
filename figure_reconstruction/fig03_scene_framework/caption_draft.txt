@@ -1,6 +1,4 @@
-UAV-TAlign scene-level alignment framework. (a) Progressive scheduling gathers pairwise
-homographies and geometry-informed weights. (b) Median/MAD filtering and weighted aggregation form
-the scene consensus. (c) Cross-modal diagnostics feed two separate branches: the fixed canonical
-gate defines retained products, while the reliability score orders operating points.
-The parameter-space cluster is schematic; circles, crosses, and the star denote kept
-hypotheses, rejected hypotheses, and the consensus, respectively.
+UAV-TAlign workflow. Progressive evidence selection supplies pairwise homographies and
+frame quality weights to robust scene consensus. Cross-modal QA produces a canonical product
+decision and a separate score-based ranking. Image panels use S02; the support grids and
+parameter-space cluster illustrate the computation.

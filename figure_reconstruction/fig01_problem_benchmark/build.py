@@ -8,14 +8,7 @@ ROOT = Path(__file__).resolve().parent
 
 
 def main():
-    d = Diagram(1200, 900)
-    d.box(8, 0, 1184, 72, fill="#F0F5F8", stroke="none")
-    d.text(22, 5, 1156, 30,
-           "UAV-TAlign-12K  |  15 scenes  |  6,039 candidate pairs  |  6,037 evaluated pairs",
-           size=25, bold=True)
-    d.text(22, 37, 1156, 28,
-           "DJI Matrice 350 RTK + H30T  |  Time-synchronized RGB and infrared capture",
-           size=22)
+    d = Diagram(1200, 830)
     scenes = [
         ("scene01", "S01  Day / grayscale / wide"),
         ("scene04", "S04  Night / grayscale / zoom"),
@@ -25,7 +18,7 @@ def main():
         ("scene14", "S14  Low-light / pseudocolor"),
     ]
     for i, (scene, label) in enumerate(scenes):
-        x, y = 8 + (i % 2) * 604, 90 + (i // 2) * 280
+        x, y = 8 + (i % 2) * 604, (i // 2) * 280
         d.box(x, y, 580, 34, fill="#EDF1F6", stroke="none")
         d.text(x, y, 580, 34, label, size=25, bold=True)
         for j, (suffix, name) in enumerate([

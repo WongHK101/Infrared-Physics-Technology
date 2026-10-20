@@ -1,12 +1,12 @@
-# Figure manifest (2026-10-18)
+# Figure manifest (2026-10-20)
 
 Displayed figure numbers follow LaTeX order, not directory IDs.
 
 | Directory | Main-text content | Appendix content | Evidence status |
 |---|---|---|---|
-| fig01_problem_benchmark | Six RGB/infrared pairs and compact dataset card | - | Frozen source images; student byte matches verified |
+| fig01_problem_benchmark | Six RGB/infrared pairs, concise condition labels only | - | Frozen source images; student byte matches verified |
 | fig02_benchmark_protocol | Three evaluation tracks | Pair counts and scene attributes | Versioned valid-split CSV |
-| fig03_scene_framework | Scheduling, consensus and separate gate/ranking branches | - | Method definitions; S02/000009 input; cluster explicitly schematic |
+| fig03_scene_framework | Corrected student Draw.io framework | - | Original layout retained; S02/000009 input; independent gate/ranking branches |
 | fig04_consensus_qa | Two-panel S01/S02 diagnostic comparison | - | Frozen per-hypothesis and QA records |
 | fig05_pairwise_evidence | Six same-pair edge overlays in 2x3 layout | - | Frozen S04/000020 matrices; exact student-pixel reproduction |
 | fig06_scene_products | S10/S04/S14, three display columns | S07 tower-orbit product | Frozen scene transforms and selected crops |

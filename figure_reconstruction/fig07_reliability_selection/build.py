@@ -34,7 +34,7 @@ def qa_scatter():
                     fontsize=8, arrowprops={"arrowstyle":"-", "color":"#A4ADB4",
                                           "lw":.5, "shrinkA":2, "shrinkB":4})
     ax.axhline(.10, color=COLORS["canonical"], ls="--", lw=.8)
-    ax.text(.99, .104, "Baseline-aware path: outlier-ratio reference",
+    ax.text(.99, .104, "Outlier reference",
             ha="right", fontsize=8, color=COLORS["canonical"])
     ax.set(xlim=(-.02, 1.055), ylim=(-.025, .205),
            xlabel="Accepted-frame ratio", ylabel="Severe relative-outlier ratio")
@@ -46,12 +46,12 @@ def qa_scatter():
 
 def main():
     overlay_gallery(ROOT, "fig07_reliability_selection", [
-        ("scene01", "S01 / 000009   Day / grayscale / wide   |   Canonically retained", True),
-        ("scene02", "S02 / 000009   Day / grayscale / zoom   |   QA-filtered", False),
+        ("scene01", "S01   Wide   |   Retained", True),
+        ("scene02", "S02   Zoom   |   Filtered", False),
     ])
     overlay_gallery(ROOT, "fig07_night_control", [
-        ("scene04", "S04 / 000020   Night / grayscale / zoom   |   Canonically retained", True),
-        ("scene03", "S03 / 000020   Night / grayscale / wide   |   QA-filtered", False),
+        ("scene04", "S04   Zoom   |   Retained", True),
+        ("scene03", "S03   Wide   |   Filtered", False),
     ])
     qa_scatter()
 

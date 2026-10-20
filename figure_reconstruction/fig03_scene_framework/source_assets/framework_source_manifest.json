@@ -1,0 +1,116 @@
+{
+  "purpose": "Workflow figure source and display provenance",
+  "student_base_sha256": "33368e43a36445ab8f2505db8abf62eeacb71ef38558368dc711d1b7bb25e475",
+  "sample_scene": "02_day_grayscale_zoom_substation_power_lines_50",
+  "image_processing": "Display copies only: aspect-preserving LANCZOS downsampling to at most 1600 pixels, JPEG quality 96, no subsampling. No upscaling or contrast changes.",
+  "schematic_elements": [
+    "Spatial-support grids",
+    "Parameter-space cluster"
+  ],
+  "assets": [
+    {
+      "source": "source_assets/scene02_pair000001_rgb.jpg",
+      "sha256": "a9e598cde44b74983d7a979845509672c91948a37c18ed95da1e3f005b465137",
+      "dimensions": [
+        3664,
+        2748
+      ],
+      "display_dimensions": [
+        1600,
+        1200
+      ],
+      "display_path": "outputs/display_assets/scene02_pair000001_rgb.jpg"
+    },
+    {
+      "source": "source_assets/scene02_pair000005_rgb.jpg",
+      "sha256": "8bc2c2e71a5110d3f6b80c1363cd10706a12fbf374f19cfa1ed863cb01f65ae8",
+      "dimensions": [
+        3664,
+        2748
+      ],
+      "display_dimensions": [
+        1600,
+        1200
+      ],
+      "display_path": "outputs/display_assets/scene02_pair000005_rgb.jpg"
+    },
+    {
+      "source": "source_assets/scene02_pair000009_after_scene_homography_overlay_crop.jpg",
+      "sha256": "8ab6d552bb4c508b8fca7247d38f8626310ee1d7c310a014f87e7996c73c2cb8",
+      "dimensions": [
+        2800,
+        1960
+      ],
+      "display_dimensions": [
+        1600,
+        1120
+      ],
+      "display_path": "outputs/display_assets/scene02_pair000009_after_scene_homography_overlay_crop.jpg"
+    },
+    {
+      "source": "source_assets/scene02_pair000009_before_resize_overlay_crop.jpg",
+      "sha256": "1f1ca23092d73d346c97fd48e4a3c133d10fa5fa077ed4d7c4ef184f3ae3899d",
+      "dimensions": [
+        2800,
+        1960
+      ],
+      "display_dimensions": [
+        1600,
+        1120
+      ],
+      "display_path": "outputs/display_assets/scene02_pair000009_before_resize_overlay_crop.jpg"
+    },
+    {
+      "source": "source_assets/scene02_pair000009_edge_overlay_crop.jpg",
+      "sha256": "1c9ad6903dc16c7ec462c2bc97d11d0e8a43c79f455c88edcbaff150cb4b1d34",
+      "dimensions": [
+        2800,
+        1960
+      ],
+      "display_dimensions": [
+        1600,
+        1120
+      ],
+      "display_path": "outputs/display_assets/scene02_pair000009_edge_overlay_crop.jpg"
+    },
+    {
+      "source": "source_assets/scene02_pair000009_infrared_selected_crop.jpg",
+      "sha256": "21b25233c9dda8f3be5e786fedcc534724d05b0dd08c7d3d8a58380268d1f933",
+      "dimensions": [
+        1280,
+        896
+      ],
+      "display_dimensions": [
+        1280,
+        896
+      ],
+      "display_path": "outputs/display_assets/scene02_pair000009_infrared_selected_crop.jpg"
+    },
+    {
+      "source": "source_assets/scene02_pair000009_rgb.jpg",
+      "sha256": "67ccfb6462aaee927d9ecd7bfd929887843b58fc22c1b6d04ffc3ca44721a947",
+      "dimensions": [
+        3664,
+        2748
+      ],
+      "display_dimensions": [
+        1600,
+        1200
+      ],
+      "display_path": "outputs/display_assets/scene02_pair000009_rgb.jpg"
+    },
+    {
+      "source": "source_assets/scene02_pair000009_rgb_selected_crop.jpg",
+      "sha256": "2efdc9093708b7190293ce4b0bbc6114f99d12838b5758d056df41874209ba5d",
+      "dimensions": [
+        2800,
+        1960
+      ],
+      "display_dimensions": [
+        1600,
+        1120
+      ],
+      "display_path": "outputs/display_assets/scene02_pair000009_rgb_selected_crop.jpg"
+    }
+  ]
+}

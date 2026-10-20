@@ -35,7 +35,7 @@ def main():
             "s-", color=COLORS["infrared"], lw=1.5, ms=4)
     ax.scatter(canonical.pair_coverage_micro, canonical.accepted_attempted_ratio_micro,
                marker="*", s=150, color=COLORS["canonical"], zorder=5)
-    ax.annotate("Canonical: 74.4% pairs\n64.7% accepted support",
+    ax.annotate("Canonical",
                 (canonical.pair_coverage_micro, canonical.accepted_attempted_ratio_micro),
                 xytext=(.27, .25), textcoords="axes fraction", fontsize=9,
                 color=COLORS["canonical"],
