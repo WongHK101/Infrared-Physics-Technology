@@ -4,7 +4,7 @@
 
 Infrared-visible alignment is a foundational capability for UAV inspection, nighttime monitoring,
 and multimodal thermal sensing. Visible imagery provides semantic and structural detail, while
-infrared imagery provides complementary thermal information under changing illumination and
+thermal infrared imagery provides complementary information under changing illumination and
 low-light conditions. This combination supports multispectral detection, tracking, and
 aerial perception across demanding operating environments
 \cite{hwang2015kaist,flir2018thermal,jia2021llvip,liu2022tardal,sun2022dronevehicle,zhang2022vtuav,li2022lasher,jiang2023antiuav}.
@@ -14,7 +14,7 @@ system rather than independent observations.
 UAV acquisition introduces a distinct alignment problem. Cross-FOV optics, unequal sensor
 resolutions, changing viewpoints, and zoom variation reshape the same scene differently in the
 visible and infrared channels. Time-synchronized capture preserves these cross-sensor differences
-rather than geometrically registering the images. Thermal rendering and day-to-night appearance changes further
+rather than geometrically registering the images. Infrared rendering and day-to-night appearance changes further
 alter local texture and contrast. A flight sequence consequently provides heterogeneous geometric
 evidence: individual frame pairs may differ substantially in spatial support, homography
 stability, and cross-modal agreement. Effective alignment must consolidate this evidence into a
@@ -32,7 +32,7 @@ estimates be consolidated and assessed at the scale of a captured UAV scene?
 We address this question with UAV-TAlign-12K, a real captured cross-FOV UAV infrared-visible
 benchmark comprising 6,039 synchronized pairs across 15 industrial and natural scenes. Its
 official evaluation split contains 6,037 integrity-checked pairs spanning day, night, and
-low-light capture; grayscale and pseudocolor thermal rendering; and wide, zoom, and standard UAV
+low-light capture; grayscale and pseudocolor infrared rendering; and wide, zoom, and standard UAV
 views. The benchmark defines three complementary tracks. Pairwise evaluation measures homography
 evidence availability, scene-level evaluation measures multi-frame consensus products, and a
 reliability--coverage profile characterizes selectable operating regimes. This hierarchy connects

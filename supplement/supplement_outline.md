@@ -2,7 +2,7 @@
 
 Working title:
 
-Supplementary Material for UAV-TAlign-12K: Scene-Level Reliability Evaluation for Cross-FOV UAV Infrared-Visible Image Alignment
+Supplementary Material for UAV-TAlign-12K: Benchmarking Scene-Level Reliability in Cross-FOV UAV Infrared-Visible Alignment
 
 ## S1. Reliability Score Design
 
@@ -30,7 +30,7 @@ Primary source:
 
 ## S4. Condition Reliability Profile
 
-Summarize reliability diagnostics by light condition, thermal rendering, view type, and scene family where available. Report both scene-level macro summaries and pair-level micro support when possible.
+Summarize reliability diagnostics by light condition, infrared rendering, view type, and scene family where available. Report both scene-level macro summaries and pair-level micro support when possible.
 
 Primary source:
 

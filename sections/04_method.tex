@@ -6,14 +6,15 @@
 
 UAV-TAlign instantiates the scene-level track of UAV-TAlign-12K. For each scene, the input is a set
 of paired RGB and infrared UAV frames
-$S = \{(I_i^R, I_i^T)\}_{i=1}^N$, where viewpoint variation, cross-resolution sensing, thermal
-appearance changes, and illumination variation produce frame estimates with heterogeneous support.
-The goal is to recover a thermal-to-RGB scene homography and characterize its operating confidence.
+$S = \{(I_i^R, I_i^T)\}_{i=1}^N$, with superscripts $R$ and $T$ denoting RGB and thermal
+infrared, respectively. Viewpoint variation, cross-resolution sensing, infrared appearance changes,
+and illumination variation produce frame estimates with heterogeneous support.
+The goal is to recover an infrared-to-RGB scene homography and characterize its operating confidence.
 
 This formulation casts registration as multi-frame evidence consolidation rather than single-pair
 selection. The framework converts uneven frame estimates into a geometrically stable and
 cross-modally consistent scene transform.
-For a selected frame pair, the thermal-to-RGB evidence is represented as a homography
+For a selected frame pair, the infrared-to-RGB evidence is represented as a homography
 $H_i \in \mathbb{R}^{3 \times 3}$ acting on homogeneous image coordinates,
 \begin{equation}
 \tilde{\mathbf{p}}^{R}_{ij} \sim H_i \tilde{\mathbf{p}}^{T}_{ij},

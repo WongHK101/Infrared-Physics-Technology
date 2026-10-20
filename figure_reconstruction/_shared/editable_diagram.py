@@ -128,14 +128,13 @@ def overlay_gallery(root: Path, stem: str, rows):
                size=26, bold=True)
     suffixes = ["before_resize_overlay_crop", "after_scene_homography_overlay_crop",
                 "edge_overlay_crop"]
-    for row, (scene, label, retained) in enumerate(rows):
+    for row, (scene, label, _retained) in enumerate(rows):
         y = top + (panel_height + gap) * row
-        d.box(4, y, 52, panel_height,
-              fill="#EEF4F2" if retained else "#F0F2F4", stroke="none")
+        d.box(4, y, 52, panel_height, fill="#FFFFFF", stroke="none")
         # Rotate about the label-strip center, not around the unrotated text origin.
         d.text(30 - panel_height / 2, y + panel_height / 2 - 24,
                panel_height, 48, label, size=22,
-               color=GREEN if retained else INK, bold=True, rotation=270)
+               color="#000000", bold=True, rotation=270)
         for col, suffix in enumerate(suffixes):
             d.photo(left + col * (panel_width + gap), y, panel_width, panel_height,
                     find_asset(root / "source_assets", scene, suffix))

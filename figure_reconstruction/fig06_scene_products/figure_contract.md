@@ -4,6 +4,7 @@ Main plate: S10/S04/S14, three columns (size-matched reference, scene homography
 
 Scene labels are rotated vertically in a narrow left strip. Image rows and columns use
 six-unit gutters; do not restore horizontal row-title bands.
+All left-strip labels use black text on a white background, without status-dependent tinting.
 
 - Source of truth: frozen figure-local records and the English manuscript.
 - Outputs: SVG/PDF/PNG; Draw.io source where applicable.

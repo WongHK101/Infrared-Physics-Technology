@@ -4,6 +4,7 @@ Main plate: S01/S02 day wide/zoom control. Appendix: S04/S03 night zoom/wide con
 
 Scene/view/status labels are vertical in the narrow left strip. Use six-unit row and
 column gutters, with unchanged image crops and retained/filtered status.
+Left strips use white backgrounds and black text for both statuses; the words carry the status.
 
 - Source of truth: frozen figure-local records and the English manuscript.
 - Outputs: SVG/PDF/PNG; Draw.io source where applicable.

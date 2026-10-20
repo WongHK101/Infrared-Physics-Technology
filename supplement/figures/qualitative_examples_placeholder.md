@@ -7,7 +7,7 @@ This placeholder defines the qualitative material expected for the supplement. T
 - Retained scene examples under the strict canonical QA gate.
 - QA-filtered challenging scenes under the same canonical criterion.
 - Day / night / lowlight examples.
-- Grayscale / pseudocolor thermal-rendering examples.
+- Grayscale / pseudocolor infrared-rendering examples.
 - Wide / zoom paired examples for the substation power-line scenes.
 
 ## Recommended Panel Layers
@@ -17,7 +17,7 @@ This placeholder defines the qualitative material expected for the supplement. T
 - Before-alignment overlay.
 - After-alignment overlay.
 - Edge-overlay improvement or contour agreement.
-- Caption with scene ID, pair ID, light condition, thermal rendering, view type, and canonical QA status.
+- Caption with scene ID, pair ID, light condition, infrared rendering, view type, and canonical QA status.
 
 ## Candidate Scene Groups
 

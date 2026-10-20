@@ -46,3 +46,5 @@ photo-panel and operating-profile annotations.
 The subsequent layout pass uses native-aspect-ratio boxes and a compact central
 legend in the pairwise plate. The scene-product and paired-control plates use
 vertical left-side labels and tight gutters, including their appendix versions.
+Those left-side labels use black text on white backgrounds; status is conveyed by
+the label text, not by tinted strips.

@@ -8,12 +8,12 @@ UAV-TAlign-12K is a benchmark for real captured UAV infrared-visible alignment. 
 contains 6,039 synchronized RGB-infrared pairs, corresponding to 12,078 images across 15 scenes.
 Its official evaluation split contains 6,037 integrity-checked pairs and 12,074 images. The
 collection spans cross-FOV and cross-resolution sensing under day, night, and low-light capture,
-grayscale and pseudocolor thermal rendering, and wide, zoom, and standard UAV views.
+grayscale and pseudocolor infrared rendering, and wide, zoom, and standard UAV views.
 
 All journal-scale experiments use the same versioned manifest. UAV-TAlign-1K-Lite is retained as
 a fixed development and ablation subset, while UAV-TAlign-12K defines the benchmark-scale
 evaluation in this study. The official split comprises 7 day, 5 night, and 3 low-light scenes,
-together with 8 grayscale-thermal and 7 pseudocolor-thermal scenes. Paired wide and zoom views
+together with 8 grayscale and 7 pseudocolor infrared scenes. Paired wide and zoom views
 provide controlled cross-FOV comparisons within the substation scene family.
 
 \begin{table}[t]
@@ -58,13 +58,16 @@ Per-scene counts and acquisition attributes are detailed in \ref{sec:visual_deta
 
 UAV-TAlign-12K was acquired between the second half of 2024 and the first half of 2026 across
 industrial and natural scenes in southern China. All scenes were captured with the same DJI
-Matrice 350 RTK platform and Zenmuse H30T multisensor payload. The integrated payload
+Matrice 350 RTK platform and Zenmuse H30T multisensor payload. Its uncooled VOx microbolometer
+operates in the 8--14~$\mu$m long-wave infrared (LWIR) band \cite{dji_h30_specs}.
+Throughout this benchmark, infrared images are the grayscale or pseudocolor renderings
+from this thermal channel. The integrated payload
 automatically synchronized the visible and infrared capture in time. Images retain their native
 cross-sensor geometry without manual geometric alignment. The flights combined hovering and route-based capture using a registered aircraft, a
 CAAC-qualified pilot, and permitted flight areas.
 
 The released streams retain the native H30T acquisition modes. Wide-camera stills are
-$4032\!\times\!3024$, zoom-camera stills are $3664\!\times\!2748$, and thermal images are
+$4032\!\times\!3024$, zoom-camera stills are $3664\!\times\!2748$, and infrared images are
 $1280\!\times\!1024$. In scenes 01 and 02, $3840\!\times\!2160$ still images were triggered while
 H30T video recording was active. Scene 07 is a synchronized video-derived sequence sampled at
 2 frames per second over one complete orbit around a transmission tower. Grayscale scenes use the
@@ -86,7 +89,7 @@ license.
 
 Each scene has dedicated \texttt{rgb/} and \texttt{thermal/} directories, and paired samples share
 the same filename stem. The official manifest records scene identity, pair identity, illumination,
-thermal rendering, view type, and scene label. A scene groups frames sharing a site or target
+infrared rendering, view type, and scene label. A scene groups frames sharing a site or target
 context and acquisition condition. It may represent a continuous sequence or multiple sorties
 under the same scene definition. Scene 07 is the documented single-orbit video sequence.
 
