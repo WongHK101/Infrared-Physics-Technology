@@ -1,4 +1,4 @@
-# Figure manifest (2026-10-20)
+# Figure manifest (2026-10-21)
 
 Displayed figure numbers follow LaTeX order, not directory IDs.
 
@@ -20,3 +20,8 @@ No missing assets for the adopted layout. Each figure has PDF, SVG and PNG;
 editable Draw.io sources accompany the schematic and photo-plate figures.
 Additional plates remain in the originating figure directory rather than
 creating duplicated source trees. No S06 photographic example is used.
+
+Chart typography, panel labels, legends and spacing follow `STYLE_GUIDE.md`.
+The appendix QA scatter has separate status and marker-size keys. Scene labels
+use the same `S01`--`S15` notation throughout; photographic plates retain black
+vertical text on white side strips.

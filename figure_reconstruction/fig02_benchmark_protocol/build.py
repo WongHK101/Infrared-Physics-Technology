@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent
 def dataset_details():
     configure()
     scenes = pd.read_csv(ROOT / "source_data/UAV-TAlign-12K_per_scene_valid_counts.csv")
-    fig, (ax, bx) = plt.subplots(1, 2, figsize=(8.3, 4.5),
+    fig, (ax, bx) = plt.subplots(1, 2, figsize=(7.2, 4.1),
                                gridspec_kw={"width_ratios": [1.25, 1], "wspace": .30})
     order = scenes.sort_values("valid_pair_count")
     colors = {"day": COLORS["visible"], "night": COLORS["purple"],
@@ -30,7 +30,8 @@ def dataset_details():
     ax.set_title("(a) Pair count per scene", loc="left")
     soften_axes(ax, "x")
     for condition, color in colors.items():
-        ax.scatter([], [], color=color, s=20, label=condition.replace("lowlight", "low-light"))
+        name = {"day": "Day", "night": "Night", "lowlight": "Low-light"}[condition]
+        ax.scatter([], [], color=color, s=20, label=name)
     ax.legend(loc="lower right", frameon=False)
     fields = [("light_condition", "day"), ("light_condition", "night"),
               ("light_condition", "lowlight"), ("thermal_rendering", "grayscale"),
@@ -40,8 +41,8 @@ def dataset_details():
     bx.imshow(matrix, aspect="auto",
               cmap=plt.matplotlib.colors.ListedColormap(["#F3F5F6", COLORS["confidence"]]))
     bx.set_yticks(range(15), [f"S{x:02d}" for x in scenes.scene_id])
-    bx.set_xticks(range(8), ["Day", "Night", "Low-light", "Gray", "Pseudo",
-                             "Wide", "Zoom", "General"], rotation=45, ha="right")
+    bx.set_xticks(range(8), ["Day", "Night", "Low-light", "Grayscale", "Pseudocolor",
+                             "Wide", "Zoom", "General"], rotation=60, ha="right")
     bx.tick_params(length=0)
     bx.set_title("(b) Acquisition attributes", loc="left")
     for x in (2.5, 4.5):
@@ -53,16 +54,16 @@ def dataset_details():
 def main():
     d = Diagram(1200, 435)
     tracks = [
-        (0, BLUE, "#EEF5FB", "A  Pairwise evidence",
+        (0, BLUE, "#EEF5FB", "(a) Pairwise evidence",
          "RGB-infrared pair<br/>(I<sub>i</sub><sup>R</sup>, I<sub>i</sub><sup>T</sup>)",
          "Homography H<sub>i</sub>", "Availability<br/>Spatial support",
          "Match + fit", "Summarize"),
-        (145, GREEN, "#EEF6F0", "B  Scene products",
+        (145, GREEN, "#EEF6F0", "(b) Scene products",
          "Scene evidence<br/>{H<sub>i</sub>, q<sub>i</sub>}",
          "Scene consensus H&#772;<sub>S</sub>",
          "Canonical status y<sub>S</sub>",
          "Aggregate", "Fixed QA gate"),
-        (290, ORANGE, "#FCF3EB", "C  Operating profile",
+        (290, ORANGE, "#FCF3EB", "(c) Operating profile",
          "Scene diagnostics", "Reliability score R(S)",
          "Reliability-coverage",
          "Fixed score", "Rank / top-K"),

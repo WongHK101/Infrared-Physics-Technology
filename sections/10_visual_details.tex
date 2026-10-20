@@ -28,11 +28,6 @@ the size-matched reference, scene-homography overlay, and edge agreement on the 
 \label{fig:additional_product}
 \end{figure}
 
-Figure~\ref{fig:all_scene_qa} places all scenes in accepted-support versus relative-outlier
-space. The reference line belongs to the baseline-aware verification path; the full
-canonical decision also incorporates the primary path and the support requirement
-specified in \ref{sec:canonical_details}.
-
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig07_night_control.pdf}
@@ -45,7 +40,8 @@ The filtered estimate remains visible for inspection.}
 \includegraphics[width=\textwidth]{figures/fig07_qa_scatter.pdf}
 \caption{All-scene QA diagnostics. Circles denote canonical retained scenes and squares denote
 QA-filtered scenes; marker size represents robust-rejection ratio. The dashed line marks the
-0.10 severe-outlier-ratio reference used in the baseline-aware path.}
+0.10 severe-outlier-ratio reference used in the baseline-aware path. The full canonical decision
+combines the verification paths and support requirement in \ref{sec:canonical_details}.}
 \label{fig:all_scene_qa}
 \end{figure}
 \FloatBarrier

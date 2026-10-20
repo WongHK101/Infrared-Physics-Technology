@@ -9,4 +9,13 @@ def configure():
         "font.size": 10, "axes.titlesize": 11, "axes.labelsize": 10,
         "xtick.labelsize": 9, "ytick.labelsize": 9, "legend.fontsize": 8.5,
         "axes.titlepad": 9,
+        "axes.titlelocation": "left",
+        "mathtext.fontset": "stix",
+        "legend.frameon": False,
+        "legend.handlelength": 1.5,
+        "legend.handletextpad": .5,
+        "legend.columnspacing": 1.2,
+        "legend.labelspacing": .35,
+        "xtick.major.pad": 3,
+        "ytick.major.pad": 3,
     })

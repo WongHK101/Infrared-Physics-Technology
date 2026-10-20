@@ -25,13 +25,13 @@ def main():
     ax.bar(np.arange(15), data.mean_leave_out_displacement_px, color=colors, width=.7)
     median = leave.mean_leave_out_displacement_px.median()
     ax.axhline(median, ls="--", color=COLORS["canonical"], lw=1)
-    ax.set_xticks(np.arange(15), [f"{int(s):02d}" for s in data.scene_id], rotation=90)
+    ax.set_xticks(np.arange(15), [f"S{int(s):02d}" for s in data.scene_id], rotation=90)
     ax.set(xlabel="Scene ID", ylabel="Mean fold displacement (px)", ylim=(0, 10.4),
            title="(a) Consensus stability")
     ax.text(.97, .63, f"All-scene median: {median:.2f} px", transform=ax.transAxes,
             ha="right", color=COLORS["canonical"], fontsize=9)
     ax.legend(handles=[Patch(color=COLORS["confidence"], label="Retained"),
-                       Patch(color=COLORS["filtered"], label="Filtered")],
+                       Patch(color=COLORS["filtered"], label="QA-filtered")],
               loc="upper right", frameon=False)
     ax = axes[1]
     for mode, color, marker in [("translation", COLORS["visible"], "o"),

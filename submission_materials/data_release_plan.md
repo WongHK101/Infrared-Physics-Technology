@@ -27,6 +27,10 @@ The release should include:
 
 ## Current Official Evaluation Split
 
+- Joint dataset owners: Nanning Normal University and Guangxi University.
+- Approved data license: CC BY 4.0. Original project software: Apache-2.0.
+- No dataset DOI or functioning reviewer-access link is recorded as of 2026-10-21.
+
 - Candidate collection: 6,039 RGB-infrared pairs / 12,078 images.
 - Official evaluation split: 6,037 integrity-checked RGB-infrared pairs / 12,074 images.
 - Excluded pairs: 2 integrity-excluded pairs from scene 13.
@@ -36,15 +40,15 @@ The release should include:
 
 Before repository or DOI is finalized, use:
 
-> UAV-TAlign-12K, the official evaluation manifest, scene metadata, integrity report, and evaluation scripts have been prepared for public release. The official evaluation split contains 6,037 integrity-checked RGB-infrared pairs from a 6,039-pair UAV infrared-visible alignment collection. The dataset and code will be released through a public repository, and review access can be provided during peer review. The official manifest hash and metadata schema are provided to support reproducible evaluation.
+Use the factual current-state draft in `data_availability_statement.txt`. Do not state that review access is available until a functioning link or an editorial-system dataset attachment has been established.
 
 After repository or DOI is finalized, replace with:
 
-> UAV-TAlign-12K is available at [repository/DOI]. The official evaluation manifest, scene metadata, integrity report, and evaluation scripts are available at [code/repository URL]. The official evaluation split contains 6,037 integrity-checked RGB-infrared pairs from a 6,039-pair UAV infrared-visible alignment collection. The official manifest SHA256 is `a092f7ad00c6e02ead3bd39de5c246001f1d4bebbc4105ba715ef37bbb202c6c`.
+Use the public-release candidate in `data_availability_statement.txt`, with the real tested URLs. The supplementary code/evaluation ZIP is an offline access option, not a substitute for access to the full image archive.
 
 ## Open Decisions
 
 - Select final hosting route for the image archive.
 - Decide whether peer-review access uses an anonymous repository, private DOI draft, OSF private link, or institutional file sharing.
-- Confirm dataset license or terms-of-use text.
+- Retain the confirmed joint attribution and approved layered licenses.
 - Replace placeholders in `data_availability_statement.txt` before final submission.

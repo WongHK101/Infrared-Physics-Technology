@@ -15,11 +15,11 @@ ROOT = Path(__file__).resolve().parent
 
 def main():
     configure()
-    fig, (ax, bx) = plt.subplots(1, 2, figsize=(8.3, 3.6),
-                                gridspec_kw={"wspace": .30})
+    fig, (ax, bx) = plt.subplots(1, 2, figsize=(7.2, 3.5))
+    fig.subplots_adjust(left=.09, right=.98, bottom=.19, top=.74, wspace=.38)
     series = [
         ("01", COLORS["confidence"], "o", -.10, "S01 retained"),
-        ("02", COLORS["filtered"], "s", .10, "S02 filtered"),
+        ("02", COLORS["filtered"], "s", .10, "S02 QA-filtered"),
     ]
     for scene, color, marker, offset, label in series:
         result = json.loads((ROOT / f"source_data/scene{scene}_result.json").read_text("utf-8"))
@@ -42,17 +42,16 @@ def main():
     ax.set(yscale="symlog", xlabel="Accepted hypothesis index",
            ylabel="Parameter distance to median")
     ax.set_title("(a) Robust hypothesis support", loc="left")
-    handles, labels = ax.get_legend_handles_labels()
-    handles.append(Line2D([], [], color=COLORS["canonical"], marker="x", ls="none"))
-    ax.legend(handles, labels+["Robust rejection"], frameon=False, loc="upper left")
     bx.set(xlabel="Change in edge F1", ylabel="Change in gradient NCC")
     bx.set_title("(b) Cross-modal QA response", loc="left")
     bx.axhline(0, c=COLORS["grid"], lw=.8)
     bx.axvline(0, c=COLORS["grid"], lw=.8)
     handles, labels = bx.get_legend_handles_labels()
+    handles.append(Line2D([], [], color=COLORS["canonical"], marker="x", ls="none"))
     handles.append(Line2D([], [], color=COLORS["canonical"], marker="X", ls="none",
                           markerfacecolor="white"))
-    bx.legend(handles, labels+["Severe relative outlier"], frameon=False, loc="upper left")
+    fig.legend(handles, labels+["Robust rejection", "Severe relative outlier"],
+               loc="upper center", ncol=2, bbox_to_anchor=(.54, 1.0))
     for a in (ax, bx):
         soften_axes(a)
     save_bundle(fig, ROOT / "outputs", "fig04_consensus_qa")

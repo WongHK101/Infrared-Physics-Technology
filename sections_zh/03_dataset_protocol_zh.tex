@@ -19,9 +19,7 @@ UAV-TAlign-12K 是面向真实无人机红外-可见光对齐的基准。数据�
 合成变换监督的无人机对齐基准。}
 \label{tab:dataset_positioning_zh}
 \centering
-\footnotesize
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.15}
+\manuscripttablestyle
 \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 资源 & 数据与对齐参考 & 规模 & 评测重点 \\
@@ -46,7 +44,8 @@ UAV-TAlign-12K & 真实采集跨视场无人机图像对；多帧场景协议 & 
 \includegraphics[width=\textwidth]{figures/fig02_benchmark_protocol.pdf}
 \caption{三个互补的基准评测轨道。首先评测成对单应性证据，再进行多帧聚合；
 固定规范门控选择场景产品，独立评分用于覆盖率分析中的场景排序。所有轨道使用同一正式
-manifest。逐场景数量与采集属性详见附录~\ref{sec:visual_details_zh}。}
+manifest。逐场景数量与采集属性详见附录~\ref{sec:visual_details_zh}。
+该可编辑示意图使用 OpenAI Codex 辅助制作。}
 \label{fig:benchmark_protocol_zh}
 \end{figure}
 
@@ -72,7 +71,7 @@ $3840\!\times\!2160$ 静态图像是在 H30T 录像期间触发拍照获得。�
 
 发布准备阶段移除嵌入式元数据并规范化文件名，同时保持图像像素不变。RGB 与红外文件通过共享
 的 H30T 采集键关联，按采集时间与序列索引排序，并赋予共同的六位图像对标识。发布过程不进行
-缩放、裁剪、旋转、重压缩或图像增强。数据集归广西大学所有，并计划采用知识共享署名 4.0 国际
+缩放、裁剪、旋转、重压缩或图像增强。数据集归南宁师范大学与广西大学共同所有，并计划采用知识共享署名 4.0 国际
 许可协议发布。
 
 \subsection{数据组织}

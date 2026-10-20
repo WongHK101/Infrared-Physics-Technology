@@ -8,12 +8,13 @@ This document prepares release options for user approval. It does not select a f
 - Candidate collection: 6,039 RGB-infrared pairs / 12,078 images.
 - Official evaluation split: 6,037 integrity-checked RGB-infrared pairs / 12,074 images.
 - Manifest SHA256: `a092f7ad00c6e02ead3bd39de5c246001f1d4bebbc4105ba715ef37bbb202c6c`.
-- Dataset rights holder and attribution: Guangxi University.
+- Joint dataset rights holders and attribution: Nanning Normal University and Guangxi University.
 - Dataset/content license: Creative Commons Attribution 4.0 International (CC BY 4.0).
 - Original UAV-TAlign software license: Apache License 2.0.
 - Vendored software: respective upstream licenses; the top-level license does not override them.
 - Current release metadata bundle: `submission_materials/release_metadata_bundle/`.
 - Current code repository state for release packaging: use the latest clean public code commit after user approval.
+- As checked on 2026-10-21, no operational image-archive DOI or reviewer-access URL is recorded in the project release materials. Repository deposit remains a user action.
 
 ## Release Route Options
 
@@ -50,13 +51,13 @@ This document prepares release options for user approval. It does not select a f
 
 ## Data Availability Candidate Text
 
-### Reviewer-access version
+### Reviewer-access version (conditional, not current availability)
 
-UAV-TAlign-12K, the official evaluation manifest, scene metadata, integrity report, and evaluation scripts have been prepared for public release. The official evaluation split contains 6,037 integrity-checked RGB-infrared pairs from a 6,039-pair UAV infrared-visible alignment collection. The dataset and code will be released through a public repository, and review access can be provided during peer review at [reviewer-access URL to be inserted]. The official manifest SHA256 is `a092f7ad00c6e02ead3bd39de5c246001f1d4bebbc4105ba715ef37bbb202c6c`.
+Use the reviewer-access candidate in `data_availability_statement.txt` only after the user creates and tests the link. Ownership is joint between Nanning Normal University and Guangxi University. Do not imply that a reviewer link already exists.
 
-### Public DOI / repository version
+### Public DOI / repository version (conditional, not current availability)
 
-UAV-TAlign-12K is available at [repository/DOI to be inserted]. The official evaluation manifest, scene metadata, integrity report, and evaluation scripts are available at [code/repository URL to be inserted]. The official evaluation split contains 6,037 integrity-checked RGB-infrared pairs from a 6,039-pair UAV infrared-visible alignment collection. The official manifest SHA256 is `a092f7ad00c6e02ead3bd39de5c246001f1d4bebbc4105ba715ef37bbb202c6c`.
+Use the public-release candidate in `data_availability_statement.txt` only after the public deposit resolves. The official manifest canonical SHA256 remains `a092f7ad00c6e02ead3bd39de5c246001f1d4bebbc4105ba715ef37bbb202c6c`.
 
 ## Sources Checked
 

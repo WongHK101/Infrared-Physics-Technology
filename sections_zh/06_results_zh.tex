@@ -10,13 +10,13 @@
 评测图像上均能产生单应性，而 LoFTR 与 XoFTR 的可用率均超过 99\%。这些结果表明，红外专用
 方法和现代稠密匹配器均可作为场景级对齐的强证据生成器。
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \caption{UAV-TAlign-12K 上的成对红外-可见光单应性证据。IR 与 Cov. 分别为平均内点率和平均候选
 匹配覆盖率；Reproj. 为单对平均内点残差的中位数（像素）；Time 为单对时间均值（秒）。统计使用
 有限记录值，详见附录~\ref{sec:metric_aggregation_zh}。这些是互补诊断量，不构成单一质量排名。}
 \label{tab:pairwise_baselines_zh}
 \centering
-\footnotesize
+\manuscripttablestyle
 \setlength{\tabcolsep}{3pt}
 \begin{tabularx}{\textwidth}{@{}Xrrrrrr@{}}
 \toprule
@@ -58,13 +58,13 @@ UAV-TAlign 将成对证据转化为全部 15 个场景的变换。在规范运�
 （64.7\%）。
 全 15 场景的接受支撑为 2473/3847（64.3\%）；两项比例对应不同场景集合。
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \caption{UAV-TAlign 在 UAV-TAlign-12K 上的规范场景级运行点。图像对覆盖率和接受帧支撑均在
 9 个高置信场景产品上计算。}
 \label{tab:scene_level_main_zh}
 \centering
-\small
-\begin{tabular}{lr}
+\manuscripttablestyle
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
 \toprule
 UAV-TAlign 场景级指标 & 数值 \\
 \midrule
@@ -75,7 +75,7 @@ UAV-TAlign 场景级指标 & 数值 \\
 保留集合接受 / 尝试 & 1491/2304 \\
 保留集合接受率 & 64.7\% \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 图~\ref{fig:scene_products_zh} 展示代表性规范对齐产品，覆盖不同光照、红外渲染和视图条件。统一
@@ -97,12 +97,11 @@ UAV-TAlign 场景级指标 & 数值 \\
 夜间采集得到 3/5 个高置信产品；低照度采集在 3 个场景中保持 61.3\% 的接受帧比例。这两类互补
 测量将可用帧支撑与最终场景产品区分开来。
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \caption{按光照条件统计的运行曲线。接受/尝试表示每种条件下所有场景的汇总帧支撑。}
 \label{tab:light_condition_zh}
 \centering
-\footnotesize
-\setlength{\tabcolsep}{4pt}
+\manuscripttablestyle
 \begin{tabularx}{\textwidth}{@{}Xrrrr@{}}
 \toprule
 条件 & \shortstack{保留 /\\总场景} & \shortstack{场景覆盖率\\(\%)} & \shortstack{接受 /\\尝试} & \shortstack{接受率\\(\%)} \\
@@ -170,13 +169,12 @@ $-0.074$、$-0.031$ 和 $-0.025$，相应退化比例为 84.4\%、80.0\% 和 73.
 表~\ref{tab:protocol_validation_zh} 汇总了这些独立证据。
 图~\ref{fig:protocol_validation_zh} 进一步展示逐场景重采样响应和随扰动强度变化的质量趋势。
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \caption{场景共识稳定性与跨模态质量敏感性的受控验证。合成退化比例和联合分数变化均在最大测试
 严重度下报告。}
 \label{tab:protocol_validation_zh}
 \centering
-\footnotesize
-\setlength{\tabcolsep}{4pt}
+\manuscripttablestyle
 \begin{tabularx}{\textwidth}{@{}Xp{2.7cm}Xr@{}}
 \toprule
 验证方式 & 范围 & 主要响应 & 退化试验 (\%) \\
@@ -203,12 +201,12 @@ $-0.074$、$-0.031$ 和 $-0.025$，相应退化比例为 84.4\%、80.0\% 和 73.
 0.146，将梯度 NCC 增益从 0.126 提高到 0.149；同时，严重离群点比例从 0.104 降至 0.042，
 变换离散度从 151.2 像素降至 52.5 像素。跨模态验证进一步把阶段输出映射为规范产品决策。
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \caption{固定 8 场景 UAV-TAlign-1K-Lite 子集上的累加式消融。输出/N 在前两行计数可用变换，
 最后一行计数规范保留场景。诊断均值覆盖每阶段全部八个场景，各阶段均固定均匀选择。}
 \label{tab:ablation_main_zh}
 \centering
-\footnotesize
+\manuscripttablestyle
 \setlength{\tabcolsep}{3pt}
 \begin{tabularx}{\textwidth}{@{}Xccrrrrr@{}}
 \toprule

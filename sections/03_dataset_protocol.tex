@@ -22,9 +22,7 @@ multimodal resources. UAVMatch denotes the synthetic transform-supervised UAV al
 benchmark.}
 \label{tab:dataset_positioning}
 \centering
-\footnotesize
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.15}
+\manuscripttablestyle
 \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 Resource & Data and alignment reference & Scale & Evaluation focus \\
@@ -50,7 +48,8 @@ UAV-TAlign-12K & Captured cross-FOV UAV pairs; multi-frame scene protocol & 6,03
 \caption{Three complementary benchmark tracks. Pairwise homography evidence is evaluated before
 multi-frame aggregation; the fixed canonical gate selects scene products; an independent score
 orders scenes for coverage-aware analysis. All tracks use the same official manifest.
-Per-scene counts and acquisition attributes are detailed in \ref{sec:visual_details}.}
+Per-scene counts and acquisition attributes are detailed in \ref{sec:visual_details}.
+The editable schematic was prepared with OpenAI Codex assistance.}
 \label{fig:benchmark_protocol}
 \end{figure}
 
@@ -81,8 +80,8 @@ outputs, alignment estimates, or quality scores.
 Release preparation removes embedded metadata and normalizes filenames while preserving image
 pixels. RGB and infrared files are linked through their shared H30T capture key, ordered by capture
 time and sequence index, and assigned a common six-digit pair identifier. The release applies no
-resizing, cropping, rotation, recompression, or image enhancement. Guangxi University owns the
-collection, which is prepared for release under the Creative Commons Attribution 4.0 International
+resizing, cropping, rotation, recompression, or image enhancement. Nanning Normal University
+and Guangxi University jointly own the collection, which is prepared for release under the Creative Commons Attribution 4.0 International
 license.
 
 \subsection{Dataset Organization}

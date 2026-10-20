@@ -10,13 +10,14 @@
 \usepackage{tabularx}
 \usepackage{xurl}
 \usepackage[numbers,sort&compress]{natbib}
-\usepackage[hidelinks]{hyperref}
+\usepackage[hidelinks,hypertexnames=false]{hyperref}
 \usepackage{setspace}
 
 \setstretch{1.3}
 \emergencystretch=2em
 \newcommand{\cmark}{\checkmark}
 \newcommand{\xmark}{--}
+\input{layout_settings}
 
 \title{UAV-TAlign-12K：面向跨视场无人机\\红外-可见光对齐的场景级可靠性基准}
 \author{匿名作者}
@@ -63,11 +64,13 @@ UAV-TAlign-12K 为基准规模、置信度感知的无人机红外-可见光对�
 \input{sections_zh/08_conclusion_zh}
 
 \appendix
+\numberwithin{equation}{section}
 \input{sections_zh/09_protocol_details_zh}
 \input{sections_zh/10_visual_details_zh}
 \FloatBarrier
 
 \bibliographystyle{elsarticle-num}
+\input{sections_zh/11_ai_declaration_zh}
 \bibliography{references}
 
 \end{document}

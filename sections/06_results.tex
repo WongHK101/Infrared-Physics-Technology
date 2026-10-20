@@ -11,14 +11,14 @@ availability, respectively. RIFT2, raw MINIMA, and RoMa produce homographies for
 pair, while LoFTR and XoFTR exceed 99\% availability. These results establish infrared-specific
 and modern dense matchers as strong evidence generators for scene-scale alignment.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \caption{Pairwise infrared-visible homography evidence on UAV-TAlign-12K. IR and Cov. are mean
 inlier ratio and mean candidate-match coverage. Reproj. is the median of pair-level mean inlier
 residuals (pixels); Time is mean seconds per pair. Statistics use recorded finite values
 (\ref{sec:metric_aggregation}). These are complementary diagnostics, not a single quality ranking.}
 \label{tab:pairwise_baselines}
 \centering
-\footnotesize
+\manuscripttablestyle
 \setlength{\tabcolsep}{3pt}
 \begin{tabularx}{\textwidth}{@{}Xrrrrrr@{}}
 \toprule
@@ -64,13 +64,13 @@ and 74.4\% pair coverage. The accepted-frame support within these products reach
 (64.7\%).
 Across all 15 scenes, accepted support is 2473/3847 (64.3\%); the two ratios use different scene sets.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \caption{Canonical scene-level operating point for UAV-TAlign on UAV-TAlign-12K. Pair coverage and
 accepted-frame support are computed over the nine high-confidence scene products.}
 \label{tab:scene_level_main}
 \centering
-\small
-\begin{tabular}{lr}
+\manuscripttablestyle
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
 \toprule
 UAV-TAlign scene-level measure & Value \\
 \midrule
@@ -81,7 +81,7 @@ Pair coverage & 74.4\% \\
 Retained-set accepted / attempted & 1491/2304 \\
 Retained-set accepted ratio & 64.7\% \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 Figure~\ref{fig:scene_products} presents representative canonical alignment products. They span
@@ -107,13 +107,12 @@ the highest scene coverage and accepted-frame ratio. Night capture yields 3/5 hi
 products, while low-light capture preserves a 61.3\% accepted-frame ratio across its three scenes.
 These complementary measurements separate available frame support from the final scene product.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \caption{Condition-aware operating profile by illumination. Accepted/attempted aggregates frame
 support over all scenes in each condition.}
 \label{tab:light_condition}
 \centering
-\footnotesize
-\setlength{\tabcolsep}{4pt}
+\manuscripttablestyle
 \begin{tabularx}{\textwidth}{@{}Xrrrr@{}}
 \toprule
 Condition & \shortstack{Retained /\\scenes} & \shortstack{Scene\\coverage (\%)} & \shortstack{Accepted /\\attempted} & \shortstack{Accepted\\ratio (\%)} \\
@@ -191,13 +190,12 @@ changes of $-0.074$, $-0.031$, and $-0.025$, respectively. The corresponding deg
 Figure~\ref{fig:protocol_validation} visualizes the full scene-wise resampling response and
 the severity-dependent perturbation trends.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \caption{Controlled validation of scene-consensus stability and cross-modal quality sensitivity. Synthetic
 degradation rates and joint-score changes are reported at the largest tested severity.}
 \label{tab:protocol_validation}
 \centering
-\footnotesize
-\setlength{\tabcolsep}{4pt}
+\manuscripttablestyle
 \begin{tabularx}{\textwidth}{@{}Xp{2.7cm}Xr@{}}
 \toprule
 Validation & Scope & Primary response & \shortstack{Degraded\\trials (\%)} \\
@@ -227,13 +225,13 @@ It simultaneously reduces the severe-outlier ratio from 0.104 to 0.042 and trans
 from 151.2 to 52.5 pixels. Cross-modal verification then maps the stage output to the canonical
 product decision.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \caption{Cumulative ablation on the fixed 8-scene UAV-TAlign-1K-Lite subset. Output/N counts
 available transforms in the first two rows and canonically retained scenes in the last row.
 Diagnostic means use all eight scenes at each stage; even selection is fixed throughout.}
 \label{tab:ablation_main}
 \centering
-\footnotesize
+\manuscripttablestyle
 \setlength{\tabcolsep}{3pt}
 \begin{tabularx}{\textwidth}{@{}Xccrrrrr@{}}
 \toprule

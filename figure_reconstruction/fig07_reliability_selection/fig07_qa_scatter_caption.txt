@@ -1,3 +1,4 @@
 All-scene QA diagnostics. Circles denote canonical retained scenes and squares denote
 QA-filtered scenes; marker size represents robust-rejection ratio. The dashed line marks the
-0.10 severe-outlier-ratio reference used in the baseline-aware path.
+0.10 severe-outlier-ratio reference used in the baseline-aware path. The full canonical decision
+combines the verification paths and support requirement in \ref{sec:canonical_details}.

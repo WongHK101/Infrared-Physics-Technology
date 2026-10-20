@@ -2,6 +2,10 @@
 
 This folder contains lightweight metadata intended to accompany the UAV-TAlign-12K data release and peer-review access package. It does not contain raw RGB or infrared images.
 
+The dataset is jointly owned by Nanning Normal University and Guangxi University
+and is designated for release under CC BY 4.0. No image-archive DOI or reviewer-access
+link has yet been recorded (2026-10-21). This metadata folder is not a dataset deposit.
+
 Contents:
 
 - `UAV-TAlign-12K_official_valid_evaluation_manifest.json`

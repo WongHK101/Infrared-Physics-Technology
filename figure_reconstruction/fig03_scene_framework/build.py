@@ -63,6 +63,10 @@ def main():
     for c in cells.values():
         c.set("style", re.sub(r"light-dark\((#[0-9A-Fa-f]+),[^)]+\)", r"\1",
                               c.get("style", "")))
+        if c.get("value"):
+            c.set("style", c.get("style", "") + ";fontFamily=Times New Roman;")
+            c.set("value", re.sub(r'face="[^"]+"', 'face="Times New Roman"',
+                                  c.get("value")))
 
     # Keep the approved S02/000009 example and native-resolution image assets.
     rgb = ROOT / "source_assets/scene02_pair000009_rgb_selected_crop.jpg"
