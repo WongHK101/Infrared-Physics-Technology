@@ -26,7 +26,7 @@ def dataset_details():
     for y, n in enumerate(order.valid_pair_count):
         ax.text(n + 15, y, f"{n:,}", va="center", fontsize=8)
     ax.set_xlim(0, order.valid_pair_count.max()*1.15)
-    ax.set_xlabel("Integrity-checked pairs")
+    ax.set_xlabel("Image pairs")
     ax.set_title("(a) Pair count per scene", loc="left")
     soften_axes(ax, "x")
     for condition, color in colors.items():

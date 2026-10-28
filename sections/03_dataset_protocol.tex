@@ -5,9 +5,8 @@
 \subsection{Dataset Scope}
 
 UAV-TAlign-12K is a benchmark for real captured UAV infrared-visible alignment. The collection
-contains 6,039 synchronized RGB-infrared pairs, corresponding to 12,078 images across 15 scenes.
-Its official evaluation split contains 6,037 integrity-checked pairs and 12,074 images. The
-collection spans cross-FOV and cross-resolution sensing under day, night, and low-light capture,
+contains 6,037 synchronized RGB-infrared pairs, corresponding to 12,074 images across 15 scenes.
+The collection spans cross-FOV and cross-resolution sensing under day, night, and low-light capture,
 grayscale and pseudocolor infrared rendering, and wide, zoom, and standard UAV views.
 
 All journal-scale experiments use the same versioned manifest. UAV-TAlign-1K-Lite is retained as
@@ -37,7 +36,7 @@ ATR-UMMIM~\cite{bin2025atrummim} & Real UAV triplets with registered-visible ima
 \addlinespace
 UAV-TIRVis~\cite{vasile2025uavtirvis} & Real aerial thermal-visible pairs; manual registration & 80 pairs & Image-domain registration quality \\
 \addlinespace
-UAV-TAlign-12K & Captured cross-FOV UAV pairs; multi-frame scene protocol & 6,039 candidate / 6,037 evaluated pairs & Pairwise evidence, scene consensus, operating coverage \\
+UAV-TAlign-12K & Captured cross-FOV UAV pairs; multi-frame scene protocol & 6,037 pairs & Pairwise evidence, scene consensus, operating coverage \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -72,10 +71,7 @@ H30T video recording was active. Scene 07 is a synchronized video-derived sequen
 2 frames per second over one complete orbit around a transmission tower. Grayscale scenes use the
 H30T \emph{White Hot} setting, and pseudocolor scenes use the on-device \emph{Hot Iron} palette.
 
-Curation criteria were fixed before algorithm evaluation and covered scene relevance, exposure,
-focus, and file integrity. The resulting candidate collection contains 6,039 synchronized pairs;
-the integrity audit defines the 6,037-pair official evaluation split. Selection did not use matcher
-outputs, alignment estimates, or quality scores.
+Dataset curation considered scene relevance, exposure, and focus before algorithm evaluation.
 
 Release preparation removes embedded metadata and normalizes filenames while preserving image
 pixels. RGB and infrared files are linked through their shared H30T capture key, ordered by capture

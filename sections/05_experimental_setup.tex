@@ -44,10 +44,4 @@ workstation. The main environment used Python 3.10, PyTorch 2.0.1, torchvision 0
 OpenCV 4.11.0, and Kornia 0.6.11; RIFT2 used an independent Python 3.11 environment.
 Every run used the official manifest, fixed model weights or
 interfaces, isolated output roots, and read-only raw dataset directories.
-
-\paragraph{Implementation and visualization assistance.}
-OpenAI Codex assisted with Python implementation, evaluation wrappers, result aggregation, and
-plotting scripts. The reported quantities are computed by the versioned scripts from the fixed
-manifest and archived run outputs. Image panels use captured UAV images, frozen homographies,
-and deterministic cropping, warping, and edge-overlay operations; no generative image model
-creates or modifies the captured scene content.
+OpenAI Codex assisted with implementation, analysis, and reproducible plotting scripts.
