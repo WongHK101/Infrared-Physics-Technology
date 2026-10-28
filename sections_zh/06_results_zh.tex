@@ -13,7 +13,7 @@
 \begin{table}[!htbp]
 \caption{UAV-TAlign-12K 上的成对红外-可见光单应性证据。IR 与 Cov. 分别为平均内点率和平均候选
 匹配覆盖率；Reproj. 为单对平均内点残差的中位数（像素）；Time 为单对时间均值（秒）。统计使用
-有限记录值，详见附录~\ref{sec:metric_aggregation_zh}。这些是互补诊断量，不构成单一质量排名。}
+有限记录值，详见附录~\ref{sec:metric_aggregation_zh}。拟合残差结合支撑度与覆盖率共同解读。}
 \label{tab:pairwise_baselines_zh}
 \centering
 \manuscripttablestyle
@@ -47,7 +47,7 @@ MINIMA 与 RoMa 提供接近完整的空间覆盖。可用性、支撑度和覆�
 \includegraphics[width=\textwidth]{figures/fig05_pairwise_evidence.pdf}
 \caption{六种代表性匹配器在固定图像对 S04/000020 上的单应性证据。所有子图使用同一 RGB
 坐标系和边缘显示设置：青色为 RGB 边缘，红色为变换后的红外边缘，浅黄色表示重叠。
-变换遵循所声明的拟合配置。完整划分上的可用率与覆盖率见表~\ref{tab:pairwise_baselines_zh}。}
+完整划分上的可用率与覆盖率见表~\ref{tab:pairwise_baselines_zh}。}
 \label{fig:pairwise_evidence_zh}
 \end{figure}
 
@@ -56,7 +56,7 @@ MINIMA 与 RoMa 提供接近完整的空间覆盖。可用性、支撑度和覆�
 UAV-TAlign 将成对证据转化为全部 15 个场景的变换。在规范运行点，框架识别出 9 个高置信产品，
 对应 60.0\% 的场景覆盖率和 74.4\% 的图像对覆盖率。这些产品内部的接受帧支撑为 1491/2304
 （64.7\%）。
-全 15 场景的接受支撑为 2473/3847（64.3\%）；两项比例对应不同场景集合。
+全 15 场景的接受支撑为 2473/3847（64.3\%）。
 
 \begin{table}[!htbp]
 \caption{UAV-TAlign 在 UAV-TAlign-12K 上的规范场景级运行点。图像对覆盖率和接受帧支撑均在
@@ -134,9 +134,8 @@ UAV-TAlign 场景级指标 & 数值 \\
 \begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig07_reliability_selection.pdf}
-\caption{白天广角/变焦对照：S01 被规范门控保留，S02 被 QA 过滤。各列依次展示尺寸匹配参考、
-估计的场景单应性和边缘一致性。S02 变换仅用于检查，不属于保留产品。规范标签描述的是
-场景级决策，而非对所展示单帧分别作出的决策。}
+\caption{白天广角/变焦对照，标签为场景级规范决策：S01 保留，S02 经 QA 过滤。
+各列依次展示尺寸匹配参考、估计的场景单应性和边缘一致性。}
 \label{fig:reliability_selection_zh}
 \end{figure}
 
@@ -149,7 +148,7 @@ UAV-TAlign 场景级指标 & 数值 \\
 \centering
 \includegraphics[width=\textwidth]{figures/fig08_operating_profile.pdf}
 \caption{UAV-TAlign-12K 上的可靠性--覆盖率运行曲线。（a）基于分数排序的曲线刻画场景覆盖率提高
-时的平均严重离群点比例，星号表示独立的规范 QA 运行点，而非分数排序的前九场景；（b）图像对
+时的平均严重离群点比例，星号表示在其独立保留集合上计算的规范 QA 运行点；（b）图像对
 覆盖率和接受帧支撑给出相应证据范围。连线连接实际观测运行点。}
 \label{fig:operating_profile_zh}
 \end{figure}

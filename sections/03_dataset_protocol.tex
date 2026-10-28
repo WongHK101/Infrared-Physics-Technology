@@ -17,8 +17,7 @@ provide controlled cross-FOV comparisons within the substation scene family.
 
 \begin{table}[t]
 \caption{Positioning of UAV-TAlign-12K relative to representative infrared-visible and UAV
-multimodal resources. UAVMatch denotes the synthetic transform-supervised UAV alignment
-benchmark.}
+multimodal resources.}
 \label{tab:dataset_positioning}
 \centering
 \manuscripttablestyle
@@ -46,7 +45,7 @@ UAV-TAlign-12K & Captured cross-FOV UAV pairs; multi-frame scene protocol & 6,03
 \includegraphics[width=\textwidth]{figures/fig02_benchmark_protocol.pdf}
 \caption{Three complementary benchmark tracks. Pairwise homography evidence is evaluated before
 multi-frame aggregation; the fixed canonical gate selects scene products; an independent score
-orders scenes for coverage-aware analysis. All tracks use the same official manifest.
+orders scenes for coverage-aware analysis.
 Per-scene counts and acquisition attributes are detailed in \ref{sec:visual_details}.}
 \label{fig:benchmark_protocol}
 \end{figure}
@@ -85,7 +84,7 @@ Each scene has dedicated \texttt{rgb/} and \texttt{thermal/} directories, and pa
 the same filename stem. The official manifest records scene identity, pair identity, illumination,
 infrared rendering, view type, and scene label. A scene groups frames sharing a site or target
 context and acquisition condition. It may represent a continuous sequence or multiple sorties
-under the same scene definition. Scene 07 is the documented single-orbit video sequence.
+under the same scene definition.
 
 One manifest supports all pairwise, scene, and condition analyses. It also maps every reported
 result to its source scene and pair identifier.
@@ -98,9 +97,7 @@ aggregates frame estimates into a scene transform and reports the canonical set 
 scene products. Track C orders scenes with a fixed, interpretable reliability score to construct
 coverage-aware operating profiles.
 
-Together, the tracks connect matcher output to deployable scene geometry. Pairwise measurements
-characterize evidence generation, scene-level measurements characterize multi-frame consensus,
-and the operating profile exposes how product coverage changes with scene quality.
+Together, the tracks connect matcher output to deployable scene geometry.
 
 \subsection{Label-Free Scene-Consistency Diagnostics}
 

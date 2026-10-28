@@ -5,12 +5,12 @@
 
 \subsection{Probe Frames and Relative Quality Signals}
 
-Each scene uses up to 12 evenly distributed manifest pairs as QA probes, selected from the scene
-rather than only from accepted matches. Images are evaluated at quarter scale with the longest
+Each scene uses up to 12 QA probes sampled evenly from its full manifest pair list.
+Images are evaluated at quarter scale with the longest
 dimension capped at 640 pixels. The scene homography is converted to these evaluation coordinates.
 For each probe, both the transformed image and the size-matched reference are scored within the
 same warped infrared validity mask. The reference resizes infrared edges and gradients to the RGB
-evaluation grid. Its full-image size mapping is denoted by $H_0$; it is not a fitted registration.
+evaluation grid. The resize-only mapping is denoted by $H_0$.
 
 Let $E_i(H)$ denote edge-overlap F1 with a one-pixel dilation tolerance, and $G_i(H)$ denote
 normalized cross-correlation between gradient magnitudes inside the validity mask. Define
@@ -54,7 +54,7 @@ path $W_S$ gives a pass with warning when $L_S$ is not met. Both contribute to c
 once $N_S\ge N_{\min}$. Adaptive expansion stops when this retention condition and the
 $D_S\le25$, $J_S\le0.25$ stability checks hold. After exhausting the schedule, the final
 canonical decision still follows Eq.~\ref{eq:canonical_gate}; the stopping checks are not an
-additional requirement on the primary path. Thus early stopping and final retention have distinct roles.
+additional requirement on the primary path.
 
 \subsection{Normalized Reliability Score}
 \label{sec:score_normalization}
@@ -71,8 +71,8 @@ Let $C(x)=\min(1,\max(0,x))$. The components used in Eq.~\ref{eq:reliability_sco
 \hat z_S=0.5C(\bar r_S/0.50)+0.3C(\bar c_S)
        +0.2\left[1-C\!\left((\bar e_S-1.5)/1.0\right)\right].
 \end{equation}
-All constants are fixed and no model is fitted to scene outcomes. The resulting $[0,100]$ score
-provides a diagnostic ordering, not a calibrated probability. Score-ranked coverage points select
+Fixed constants define a diagnostic ranking score in $[0,100]$, not a calibrated probability.
+Score-ranked coverage points select
 the first $K$ scenes in this ordering. The canonical point is evaluated on its own retained set.
 
 \subsection{Metric Aggregation}
@@ -99,4 +99,4 @@ five folds of each scene. The reported 1.39 pixels is the median of these 15 sce
 their mean is 2.26 pixels. Perturbation curves average the joint edge/gradient score change
 over 45 frames at each severity and mode. A degradation rate counts frames with a negative joint
 score change at that setting. These tests assess consensus stability and quality-signal response,
-respectively, rather than fitting or recalibrating the ranking score.
+respectively.

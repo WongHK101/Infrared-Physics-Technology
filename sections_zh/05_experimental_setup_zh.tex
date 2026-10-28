@@ -12,8 +12,7 @@ XoFTR-640 和 raw MINIMA
 
 raw MINIMA 使用 \texttt{minima\_roma} 检查点族和完整 RoMa 分支。RoMa 使用公开 outdoor full
 模型，XoFTR 使用 640 分辨率可见光-热红外检查点，LoFTR 使用 Kornia 的公开 outdoor 预训练
-模型。统一推理封装在保留各预训练模型的同时，对图像输入输出、模型输出、单应性拟合和结果格式
-进行标准化。
+模型。统一推理封装对图像输入输出、模型输出、单应性拟合和结果格式进行标准化。
 
 \subsection{几何拟合与部署配置}
 
@@ -35,5 +34,4 @@ LoFTR 使用最长图像边为 1200 的 resize-aware 推理并启用自动混合
 
 期刊规模实验在配备 NVIDIA RTX 4090 的工作站上、相互隔离的 Python 环境中完成。主环境采用
 Python 3.10、PyTorch 2.0.1、torchvision 0.15.2、CUDA 11.8、OpenCV 4.11.0 和
-Kornia 0.6.11；RIFT2 使用独立的 Python 3.11 环境。所有实验均使用正式 manifest、固定模型权重或接口、独立输出目录以及只读的
-原始数据目录。
+Kornia 0.6.11；RIFT2 使用独立的 Python 3.11 环境。

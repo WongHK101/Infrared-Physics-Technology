@@ -54,8 +54,8 @@ Expansion stops when accepted support, consensus stability, and cross-modal qual
 satisfied; otherwise, the next subset is evaluated.
 Scenes with at most 300 pairs use all available pairs. Larger scenes start with approximately
 15\% of the pairs and expand in 15-percentage-point increments up to 50\%, followed by the full
-scene if needed. The 12-frame setting controls the representative QA probes, not a fixed cap on
-matching evidence. Exact support and stopping rules are specified in \ref{sec:protocol_details}.
+scene if needed. Cross-modal verification uses up to 12 representative QA probes.
+Exact support and stopping rules are specified in \ref{sec:protocol_details}.
 
 Within each stage, evenly distributed sampling provides reproducible temporal or index coverage.
 The random-selection variant is evaluated separately through a multi-seed sensitivity analysis.
@@ -69,10 +69,7 @@ the geometry-quality criterion. This treatment follows established homography es
 fitting practice
 \cite{hartley2004multiple,fischler1981ransac,barath2019magsac,barath2020magsacpp}.
 
-Each accepted frame also receives a continuous quality weight. The weight combines inlier ratio,
-spatial coverage, reprojection quality, matcher confidence, and inlier support, giving greater
-influence to homographies with stronger geometry.
-The fixed frame quality weight is
+Each accepted frame receives the continuous quality weight
 \begin{equation}
 \begin{aligned}
 q_i ={}& 0.42r_i + 0.28c_i + \frac{0.15}{1+\max(e_i,0)} \\

@@ -15,7 +15,7 @@ contains Kornia LoFTR, RoMa outdoor, XoFTR-640, and raw MINIMA
 Raw MINIMA uses the \texttt{minima\_roma} checkpoint family with the full RoMa branch. RoMa uses
 the public outdoor full model, and XoFTR uses its 640-resolution visible-thermal checkpoint. LoFTR
 uses Kornia's public outdoor-pretrained model. Unified inference wrappers standardize image I/O,
-model output, homography fitting, and result schemas while preserving each pretrained model.
+model output, homography fitting, and result schemas.
 
 \subsection{Geometric Fitting and Deployment Profiles}
 
@@ -42,5 +42,3 @@ records edge-overlap and gradient-NCC responses while keeping the canonical deci
 Journal-scale experiments were conducted in isolated Python environments on an NVIDIA RTX 4090
 workstation. The main environment used Python 3.10, PyTorch 2.0.1, torchvision 0.15.2, CUDA 11.8,
 OpenCV 4.11.0, and Kornia 0.6.11; RIFT2 used an independent Python 3.11 environment.
-Every run used the official manifest, fixed model weights or
-interfaces, isolated output roots, and read-only raw dataset directories.

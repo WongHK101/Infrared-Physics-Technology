@@ -15,7 +15,7 @@ and modern dense matchers as strong evidence generators for scene-scale alignmen
 \caption{Pairwise infrared-visible homography evidence on UAV-TAlign-12K. IR and Cov. are mean
 inlier ratio and mean candidate-match coverage. Reproj. is the median of pair-level mean inlier
 residuals (pixels); Time is mean seconds per pair. Statistics use recorded finite values
-(\ref{sec:metric_aggregation}). These are complementary diagnostics, not a single quality ranking.}
+(\ref{sec:metric_aggregation}). Fitting residuals are interpreted jointly with support and coverage.}
 \label{tab:pairwise_baselines}
 \centering
 \manuscripttablestyle
@@ -50,8 +50,8 @@ the scene-level benchmark track.
 \includegraphics[width=\textwidth]{figures/fig05_pairwise_evidence.pdf}
 \caption{Fixed-pair homography evidence from six representative matchers on S04/000020.
 All panels use the same RGB coordinate system and edge-display settings: cyan denotes RGB
-edges, red denotes warped infrared edges, and pale yellow denotes overlap. Transforms follow
-the declared fitting profiles. Full-split availability and coverage are reported in
+edges, red denotes warped infrared edges, and pale yellow denotes overlap.
+Full-split availability and coverage are reported in
 Table~\ref{tab:pairwise_baselines}.}
 \label{fig:pairwise_evidence}
 \end{figure}
@@ -62,7 +62,7 @@ UAV-TAlign converts the pairwise evidence into scene transforms for all 15 scene
 operating point, it identifies nine high-confidence products, representing 60.0\% scene coverage
 and 74.4\% pair coverage. The accepted-frame support within these products reaches 1491/2304
 (64.7\%).
-Across all 15 scenes, accepted support is 2473/3847 (64.3\%); the two ratios use different scene sets.
+Across all 15 scenes, accepted support is 2473/3847 (64.3\%).
 
 \begin{table}[!htbp]
 \caption{Canonical scene-level operating point for UAV-TAlign on UAV-TAlign-12K. Pair coverage and
@@ -147,10 +147,8 @@ whereas accepted-frame ratio spans both retained and QA-filtered scenes.
 \begin{figure}[!tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig07_reliability_selection.pdf}
-\caption{Day wide/zoom control: S01 is canonically retained, while S02 is QA-filtered.
-Columns show the size-matched reference, estimated scene homography, and edge agreement.
-The S02 estimate is displayed for inspection, not as a retained product. Canonical labels
-describe scene-level decisions, rather than separate decisions on the displayed frames.}
+\caption{Day wide/zoom control with scene-level canonical labels: S01 retained; S02 QA-filtered.
+Columns show the size-matched reference, estimated scene homography, and edge agreement.}
 \label{fig:reliability_selection}
 \end{figure}
 
@@ -165,7 +163,7 @@ this score-ranked profile and overlays the fixed canonical operating point.
 \includegraphics[width=\textwidth]{figures/fig08_operating_profile.pdf}
 \caption{Reliability--coverage operating profile on UAV-TAlign-12K. (a) The score-ranked curve
 traces mean severe-outlier ratio as scene coverage increases; the star marks the independent
-canonical QA point, not the score-ranked top-nine set. (b) Pair coverage and accepted-frame support
+canonical QA point evaluated on its own retained set. (b) Pair coverage and accepted-frame support
 expose the corresponding evidence footprint. Lines connect observed operating points.}
 \label{fig:operating_profile}
 \end{figure}
