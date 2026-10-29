@@ -11,10 +11,10 @@ cross-modal agreement, and consistency with other frames from the same scene. Sc
 therefore a distinct alignment stage: it converts heterogeneous frame estimates into one scene
 transform that can be used as a common geometric product.
 
-The ablation results identify robust consensus as the dominant module-level contribution. Relative
-to pairwise evidence alone, consensus improves edge and gradient agreement while sharply reducing
-severe-outlier incidence and transform dispersion. Cross-modal verification then maps this stable
-geometry to the canonical high-confidence product set. The combined design links local
+The fixed eight-scene UAV-TAlign-1K-Lite ablation identifies robust consensus as the dominant
+module-level contribution. Relative to pairwise evidence alone, consensus improves edge and
+gradient agreement while sharply reducing severe-outlier incidence and transform dispersion.
+Cross-modal verification then selects the canonical high-confidence products. The combined design links local
 correspondence evidence with the scene-scale output required by UAV inspection and multimodal
 sensing.
 
@@ -41,7 +41,7 @@ far-field alignment; spatially varying geometry calls for local or nonrigid repr
 The reported operating profiles characterize relative image agreement and evidence consistency
 within the 15 captured scenes.
 
-Deterministic evidence scheduling provides a stable default for this shared interface. The
+Deterministic evidence scheduling provides a reproducible default for this shared interface. The
 multi-seed study shows that random selection changes the product status of a small set of
 near-threshold scenes, whereas accepted-frame support remains comparatively stable. This result
 positions scheduling as a reproducibility mechanism and leaves robust consensus and cross-modal

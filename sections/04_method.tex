@@ -12,8 +12,8 @@ and illumination variation produce frame estimates with heterogeneous support.
 The goal is to recover an infrared-to-RGB scene homography and characterize its operating confidence.
 
 This formulation casts registration as multi-frame evidence consolidation rather than single-pair
-selection. The framework converts uneven frame estimates into a geometrically stable and
-cross-modally consistent scene transform.
+selection. The framework combines frame estimates into a consensus transform and verifies its
+geometric support and cross-modal agreement.
 For a selected frame pair, the infrared-to-RGB evidence is represented as a homography
 $H_i \in \mathbb{R}^{3 \times 3}$ acting on homogeneous image coordinates,
 \begin{equation}
