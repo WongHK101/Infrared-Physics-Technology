@@ -29,7 +29,7 @@ geometric evaluation \cite{gao2025uavmatch}. These advances establish a strong p
 foundation. They also motivate a broader benchmark question: how should variable-quality frame
 estimates be consolidated and assessed at the scale of a captured UAV scene?
 
-We address this question with UAV-TAlign-12K, a real captured cross-FOV UAV infrared-visible
+We address this question with UAV-TAlign-12K, a captured cross-FOV UAV infrared-visible
 benchmark comprising 6,037 synchronized pairs across 15 industrial and natural scenes. It spans day, night, and
 low-light capture; grayscale and pseudocolor infrared rendering; and wide, zoom, and standard UAV
 views. The benchmark defines three complementary tracks. Pairwise evaluation measures homography
@@ -51,10 +51,10 @@ and zoom views.}
 
 UAV-TAlign serves as the benchmark reference framework. It operates above a strong pairwise
 matcher and combines progressive evidence scheduling, geometry-informed frame weighting, robust
-scene consensus, and cross-modal quality verification. Across the official split, infrared-specific
-and modern matchers provide highly available pairwise homographies. UAV-TAlign converts this
-evidence into transforms for all 15 scenes and identifies nine high-confidence scene products at
-the canonical operating point, covering 74.4\% of the evaluated pairs. Controlled perturbations
+scene consensus, and cross-modal quality verification. It estimates transforms for all 15 scenes
+and identifies nine high-confidence scene products at the canonical operating point, covering
+74.4\% of the evaluated pairs. Ablations on a fixed eight-scene UAV-TAlign-1K-Lite subset identify
+robust consensus as the main source of reduced dispersion and improved image agreement. Controlled perturbations
 and leave-frame-out resampling characterize quality-signal sensitivity and consensus stability.
 
 Our contributions are threefold:
