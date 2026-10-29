@@ -27,7 +27,8 @@
 
 \begin{abstract}
 Cross-field-of-view infrared-visible alignment is a core capability for UAV inspection, nighttime
-sensing, and multimodal scene understanding. We introduce UAV-TAlign-12K, a benchmark-scale
+sensing, and multimodal scene understanding. UAV sensing further requires consolidating heterogeneous
+frame estimates into a consistent scene transform. We introduce UAV-TAlign-12K, a benchmark-scale
 collection of 6,037 synchronized pairs of RGB and thermal infrared images acquired across 15 industrial and natural
 scenes. The benchmark organizes
 evaluation at three complementary levels: pairwise homography evidence, scene-scale consensus,
@@ -38,10 +39,11 @@ Pairwise evidence is broadly available: RIFT2, RoMa, and raw MINIMA produce homo
 UAV-TAlign combines progressive evidence scheduling, geometry-informed frame weighting, robust
 scene consensus, and cross-modal quality verification. It estimates transforms for all 15 scenes
 and identifies nine high-confidence alignment products at the canonical operating point, covering
-74.4\% of the evaluated pairs. Five-fold leave-frame-out analysis yields a median scene-wise mean
+74.4\% of the evaluated pairs. On a fixed eight-scene UAV-TAlign-1K-Lite ablation subset, robust
+consensus reduces transform dispersion from 151.2 to 52.5 pixels.
+Five-fold leave-frame-out analysis yields a median scene-wise mean
 displacement of 1.39 pixels, while controlled translation, rotation, and scale perturbations
-progressively reduce the mean joint quality signal. UAV-TAlign-12K establishes a reproducible
-foundation for benchmark-scale, confidence-aware UAV infrared-visible alignment.
+progressively reduce the mean joint quality signal.
 \end{abstract}
 
 \begin{highlights}

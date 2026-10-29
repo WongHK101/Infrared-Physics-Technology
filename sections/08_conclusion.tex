@@ -4,9 +4,9 @@
 
 UAV-TAlign-12K connects captured UAV infrared-visible imagery with evaluation of pairwise evidence,
 scene consensus, and operating coverage. Across its 6,037-pair official split, seven baselines
-show that infrared-specific and modern matchers provide abundant homography evidence. The
-remaining task is to consolidate that evidence and decide which scene transforms to retain.
-UAV-TAlign produces transforms for all 15 scenes and retains nine, covering 74.4\% of evaluated
+show that infrared-specific and modern matchers provide abundant homography evidence.
+UAV-TAlign consolidates this evidence through robust consensus and cross-modal verification.
+It produces transforms for all 15 scenes and retains nine, covering 74.4\% of evaluated
 pairs. Cumulative ablations identify robust consensus as the main source of improved image
 agreement and reduced dispersion; resampling and controlled perturbations characterize stability
 and diagnostic sensitivity. Together, the dataset and reference framework make scene-scale
